@@ -1,0 +1,36 @@
+{#<li>#}
+    {#En Espera de Recaudos:#}
+    {#<input type="radio" name="status">#}
+{#</li>#}
+{#<li>#}
+    {#En Espera de Pago por Otorgamiento:#}
+    {#<input type="radio" name="status">#}
+{#</li>#}
+{#<li>#}
+    {#En Espera de Informe Técnico:#}
+    {#<input type="radio" name="status">#}
+{#</li>#}
+{#<li>#}
+    {#En Espera de Informe Legal:#}
+    {#<input type="radio" name="status">#}
+{#</li>#}
+{#<li>#}
+    {#En Espera de Providencia:#}
+    {#<input type="radio" name="status">#}
+{#</li>#}
+{#<li>#}
+    {#En Espera de Aprobación:#}
+    {#<input type="radio" name="status" value="Aprobada">#}
+{#</li>#}
+<li>
+    Solicitadas:
+    <input type="radio" name="status" value="Solicitada" {% if status is defined %} {% if status == 'Solicitada' %} checked="checked" {%  endif %} {%  endif %} >
+</li>
+<li>
+    Aprobadas:
+    <input type="radio" name="status" value="Aprobada" {% if status is defined %} {% if status == 'Aprobada' %} checked="checked" {%  endif %} {%  endif %}>
+</li>
+<li>
+    Rechazadas:
+    <input type="radio" name="status" value="Rechazada" {% if status is defined %} {% if status == 'Rechazada' %} checked="checked" {%  endif %} {%  endif %}>
+</li>

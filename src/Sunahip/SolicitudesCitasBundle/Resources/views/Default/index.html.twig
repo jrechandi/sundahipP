@@ -1,0 +1,139 @@
+{% extends 'SolicitudesCitasBundle::Layout.html.twig' %}
+{#% extends '::base.html.twig' %#}
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('bundles/solicitudescitas/css/fullcalendar.css')}}" rel="stylesheet">
+    <link href="{{ asset('bundles/solicitudescitas/css/fullcalendar.print.css')}}" rel="stylesheet" media="print">
+    <link href="{{ asset('bundles/solicitudescitas/css/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" media="print">
+<style>
+	#calendar {
+		width: 100%;
+		margin: 40px ;
+                height: 480px;
+                /*padding-bottom: 40px;  */
+	}
+        .skyblue{
+            background-color: skyblue;
+        }
+
+</style>
+{%endblock%}  
+{% block content %}
+    
+    <div id="" >Fecha:  <input type="text" id="date"/> </div>
+             <p><br/><br/></p>
+             <p><br/><br/></p>
+             {#<div id="calendar" class="fc fc-ltr"></div>#}
+             <p><br/><br/></p>
+             <p><br/><br/></p>
+             <p><br/><br/></p>
+             <p><br/><br/></p>
+{% endblock %}
+  {% block javascripts %}
+        {{ parent() }}
+        <script src="{{ asset('bundles/solicitudescitas/js/lib/moment.min.js')}}"></script>
+        <script src="{{ asset('bundles/solicitudescitas/js/fullcalendar.min.js')}}"></script>
+        <script src="{{ asset('bundles/solicitudescitas/js/lang-all.js')}}"></script>
+        <script src="{{ asset('bundles/solicitudescitas/js/func.js')}}"></script>
+        
+        <script>
+
+ $(document).ready(function() {
+        var request = $.ajax({
+            type:"POST",
+            url: '{{path('solicitudes_datepicker')}}',
+            dataType: 'html'
+          });
+         request.done(function (data) {
+             var array = $.parseJSON(data);
+             console.log(array);
+                datepicker(array);
+         });
+                // Cargar Eventos Fechas Disponibles
+		$('#calendar').fullCalendar({
+                     eventSources: [
+                            {
+                                url: '{{path('solicitudes_events')}}', // use the `url` property
+                                color: 'blue',    // an option!
+                                textColor: 'white',  // an option!
+                                backgroundColor:'skyblue',
+                                className: 'skyblue'        
+                            }],
+                        lang: 'es',
+			editable: false,
+                        selectable: false,
+                        selectHelper: false,
+                       eventClick: function (calEvent, jsEvent, view) {
+                        alert('Cita: ' + calEvent.title);
+                        alert('Inicia: ' + calEvent.start);
+                        alert('Coordinates: ' + jsEvent.pageX + ',' + jsEvent.pageY);
+                        alert('View: ' + view.name);
+                       }
+                        
+		});
+		$('#calendar').fullCalendar('today');
+	});
+        
+        function actualizaCita(start,end){
+                var title = "Cita  Usuario";
+                var eventData;
+                    eventData = {
+                            title: title,
+                            start: start,
+                            end: start
+                    };
+                var loading='<div id="refresh" class="col-md-2 col-md-offset-5 text-center"><i class="fa fa-2x fa-refresh icon-refresh-animate"></i> </div>';
+                var Dalert=Dialog(loading,'Generando Cita');
+                var request = $.ajax({
+                        type:"POST",
+                        url: '{{path('solicitudes_actcitas')}}/'+start,
+                        dataType: 'html'
+                        //data: 'date='+start
+                      });
+                     request.done(function (data) {
+                         var m = $.parseJSON(data);
+                        if(m.status==='OK'){
+                            eventData.title=m.eventData.title;
+                            $('#calendar').fullCalendar('renderEvent', eventData, true); // stick? = true
+                            $('#calendar').fullCalendar('unselect');
+                            Dalert.html(m.message);
+                        } else {
+                            $('#calendar').fullCalendar('unselect');
+                            Dalert.html(m.message);
+                          }
+                      });
+                     request.fail(function (jqXHR, textStatus, errorThrown){
+                        Dalert.text('<div class="col-md-12 has-error  text-center"> Error Can Not Retrive Form Data: '+textStatus+'</div>');
+                      });
+        }
+        
+ function IsDisable(date) {
+   var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
+    if (date.getDay() === 0 || date.getDay() === 6 || $.inArray(string, array)!=-1) return true;
+    else return false;
+}
+
+ function datepicker(array) {
+ console.log('On DAtePicker: '+ array);
+ var dates=array;
+  $( "#date" ).datepicker({
+    inline: true,
+    autoSize: true,
+    minDate: "+1D",
+    maxDate: "+14D",
+    dateFormat: 'dd/mm/yy',
+    constrainInput: true,
+    beforeShowDay: function(date){
+           var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
+           if (date.getDay() === 0 || date.getDay() === 6 || $.inArray(string, dates)!=-1) { return [false];}
+            else {return [true]};
+    }
+  });
+  $('a.ui-state-default').each(function(){
+      this.addClass('skyblue');
+  }); 
+ 
+}
+
+</script>
+{% endblock %}

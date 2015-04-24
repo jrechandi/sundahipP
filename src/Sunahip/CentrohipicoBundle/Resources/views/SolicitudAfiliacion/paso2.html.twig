@@ -1,0 +1,175 @@
+{% extends "NewTemplateBundle::base.html.twig" %}
+
+{% block content_content %}
+    <div class="page-header">
+        <h1>Solicitar Incorporaci&oacute;n Afiliado</h1>
+    </div>
+
+    <div class="padding-15" id="contenido">
+
+        <div id="texto"
+                >Estimada Operadora, <br>
+            Al agregar la incorporación de un nuevo afiliado, deberá adjuntar el contrato de Afiliado-Operadora, y esperar un lapso no mayor de 48 horas para la aprobación de la SUNAHIP.<br><br>
+        </div>
+        <div id="texto">Los campos con <span class="oblig">(*)</span> son obligatorios</div>
+
+        {% if status == true %}
+        <table id="tabla_reporte2">
+            <tbody><tr id="table_header2">
+                <td colspan="4">Nuevo Afiliado</td>
+            </tr>
+            <tr>
+                <td>Fecha de Solicitud:</td>
+                <td colspan="3">{{ "now"|date("m/d/Y") }}</td>
+            </tr>
+            <tr>
+                <td>RIF Afiliado:</td>
+                <td colspan="3">{{ entity.persJuridica }}-{{ entity.rif }}</td>
+
+            </tr>
+            <tr>
+                <td>Denominación Comercial:</td>
+                <td>{{ entity.denominacionComercial }}</td>
+                <td>Clasificación del Establecimiento:</td>
+                <td>{{ entity.clasificacionLocal }}</td>
+            </tr>
+            <tr>
+                <td style="width:25%;">Estado:</td>
+                <td style="width:25%;">{{ entity.estado.nombre }}</td>
+                <td style="width:25%;">Ciudad:</td>
+                <td style="width:25%;">{{ entity.ciudad }}</td>
+            </tr>
+            <tr>
+                <td style="width:25%;">Municipio:</td>
+                <td style="width:25%;">{{ entity.municipio.nombre }}</td>
+                <td style="width:25%;">Urbanización/Sector:</td>
+                <td style="width:25%;">{{ entity.urbanSector }}</td>
+            </tr>
+            <tr>
+                <td style="width:25%;">Avenida/Calle/Carrera:</td>
+                <td style="width:25%;">{{ entity.avCalleCarrera }}</td>
+                <td style="width:25%;">Edificio/Casa:</td>
+                <td style="width:25%;">{{  entity.edifCasa }}</td>
+            </tr>
+            <tr>
+                <td style="width:25%;">Oficina/Apto/No.:</td>
+                <td style="width:25%;">{{ entity.ofcAptoNum }}</td>
+                <td style="width:25%;">Punto de Referencia:</td>
+                <td style="width:25%;">{{ entity.puntoReferencia }}</td>
+            </tr>
+            <tr>
+                <td>Licencia:</td>
+                <td colspan="3">Autorización</td>
+            </tr>
+            {{ form_start(form,{ 'attr': {'class': 'form-horizontal', "id": "news_add"} }) }}
+            <tr>
+                <td>Autorizaciones Activas <br> Del Operador:</td>
+                <td colspan="3">
+                    <select required="true" name="sunahip_centrohipicobundle_data_operadora_establecimiento[id_s]" 
+                            style="width: 220px; padding: 1px;" onchange="isValid(this)">
+                        <option value="">Seleccione</option>
+                        {% for lic in formLicencias %}
+                        <option value="{{ lic.id }}">{{ lic.clasif_licencia }}</option>
+                        {% endfor %}
+                    </select>
+                    <span class="oblig">(*)</span>
+                </td>
+            </tr>
+            <input type="hidden" id="sunahip_centrohipicobundle_data_operadora_establecimiento_id" 
+                   name="sunahip_centrohipicobundle_data_operadora_establecimiento[id]" value="{{ entity.id }}">
+            <input type="hidden" id="sunahip_centrohipicobundle_data_operadora_establecimiento_id_operadora"  
+                   name="sunahip_centrohipicobundle_data_operadora_establecimiento[id_operadora]" value="{{ operadora }}">
+            <tr>
+                <td>Adjunte el contrato firmado con el Afiliado:</td>
+                <td colspan="3">{{ form_row(form.contratoFirmado) }}<span class="oblig">(*) Solo archivos .PDF</span>
+                </td>
+            </tr>
+            <tr>
+                <td>Adjunte la Buena Pro:</td>
+                <td colspan="3">{{ form_row(form.buenaPro) }}<span class="oblig">(*) Solo archivos .PDF</span>
+                </td>
+            </tr>
+            <tr>
+                <td>Condiciones:</td>
+                <td colspan="3"><input type="checkbox" required="true">Acepto las condiciones de SUNAHIP<span class="oblig">(*)</span>
+                </td>
+            </tr>
+            </tbody></table>
+        <div class="block-separator col-md-12"></div>
+        <div class="col-md-offset-8 col-md-6 form-group text-right">
+            <a href="{{ path('notification') }}" class="btn btn-warning btn-sm">Cancelar</a>
+            &nbsp; &nbsp; &nbsp; &nbsp;
+            <input type="submit" value="Solicitar Incorporación" class="btn btn-primary btn-sm" id="form_btttn" style="height: auto;margin: 10px;padding: 5px;">        
+        </div>
+        {{ form_end(form) }}
+        {% else %}
+        <div class="block-separator col-md-12"></div>
+        <div id="texto" style="color: red">
+            {{ message }}
+        </div>
+        <div class="col-md-offset-8 col-md-6 form-group text-right">
+            <a href="{{ path('notification') }}" class="btn btn-warning btn-sm">Aceptar</a>        
+        </div>
+        {% endif %}
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Cerrar</span></button>
+                <h4 class="modal-title" id="myModalLabel">Notificación</h4>
+            </div>
+            <div class="modal-body" id="myMessage">
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal">Aceptar</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block script_base %}
+    <script type="text/javascript">
+        $('input[type=file]').on('change', function(e){
+            var file = $(this).val();
+            if(file.split('.').pop().toLowerCase() != 'pdf'){
+                alert('Solo PDF');
+                $(this).val('');
+            }
+        });
+        function isValid(input) {
+            value = input.options[input.selectedIndex].value;
+            if(value != "") {
+                var centroHipico = $("#sunahip_centrohipicobundle_data_operadora_establecimiento_id").val();
+                var operadora = $("#sunahip_centrohipicobundle_data_operadora_establecimiento_id_operadora").val();
+                var url = Routing.generate('Centrohipico_solicitud_afiliacion_valid', {'centroHipico': centroHipico,'operadora':operadora,'clasificacion':value });
+                $("#form_btttn").attr("disabled", "disabled");
+                $.ajax({
+                    async: false,
+                    type: "POST",
+                    cache: false,
+                    url: url,
+                    dataType: "json",
+                    success: function(response) {
+                        if(response.status == true) {
+                            $("#form_btttn").removeAttr("disabled");
+                        } else {
+                            $("#myMessage").html(response.message);
+                            $("#myModal").modal("show");
+                            input.value = "";
+                            $("#form_btttn").removeAttr("disabled");
+                        }
+                    },
+                    error: function(){
+                        $("#myMessage").html("Error al procesar los datos.");
+                        $("#myModal").modal("show");
+                        input.value = "";
+                        $("#form_btttn").removeAttr("disabled");
+                    }
+                });   
+            }
+        }
+    </script>
+{% endblock %}

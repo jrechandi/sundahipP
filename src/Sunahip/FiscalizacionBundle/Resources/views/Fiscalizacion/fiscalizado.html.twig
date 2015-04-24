@@ -1,0 +1,9 @@
+{% extends 'FiscalizacionBundle::base.html.twig' %}
+
+{% block content_content %}
+<div class="col-md-12">
+    <div class="alert alert-warning">
+        <strong>{{e.centro}}</strong> ya ha sido fiscalizado para la providencia <em>{{e.num}}</em>
+    </div>
+</div>
+{% endblock %}

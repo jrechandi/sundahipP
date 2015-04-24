@@ -1,0 +1,68 @@
+<h3 >Solicitudes Licencias</h3>
+<ul class="menu2">
+    <li><a href="{{ path('gerente_consulta_licencia') }}" title="Consulta las licencias">Consultar</a></li>
+    <li><a href="{{ path('fiscal_citas_listado',{'tipo':'Revisada'}) }}" title="Por Aprobar">Por Aprobar</a></li>
+    <li><a href="{{ path('solicitudes_aprobadas_listado') }}" title="Aprobadas">Aprobadas</a></li>
+     <li><a href="{{ path('fiscal_citas_listado',{'tipo':'Rechazada'}) }}" title="Licencias rechazadas">Rechazadas</a></li>
+</ul>
+
+<h3>Gestión Operadoras</h3>
+<ul class="menu2">
+    <li><a href="{{ path('gerente_operadora') }}" title="Operadoras">Operadoras</a></li>
+    <li><a href="{{ path('Centrohipico_solicitud_afiliacion_listado') }}" title="Aprobar Incorporación de Afiliados a Operadoras">Aprobar Incorporación de Afiliados a Operadoras</a></li>
+</ul>
+
+<h3>Control de Citas</h3>
+<ul class="menu2">
+    <li><a href="{{path('citas')}}" title="Citas">Citas</a></li>
+    <li><a href="{{path('nocitafecha')}}" title="">Inhabilitar Fechas</a></li>
+</ul>
+
+<h3>Fiscalizaciones</h3>
+   <ul class="menu2">
+	<li><a href="{{ path('fiscalizacion') }}" title="Consulta de Fiscalizaciones">Consultar</a></li>
+   </ul>
+
+<h3>Consulta de Pagos</h3>
+<ul class="menu2">
+    <li><a href="{{path('pagos', {tipo:'PROCESAMIENTO'})}}" title="Pago de Procesamiento">Procesamiento</a></li>
+    <li><a href="{{path('pagos', {tipo:'OTORGAMIENTO'})}}" title="Pago de Otorgamiento">Otorgamiento</a></li>
+    <li><a href="{{path('pagos', {tipo:'APORTE_MENSUAL'})}}" title="Pago de Aporte Mensual">Aporte Mensual</a></li>
+    <li><a href="{{path('pagos', {tipo:'MULTA'})}}" title="Pago de Multas">Multa</a></li>
+    <li><a href="{{path('pagos_validar') }}" title="Validar Pagos">Validar Pagos</a></li>
+</ul>
+
+<!--BLOQUE DE MENU LATERAL INFORMES-->
+<h3>Informes</h3>
+<ul class="menu2">
+    <li><a href="{{ path('informe_xmes', {'reporte': 'licencias'}) }}" title="Licencias">Licencias</a></li>
+    <li><a href="{{ path('informe_xmes', {'reporte': 'fiscalizaciones'}) }}" title="Fiscalización">Fiscalización</a></li>
+    <li><a href="{{ path('informe_xmes', {'reporte': 'ingresos'}) }}" title="Ingresos">Ingresos</a></li>
+    <li><a href="{{ path('informe_xmes', {'reporte': 'usuarios'}) }}" title="Usuarios">Usuarios</a></li>
+    <li><a href="{{ path('informe_ejecutivo') }}" title="Informe Ejecutivo">Informe Ejecutivo</a></li>
+</ul>
+                                {#
+				<h3>Fiscales</h3>
+					<ul class="menu2">
+						<li><a href="#" title="frames/fichafiscales.html">Ficha de Fiscales</a></li>
+						<li><a href="#" title="frames/fiscales.html">Gestión del Fiscal</a></li>
+					</ul>
+
+				<h3>Consulta de Pagos</h3>
+					<ul class="menu2">
+						<li><a href="#" title="frames/pagosdeprocesamiento.html">Pagos por  Procesamiento</a></li>
+						<li><a href="#" title="frames/pagosporotorgamiento.html">Pagos por Otorgamiento</a></li>
+						<li><a href="#" title="frames/pagosmensuales.html">Aportes Mensuales</a></li>
+						<li><a href="#" title="frames/pagosmultas.html">Pagos de Multas</a></li>
+					</ul>
+
+				<h3>Control de Citas</h3>
+					<ul class="menu2">
+						<li><a href="#" title="frames/citas.html">Citas</a></li>
+						<li><a href="#" title="frames/inhabilitarfechas.html">Inhabilitar Fecha</a></li>
+						<li><a href="#" title="frames/bloquedecitas.html">Bloques de Cita</a></li>
+					</ul>	
+
+				
+
+					#}

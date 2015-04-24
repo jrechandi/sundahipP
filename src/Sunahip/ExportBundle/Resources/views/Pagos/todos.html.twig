@@ -1,0 +1,14 @@
+{% extends "ExportBundle:Pagos:index.html.twig" %}
+{% block addHeader %}
+    <th>F. de Pago</th>
+    <th>&nbsp;</th>
+{% endblock %}
+
+{% block addCol %}
+    <td>{{entity.fechaDeposito | date('d/m/Y')}}</td>
+    <td>
+    {% if entity.getArchivoAdjunto is not null %}
+        {{ entity.getArchivoAdjunto|vlabs_media('CentrohipicoBundle:SolicitudAfiliacion:ver_doc.html.twig') }}
+    {% endif %}
+    </td>
+{% endblock %}

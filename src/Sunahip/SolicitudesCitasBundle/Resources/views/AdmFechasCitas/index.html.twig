@@ -1,0 +1,121 @@
+{% extends 'SolicitudesCitasBundle::solicitud_base.html.twig' %}  
+{% block content_content %}
+   <div class="block-separator col-sm-12"></div> 
+    <div class="row col-sm-12">
+        <h1 class="tit_principal">Dias Feriados - sin Citas</h1>
+    </div>
+    <div class="col-sm-12">
+        <div class="col-sm-10 inline" id="citaxdia" ><label for="">Citas Por dia: &nbsp;</label><button id="maxcita" onClick="hide('#citaxdia'); show('#citaenter');" class="btn btn-sm btn-info">{{maxcita}}</button> </div>
+        <div class="col-sm-12 inline" id="citaenter" style="display:none">
+            <label for="citasxdia">Citas Por dia:</label>
+            <div> <input type="text" name="citasxdia" id="citasxdia" value="{{maxcita}}" class="input-mini"/>
+            <button onclick="cargar();" class="btn btn-sm btn-success">Cargar</button> 
+            <button onclick="cancelar();" class="btn btn-sm btn-warning">Cancelar</button> 
+            </div>
+            <div id="error" class="has-error help-block" ></div>
+        </div>
+    </div>
+    
+    <div class="block-separator col-sm-12"></div> 
+    <div class="row-fluid">   
+    <div class="col-sm-2">
+           <a href="{{ path('nocitafecha_new') }}" class="btn btn-primary btn-sm "><i class="icon-plus-sign"></i> Nuevo Feriado</a>
+       </div>
+       <div class="col-sm-10 block-separator"></div>
+  </div>  
+ <div class="col-md-12">
+     <table class="table table-condensed table-striped">
+         <thead>
+            <tr>
+                <th>Fecha</th>
+                <th>Descripci&oacute;n</th>
+                <th>Se Repite</th>
+                {#<th width="14%" colspan="2" >Acciones</th>#}
+                <th width="160px">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% set allway={ '1':'Si','0':'No'} %}
+        {% for entity in entities %}
+            <tr>
+                {#<td><a href="{{ path('nocitafecha_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>#}
+                <td><a href="{{ path('nocitafecha_edit', { 'id': entity.id }) }}" >{% if entity.date %}{{ entity.date|date('d-m-Y') }}{% endif %}</a></td>
+                <td>{{ entity.description }}</td>
+                {#<td>{{ allway[entity.allways] }}</td>#}
+                <td>{{ entity.allways?'Si':'No' }}</td>
+                <td class="text-center btn-group" style="width:100%">
+                   {#<div class="btn-group " style="width:100%"> #}
+                    <a href="{{ path('nocitafecha_edit', { 'id': entity.id }) }}" class="btn btn-default btn-sm" >Editar</a>&nbsp; &nbsp;
+                    <a href="{{ path('nocitafecha_show', { 'id': entity.id }) }}" class="btn btn-danger  btn-sm" >Borrar</a>
+                 {# </div>  #}
+                </td>
+                {#<td class="text-center">
+                        {#<a href="{{ path('nocitafecha_edit', { 'id': entity.id }) }}" class="btn btn-sm btn-info"><i class="fa-edit"></i>Editar</a>#}
+                {#        <a href="{{ path('nocitafecha_edit', { 'id': entity.id }) }}" class="" style="float:left; "><i class="ui-icon ui-icon-pencil"></i>Editar</a>&nbsp; &nbsp;&nbsp;
+                        {#<a href="{{ path('nocitafecha_show', { 'id': entity.id }) }}" class="btn btn-sm btn-danger"><i class="fa-trash"></i>Eliminar</a>#}
+                        {#<a href="{{ path('nocitafecha_show', { 'id': entity.id }) }}" class="" style="float:left;"><i class="ui-icon ui-icon-closethick"></i>Borrar</a>#}
+                {#</td>
+                <td class="text-center">
+                        {#<a href="{{ path('nocitafecha_edit', { 'id': entity.id }) }}" class="btn btn-sm btn-info"><i class="fa-edit"></i>Editar</a>#}
+                        {#<a href="{{ path('nocitafecha_edit', { 'id': entity.id }) }}" class="" style="float:left; "><i class="ui-icon ui-icon-pencil"></i>Editar</a>&nbsp; &nbsp;&nbsp;#}
+                        {#<a href="{{ path('nocitafecha_show', { 'id': entity.id }) }}" class="btn btn-sm btn-danger"><i class="fa-trash"></i>Eliminar</a>#}
+                 {#       <a href="{{ path('nocitafecha_show', { 'id': entity.id }) }}" class="" style="float:left;"><i class="ui-icon ui-icon-closethick"></i>Borrar</a>
+                </td>#}
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+ </div>        
+    <br/><br/>
+  {% endblock content_content %}
+{% block foot_script_assetic %}   
+    {{parent()}}
+   <script type="text/javascript">     
+   $(document).ready(function() {   
+       hide("#citaenter");
+       hide("#error");
+       show("#citaxdia");
+     });     
+     
+     function show(elem){
+         $(elem).show();
+     }
+     function hide (elem){
+         $(elem).hide();
+     }
+     
+     function cancelar(){
+         hide("#error");
+         hide("#citaenter");
+         show("#citaxdia");
+     }
+     
+     function cargar(){
+         hide("#error");
+         var maxcita=$('#citasxdia').val();
+         
+         var request = $.ajax({
+            type:"GET",
+            url: '{{path('nocitafecha_maxcita')}}/'+maxcita,
+            dataType: 'html'
+          });
+         request.done(function (data) {
+             var m = $.parseJSON(data);
+            if(m.status=='OK'){
+                   $("#maxcita").html(maxcita);
+                    hide("#citaenter");
+                    show("#citaxdia");
+               }else{
+                   $("#error").html(m.message).show();
+                   show("#error");
+               }
+         });
+         request.fail(function (jqXHR, textStatus, errorThrown){
+                     var Dalert=Dialog('<div class="col-md-12 has-error  text-center"> Error Problema al Procesar: '+textStatus+'</div>','Error');
+                     // Dalert.text('<div class="col-md-12 has-error  text-center"> Error Problema al Procesar: '+textStatus+'</div>');
+                });
+            //*/     
+     }//fin cargar
+     
+    </script>     
+{% endblock foot_script_assetic %}

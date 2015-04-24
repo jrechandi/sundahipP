@@ -1,0 +1,50 @@
+{% extends 'SolicitudesCitasBundle::solicitud_base.html.twig' %}  
+{% block content_content %}
+    <div id="contendor">
+        <br/>
+	<div class="tit_principal">Solicitud Centro Hípico Generada</div>
+         <br /><br /><br />
+         <div class="col-md-6">
+             <table id="tabla_reporte2">
+                 <tbody>
+                       <tr >
+                            <td class="redtit text-left">Nº Localizador</td>
+                            <td class="text-left bg-white">{{entity.codsolicitud}}</td>
+                       </tr>     
+                       <tr >     
+                            <td class="redtit text-left">Denominación Comercial</td>
+                            <td class="text-left bg-white">{{entity.centroHipico.denominacionComercial}}</td>
+                       </tr>
+                       <tr>
+                            <td class="redtit text-left">Fecha Solicitud </td>
+                            <td class="text-left bg-white">{{entity.fechaSolicitud|date('d-m-Y')}}</td>
+                      </tr>      
+                      <tr>
+                            <td class="redtit text-left">Fecha de Cita  &nbsp;</td>
+                            <td class="text-left bg-white">{{entity.cita.fechaSolicitud|date('d-m-Y')}}</td>
+                       </tr >
+                       <tr>
+                            <td class="redtit text-left">Tipo de Autorización</td>
+                            <td class="text-left bg-white">{{entity.ClasLicencia.clasfLicencia}}</td>
+                       </tr> 
+                       <tr>
+                            <td class="redtit text-left">Pago Procesamiento</td>
+                            <td class="text-left bg-white">{{entity.ClasLicencia.solicitudUt * unidad_tributaria | number_format(2, ',', '.') }} Bs</td>
+                       </tr>
+                       <tr>
+                            <td class="redtit text-left">Pago Otorgamiento</td>
+                            <td class="text-left bg-white">{{entity.ClasLicencia.otorgamientoUt * unidad_tributaria | number_format(2, ',', '.') }} Bs</td>
+	              </tr>
+		</tbody>
+             </table>
+         </div>               
+       <br/><br/>
+      <div class="col-md-2 col-md-offset-8"> 
+          <a href="#" class="btn btn-info"><i class="fa fa-archive"></i> Generar PDF</a>
+      </div>                  
+      <div class="col-md-2"> 
+          <a href="javascript:window.print();" class="btn btn-info"><i class="fa fa-print"></i> Imprimir</a>
+          {# Se puede generar una plantilla que Solo muestre los Datos en Plano y no Genere Estilos#}
+      </div>                  
+ </div>   
+{% endblock %}

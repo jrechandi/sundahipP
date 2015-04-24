@@ -1,0 +1,14 @@
+parameters:
+#    fiscalizacion.example.class: Sunahip\FiscalizacionBundle\Example
+
+services:
+#    fiscalizacion.example:
+#        class: %fiscalizacion.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
+
+     validator.unique.providencia:
+        class: Sunahip\FiscalizacionBundle\Validator\ProvidenciaFechaValidator
+        arguments:
+            - '@doctrine'
+        tags:
+            - { name: validator.constraint_validator, alias: my_validador }

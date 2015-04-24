@@ -1,0 +1,77 @@
+Centrohipico_solicitud_afiliacion:
+    path:     /solicitud/afiliacion
+    defaults: { _controller: CentrohipicoBundle:SolicitudAfiliacion:index }
+    options:
+        expose: true
+        
+Centrohipico_solicitud_desafiliacion:
+    path:    /solicitud/{id}/desafiliacion
+    defaults: { _controller: CentrohipicoBundle:SolicitudAfiliacion:desafiliacion }
+    options:
+         expose: true
+
+Centrohipico_solicitud_afiliacion_2:
+    path:     /solicitud/afiliacion/{rif_type}/{rif_number}/{id}
+    defaults: { _controller: CentrohipicoBundle:SolicitudAfiliacion:done }
+    options:
+        expose: true
+
+Centrohipico_solicitud_afiliacion_guardar:
+    path:     /solicitud/afiliacion/guardar/
+    defaults: { _controller: CentrohipicoBundle:SolicitudAfiliacion:save }
+    options:
+        expose: true
+
+Centrohipico_solicitud_afiliacion_listado:
+    path:     /solicitud/listado/
+    defaults: { _controller: CentrohipicoBundle:SolicitudAfiliacion:list }
+    options:
+        expose: true
+
+Centrohipico_solicitud_afiliacion_listado_PDF:
+    path:     /solicitud/listado-pdf
+    defaults: { _controller: CentrohipicoBundle:SolicitudAfiliacion:listPdf }
+    options:
+        expose: true
+
+Centrohipico_solicitud_afiliacion_rechazar:
+    path:     /solicitud/rechazar/
+    defaults: { _controller: CentrohipicoBundle:SolicitudAfiliacion:rejected }
+    options:
+        expose: true
+
+Centrohipico_solicitud_afiliacion_aprobar:
+    path:     /solicitud/aprobar/
+    defaults: { _controller: CentrohipicoBundle:SolicitudAfiliacion:approve }
+    options:
+        expose: true
+
+Centrohipico_solicitud_afiliacion_detalles:
+    path:     /solicitud/afiliacion/detalles/{id}/
+    defaults: { _controller: CentrohipicoBundle:SolicitudAfiliacion:details }
+    options:
+        expose: true
+
+Centrohipico_solicitud_afiliacion_buscar_rif:
+    path:     /buscar/rif
+    defaults: { _controller: CentrohipicoBundle:SolicitudAfiliacion:findByRif }
+    options:
+        expose: true
+
+Centrohipico_solicitud_afiliacion_listado_data:
+    path:     /data/table
+    defaults: { _controller: CentrohipicoBundle:ListadoSolicitudes:index }
+    options:
+        expose: true
+        
+Centrohipico_solicitud_afiliacion_listado_grid:
+    path:     /data/table/grid
+    defaults: { _controller: CentrohipicoBundle:ListadoSolicitudes:grid }
+    options:
+        expose: true
+        
+Centrohipico_solicitud_afiliacion_valid:
+    path:     /solicitud/afiliacion/valid/{centroHipico}/{operadora}/{clasificacion}
+    defaults: { _controller: CentrohipicoBundle:SolicitudAfiliacion:isValid }
+    options:
+        expose: true

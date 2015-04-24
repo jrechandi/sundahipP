@@ -1,0 +1,307 @@
+{% extends 'NewTemplateBundle::base.html.twig' %}
+
+{% block content_content %}
+
+    <div class="block-separator col-sm-12"></div>
+    <div class="row col-sm-12">
+        <h1>
+            Consulta de licencias
+        </h1>
+    </div>
+    <div class="col-md-12">
+        {% spaceless %}
+        <form action="" method="post" id="licensesQuery">
+            <p>Seleccione los parámetros a buscar:</p>
+            <table style="width:100%">
+                <tr>
+                    <td>
+                        <label for="correo">RIF:</label>
+                    </td>
+                    <td>
+                        <select name="rif_type" id="">
+                            <option value="V">V</option>
+                            <option value="J">J</option>
+                        </select> -
+                        <input type="text" {% if data.rif_number is defined %} value="{{ data.rif_number }}" {% else %} value="" {% endif %} name="data[rif_number]"  maxlength="9" class="corto" title="No colocar ni puntos, ni guiones">
+                    </td>
+                    <td>
+                        <label for="correo">Denominación Comercial:</label>
+                    </td>
+                    <td>
+                        <p><input type="text" name="data[denominacion_comercial]" {% if data.denominacion_comercial is defined %} value="{{ data.numero_licencia }}" {% else %} value="" {% endif %}  title="Coloque un Nombre o Razón Social" class="corto" style="width: 155px;"></p>
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>
+                        <label for="correo">Clasificación de Licencia:</label>
+                    </td>
+                    <td>
+                        <select name="data[claf_licencia]" id="tipos">
+                            <option value="0" {% if data.claf_licencia is not defined %}  selected {% endif %}> Seleccione</option>
+                            {% if claf_licenses is defined %}
+                                {% for lic in claf_licenses %}
+                                    <option {% if data.claf_licencia is defined %} {% if data.claf_licencia == lic.id %} selected="selected" {% endif %} {% endif %} value="{{ lic.id }}">{{ lic.clasfLicencia }}</option>
+                                {% endfor %}
+                            {% endif %}
+                        </select>
+                    </td>
+                    <td>
+                        <label for="correo">Licencias:</label>
+                    </td>
+                    <td>
+                        <select name="data[tipo_licencia]">
+                            <option value="0"  {% if data.tipo_licencia is not defined %}  selected {% endif %}> Seleccione</option>
+                            {% if licenses is defined %}
+                                {% for lic in licenses %}
+                                    <option {% if data.tipo_licencia is defined %} {% if data.tipo_licencia == lic.id %} selected="selected" {% endif %} {% endif %} value="{{ lic.id }}">{{ lic.tipoLicencia }}</option>
+                                {% endfor %}
+                            {% endif %}
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="correo">Número de Licencia:</label>
+                    </td>
+                    <td>
+                        <p><input type="text" name="data[numero_licencia]" {% if data.numero_licencia is defined %} value="{{ data.numero_licencia }}" {% else %} value=""  {% endif %}   title="Coloque un Número de Licencia válido" class="corto" style="width: 155px;"></p>
+                    </td>
+                    <td>
+                        <label for="correo">Número de Solicitud:</label>
+                    </td>
+                    <td>
+                        <p><input type="text" name="data[numero_solicitud]" {% if data.numero_solicitud is defined %} value="{{ data.numero_solicitud }}" {% else %} value="" {% endif %}   title="Coloque un Número de Solicitud válido" class="corto" style="width: 155px;"></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="estados">Estado:</label>
+                    </td>
+                    <td>
+                        <select name="data[estados]" id="estados">
+                            <option value="0" {% if data.estados is not defined %}  selected {% endif %}> Seleccione</option>
+                            {% for state in states %}
+                                <option {% if data.estados is defined %} {% if data.estados == state.id %} selected="selected" {% endif %} {% endif %} value="{{ state.id }}">{{ state.nombre }}</option>
+                            {% endfor %}
+                        </select>
+                    </td>
+                    <td>
+                        <label for="municipios">Municipio:</label>
+                    </td>
+                    <td>
+                        <select name="data[municipios]" id="municipios">
+                            <option value="0" {% if data.municipios is not defined %}  selected {% endif %}> Seleccione</option>
+                            {% for town in towns %}
+                                <option {% if data.municipios is defined %} {% if data.municipios == town.nombre %} selected="selected" {% endif %} {% endif %} value="{{ town.id }}">{{ town.nombre }}</option>
+                            {% endfor %}
+                        </select>
+                    </td>
+                </tr>
+            </table>
+
+        {% endspaceless %}
+            <div id="linea">
+                <div class="form_line3">
+                    <label for="correo">Estatus de Solicitud:</label><br>
+                    <table style=" float: right; width: 90%;">
+                        <tbody>
+                        {#<tr>#}
+                            {#<td><input type="checkbox" name="data[estatus_solicitud]">En espera de recaudos</td>#}
+                            {#<td><input type="checkbox" name="data[estatus_solicitud]">En espera de Pago Procesamiento</td>#}
+                            {#<td><input type="checkbox" name="data[estatus_solicitud]">En espera de Pago Otorgamiento</td>#}
+                        {#</tr>#}
+                        <tr>
+                            <td><input type="radio" name="data[estatus_solicitud]" {% if data.estatus_solicitud is defined %} {% if data.estatus_solicitud == 'gerencia' %} checked="checked" {% endif %} {% endif %} value="gerencia">Aprobación Gerencia</td>
+                            <td><input type="radio" name="data[estatus_solicitud]" {% if data.estatus_solicitud is defined %} {% if data.estatus_solicitud == 'asesor' %} checked="checked" {% endif %} {% endif %} value="asesor">Aprobación Legal</td>
+                            <td><input type="radio" name="data[estatus_solicitud]" {% if data.estatus_solicitud is defined %} {% if data.estatus_solicitud == 'direccion' %} checked="checked" {% endif %} {% endif %} value="direccion">Aprobación Dirección General</td>
+                        </tr>
+                        <tr>
+                            <td><input type="radio" name="data[estatus_solicitud]" {% if data.estatus_solicitud is defined %} {% if data.estatus_solicitud == 'Solicitada' %} checked="checked" {% endif %} {% endif %}value="Solicitada">Solicitada</td>
+                            <td><input type="radio" name="data[estatus_solicitud]" {% if data.estatus_solicitud is defined %} {% if data.estatus_solicitud == 'Aprobada' %} checked="checked" {% endif %} {% endif %}value="Aprobada">Aprobada</td>
+                            <td><input type="radio" name="data[estatus_solicitud]" {% if data.estatus_solicitud is defined %} {% if data.estatus_solicitud == 'Rechazada' %} checked="checked" {% endif %} {% endif %}value="Rechazada">Rechazada</td>
+                        </tr>
+                        </tbody></table>
+                </div>
+
+                <div id="linea">
+                    <div class="form_line3">
+                        <label for="correo">Estatus de Licencia:</label><br>
+                        <tdstyle="width: 25%;"="">
+                        </tdstyle="width:><table style=" float: right; width: 90%;">
+                        <tbody><tr>
+                            <td style="width: 18%;"><input type="radio" name="data[estatus_licencia]" {% if data.estatus_licencia is defined %} {% if data.estatus_licencia == '1' %} checked="checked" {% endif %} {% endif %}value="1">Activa</td>
+                            <td style="width: 25%;"><input type="radio" name="data[estatus_licencia]" {% if data.estatus_licencia is defined %} {% if data.estatus_licencia == '0' %} checked="checked" {% endif %} {% endif %}value="0">Inactiva</td>
+                            <td style="width: 25%;"></td>
+                        </tr>
+                        </tbody></table>
+                    </div>
+                </div>
+
+                <div id="linea">
+                    <div class="form_line3">
+                        <label for="correo">Estatus de pagos:</label><br>
+                        <table style=" float: right; width: 90%;">
+                            <tbody><tr>
+                                <td style="width: 36%;"><input type="radio" name="data[estatus_pago]" {% if data.estatus_pago is defined %} {% if data.estatus_pago == 'PROCESAMIENTO' %} checked="checked" {% endif %} {% endif %}  value="PROCESAMIENTO">Pagos de Procesamiento</td>
+                                <td style="width: 36%;"><input type="radio" name="data[estatus_pago]" {% if data.estatus_pago is defined %} {% if data.estatus_pago == 'OTORGAMIENTO' %} checked="checked" {% endif %} {% endif %}  value="OTORGAMIENTO">Pagos por Otorgamiento</td>
+                            </tr>
+                            <tr>
+                                <td style="width: 36%;"><input type="radio" name="data[estatus_pago]" {% if data.estatus_pago is defined %} {% if data.estatus_pago == 'MULTA' %} checked="checked" {% endif %} {% endif %} value="MULTA">Pagos de Multas</td>
+                                <td style="width: 54%;"><input type="radio" name="data[estatus_pago]" {% if data.estatus_pago is defined %} {% if data.estatus_pago == 'APORTE_MENSUAL' %} checked="checked" {% endif %} {% endif %} VALUE="APORTE_MENSUAL">Pagos de Aportes Mensuales</td>
+                            </tr>
+                            </tbody></table>
+                    </div>
+                </div>
+
+                <div class="col-sm-10 block-separator"></div>
+
+                <div class="col-sm-12">
+                    <div class="form_line3">
+                        <input  style="float: right" type="button" onclick="reset()" class="btn" value="Limpiar" style="float: right;">
+                        <input  style="float: right" type="submit" class="btn btn-primary" value="Buscar" style="float: right;">
+                    </div>
+                </div>
+
+            </div>
+        </form>	<!--  FIN FILTRO -->
+
+    </div>
+{% if result is defined %}
+    <div class="col-sm-12 block-separator"></div>
+
+    <div id="action">
+        <div class="left">
+            {% if result | length > 0 %}
+                <article class="col-sm-12 col-md-12 col-lg-12 sortable-grid ui-sortable" style="width: 50%">
+                    {{ knp_pagination_render(result) }}
+                </article>
+            {% endif %}
+        </div>
+        <div class="right">
+            &nbsp;
+        </div>
+    </div>
+
+
+    {% if result|length > 0 %}
+        </br>
+        <div class="col-md-12">
+            <table class="table table-condensed table-striped">
+                <thead>
+                <tr>
+                    <th>Denominaci&oacute;n comercial</th>
+                    <th>Codigo de solicitud</th>
+                    <th>Fecha solicitud</th>
+                    <th>Status</th>
+                    <th>N&uacute;mero licencia</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for entity in result %}
+                    <tr>
+                        <td>
+                            {% if entity.cType == '1' %}
+                                <a href="#" data-toggle="modal" data-target="#myModal" class="show_detail" onclick="getInfo({{ entity.cId }})">
+                            {% else %}
+                                    <a href="#" id="{{ entity.cId  }}"  data-toggle="modal" data-target="#myModal" class="show_detail2">
+                            {% endif %}
+                                {{ entity.denominacionComercial }}
+                            </a>
+                        </td>
+                        <td align="center">{{ entity.0.codSolicitud }}</td>
+                        <td align="center">{{ entity.0.fechaSolicitud|date("d/m/Y") }}</td>
+                        <td align="center">{{ entity.0.status }}</td>
+                        <td align="center">{{ entity.0.numLicenciaAdscrita }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-12">
+            <div id="action">
+                <div class="left">
+                    {% if result | length > 0 %}
+                        <article class="col-sm-12 col-md-12 col-lg-12 sortable-grid ui-sortable" style="width: 50%">
+                            {{ knp_pagination_render(result) }}
+                        </article>
+                    {% endif %}
+                </div>
+                <div class="right">
+                    </br>
+                </div>
+            </div>
+        </div>
+
+    {% elseif result|length == 0  %}
+        <div class="col-md-12">
+            <div id="notificaciones">
+                <ul>
+                    <li class="n1"><h5>No se encontraron resultados</h5></li>
+                </ul>
+            </div>
+        </div>
+    {% endif %}
+    <div class="block-separator col-sm-12"></div>
+
+{% endif %}
+
+    <script>
+        function reset()
+        {
+            $('input:radio').removeAttr('checked');
+             // Refresh the jQuery UI buttonset.
+            $( "input:radio" ).buttonset('refresh');
+            getElementById("licensesQuery").reset();
+        }
+    </script>
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" id="btnClose" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span><span class="sr-only">Cerrar</span>
+                </button>
+            </div>
+            <div class="modal-body" id="datos_hipicos"> Cargando....</div>
+            <div class="modal-footer"></div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+ {% block foot_script_assetic %}
+     {{ parent() }}
+     <script type="text/javascript">
+         function getInfo(id)
+         {
+             //console.info("entro");
+             var url = Routing.generate('operadora_info',{ 'id': id });
+             $.get( url, function( data ) {
+                 console.info('data',data);
+                 $("#datos_hipicos").html(data);
+             });
+         }
+
+         $(function() {
+             $(".show_detail2").click(function(ev) {
+                 var identificador = $(this).attr("id");
+                 $.get(Routing.generate('datacentrohipico_show', {id: identificador}), function(data) {
+                     $('#datos_hipicos').html(data);// llenarel div llenar del body de la ventana modal
+                 });
+
+             });
+
+             $("#btnClose").click(function(ev) {
+                 $('#datos_hipicos').html("Cargando....");
+             });
+         });
+
+
+     </script>
+
+ {%endblock%}

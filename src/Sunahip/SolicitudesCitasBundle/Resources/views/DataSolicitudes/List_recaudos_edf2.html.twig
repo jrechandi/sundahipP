@@ -1,0 +1,52 @@
+<table id="tabla_reporte2">				
+        <tr id="table_header2">
+                 <td>N#</td>
+                 <td>Tipo de Documento</td>
+                 <td>Archivo</td>
+                 <td>Fecha de Vencimiento</td>
+                 <td>Cargar</td>
+        </tr>
+        {%for recaudo in list %}   
+          <tr id="tr_recaudos{{loop.index}}">
+                 <td class="text-center">{{loop.index}}</td>
+                 <td class="text-left">{{recaudo.recaudo}}</td>
+                 <td class="text-left">Archivo</td>
+                 <td class="text-left">Fecha: (dd/mm/aaaa) </td>
+                 <td class="text-center">
+                     <input type="hidden" id="recaudoLicencia_{{loop.index}}" name="recaudoLicencia{{loop.index}}" class="hide" value="{{recaudo.id}}"/>
+                     <div class="col-md-2 col-md-offset-1"> <button class="btn btn-sm btn-info" onclick="cRecaudo('{{loop.index}}');">Cargar</button></div>
+                 </td>
+        </tr>
+        {%endfor%}
+    </table>
+<script type="text/javascript">
+    $(document).ready(function(){
+        var Options={
+            autoSize: true,
+            dateFormat: 'dd/mm/yy',
+            maxDate: '{{ "now"|date("d/m/Y") }}',
+            onSelect: function(dateText, inst) { 
+               var datets = Date.parse(inst.selectedYear+'-'+inst.selectedMonth+'-'+inst.selectedDay);
+               //GenerarSolicitud(datets);
+               $(this).val(dateText);                
+           } 
+        };
+        var Options2={
+            autoSize: true,
+            dateFormat: 'dd/mm/yy',
+            minDate: '{{ "now"|date("d/m/Y") }}',
+            onSelect: function(dateText, inst) { 
+               var datets = Date.parse(inst.selectedYear+'-'+inst.selectedMonth+'-'+inst.selectedDay);
+               //GenerarSolicitud(datets);
+               $(this).val(dateText);                
+           } 
+        };
+      $(".date").each(function(index,elem){
+          $(this).datepicker(Options2); 
+      });
+      $(".datePago").each(function(index,elem){
+          $(this).datepicker(Options); 
+      });      
+    });
+</script>
+    

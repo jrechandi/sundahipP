@@ -1,0 +1,78 @@
+{% extends 'ExportBundle::export_pdf.html.twig' %}
+{% block content_content %}
+    <style>
+        #table_header td{
+            color:white;
+        }
+    </style>
+
+    <div class="block-separator col-sm-12"></div>
+    <div class="row col-sm-12">
+        <h1>
+            Licencias aprobadas
+        </h1>
+    </div>
+
+    <div class="block-separator col-sm-12"></div>
+    <div class="row">
+        <div class="col-sm-2">
+        </div>
+        <div class="col-sm-10 block-separator"></div>
+    </div>
+
+    {% if entities is defined %}
+
+        <div class="col-md-12">
+            <table class="table table-condensed table-striped">
+                <thead>
+                <tr>
+                    <th>Nº</th>
+                    <th>RIF</th>
+                    <th>Denominación Comercial</th>
+                    <th>Licencia</th>
+                    <th>Clasificación del Licencia</th>
+                    <th>No Licencia</th>
+                    <th>No Providencia</th>
+                    <th>Fecha Vencimiento</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for entity in entities %}
+                    <tr id="request-{{ entity.id }}">
+                        <td>{{ loop.index }}</td>
+                        <td>
+                            {% if entity.solicitud.operadora.persJuridica  is defined %}
+                                {{ entity.solicitud.operadora.persJuridica }}-{{ entity.solicitud.operadora.rif }}
+                            {% else %}
+                                {{ entity.solicitud.centroHipico.persJuridica }}-{{ entity.solicitud.centroHipico.rif }}
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if entity.solicitud.operadora %}
+                                {{ entity.solicitud.operadora.denominacionComercial }}
+                            {% else %}
+                                {{ entity.solicitud.centroHipico.denominacionComercial }}
+                            {% endif %}
+                        </td>
+                        <td>{{ entity.solicitud.clasLicencia.admTiposLicencias.tipoLicencia }}</td>
+                        <td>{{ entity.solicitud.clasLicencia.clasfLicencia }}</td>
+                        <td>{{ entity.solicitud.numLicenciaAdscrita }}</td>
+                        <td>{{ entity.numProvidencia }}</td>
+                        <td>{{ entity.fechaFin|date('d/m/Y') }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% else %}
+        <div class="col-md-12">
+            <div id="notificaciones">
+                <ul>
+                    <li class="n1"><h5>No se encontraron resultados</h5></li>
+                </ul>
+            </div>
+        </div>
+    {% endif %}
+    <div class="block-separator col-sm-12"></div>
+
+{% endblock %}

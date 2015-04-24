@@ -1,0 +1,7 @@
+parameters:
+#    export.example.class: Sunahip\ExportBundle\Example
+
+services:
+#    export.example:
+#        class: %export.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

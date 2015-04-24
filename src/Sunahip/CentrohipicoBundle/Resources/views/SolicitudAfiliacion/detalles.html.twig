@@ -1,0 +1,181 @@
+{% extends "NewTemplateBundle::base.html.twig" %}
+
+{% block content_content %}
+<div class="page-header">
+    <h1>Detalles de la solicitud de afiliado</h1>
+</div>
+
+<div class="padding-15" id="contenido">
+
+    <table id="tabla_reporte2">
+        <tbody><tr id="table_header2">
+            <td colspan="4">Datos de la solicitud</td>
+        </tr>
+        <tr>
+            <td>Fecha de Solicitud:</td>
+            <td colspan="3">{{ "now"|date("m/d/Y") }}</td>
+        </tr>
+        <tr>
+            <td>RIF Afiliado:</td>
+            <td colspan="3">{{ entity.centroHipico.persJuridica }} {{ entity.centroHipico.rif }}</td>
+        </tr>
+        <tr>
+            <td>Licencia a Afiliar:</td>
+            <td colspan="3">
+                {% if entity.getClasLicencia is not null %}
+                {{ entity.getClasLicencia.clasfLicencia }}
+                {% else %}
+                    Sin detalle
+                {% endif %}
+            </td>
+        </tr>
+        <tr>
+            <td>Denominación Comercial:</td>
+            <td>{{ entity.centroHipico.denominacionComercial }}</td>
+            <td>Clasificación del Establecimiento:</td>
+            <td>{{ entity.centroHipico.clasificacionLocal }}</td>
+        </tr>
+        <tr>
+            <td style="width:25%;">Estado:</td>
+            <td style="width:25%;">{{ entity.centroHipico.estado.nombre }}</td>
+            <td style="width:25%;">Ciudad:</td>
+            <td style="width:25%;">{{ entity.centroHipico.ciudad }}</td>
+        </tr>
+        <tr>
+            <td style="width:25%;">Municipio:</td>
+            <td style="width:25%;">{{ entity.centroHipico.municipio.nombre }}</td>
+            <td style="width:25%;">Urbanización/Sector:</td>
+            <td style="width:25%;">{{ entity.centroHipico.urbanSector }}</td>
+        </tr>
+        <tr>
+            <td style="width:25%;">Avenida/Calle/Carrera:</td>
+            <td style="width:25%;">{{ entity.centroHipico.avCalleCarrera }}</td>
+            <td style="width:25%;">Edificio/Casa:</td>
+            <td style="width:25%;">{{  entity.centroHipico.edifCasa }}</td>
+        </tr>
+        <tr>
+            <td style="width:25%;">Oficina/Apto/No.:</td>
+            <td style="width:25%;">{{ entity.centroHipico.ofcAptoNum }}</td>
+            <td style="width:25%;">Punto de Referencia:</td>
+            <td style="width:25%;">{{ entity.centroHipico.puntoReferencia }}</td>
+        </tr>
+        <tr>
+            <td>Contrato firmado con el Afiliado:</td>
+            <td colspan="3"> {{ entity.contratoFirmado|vlabs_media('CentrohipicoBundle:SolicitudAfiliacion:ver_doc.html.twig') }} </td>
+        </tr>
+        <tr>
+            <td>Buena Pro:</td>
+            <td colspan="3"> {{ entity.buenaPro|vlabs_media('CentrohipicoBundle:SolicitudAfiliacion:ver_doc.html.twig') }} </td>
+        </tr>
+        {% if entity.status == 'Rechazado' or entity.status == 'Aprobado' %}
+            <tr>
+                <td>Estatus:</td>
+                <td colspan="3"> {{ entity.status }}</td>
+            </tr>
+            {% if entity.status == 'Rechazado' %}
+                <tr>
+                    <td>Nota:</td>
+                    <td colspan="3"> <textarea rows="4" cols="100" disabled="disabled"> {{ entity.notas }} </textarea></td>
+                </tr>
+            {% endif %}
+        {% endif %}
+        </tbody>
+    </table>
+    <div class="block-separator col-md-12"></div>
+    <div class="col-md-offset-8 col-md-4 form-group text-right">
+        <a href="{{ path('Centrohipico_solicitud_afiliacion_listado') }}" class="btn btn-warning btn-sm">Regresar</a>
+        &nbsp; &nbsp; &nbsp; &nbsp;
+    </div>
+    
+
+    {% if app.user.hasRole('ROLE_GERENTE') %}
+        {% if entity.status == 'Por aprobar' %}
+            <div>
+                <input type="submit" value="Aceptar solicitud" class="" id="form_btttn" style="float: right;height: auto;margin: 10px;padding: 5px;">
+                <input type="submit" value="Rechazar solicitud" data-toggle="modal" data-target="#confirmar-rechazar" class="" id="form_btttn" style="float: right;height: auto;margin: 10px;padding: 5px;">
+            </div>
+        {% endif %}
+    {% endif %}
+
+    <div class="modal fade" id="confirmar-rechazar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    Rechazar Solicitud
+                </div>
+                <div class="modal-body">
+                    <label for="form_rechazar_nota"> Agregue el motivo por el cual se rechaza la solicitud:</label><br>
+                    <textarea rows="5" cols="65" id="form_rechazar_nota" name="form_rechazar[nota]"> </textarea>
+                    <div style="color: #E70202;display: none" id="nota_minimum"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                    <a href="#" onclick="reject({{ entity.id }})" class="btn btn-danger danger">Rechazar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="confirm-active" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    Aprobar solicitudes
+                </div>
+                <div class="modal-body">
+                    Está seguro de aprobar la solicitud?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                    <a href="#" onclick="approve({{ entity.id }})" class="btn btn-info info">Aprobar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% endblock %}
+
+    {% block script_base %}
+        <script>
+
+            function reject(id)
+            {
+                var nota  = $("#form_rechazar_nota").val();
+
+                if(nota.length > 3)
+                {
+                    var url = Routing.generate('Centrohipico_solicitud_afiliacion_rechazar');
+                    $.post( url, { id: id, nota: nota } );
+                    $("#nota_minimum").hide();
+                    $('#confirmar-rechazar').modal('hide');
+                    var url = Routing.generate('Centrohipico_solicitud_afiliacion_detalles', {'id': id} );
+                    window.location = url;
+                }else{
+                    if(nota.length == 1){
+                        var html = "La nota no puede estar vac&iacute;a";
+                        $("#nota_minimum").show();
+                        $("#nota_minimum").html(html);
+                    }
+                    var html = "La nota debe contener al menos 4 digitos";
+                    $("#nota_minimum").show();
+                    $("#nota_minimum").html(html);
+                }
+            }
+
+
+            function approve(id)
+            {
+                var arrayData= new Array();
+                arrayData.push(id);
+                $('#confirm-active').modal('hide');
+                var url = Routing.generate('Centrohipico_solicitud_afiliacion_aprobar');
+                $.post(url, {'ids': arrayData}, function(){
+                }).done(function() {
+                    var url = Routing.generate('Centrohipico_solicitud_afiliacion_detalles', {'id': id} );
+                    window.location = url;
+                });
+            }
+
+
+        </script>
+    {% endblock %}

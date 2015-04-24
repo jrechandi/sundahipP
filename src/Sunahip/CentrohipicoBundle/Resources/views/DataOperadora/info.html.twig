@@ -1,0 +1,324 @@
+<style>
+    .ui-widget-header {
+        background: transparent !important;
+        color: transparent !important;
+        border: none !important;
+    }
+    .ui-widget-content {
+        background: transparent !important;
+        color: transparent !important;
+        border: none !important;
+    }    
+</style>
+
+<table class="record_properties table table-condensed col-lg-12 col-md-12 col-sm-12" id="tabla_reporte">
+    <thead>
+            <tr>
+                <th colspan="2"> Denominacion Comercial: {{ entity.denominacionComercial }}</th>
+            </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="width: 60%; text-align: right;"> RIF </td>
+            <th>{{ entity.persJuridica }} - {{ entity.rif }}</th>
+        </tr>
+        <tr>
+            <td style="width: 60%; text-align: right;"> Fecha Registro </td>
+            <th>{{ entity.fechaRegistro|date('d-m-Y') }}</th>
+        </tr>
+   </tbody>
+</table>
+<div id="tabs">
+    <ul>
+        <li><a href="#tabs-1">Básicos</a></li>
+        <li><a href="#tabs-2">Rep Legal</a></li>
+        <li><a href="#tabs-3">Oficina</a></li>
+        <li><a href="#tabs-4">Solicitudes</a></li>
+        <li><a href="#tabs-5">Pagos</a></li>
+        {#<li><a href="#tabs-6">Recaudos</a></li>#}
+        <li><a href="#tabs-7">Licencias</a></li>
+    </ul>
+    <div id="tabs-1">
+        <table id="tabla_reporte2">
+            <tr id="table_header2">
+                <td colspan="4"><b>Datos del Solicitante</b></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td>RIF:</td>
+                <td><strong>{{ basicos.persJuridica }}-{{ basicos.rif }}</strong></td>
+
+            </tr>
+            <tr>
+                <td>Nombre:</td>
+                <td><strong>{{ basicos.nombre }}</strong></td>
+                <td>Apellido</td>
+                <td><strong>{{ basicos.apellido }}</strong></td>
+            </tr>
+            <tr>
+                <td>Entidad Federal:</td>
+                <td><strong>{{ basicos.getEstado.nombre }}</strong></td>
+                <td>Ciudad:</td>
+                <td><strong>{{ basicos.ciudad }}</strong></td>
+            </tr>
+            <tr>
+                <td>Parroquia:</td>
+                <td><strong>{{ basicos.getParroquia.nombre }}</strong></td>
+                <td>Urbanización/Sector:</td>
+                <td><strong>{{ basicos.urbanizacion }}</strong></td>
+            </tr>
+            <tr>
+                <td>Oficina/Apto/No.:</td>
+                <td><strong>{{ basicos.apartamento }}</strong></td>
+                <td>Punto de Referencia:</td>
+                <td><strong>{{ basicos.referencia }}</strong></td>
+            </tr>
+            <tr>
+                <td>Código Postal:</td>
+                <td><strong>{{ basicos.getCodigoPostal }}</strong></td>
+                <td>No. Fax:</td>
+                <td>
+                    <strong>{{ basicos.getCodFax }} {{ basicos.fax }}</strong>
+                </td>
+            </tr>
+            <tr>
+                <td>No. Teléfono Fijo:</td>
+                <td>{% if basicos.getCodTelefonoLocal != "" and basicos.getTelefonoLocal != "" %}
+                    <strong>({{ basicos.getCodTelefonoLocal }}) {{ basicos.getTelefonoLocal }}</strong>
+                    {% endif %}
+                </td>
+                <td>No. Teléfono Celular:</td>
+                <td>{% if basicos.getCodTelefonoMovil != "" and basicos.getTelefonoMovil != "" %}
+                    <strong>({{ basicos.getCodTelefonoMovil }}) {{ basicos.getTelefonoMovil }}</strong>
+                    {% endif %}
+                </td>
+            </tr>
+            <tr>
+                <td>Correo Electrónico:</td>
+                <td><strong><a href="#">{{ entity.getUsuario.email }}</a></strong></td>
+                <td>Página Web:</td>
+
+                <td><strong><a href="#">{{ basicos.getSitioWeb }}</a></strong></td>
+            </tr>
+        </table>
+    </div>
+    <div id="tabs-2">
+        {% if legal is defined %}
+        <table id="tabla_reporte2">
+            <tr id="table_header2">
+                <td colspan="4"><b>Datos del Apoderado o Representante Legal</b></td>
+            </tr>
+            <tr>
+                <td>Nombre:</td>
+                <td><strong>{{ legal.nombre }}</strong></td>
+                <td>Apellido</td>
+                <td><strong>{{ legal.apellido }}</strong></td>
+            </tr>
+            <tr>
+                <td>Entidad Federal:</td>
+                <td><strong>{{ legal.getEstado.nombre }}</strong></td>
+                <td>Ciudad:</td>
+                <td><strong>{{ legal.ciudad }}</strong></td>
+            </tr>
+            <tr>
+                <td>Parroquia:</td>
+                <td><strong>{{ legal.getParroquia.nombre }}</strong></td>
+                <td>Urbanización/Sector:</td>
+                <td><strong>{{ legal.urbanSector }}</strong></td>
+            </tr>
+            <tr>
+                <td>Avenida/Calle/Carrera:</td>
+                <td><strong>{{ legal.avCalleCarrera }}</strong></td>
+                <td>Edificio/Casa:</td>
+                <td><strong>{{ legal.edifCasa }}</strong></td>
+            </tr>
+            <tr>
+                <td>Oficina/Apto/No.:</td>
+                <td><strong>{{ legal.ofcAptoNum }}</strong></td>
+                <td>Punto de Referencia:</td>
+                <td><strong>{{ legal.puntoReferencia }}</strong></td>
+            </tr>
+            <tr>
+                <td>Código Postal:</td>
+                <td><strong>{{ legal.codigoPostal }}</strong></td>
+                <td>No. Fax:</td>
+                <td><strong>{{ legal.codFax }} {{ legal.fax }}</strong></td>
+            </tr>
+            <tr>
+                <td>No. Teléfono Fijo:</td>
+                <td>{% if legal.codTlfFijo != "" and legal.tlfFijo != "" %}
+                    <strong>({{ legal.codTlfFijo }}) {{ legal.tlfFijo }}</strong>
+                    {% endif %}
+                </td>
+                <td>No. Teléfono Celular:</td>
+                <td>{% if legal.codTlfCelular != "" and legal.tlfCelular != "" %}
+                    <strong>({{ legal.codTlfCelular }}) {{ legal.tlfCelular }}</strong>
+                    {% endif %}
+                </td>
+            </tr>
+        </table>
+        {% else %}
+            Sin información
+        {% endif %}
+    </div>
+    <div id="tabs-3">
+        <table id="tabla_reporte2">
+            <tr id="table_header2">
+                <td colspan="4"><b>Oficina Principal</b></td>
+            </tr>
+            <tr>
+                <td colspan="2">Denominación Comercial</td>
+                <td colspan="2"><b>{{ entity.denominacionComercial }}</b></td>
+            </tr>
+            <tr>
+                <td colspan="2">Nombre:</td>                
+                <td colspan="2">{{ entity.propietarioLocal }}</td>
+            </tr>
+            <tr>
+                <td>Entidad Federal:</td>
+                <td><strong>{{ entity.getEstado.nombre }}</strong></td>
+                <td>Ciudad:</td>
+                <td><strong>{{ entity.ciudad }}</strong></td>
+            </tr>
+            <tr>
+                <td>Parroquia:</td>
+                <td><strong>{{ entity.getParroquia.nombre }}</strong></td>
+                <td>Urbanización/Sector:</td>
+                <td><strong>{{ entity.urbanSector }}</strong></td>
+            </tr>
+            <tr>
+                <td>Avenida/Calle/Carrera:</td>
+                <td><strong>{{ entity.avCalleCarrera }}</strong></td>
+                <td>Edificio/Casa:</td>
+                <td><strong>{{ entity.edifCasa }}</strong></td>
+            </tr>
+            <tr>
+                <td>Oficina/Apto/No.:</td>
+                <td><strong>{{ entity.ofcAptoNum }}</strong></td>
+                <td>Punto de Referencia:</td>
+                <td><strong>{{ entity.puntoReferencia }}</strong></td>
+            </tr>
+            <tr>
+                <td>Código Postal:</td>
+                <td><strong>{{ entity.codigoPostal }}</strong></td>
+                <td>No. Fax:</td>
+                <td><strong>{{ entity.codFax }} {{ entity.fax }}</strong></td>
+            </tr>
+            <tr>
+                <td>No. Teléfono Fijo:</td>
+                <td>{% if entity.codTlfFijo != "" and entity.tlfFijo != "" %}
+                    <strong>({{ entity.codTlfFijo }}) {{ entity.tlfFijo }}</strong>
+                    {% endif %}
+                </td>
+                <td>No. Teléfono Celular:</td>
+                <td>{% if entity.codTlfCelular != "" and entity.tlfCelular != "" %}
+                    <strong>({{ entity.codTlfCelular }}) {{ entity.tlfCelular }}</strong>
+                    {% endif %}
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div id="tabs-4">
+        {% if licence is defined %}
+        <table id="tabla_reporte2" class="table table-condensed table-striped">
+            <thead>
+                <tr id="table_header2">
+                    <th>Nº Solicitud</th>
+                    <th>Tipo de Autorización</th>
+                    <th>Fecha</th>
+                    <th>Estatus</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for licence in licenses %}
+                <tr>
+                    <td>{{ licence.codsolicitud }}</td>
+                    <td>{{ licence.ClasLicencia }}</td>
+                    <td>{{ licence.fechaSolicitud|date('d/m/Y') }}</td>
+                    <td>{{ licence.status }}</td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td colspan="5">No hay Registros</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+            Sin información
+        {%  endif %}
+    </div>
+    <div id="tabs-5">
+        <table id="tabla_reporte2" class="table table-condensed table-striped">
+            <thead>
+                <tr id="table_header2">
+                    <th>Nº</th>
+                    <th>Tipo Pago</th>
+                    <th>Fecha Pago</th>
+                    <th>Monto</th>
+                    <th>Estatus</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% if payments is defined %}
+                {% for payment in payments %}
+                <tr>
+                    <td>
+                        {% if payment.getSolicitud is not null %}
+                            {{ payment.getSolicitud.codsolicitud }}
+                        {% endif %}
+                    </td>
+                    <td>{{ payment.tipoPago }}</td>
+                    <td>{{ payment.fechaDeposito|date('d/m/Y') }}</td>
+                    <td>{{ payment.monto|number_format(2,",",".") }}</td>
+                    <td>{{ payment.status }}</td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td colspan="5">No hay Registros</td>
+                </tr>
+                {% endfor %}
+            {% endif %}
+            </tbody>
+        </table>
+    </div>
+    <div id="tabs-7">
+        {% if lic is defined %}
+        <table id="tabla_reporte2" class="table table-condensed table-striped">
+            <thead>
+                <tr id="table_header2">
+                    <th>Nº Licencia</th>
+                    <th>Clasificación</th>
+                    <th>Fecha Inicio</th>
+                    <th>Fecha Vencimiento</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% if licensesAprob is defined %}
+                {% for lic in licensesAprob %}
+                <tr>
+                    <td>{{ lic.getSolicitud.numLicenciaAdscrita }}</td>
+                    <td>{{ lic.getSolicitud.ClasLicencia }}</td>
+                    <td>{{ lic.fechaInicio|date('d/m/Y') }}</td>
+                    <td>{{ lic.fechaFin|date('d/m/Y') }}</td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td colspan="4">No hay Registros</td>
+                </tr>
+                {% endfor %}
+            {% endif %}
+            </tbody>
+        </table>
+        {% else %}
+            Sin información
+        {% endif %}
+    </div>
+</div>
+
+<script type="text/javascript" >
+    $(document).ready(function(){
+        $('#tabs').tabs();
+    });
+</script> 

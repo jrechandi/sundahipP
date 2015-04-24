@@ -1,0 +1,48 @@
+{{ form_start(form,{'attr': {'id':'form_pagoP'} }) }}  
+<table id="tabla_reporte2">				
+        <tr id="table_header2">
+                 <td>Tipo de Documento</td>
+                 <td>Buscar Archivo<span class="oblig">(*)</span></td>
+                 <td>Fecha de Pago<span class="oblig">(*)</span></td>
+                 <td>N de Recibo<span class="oblig">(*)</span></td>
+                 <td>Banco<span class="oblig">(*)</span></td>
+                 <td>Monto a Pagar<span class="oblig">(*)</span></td>
+        </tr>
+         <tr>
+            <td class="text-left">Pago por Procesamiento</td>
+            <td class="text-center">{{ form_widget(FDSolicitud.pago.archivoAdjunto, {'attr': {'class': 'mediarecaudo'}}) }}
+                           {% if FDSolicitud.pago.archivoAdjunto.vars.errors[0].message is defined %}
+                           <span class="help-block ">
+                               {{ FDSolicitud.pago.archivoAdjunto.vars.errors[0].message }}
+                           </span>
+                           {% endif %}
+             </td>
+            <td class="text-center">{{ form_widget(FDSolicitud.pago.fechaDeposito, {'attr': {'class': 'datePago fechapago'}}) }}
+                           {% if FDSolicitud.pago.fechaDeposito.vars.errors[0].message is defined %}
+                           <span class="help-block ">
+                               {{ FDSolicitud.pago.fechaDeposito.vars.errors[0].message }}
+                           </span>
+                           {% endif %}
+             </td>
+            <td class="text-center">{{ form_widget(FDSolicitud.pago.numReferencia, {'attr': {'class': 'reciboN'},'id':'reciboNP' }) }}
+                           {% if FDSolicitud.pago.numReferencia.vars.errors[0].message is defined %}
+                           <span class="help-block ">
+                               {{ FDSolicitud.pago.numReferencia.vars.errors[0].message }}
+                           </span>
+                           {% endif %}
+             </td>
+            <td class="text-center">{{ form_widget(FDSolicitud.pago.banco, {'attr': {'class': 'banco'},'id':'banco' }) }}
+                           {% if FDSolicitud.pago.banco.vars.errors[0].message is defined %}
+                           <span class="help-block ">
+                               {{ FDSolicitud.pago.banco.vars.errors[0].message }}
+                           </span>
+                           {% endif %}
+             </td>
+            <td class="text-center">
+                {#{ form_widget(FDSolicitud.pago.monto, {'attr': {'class': 'pagomonto'} }) }#} 
+                 {{PP}} Bs{#Pago por Procesamiento PP#}
+            </td>
+        </tr>
+</table>
+     {{form_widget(form._token)}}
+</form>            

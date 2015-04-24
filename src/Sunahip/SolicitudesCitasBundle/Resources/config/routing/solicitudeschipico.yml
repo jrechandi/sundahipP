@@ -1,0 +1,85 @@
+solicitudes_list:
+    path:     /
+    defaults: { _controller: SolicitudesCitasBundle:DataSolicitudes:index }
+
+solicitudes_citas_create:
+    path:     /crear-cita
+    defaults: { _controller: SolicitudesCitasBundle:DataSolicitudes:new }
+
+datasolicitudes_create:
+    path:     /generar-cita
+    defaults: { _controller: "SolicitudesCitasBundle:DataSolicitudes:create" }
+    requirements: { _method: post }
+ 
+solicitudes_events:
+    path:     /disponible
+    defaults: { _controller: SolicitudesCitasBundle:Default:avaibleDays }
+    options:
+        expose: true
+        
+solicitudes_datepicker:
+    path:     /disable
+    defaults: { _controller: SolicitudesCitasBundle:Default:DatePicker }
+    options:
+        expose: true
+        
+datasolicitudes_chlist:
+    path:     /chlist
+    defaults: { _controller: "SolicitudesCitasBundle:DataSolicitudes:chlist" }
+
+datasolicitudes_autolist:
+    path:     /autolist
+    defaults: { _controller: "SolicitudesCitasBundle:DataSolicitudes:autoriza" }
+
+datasolicitudes_juegoslist:
+    path:     /clasflic{id}/juegos-{tipo}
+    defaults: { _controller: "SolicitudesCitasBundle:DataSolicitudes:juegosexp", tipo: create }
+    options:
+       expose: true
+
+datasolicitudes_recaudoslist:
+    path:     /clasflic{id}/recaudos/{tipo}
+    defaults: { _controller: "SolicitudesCitasBundle:DataSolicitudes:recaudos", tipo: create }
+    options:
+        expose: true
+
+datasolicitudes_operadora_establecimiento:
+    path:     /{id}/{idCentro}/solicitud-operadora-establecimiento
+    defaults: { _controller: "SolicitudesCitasBundle:DataSolicitudes:operadoraEstablecimiento" }
+    options:
+         expose: true
+
+solicitudes_citas_generada:
+    path:     /solicitud-generada{id}
+    defaults: { _controller: "SolicitudesCitasBundle:DataSolicitudes:vergenerada" }
+
+solicitudes_printGen:
+    path:     /solicitud-imprimir/{id}/{tipo}
+    defaults: { _controller: "SolicitudesCitasBundle:DataSolicitudes:PrintGenerada", tipo:1 }
+
+solicitudes_cambiarcita:
+    path:     /{id}/cambiar-cita
+    defaults: { _controller: "SolicitudesCitasBundle:DataSolicitudes:showcita" }
+
+datasolicitudes_edit:
+    path:     /{id}/solicitud
+    defaults: { _controller: "SolicitudesCitasBundle:DataSolicitudes:editDSch" }
+
+solicitudes_updatecita:
+    path:     /{id}/actualiza-cita/{fecha}
+    defaults: { _controller: "SolicitudesCitasBundle:DataSolicitudes:updatecita" }
+    options:
+         expose: true
+
+solicitudes_updatech:
+    path:     /{idds}/actualiza-centrohipico/{id}
+    defaults: { _controller: "SolicitudesCitasBundle:DataSolicitudes:actualizach" }
+    options:
+         expose: true
+
+solicitudes_updatelic:
+    path:     /{idds}/actualiza-licencia/{id}
+    defaults: { _controller: "SolicitudesCitasBundle:DataSolicitudes:actualizaLic" }
+    options:
+         expose: true
+    

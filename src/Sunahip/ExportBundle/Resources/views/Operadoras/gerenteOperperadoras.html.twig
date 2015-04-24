@@ -1,0 +1,52 @@
+{% extends 'ExportBundle::export_pdf.html.twig' %}
+{% block content_content %}
+     <br/><br/><br/>
+    <div class="col-md-12">
+        <h1 class="tit_principal">Operadoras</h1>
+    </div>
+     <div class="block-separator col-md-12"></div>
+    <div class="col-md-12">
+        <table class="table table-condensed table-striped">
+            <thead>
+            <tr>
+                <th>Nº</th>
+                <th>RIF</th>
+                <th>Operadora</th>
+                <th>Fecha de Afiliación</th>
+                <th>Tipo de Licencia</th>
+                <th>Nº de Licencia</th>
+                <th>Estatus</th>
+                <th>Nº Afiliados</th>		
+                <th>Aporte Mensual (Bs.)</th>
+       </tr>
+    </thead>
+<tbody>
+ {%for op in entities %}   
+        <tr>
+            <td>{{loop.index}}</td>
+            <td>{{ op.persJuridica }}-{{ op.rif }}</td>
+            <td><a href="#" class="big-link" data-reveal-id="myModal">{{ op.denominacionComercial|upper }}</a></td>
+            <td class="text-center">{% if op.fechaRegistro %}{{ op.fechaRegistro|date('d-m-Y') }}{% endif %}</td>
+            <td class="text-left">
+                {% for lic in op.licenciasaprob %} {{lic.clasfLicencia}} &nbsp; {% endfor %}
+                 {% if op.licenciasaprob is empty %}Sin Licencia {%endif%}
+            </td>
+            <td class="text-left">
+                {% for lic in op.licenciasaprob %} {{lic.numLicencia}} &nbsp; {% endfor %}
+                {% if op.licenciasaprob is empty %}Sin Licencia {%endif%}
+            </td>
+            <td class="text-center">{{op.status}}</td>
+            <td class="text-center"><a href="#" class="big-link" data-reveal-id="myModal1">{{ render(controller('InformesBundle:GestionOperadoras:numAfiliados',{'iduser': op.usuario.id})) }}</a></td>
+            <td class="text-center">-</td>
+      </tr>
+{%endfor%}
+{% if entities is empty %}
+    <tr>
+        <td colspan="9">No se Encontraron Registros</td>
+    </tr>
+{%endif%}
+ </tbody>
+</table>
+    </div>
+        
+{% endblock %}   

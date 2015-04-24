@@ -1,0 +1,14 @@
+{%if porJuego==1 %}
+    <select id="juegoe" name="juegose[]" multiple>
+        {%for row in list %}   
+           <option value="{{row.id}}">{{row.juego}}</option>
+        {%endfor%}
+    </select>
+<br>Si desea seleccionar varios mantenga presionado la tecla CRTL
+<button class="btn btn-danger" onclick="cambiar('juegoe',false);">Cancelar</button>
+<button class="btn btn-info" onclick="cargaJuegos('juegoe');">Actualizar</button>
+ {% else %}
+     No Requiere Selección de Juegos
+     {#<input type="hidden" id="juegoe" name="juegose" class="hide" value="none">#}
+{%endif%}
+

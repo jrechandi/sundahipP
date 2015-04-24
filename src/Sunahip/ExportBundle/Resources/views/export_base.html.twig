@@ -1,0 +1,61 @@
+{% extends 'NewTemplateBundle::base.html.twig' %}
+{% block stylesheets %}
+    {{ parent() }}
+<style type="text/css">
+ /***
+ * Estilos Cargados por:
+ * carlos A Salazar <csalazar@gmail.com>
+ **/
+  .rango {
+    background: linear-gradient(to bottom, #036CA0 0%, #044C72 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border-color: #660000;
+    border-radius: 10px;
+    color: #FFFFFF;
+    float: right;
+    margin: 10px 2.5%;
+    padding: 2.5%;
+    width: 90%;
+}
+table.informes {
+        background-color: #FFFFFF;
+        border: 2px solid #93030A;
+        float: right;
+        height: 100%;
+        list-style: none outside none;
+        margin: 20px 20px 5px;
+        text-align: left;
+}
+
+.informe ul {
+    clear: right;
+    float: right;
+    margin: 0 15px 10px 0;
+    padding: 0;
+}
+.informe li {
+    display: block;
+    float: left;
+    padding: 5px;
+}
+.total {
+   background-color: #CCCCCC;
+}
+table.informes span, .leyenda span {
+    display: inline-block;
+    height: 1em;
+    width: auto;
+}
+
+</style>
+
+{%endblock%}
+
+{% block content_content %}    
+{%endblock %}    
+
+{% block foot_script_assetic %}
+    {#<script src="//code.highcharts.com/4.0.1/highcharts.js"></script>
+    <script src="//code.highcharts.com/4.0.1/modules/exporting.js"></script>#}
+{% endblock foot_script_assetic %}
+{% block JsCharts %}            
+{% endblock JsCharts %}            

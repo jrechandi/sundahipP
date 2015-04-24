@@ -1,0 +1,193 @@
+{% extends 'NewTemplateBundle::base.html.twig' %}
+
+{% block stylesheets %}
+	{{ parent() }}
+	<link href="{{ asset('bundles/solicitudescitas/css/genstyles.css')}}" rel="stylesheet">
+	<link href="{{ asset('bundles/solicitudescitas/css/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" media="print">
+
+{% endblock stylesheets %}
+
+{% block content_content %}
+    <div class="block-separator col-sm-12"></div>
+	<div class="tit_principal">Editar Clasificación de Licencia</div>
+	<div class="row col-lg-12">
+		<div class="form-horizontal">
+			{{ form_start(edit_form) }}
+				<div class="form-group">
+					<div class="col-md-12">
+						{{ form_errors(edit_form) }}
+					</div>
+					<div class="col-md-12">Los campos con <span class="oblig">(*)</span> son obligatorios</div><br/>
+				</div>
+
+				<div class="form-group{% if edit_form.clasfLicencia.vars.errors[0].message is defined %} has-error{% endif %}">
+					{{ form_label(edit_form.clasfLicencia, null, {'label_attr': {'class': ' col-md-3 control-label text-left'} }) }}
+					<div class="col-md-8">
+						{{ form_widget(edit_form.clasfLicencia, {'attr': {'class': 'form-control'}}) }}
+
+						{% if edit_form.clasfLicencia.vars.errors[0].message is defined %}
+							<span class="help-block ">
+								Ingrese una Licencia V&aacute;lida
+								{{ form.clasfLicencia.vars.errors[0].message }}
+							</span>
+						{% endif %}
+					</div >
+				</div>
+
+				<div class="form-group{% if edit_form.admTiposLicencias.vars.errors[0].message is defined %} has-error{% endif %}">
+					{{ form_label(edit_form.admTiposLicencias, null, {'label_attr': {'class': ' col-md-3 control-label text-left'} }) }}
+					<div class="col-md-8">
+						{{ form_widget(edit_form.admTiposLicencias, {'attr': {'class': 'form-control'}}) }}
+
+						{% if edit_form.admTiposLicencias.vars.errors[0].message is defined %}
+							<span class="help-block ">
+								Seleccionar
+								{{ form.admTiposLicencias.vars.errors[0].message }}
+							</span>
+						{% endif %}
+					</div >
+				</div>
+
+				<div class="form-group{% if edit_form.admRecaudosLicencias.vars.errors[0].message is defined %} has-error{% endif %}">
+					{{ form_label(edit_form.admRecaudosLicencias, null, {'label_attr': {'class': ' col-md-3 control-label text-left'} }) }}
+					<div class="col-md-8">
+						{{ form_widget(edit_form.admRecaudosLicencias, {'attr': {'class': 'form-control'}}) }}
+
+						{% if edit_form.admRecaudosLicencias.vars.errors[0].message is defined %}
+							<span class="help-block ">
+								Seleccionar
+								{{ form.admRecaudosLicencias.vars.errors[0].message }}
+							</span>
+						{% endif %}
+					</div >
+				</div>
+
+				<div class="form-group{% if edit_form.admJuegosExplotados.vars.errors[0].message is defined %} has-error{% endif %}">
+					{{ form_label(edit_form.admJuegosExplotados, null, {'label_attr': {'class': ' col-md-3 control-label text-left'} }) }}
+					<div class="col-md-8">
+						{{ form_widget(edit_form.admJuegosExplotados, {'attr': {'class': 'form-control'}}) }}
+
+						{% if edit_form.admJuegosExplotados.vars.errors[0].message is defined %}
+							<span class="help-block ">
+								Seleccionar
+								{{ form.admJuegosExplotados.vars.errors[0].message }}
+							</span>
+						{% endif %}
+					</div >
+				</div>
+
+				<div class="form-group{% if edit_form.solicitudUt.vars.errors[0].message is defined %} has-error{% endif %}">
+					{{ form_label(edit_form.solicitudUt, null, {'label_attr': {'class': ' col-md-3 control-label text-left'} }) }}
+					<div class="col-md-8">
+						{{ form_widget(edit_form.solicitudUt, {'attr': {'class': 'form-control', 'min': '0'}}) }}
+
+						{% if edit_form.solicitudUt.vars.errors[0].message is defined %}
+							<span class="help-block ">
+								Ingrese un monto V&aacute;lida
+								{{ form.solicitudUt.vars.errors[0].message }}
+							</span>
+						{% endif %}
+					</div >
+				</div>
+
+				<div class="form-group{% if edit_form.otorgamientoUt.vars.errors[0].message is defined %} has-error{% endif %}">
+					{{ form_label(edit_form.otorgamientoUt, null, {'label_attr': {'class': ' col-md-3 control-label text-left'} }) }}
+					<div class="col-md-8">
+						{{ form_widget(edit_form.otorgamientoUt, {'attr': {'class': 'form-control', 'min': '0'}}) }}
+
+						{% if edit_form.otorgamientoUt.vars.errors[0].message is defined %}
+							<span class="help-block ">
+								Ingrese un monto V&aacute;lida
+								{{ form.otorgamientoUt.vars.errors[0].message }}
+							</span>
+						{% endif %}
+					</div >
+				</div>
+                                
+                                <div class="form-group{% if edit_form.codLicencia.vars.errors[0].message is defined %} has-error{% endif %}">
+					{{ form_label(edit_form.codLicencia, null, {'label_attr': {'class': ' col-md-3 control-label text-left'} }) }}
+					<div class="col-md-8">
+						{{ form_widget(edit_form.codLicencia, {'attr': {'class': 'form-control', 'min': '0'}}) }}
+
+						{% if edit_form.otorgamientoUt.vars.errors[0].message is defined %}
+							<span class="help-block ">
+								Ingrese un código válido
+								{{ form.codLicencia.vars.errors[0].message }}
+							</span>
+						{% endif %}
+					</div >
+				</div>
+                        
+                                <div class="form-group{% if edit_form.hasOperadora.vars.errors[0].message is defined %} has-error{% endif %}">
+					{{ form_label(edit_form.hasOperadora, null, {'label_attr': {'class': ' col-md-3 control-label text-left'} }) }}
+					<div class="col-md-8">
+						{{ form_widget(edit_form.hasOperadora, {'attr': {'class': 'form-control'}}) }}
+
+						{% if edit_form.hasOperadora.vars.errors[0].message is defined %}
+							<span class="help-block ">
+								Seleccionar 
+								{{ form.hasOperadora.vars.errors[0].message }}
+							</span>
+						{% endif %}
+					</div >
+				</div>
+                        
+                                <div class="form-group{% if edit_form.hasHipodromo.vars.errors[0].message is defined %} has-error{% endif %}">
+					{{ form_label(edit_form.hasHipodromo, null, {'label_attr': {'class': ' col-md-3 control-label text-left'} }) }}
+					<div class="col-md-8">
+						{{ form_widget(edit_form.hasHipodromo, {'attr': {'class': 'form-control'}}) }}
+
+						{% if edit_form.hasHipodromo.vars.errors[0].message is defined %}
+							<span class="help-block ">
+								Seleccionar 
+								{{ form.hasHipodromo.vars.errors[0].message }}
+							</span>
+						{% endif %}
+					</div >
+				</div>
+
+				<div class="form-group{% if edit_form.status.vars.errors[0].message is defined %} has-error{% endif %}">
+					{{ form_label(edit_form.status, null, {'label_attr': {'class': ' col-md-3 control-label text-left'} }) }}
+					<div class="col-md-8">
+						{{ form_widget(edit_form.status, {'attr': {'class': 'form-control'}}) }}
+
+						{% if edit_form.status.vars.errors[0].message is defined %}
+							<span class="help-block ">
+								Seleccionar
+								{{ form.status.vars.errors[0].message }}
+							</span>
+						{% endif %}
+					</div >
+				</div>
+
+				<div class="block-separator col-md-12"></div>
+
+				<div class="col-md-12 col-md-offset-2 form-group btn-group">
+					<div class="col-md-6" style="text-align:center"><a href="{{ path('admclasflicencias') }}" class="btn btn-primary btn-sm ">Regresar</a></div>
+					{#<div class="col-md-4" style="text-align:center"><a href="#" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#myModal">Eliminar</a></div>#}
+					<div class="col-md-6" style="text-align:center">{{ form_widget(edit_form.submit) }}</div>
+				</div>
+			{{ form_end(edit_form) }}
+		</div>
+	</div>
+
+	<!-- Modal -->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Cerrar</span></button>
+					<h4 class="modal-title" id="myModalLabel">Eliminar el Registro</h4>
+				</div>
+				<div class="modal-body">
+					Realmente desea eliminar el registro <b>"{{edit_form.vars.value.clasfLicencia}}"</b>?
+				</div>
+				<div class="modal-footer">
+					{{ form_start(delete_form) }}
+					{{ form_widget(delete_form.submit) }}
+					{{ form_end(delete_form) }}
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock content_content %}

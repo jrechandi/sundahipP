@@ -1,0 +1,204 @@
+{% extends "NewTemplateBundle::base.html.twig" %}
+
+{% block content_content %}
+    
+    <div class="block-separator col-sm-12"></div>
+    <div class="col-md-12">
+            <h1 class="tit_principal">Modificar Datos Básicos</h1>
+    </div>
+    <div class="col-md-12"><p>Los campos con <span class="oblig">*</span> son obligatorios</p></div>
+           <div class="col-md-12">
+                {{ form_errors(form) }}  
+            </div>
+    <div class="col-md-12"> 
+    {{ form_start(form, {'attr': {'class':'form-horizontal form-datos-basicos','role':"form",'style':'width:85%','id':'extra_user_profile'}}) }}
+       <table id="tabla_reporte2" class="bg-white text-left table">				
+           <thead>
+            <tr id="table_header2">
+              <td colspan="4">Datos Básicos </td>
+            </tr> 
+           </thead>  
+      <tbody>      
+        <tr> 
+          {#{{ form_label(form.nombre, null, {'label_attr': {'class': ' col-md-12 control-label text-left'} }) }}#}  
+          <td ><label for="ci" class="col-md-12 control-label text-left padding-1">CI</label></td>
+          <td> 
+              {#<select name="ci" class="input-mini" disabled="disabled">
+                 <option>{{ app.user.perfil[0].getPersJuridica }}</option>
+              </select>
+               <input type="text" name="cedula" required="required" value="{{ app.user.perfil[0].getCi }}" disabled="disabled" size="10" class="input-mini" /> 
+              #}
+              {{ app.user.perfil[0].getPersJuridica }}-{{ app.user.perfil[0].getCi }}
+        </td> 
+          <td ><label for="rif_t" class="col-md-12 control-label text-left">RIF</label></td>
+          <td>
+              {#<select name="rif_t" disabled="disabled" class="input-mini">
+                 <option>{{ app.user.perfil[0].getPersJuridica }}</option>
+               </select>
+               <input type="text" class="input-mini" required="required" value="{{ app.user.perfil[0].getRif }}" disabled="disabled" size="10" />#}
+               {{ app.user.perfil[0].getPersJuridica }}-{{ app.user.perfil[0].getRif }}
+         </td>  
+    </tr>
+    <tr>
+        <td ><label for="nombre" class="col-md-12 padding-1 control-label">Nombre</label></td>
+            <td >{#<input type="text" disabled="disabled" value="{{ app.user.perfil[0].getNombre }}" class="input-mini">#}
+                {{ app.user.perfil[0].getNombre }}
+            </td>
+        <td ><label for="ci" class="col-md-12 padding-1 control-label">Apellido</label></td>
+            <td >
+                {#<input type="text" disabled="disabled" value="{{ app.user.perfil[0].getApellido }}" class="input-mini">#}
+                {{ app.user.perfil[0].getApellido }}
+            </td>
+    </tr>  
+    <tr>
+        <td >{{ form_label(form.estado, null, { 'label_attr': { 'class':'col-sm-12 padding-1'} }) }}</td>
+        <td >{{ form_widget(form.estado) }}
+            {% if form.estado.vars.errors[0].message is defined %}
+                    <span class="help-block ">
+                        {{ form.estado.vars.errors[0].message }}
+                    </span>
+           {% endif %}
+        </td>
+    {#verificando que los datos ya vengan con ciudades y municipios pre-cargados#}
+    <td ><label class="col-sm-12 padding-1">Municipio <span class="oblig">*</span></label>
+         <input type="hidden" id="validaCiudMunParro" value="-1">
+     </td>           
+            <td>
+                {{ form_widget(form.municipio, { 'attr': { 'class':'municipio', 'required':'required' }}) }}
+                  {% if form.municipio.vars.errors[0].message is defined %}
+                    <span class="help-block ">
+                        {{ form.municipio.vars.errors[0].message }}
+                    </span>
+                  {% endif %} 
+            </td>             
+        </tr> 
+        <tr>
+            <td>{{ form_label(form.ciudad, null,{'label_attr':{ 'class':'col-md-12 padding-1'} })}}</td>
+            <td>{{ form_widget(form.ciudad,{'attr':{'required':'required'} })}}
+                {% if form.ciudad.vars.errors[0].message is defined %}
+                    <span class="help-block ">
+                        {{ form.ciudad.vars.errors[0].message }}
+                    </span>
+                    {% endif %}
+            </td>
+            <td><label class="col-md-12 padding-1" >Parroquia <span class="oblig">*</span></label></td>
+            <td> 
+                {{ form_widget(form.parroquia, { 'attr': {'class':'parroquia', 'required':'required' }}) }} 
+            </td>
+     </tr> 
+     <tr>
+         <td> {{ form_label(form.urbanizacion, null, { 'label_attr': { 'class':'col-md-12 padding-1' }}) }}</td>
+          <td >{{ form_widget(form.urbanizacion) }}
+                 {% if form.urbanizacion.vars.errors[0].message is defined %}
+                    <span class="help-block ">
+                        {{ form.urbanizacion.vars.errors[0].message }}
+                    </span>
+                    {% endif %}
+          </td>
+          <td >{{ form_label(form.calle, null, { 'label_attr': { 'class':'col-md-12 padding-1' }}) }}</td>
+          <td >{{ form_widget(form.calle) }}
+                  {% if form.calle.vars.errors[0].message is defined %}
+                    <span class="help-block ">
+                        {{ form.calle.vars.errors[0].message }}
+                    </span>
+                    {% endif %}
+          </td>
+      </tr>
+      <tr> 
+          <td >{{ form_label(form.apartamento, null, { 'label_attr': { 'class':'col-md-12 padding-1' } }) }}</td>
+            <td >{{ form_widget(form.apartamento) }}
+                  {% if form.apartamento.vars.errors[0].message is defined %}
+                    <span class="help-block ">
+                        {{ form.apartamento.vars.errors[0].message }}
+                    </span>
+                    {% endif %}
+            </td>
+            <td >{{ form_label(form.apartamento_no, null, { 'label_attr': { 'class':'col-md-12 padding-1' }}) }}</td>
+            <td >{{ form_widget(form.apartamento_no) }}
+                  {% if form.apartamento_no.vars.errors[0].message is defined %}
+                    <span class="help-block ">
+                        {{ form.apartamento_no.vars.errors[0].message }}
+                    </span>
+                    {% endif %}
+            </td>
+       </tr>      
+       <tr> 
+           <td >{{ form_label(form.referencia, null, { 'label_attr': { 'class':'col-md-12 padding-1' } }) }}</td>
+            <td >{{ form_widget(form.referencia) }}
+                 {% if form.referencia.vars.errors[0].message is defined %}
+                    <span class="help-block ">
+                        {{ form.referencia.vars.errors[0].message }}
+                    </span>
+                    {% endif %}
+            </td>
+            <td >{{ form_label(form.codigo_postal, null, { 'label_attr': { 'class':'col-md-12 padding-1' }}) }}</td>
+            <td >{{ form_widget(form.codigo_postal) }}</td>
+       </tr>
+       <tr>
+           <td >{{ form_label(form.fax, null, { 'label_attr': { 'class':'col-md-12 padding-1' }}) }}</td>
+            <td >{{ form_widget(form.cod_fax, {'attr': {'class': 'col-md-4'} }) }}
+                 {{ form_widget(form.fax, {'attr': {'class': 'col-md-6'} }) }}
+            
+            </td>
+            <td >{{ form_label(form.cod_telefono_local, null, { 'label_attr': { 'class':'col-md-12 padding-1' }}) }}</td>
+            <td >{{ form_widget(form.cod_telefono_local, {'attr': {'class': 'col-md-4'} }) }}
+                 {{ form_widget(form.telefono_local, {'attr': {'class': 'col-md-6'} }) }}
+             </td>
+       </tr>
+       <tr>
+           <td >{{ form_label(form.cod_telefono_movil, null, { 'label_attr': { 'class':'col-md-12 padding-1' }}) }}</td>
+            <td >{{ form_widget(form.cod_telefono_movil, {'attr': {'class': 'col-md-4'} }) }}
+                 {{ form_widget(form.telefono_movil, {'attr': {'class': 'col-md-6'} }) }}
+           </td>
+        <td >{{ form_label(form.correo_alternativo, null, { 'label_attr': { 'class':'col-md-12 padding-1' }}) }}</td>
+         <td >{{ form_widget(form.correo_alternativo) }}</td>
+      </tr> 
+      <tr>
+          <td >{{ form_label(form.sitio_web, null, { 'label_attr': { 'class':'col-md-12 padding-1'} })}}</td>
+          <td colspan="3">{{ form_widget(form.sitio_web, {'attr': {'size':'70'} })}}</td>
+       </tr>      
+    </tbody>
+   </table>
+ <div class="col-md-12">
+    <div style="float:left">
+        <a href="{{ path('datos-basicos') }}" class="btn btn-success btn-sm">Regresar</a>
+    </div>
+    <div style="float:right">
+        <button id="form_btn" type="submit" class="btn btn-primary btn-sm">Guardar</button>
+    </div>
+</div>
+    {{ form_widget(form._token) }}
+    {{ form_end(form) }}
+    <div class="block-separator col-md-12"></div> 
+    
+</div><!-- Fin Content -->               
+  
+{% endblock %}
+
+{% block script_base %}
+    <script src="{{asset('bundles/centrohipico/js/resource.js')}}"></script>
+    <script src="{{asset('bundles/user/js/registro.js')}}"></script>
+   <script src="{{asset('bundles/user/js/DatosBasicos/validate.js')}}"></script>
+<script type="text/javascript" >
+$(document).ready(function(){
+  $(".form-horizontal").removeClass('form-horizontal');
+  $(".form-control").removeClass('form-control');
+  // estado, municipio, parroquia, ciudad
+  $(".estados").change(function() {
+    estado = $(this).val();
+    {#resetea la parroquia#}
+    $('.parroquia').val('');
+    var Rmunicipio=Routing.generate('municipios', {estado_id: estado||0});
+    getSelect(Rmunicipio,'.municipio',"Municipio");
+  });
+
+  $(".municipio").change(function() {
+    municipio = $(this).val();
+    var Rparroquia=Routing.generate('parroquias', {municipio_id: municipio||0});
+    getSelect(Rparroquia,'.parroquia',"Parroquia");
+  });
+  $('.estados').change();
+  $('.municipio').change();
+});
+</script>         
+{% endblock  %}

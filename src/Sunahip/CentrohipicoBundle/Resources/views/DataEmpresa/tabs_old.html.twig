@@ -1,0 +1,157 @@
+<div class="row col-lg-12">
+    {{ form_start(form,{'attr':{'id':'form_dch'}}) }}
+    <div id="tabs">
+        <ul>
+            <li><a href="#data">Datos Empresa</a></li>
+            <li><a href="#dataLegal">Datos Legales</a></li>
+            <li><a href="#dataPartner">Socios</a></li>
+        </ul>
+        <div id="temp"><h3> Espere un momento</h3> </div>
+        <div id="data" style="display:none">
+            {% include 'CentrohipicoBundle:DataEmpresa:form.html.twig'  %}
+        </div>
+        <div id="dataLegal" style="display:none;">
+            {% include 'CentrohipicoBundle:DataEmpresa:formLegal.html.twig' %}
+        </div>
+        <div id="dataPartner" style="display:none;">
+            <style>
+                .socios li{
+                    background: none repeat scroll 0 0 #E4E4E4;
+                    color: #5C5C56;
+                    text-align: left;
+                }
+                .socios .form-group{
+                    padding:10px !important;
+                    margin-bottom: 18px !important;
+                }
+
+                .socios .form-group .form-control{
+                    border-radius: 0px !important;
+                    width: 70% !important;
+                    height: 28px !important;
+                }
+            </style>
+
+            <table id="tabla_reporte2" class="socios tabla_reporte2" data-prototype="{{ form_widget(form.socios.vars.prototype)|e }}">
+                <tr id="table_header2">
+                    <td colspan="4">Datos del socio</td>
+                </tr>
+                {% for socio in form.socios %}
+                    <tr>
+                        <td> {{ form_row(socio.nombreComercial) }} </td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+        {{ form_widget(form._token) }}
+    </div>
+    <div class="col-md-12 form-group btn-group">
+        <div style="float: left">
+            <a href="{{ path('home') }}" class="btn btn-success btn-sm">Regresar</a>
+        </div>
+        <div style="float: right">
+            <button id="form_btn" type="submit" class="btn btn-primary btn-sm">Guardar</button>
+        </div>
+    </div>
+    </form>
+</div>
+
+<script>
+
+    var valid = false;
+    var form = $('#form_dch');
+
+    function verifyRif()
+    {
+        var rifType = $("#sunahip_centrohipicobundle_dataempresa_persJuridica").val();
+        var rifNumber = $("#sunahip_centrohipicobundle_dataempresa_rif").val();
+        var url = Routing.generate('empresa_verificar_rif',{'rifType': rifType, 'rifNumber' : rifNumber});
+        $.get(url, function( data ) {
+            if(data.status == true)
+            {
+                alert("El rif de la empresa ya se encuentra registrado");
+            }
+            else
+            {
+                form.unbind().submit();
+            }
+
+            return valid;
+        });
+    }
+
+    jQuery(document).ready(function() {
+        form.on('submit', function(event) {
+            event.stopPropagation();
+            event.preventDefault();
+            verifyRif();
+        });
+    });
+
+
+    var $collectionHolder;
+
+    // setup an "add a tag" link
+    var $addTagLink = $('<a href="#" class="add_socio_link">Agregar un socio</a>');
+    var $newLinkLi = $('<tr></tr>').append($addTagLink);
+
+    jQuery(document).ready(function() {
+        // Get the ul that holds the collection of tags
+        $collectionHolder = $('table.socios');
+
+        // add a delete link to all of the existing tag form li elements
+        $collectionHolder.find('li').each(function() {
+            addTagFormDeleteLink($(this));
+        });
+
+        // ... the rest of the block from above
+
+        // add the "add a tag" anchor and li to the tags ul
+        $collectionHolder.append($newLinkLi);
+
+        // count the current form inputs we have (e.g. 2), use that as the new
+        // index when inserting a new item (e.g. 2)
+        $collectionHolder.data('index', $collectionHolder.find(':input').length);
+
+        $addTagLink.on('click', function(e) {
+            // prevent the link from creating a "#" on the URL
+            e.preventDefault();
+
+            // add a new tag form (see next code block)
+            addTagForm($collectionHolder, $newLinkLi);
+        });
+    });
+
+    function addTagForm($collectionHolder, $newLinkLi) {
+        // Get the data-prototype explained earlier
+        var prototype = $collectionHolder.data('prototype');
+
+        // get the new index
+        var index = $collectionHolder.data('index');
+
+        // Replace '__name__' in the prototype's HTML to
+        // instead be a number based on how many items we have
+        var newForm = prototype.replace(/__name__/g, index);
+
+        // increase the index with one for the next item
+        $collectionHolder.data('index', index + 1);
+
+        // Display the form in the page in an li, before the "Add a tag" link li
+        var $newFormLi = $('<tr></tr>').append(newForm);
+        $newLinkLi.before($newFormLi);
+    }
+
+    function addTagFormDeleteLink($tagFormLi) {
+        var $removeFormA = $('<a href="#">Eliminar socio</a>');
+        $tagFormLi.append($removeFormA);
+
+        $removeFormA.on('click', function(e) {
+            // prevent the link from creating a "#" on the URL
+            e.preventDefault();
+
+            // remove the li for the tag form
+            $tagFormLi.remove();
+        });
+    }
+
+</script>

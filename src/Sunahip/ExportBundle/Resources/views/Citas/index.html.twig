@@ -1,0 +1,66 @@
+{% extends "ExportBundle:Citas:listar.html.twig" %}
+{% block main_title %}Citas{% endblock %}
+{% block headers %}
+    <th>Nº</th>
+    <th>RIF</th>   
+    <th>D. Comercial </th>
+    <th>Tipo de Licencia</th>
+    <th>Fecha Cita</th>
+    <th>Bloque</th>
+    <th>Tipo Operación</th>
+    <th>F. Creación</th>
+    <th>F. Actualización</th>
+    <th>Estatus</th>
+
+{% endblock %}
+ {% block export %}
+      {{ include('ExportBundle::iconslink.html.twig', {'pdf':'exportpdf_citas','xcel':'exportxls_citas'}) }}
+{%endblock export%}
+{% block columns %}
+    {% set centro = entity.centroHipico | default(entity.operadora) %}
+    <tr>
+        <td>{{loop.index}}</td>
+        <td>{{centro.persJuridica}}-{{centro.rif}}</td>
+        <td>{{centro.denominacionComercial}}</td>
+        <td>{{entity.ClasLicencia}}</td>
+        <td>{{entity.cita.fechaSolicitud | date('d/m/Y')}} </td>
+        <td>{{entity.cita.fechaSolicitud | date('A')}} </td>
+        <td>{{entity.tipoSolicitud}}</td>
+        <td>{{entity.fechaSolicitud | date('d/m/Y')}}</td>
+        <td>{{entity.fechaSolicitud | date('d/m/Y')}}</td>
+        <td>{{entity.status}}</td>
+    </tr>
+{% endblock %}
+{% extends "ExportBundle:Citas:listar.html.twig" %}
+{% block main_title %}Citas{% endblock %}
+{% block headers %}
+    <th>Nº</th>
+    <th>RIF</th>   
+    <th>D. Comercial </th>
+    <th>Tipo de Licencia</th>
+    <th>Fecha Cita</th>
+    <th>Bloque</th>
+    <th>Tipo Operación</th>
+    <th>F. Creación</th>
+    <th>F. Actualización</th>
+    <th>Estatus</th>
+
+{% endblock %}
+ {% block export %}
+      {{ include('ExportBundle::iconslink.html.twig', {'pdf':'exportpdf_citas','xcel':'exportxls_citas'}) }}
+{%endblock export%}
+{% block columns %}
+    {% set centro = entity.centroHipico | default(entity.operadora) %}
+    <tr>
+        <td>{{loop.index}}</td>
+        <td>{{centro.persJuridica}}-{{centro.rif}}</td>
+        <td>{{centro.denominacionComercial}}</td>
+        <td>{{entity.ClasLicencia}}</td>
+        <td>{{entity.cita.fechaSolicitud | date('d/m/Y')}} </td>
+        <td>{{entity.cita.fechaSolicitud | date('A')}} </td>
+        <td>{{entity.tipoSolicitud}}</td>
+        <td>{{entity.fechaSolicitud | date('d/m/Y')}}</td>
+        <td>{{entity.fechaSolicitud | date('d/m/Y')}}</td>
+        <td>{{entity.status}}</td>
+    </tr>
+{% endblock %}

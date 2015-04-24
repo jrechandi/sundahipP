@@ -1,0 +1,48 @@
+{% extends 'FiscalizacionBundle::pdf.html.twig' %}
+{% set centro = entity.centro | default(entity.operadora) %}
+
+{% block content_content %}
+<p><u>Ciudadano</u><br>
+<strong>ROBERTO IDROBO</strong><br />
+Superintendente Nacional de Actividades Hípicas <br/>
+
+Su despacho.-</p>
+<p>
+Yo, <strong>{{entity.responsable | upper}}</strong>, venezolano(a), mayor de 
+
+edad, titular de la cédula de identidad No <strong>{{entity.cedula}}</strong>, actuando en mi 
+
+carácter de representante legal y/o encargado(a) de la sociedad mercantil o 
+
+establecimiento comercial identificado como <strong>{{centro.denominacionComercial | upper}}</strong>, 
+
+lugar en el cual fue verificada la presunta explotación ilícita de la actividad hípica, 
+
+mediante el presente documento declaro:</p>
+
+<p>RECONOZOCO y ACEPTO el aprovechamiento ilegal de la actividad hípica 
+
+que fue verificado a través del procedimiento de fiscalización llevado a cabo por la 
+
+Superintendencia Nacional de Actividades Hípicas en el establecimiento 
+
+mencionado en líneas anteriores; en consecuencia, manifiesto mi determinada y 
+
+libre voluntad de que me sea impuesta de forma inmediata la sanción pecuniaria 
+
+que corresponda de acuerdo con el ilícito verificado, y que actualmente he 
+
+admitido. Asimismo, resalto mi disposición y firme compromiso con el pago 
+
+oportuno, adecuado y eficaz de la sanción que el mencionado Organismo
+
+considere pertinente aplicar.</p>
+
+<p>Sin otro particular al cual hacer referencia.</p>
+
+<div class="center">
+<p>Atentamente</p>
+<p>________________________</p>
+<p>En <strong>{{centro.ciudad}}</strong>, a los {{"now"|date("d") }} días del mes de {{ mes["now"|date("n")] | upper }} de {{"now"|date("Y")}} .</p>
+</div>
+{% endblock %}

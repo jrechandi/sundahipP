@@ -1,0 +1,163 @@
+{% extends "NewTemplateBundle::base.html.twig" %}
+
+{% block content_content %}
+    <div class="block-separator col-sm-12"></div>
+    <div class="row col-sm-12">
+        <h1>Listado de Usuarios</h1>
+    </div>
+
+    <div class="block-separator col-sm-12"></div>
+    <div class="row">
+        <div class="col-sm-2">
+            <a href="{{ path('nuevo-usuario') }}" class="btn btn-primary btn-sm "><i class="icon-plus-sign"></i> Agregar usuario</a>
+        </div>
+        <div class="col-sm-2 block-separator"></div>
+    </div>
+
+    <div class="col-md-7" style="float:right">
+        <form action="" method="get" class="form-horizontal">                
+            <input type="search" name="keyword" style="float: left; margin-right: 10px; height: 32px" id="txtKeyword" aria-controls="dt_basic" value="{{ app.request.get('keyword') }}">
+            <select class="form-control" name="role" style="height: 32px; margin-right: 10px; width: 160px !important; display: inline !important">
+                <option value="">Todos</option>
+                {% for key, role in roles %}
+                    <option value="{{ key }}" {% if app.request.get('role') == key %} selected {% endif %} >{{ role }}</option>
+                {% endfor %}
+            </select>
+            <input type="submit" style="float:right; height: 32px" class="btn btn-primary" value="Buscar">
+        </form>
+        <div class="col-sm-5 block-separator"></div>
+    </div>    
+    <div id="action">
+        <div class="left">
+            {% if usuarios | length > 0 %}
+                <article class="col-sm-12 col-md-12 col-lg-12 sortable-grid ui-sortable" style="width: 50%">
+                    {{ knp_pagination_render(usuarios) }}
+                </article>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="col-md-12">
+        <table class="table records_list table-condensed table-striped table-hover text-center">
+            <thead>
+                <tr>
+                    <th>Usuario</th>
+                    <th>Nombre</th>
+                    <th>Perfil</th>
+                    <th>Correo</th>
+                    <th>Activo</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for usuario in usuarios %}
+                    <tr>
+                        <td>{{ usuario.username|e }}</td>
+                        <td>{{ usuario.perfil[0].getNombre|default('Sin datos')|e }} {{ usuario.perfil[0].getApellido|default('Sin datos')|e }}</td>
+                        <td>
+                            {% if usuario.perfil[0].getRoleType != "" %}
+                                {% if usuario.perfil[0].getRoleType == "ROLE_ADMIN" %}
+                                    Administrador
+                                {% elseif usuario.perfil[0].getRoleType == "ROLE_CENTRO_HIPICO" %}
+                                    Usuario Centro Hípico
+                                {% elseif usuario.perfil[0].getRoleType == "ROLE_OPERADOR" %}
+                                    Usuario Operadora
+                                {% elseif usuario.perfil[0].getRoleType == "ROLE_GERENTE" %}
+                                    Gerente
+                                {% elseif usuario.perfil[0].getRoleType == "ROLE_FISCAL" %}
+                                    Fiscal
+                                {% elseif usuario.perfil[0].getRoleType == "ROLE_ASESOR" %}
+                                    Asesor Legal
+                                {% elseif usuario.perfil[0].getRoleType == "ROLE_SUPERINTENDENTE" %}
+                                    Superintendente
+                                {% elseif usuario.perfil[0].getRoleType == "ROLE_COORDINADOR" %}
+                                    Coordinador
+                                {% else %}
+                                {% endif %}
+                            {% else %}
+                                Sin Datos
+                            {% endif %}
+                        </td>
+                        <td>{{ usuario.email|e }}</td>
+                        <td class="text-center">{% if usuario.enabled == "1" %}<i class="fa fa-check-circle-o"></i>{% else %}<i class="fa fa-times-circle-o"></i>{% endif %}</td>
+                        <td class="text-center">
+                            {% if usuario.enabled == "1" %}
+                                {% if usuario.id != app.user.id and is_granted("ROLE_ADMIN") %}
+                                    <a data-href="{{ path('cambiar-estado-usuario', {'user_id': usuario.id, 'estado_id': 0 }) }}" data-toggle="modal" data-target="#confirm-disable" href="#"><i class="fa fa-minus-square-o" data-toggle="tooltip" data-placement="top" title="Desactivar"></i></a>
+                                {% endif %}
+                            {% else %}
+                                <a data-href="{{ path('cambiar-estado-usuario', {'user_id': usuario.id, 'estado_id': 1 }) }}" data-toggle="modal" data-target="#confirm-enable" href="#"><i class="fa fa-plus-square-o" data-toggle="tooltip" data-placement="top" title="Activar"></i></a>
+                            {% endif %}
+                            <a href="{{ path('editar-usuario', {'user_id': usuario.id}) }}"><i class="fa fa-pencil-square-o" data-toggle="tooltip" data-placement="top" title="Editar"></i></a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="block-separator col-sm-12"></div>
+
+    <div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    Eliminar usuario
+                </div>
+                <div class="modal-body">
+                    Está seguro de eliminar el usuario?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                    <a href="#" class="btn btn-danger danger">Eliminar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="confirm-enable" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    Activar Usuario
+                </div>
+                <div class="modal-body">
+                    ¿Está seguro que desea activar el usuario?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                    <a href="#" class="btn btn-danger danger">Aceptar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="confirm-disable" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    Desactivar Usuario
+                </div>
+                <div class="modal-body">
+                    ¿Está seguro que desea desactivar el usuario?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                    <a href="#" class="btn btn-danger danger">Aceptar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block script_base %}
+    {{ parent() }}
+    <script type="text/javascript">
+        $('#confirm-delete').on('show.bs.modal', function(e) {
+            $(this).find('.danger').attr('href', $(e.relatedTarget).data('href'));
+        });
+        $('#confirm-enable').on('show.bs.modal', function(e) {
+            $(this).find('.danger').attr('href', $(e.relatedTarget).data('href'));
+        });
+        $('#confirm-disable').on('show.bs.modal', function(e) {
+            $(this).find('.danger').attr('href', $(e.relatedTarget).data('href'));
+        });
+
+    </script>
+{% endblock %}

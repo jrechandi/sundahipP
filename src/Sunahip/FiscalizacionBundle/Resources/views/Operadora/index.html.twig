@@ -1,0 +1,34 @@
+{% extends 'FiscalizacionBundle::listar.html.twig' %}
+
+{% block main_title %}Operadoras{% endblock %}
+
+{% block headers %}
+    <th>RIF</th>
+    <th>Operadora</th>
+    <th>Fecha de Afiliacion</th>
+    <th>Tipo licencia</th>
+    <th> Nº  DE LICENCIA</th>
+    <th>ESTATUS</th>
+    <th> Nº AFILIADOS</th>
+    <th>APORTE MENSUAL (BS.)</th>
+
+{% endblock %}
+ {% block export %}
+      {{ include('ExportBundle::iconslink.html.twig', {'pdf':'exportpdf_gerente_operadoras','xcel':'exportxls_gerente_operadoras'}) }}
+{%endblock export%}
+{% block columns %}
+<tr>
+    <td>{{entity.persJuridica}}-{{entity.rif}}</td>
+    <td>{{entity.denominacionComercial}}</td>
+    <td>{{entity.fechaRegistro | date('d/m/Y') }}</td>
+    <td>
+        {% for i in entity.licenciasAprob %}
+         {{i.numLicencia}}
+        {% endfor %}
+    </td>
+    <td></td>
+    <td>{{entity.status }}</td>
+    <td></td>
+    <td></td>
+</tr>
+{% endblock %}

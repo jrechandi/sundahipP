@@ -1,0 +1,66 @@
+{% extends 'NewTemplateBundle::base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('bundles/solicitudescitas/css/genstyles.css')}}" rel="stylesheet">
+    <link href="{{ asset('bundles/solicitudescitas/css/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" media="print">
+
+{% endblock stylesheets %}
+
+{% block content_content %}
+    <div class="block-separator col-sm-12"></div>
+    <div class="row col-sm-12">
+        <h1>Listado de Recaudos</h1>
+    </div>
+
+    <div class="block-separator col-sm-12"></div>
+    <div class="row">
+        <div class="col-sm-2">
+            <a href="{{ path('admrecaudoslicencias_new') }}" class="btn btn-primary btn-sm "><i class="icon-plus-sign"></i> Agregar Recaudos</a>
+        </div>
+        <div class="col-sm-10 block-separator"></div>
+    </div>
+<div id="action">
+        <div class="rigth">
+            {% if entities | length > 0 %}
+                <article class="col-sm-12 col-md-12 col-lg-12 sortable-grid ui-sortable" style="width: 50%">
+                    {{ knp_pagination_render(entities) }}
+                </article>
+            {% endif %}
+        </div>
+    </div>
+    <div class="col-md-12">
+        <table class="table table-condensed table-striped">
+            <thead>
+                <tr>
+                    <th>Recaudo</th>
+                    <th>Fecha de Vencimiento</th>
+                    <th>Estatus</th>
+                    <th width="20%" colspan="2" >Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for entity in entities %}
+                <tr>
+                    <td><a href="{{ path('admrecaudoslicencias_show', { 'id': entity.id }) }}">{{ entity.recaudo }}</a></td>
+                    <td>{{ entity.fechaVencimiento==1?'Si':'No' }}</td>
+                    <td>{{ entity.status==1?'Activo':'Inactivo' }}</td>
+                    <td style="text-align:center;">
+                        <a href="{{ path('admrecaudoslicencias_edit', { 'id': entity.id }) }}" class="btn btn-default btn-sm">Editar</a>
+                        <a href="{{ path('admrecaudoslicencias_show', { 'id': entity.id }) }}" class="btn btn-info btn-sm">Mostrar</a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="block-separator col-sm-12"></div>
+    {#<div class="row">
+        <div class="col-sm-2">
+            <a href="{{ path('admrecaudoslicencias_new') }}" class="btn btn-primary btn-sm "><i class="icon-plus-sign"></i> Agregar Recaudos</a>
+        </div>
+        <div class="col-sm-10 block-separator"></div>
+    </div>#}
+
+{% endblock content_content %}

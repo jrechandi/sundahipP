@@ -1,0 +1,21 @@
+<div id="lateral" >
+        <h2 class="text-center">Menú Principal</h2>
+        <div id="" class="col-md-12  sidebar">	
+            <p class="text-center">Bienvenido, <strong>Admin</strong></p><br/>
+            {#<ul class="nav nav-sidebar">#}
+            <ul class="menuu">
+                <li><img src="{{ asset('bundles/common/images/notificacion.png') }}"><a href="#cambio_clave">Notificaciones <span class="notif">2</span></a></li>
+                <li><img src="{{ asset('bundles/common/images/contrasena.png') }}"><a href="#cambio_clave">Cambiar Contrase&ntilde;a</a></li>
+            </ul>
+             <h3 class="text-center"><a href="{{ path('fos_user_security_logout') }}" class="btn btn-default btn-small">Cerrar sesión</a></h3>	
+        </div><br/><p></p>
+
+                            <h3>Control de Citas</h3>
+                            <ul class="menu2">
+                                <li><a href="{{path('solicitudes_citas_create')}}" title="">Citas</a></li>
+                                <li><a href="{{path('nocitafecha')}}" title="">Inhabilitar Fechas</a></li>
+                                <li><a href="#" title="">Bloques de Citas</a></li>
+                            </ul>
+                            
+   
+</div>

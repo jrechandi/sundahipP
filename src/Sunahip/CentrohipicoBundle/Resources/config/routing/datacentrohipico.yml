@@ -1,0 +1,47 @@
+datacentrohipico_list:
+    path:     /
+    defaults: { _controller: "CentrohipicoBundle:DataCentrohipico:index" }
+
+datacentrohipico_list_partner:
+    path:     /socios/
+    defaults: { _controller: "CentrohipicoBundle:DataCentrohipico:partner" }
+
+datacentrohipico_show:
+    path:     /{id}/show
+    defaults: { _controller: "CentrohipicoBundle:DataCentrohipico:show" }
+
+datacentrohipico_new:
+    path:     /crea_ch
+    defaults: { _controller: "CentrohipicoBundle:DataCentrohipico:new" }
+
+datacentrohipico_new_est:
+    path:     /crea_est/
+    defaults: { _controller: "CentrohipicoBundle:DataCentrohipico:newEstablishment" }
+
+datacentrohipico_new_partner:
+    path:     /crea_socio/
+    defaults: { _controller: "CentrohipicoBundle:DataCentrohipico:newPartner" }
+
+datacentrohipico_create:
+    path:     /create_ch
+    defaults: { _controller: "CentrohipicoBundle:DataCentrohipico:create" }
+    requirements: { _method: post }
+
+datacentrohipico_create_est:
+    path:     /create_est/
+    defaults: { _controller: "CentrohipicoBundle:DataCentrohipico:createEstablishment" }
+    requirements: { _method: post }
+
+datacentrohipico_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "CentrohipicoBundle:DataCentrohipico:edit" }
+
+datacentrohipico_update:
+    path:     /{id}/update
+    defaults: { _controller: "CentrohipicoBundle:DataCentrohipico:update" }
+    requirements: { _method: post|put }
+
+datacentrohipico_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "CentrohipicoBundle:DataCentrohipico:delete" }
+    requirements: { _method: post|delete }

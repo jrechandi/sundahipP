@@ -1,0 +1,30 @@
+datalegal:
+    path:     /
+    defaults: { _controller: "CentrohipicoBundle:DataLegal:index" }
+
+datalegal_show:
+    path:     /{id}/show
+    defaults: { _controller: "CentrohipicoBundle:DataLegal:show" }
+
+datalegal_new:
+    path:     /new
+    defaults: { _controller: "CentrohipicoBundle:DataLegal:new" }
+
+datalegal_create:
+    path:     /create
+    defaults: { _controller: "CentrohipicoBundle:DataLegal:create" }
+    requirements: { _method: post }
+
+datalegal_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "CentrohipicoBundle:DataLegal:edit" }
+
+datalegal_update:
+    path:     /{id}/update
+    defaults: { _controller: "CentrohipicoBundle:DataLegal:update" }
+    requirements: { _method: post|put }
+
+datalegal_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "CentrohipicoBundle:DataLegal:delete" }
+    requirements: { _method: post|delete }

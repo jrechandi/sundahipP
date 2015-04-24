@@ -1,0 +1,108 @@
+{% extends "NewTemplateBundle::base.html.twig" %}
+
+{% block content_content %}
+   <div class="block-separator col-sm-12"></div>
+        <div class="col-md-12">
+            <h1 class="tit_principal">Datos Básicos </h1>
+        </div>
+    <div class="block-separator col-sm-12"></div>
+
+    <div class="col-md-12">
+        <table id="tabla_reporte2" class="bg-white text-left table">				
+            <tbody>
+            <tr id="table_header2">
+              <td colspan="4">Detalle Datos Básicos </td>
+            </tr>
+            <tr>
+                <td><label for="ci_t:">C.I</label></td>
+                <td class="text-left">{{ entity.perfil[0].ci }}</td>
+                <td><label for="rif">RIF</label></td>
+                <td>{{ entity.perfil[0].persJuridica }} - {{ entity.perfil[0].rif  }}</td>
+            </tr>
+            <tr>
+                <td><label for="">Nombre</label></td>
+                <td>{{ entity.perfil[0].nombre }}</td>
+                <td><label for="">Apellido</label></td>
+                <td>{{ entity.perfil[0].apellido }}</td>
+            </tr>
+            <tr>
+                <td><label for="">No. Teléfono Fijo</label></td>
+                <td>{{ entity.perfil[0].CodTelefonoLocal }} {{ entity.perfil[0].TelefonoLocal |default('Sin dato')}}</td>
+                <td><label for="">No. Fax</label></td>
+                <td>{{ entity.perfil[0].CodFax }} {{ entity.perfil[0].fax|default('Sin dato') }}</td>
+            </tr>
+            <tr>
+                <td><label for="">No. Teléfono Celular</label></td>
+                <td>{{ entity.perfil[0].CodTelefonoMovil }} {{ entity.perfil[0].TelefonoMovil |default('Sin dato')}}</td>
+                <td><label for="">Correo Electrónico</label> </td>
+                <td>{{ entity.perfil[0].CorreoAlternativo|default('Sin dato')}}</td> 
+            </tr>
+            <tr>
+                <td ><label for="">Página Web</label></td>
+                <td colspan="3">{{ entity.perfil[0].SitioWeb |default('Sin dato')}}</td>
+            </tr>
+   </tbody></table>
+      <table id="tabla_reporte2" class="bg-white table">				
+            <tbody>
+            <tr id="table_header2">
+              <td colspan="4">Detalle Dirección </td>
+            </tr>
+               <tr class="bg-white">
+                <td><label for="">Estado</label></td>
+                <td>{%if entity.perfil[0].estado|length > 0%}
+                        {{ entity.perfil[0].estado.nombre}}
+                     {%else%} Sin Dato   
+                    {%endif%}
+                </td>
+                <td><label for="">Municipio</label></td>
+                     <td>{%if entity.perfil[0].municipio|length > 0%}
+                        {{ entity.perfil[0].municipio.nombre }}
+                        {%else%}Sin dato
+                        {%endif%}
+                    </td>
+            </tr>
+            <tr class="bg-white">
+                <td><label for="">Ciudad</label></td>
+                <td>{%if entity.perfil[0].ciudad|length > 0%}
+                        {{ entity.perfil[0].ciudad }}
+                     {%else %}Sin Dato   
+                    {%endif%}
+                </td>
+                <td><label for="">Parroquia</label></td>
+                <td>{%if entity.perfil[0].parroquia|length > 0%}
+                        {{ entity.perfil[0].parroquia.nombre }}
+                     {%else%}Sin Dato   
+                    {%endif%}
+                </td>
+            </tr>
+            <tr class="bg-white">
+                <td><label for="">Urbanización/Sector</label></td>
+                <td>{{ entity.perfil[0].urbanizacion |default('Sin dato')}}</td>
+                <td><label for="">Avenida/Calle/Carrera</label></td>
+                <td>{{ entity.perfil[0].calle |default('Sin dato')}}</td>
+            </tr>
+            <tr class="bg-white">
+                <td><label for="">Edificio/Casa</label></td>
+                <td>{{ entity.perfil[0].apartamento |default('Sin dato')}}</td>
+                <td><label for="">Oficina/Apto/No.</label></td>
+                <td>{{ entity.perfil[0].apartamentoNO |default('Sin dato')}}</td>
+            </tr>
+            <tr class="bg-white"> 
+                <td><label for="">Punto de Referencia</label></td>
+                <td>{{ entity.perfil[0].referencia |default('Sin dato')}}</td>
+                <td><label for="">Código Postal</label></td>
+                <td>{{ entity.perfil[0].codigoPostal |default('Sin dato')}}</td>
+            </tr>
+        </tbody>
+    </table>        
+
+</div>
+<div class="col-md-4 col-md-offset-8 text-right right">
+     {#<div style="float: left">
+         <a href="{{ path('home') }}" class="btn btn-success btn-sm">Inicio</a>
+     </div>#}
+     <div style="float: right">
+         <a href="{{ path('editar-datos-basicos') }}" class="btn btn-primary btn-sm">Modificar</a>
+     </div>
+</div>
+{% endblock content_content%}

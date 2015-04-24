@@ -1,0 +1,92 @@
+{% extends 'CentrohipicoBundle::centroh_base.html.twig' %} 
+{% block content_content %}
+    <div class="block-separator col-sm-12"></div>
+    <div class="row col-sm-12">
+        <h1 class="tit_principal">Lista de Operadoras</h1>
+    </div>
+    <div class="block-separator col-sm-12"></div>
+    {% if entities | length > 0 %}
+        <article class="col-sm-12 col-md-12 col-lg-12 sortable-grid ui-sortable" style="width: 50%">
+            {{ knp_pagination_render(entities) }}
+        </article>
+    {% endif %}
+    <div class="col-md-12">
+    <table class="table table-condensed table-striped">
+        <thead>
+        <tr>
+                <th>Nº</th>
+                <th>RIF</th>
+                <th>Operadora</th>
+                <th>Fecha de afiliacion</th>
+                <th>Tipo de licencia</th>
+                <th>No de licencia</th>
+                <th>No Afiliados</th>
+                <th>Aporte mensual</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td>{{ loop.index }}</td>
+                <td>{{ entity.persJuridica }}-{{ entity.rif }}</td>
+                <td>
+                    <a href="#" data-toggle="modal" data-target="#myModal" class="show_detail" onclick="getInfo({{ entity.id }})">
+                        {{ entity.denominacionComercial }}
+                    </a>
+                </td>
+                <td>{% if entity.fechaRegistro %}{{ entity.fechaRegistro|date('d-m-Y') }}{% endif %}</td>
+                <td>
+                    {% for lic in entity.licenciasaprob %} {{lic.clasfLicencia}} &nbsp; {% endfor %}
+                    {% if entity.licenciasaprob is empty %}Sin Registro {%endif%}    
+                </td>
+                <td>
+                    {% for lic in entity.licenciasaprob %} {{lic.numLicencia}} &nbsp; {% endfor %}
+                    {% if entity.licenciasaprob is empty %}Sin Registro {%endif%}    
+                </td>
+                <td>{{ entity.afiliados}}</td>
+                <td>
+                    {% if entity.aporte is defined %}
+                        {{ entity.aporte[0].monto|number_format(2,",",".") }}
+                    {% else %}
+                        Sin Registro
+                    {% endif %}
+                </td>
+            </tr>
+        {% endfor %}
+       {% if entities is empty %} 
+                <tr>
+                  <td colspan="9" class="text-center text-uppercase text-info">No hay Resultados</td>
+                </tr>       
+         {% endif%}       
+        </tbody>
+    </table>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span><span class="sr-only">Cerrar</span>
+                    </button>
+                </div>
+                 <div class="modal-body" id="datos_operadora"></div>
+                 <div class="modal-footer"></div>
+            </div>
+        </div>
+    </div>
+ {% endblock %}
+ {% block foot_script_assetic %}
+    {{ parent() }}
+    <script type="text/javascript">
+        function getInfo(id)
+        {
+            //console.info("entro");
+            var url = Routing.generate('operadora_info',{ 'id': id });
+            $.get( url, function( data ) {
+                $("#datos_operadora").html(data);
+            });
+        }
+    </script>
+
+{%endblock%}

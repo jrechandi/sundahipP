@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>SUNAHIP |{% block title %}{% endblock %}</title>
+         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+         {#Azul Claro #}
+         {#<link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/redmond/jquery-ui.css">#}
+         {#Azul Oscuro#}
+         {#<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.4/themes/cupertino/jquery-ui.css">#}
+         {#Rojo #}
+         <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.4/themes/blitzer/jquery-ui.css">
+         
+         {#<link rel="stylesheet" href="{{asset('bundles/solicitudescitas/css/jquery-ui.css')}}" /> #}
+         {#'bundles/common/css/reveal.css'#}   
+         {% stylesheets
+                
+                'bundles/solicitudescitas/css/style.css'
+                filter='cssrewrite' %}
+            <link rel="stylesheet" href="{{ asset_url }}" />
+            {% endstylesheets %}
+        {% block stylesheets %}{% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+</head>
+<body>
+    <div id="screen">
+        <div id="cinta_gob">
+            <div id="wrapper"> <img src="{{ asset('bundles/common/images/bg/header_gob.png') }}" height="57" width="550" alt=""> </div>
+        </div>
+        <div id="wrapper">
+            <div id="content" class="inicio">
+                <div id="header">
+                    <div id="logo"> <img src="{{ asset('bundles/common/images/logo.png') }}" alt="SUNAHIP" title="SUNAHIP"> </div>
+                    <div id="tit_pag">
+                        <p>Registro Nacional de <span>Licencias Hípicas</span></p>
+                    </div>
+                </div>
+               <div id="cuerpo">
+                   {% if app.user %}
+                        <div id="lateral">
+                            <h2>Men? Principal</h2>
+                            <div id="bienvenido">	
+                                <p>Bienvenido, <strong>Usuario</strong></p><br>
+                                <ul class="menuu">
+                                    <li><img src="{{ asset('bundles/common/images/notificacion.png') }}"><a href="#cambio_clave">Notificaciones <span class="notif">2</span></a></li>
+                                    <li><img src="{{ asset('bundles/common/images/contrasena.png') }}"><a href="#cambio_clave">Cambiar Contrase&ntilde;a</a></li>
+                                </ul>
+                                <a href="{{ path('fos_user_security_logout') }}">Cerrar sesi?n</a>	
+                            </div>
+                            {% if is_granted('ROLE_ADMIN') %} {#app.user.granted("USER_ADMIN")#}
+                                {% include 'SolicitudesCitasBundle::mnu_admin.html.twig' %}
+                            {% else %}
+                                {%include 'SolicitudesCitasBundle::mnu_usuario.html.twig'%}
+                            {%endif%} 
+                        </div>         
+                    {%endif%}   
+                    <div id="contenido">
+                    {% block content %}{% endblock %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="footer">
+            <p>SUNAHIP - Superintendencia Nacional de Actividades Hípicas  l  2014</p>
+        </div>
+    </div>
+                    
+         {#% include 'SolicitudesCitasBundle::remote.html.twig'%#}
+         {% include 'SolicitudesCitasBundle::local.html.twig'%}
+   
+    <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+    <script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
+        {% javascripts
+            'bundles/common/js/jquery.reveal.js'
+            output="js/bmain.js" %}
+        
+            <script type="text/javascript" src="{{ asset_url }}"></script>
+      {% endjavascripts %}}
+        <script src="{{ asset('bundles/solicitudescitas/js/lib/moment.min.js')}}"></script>
+        <script src="{{ asset('bundles/solicitudescitas/js/func.js')}}"></script>
+     {% block javascripts %}   {% endblock %}
+</body>
+</html>

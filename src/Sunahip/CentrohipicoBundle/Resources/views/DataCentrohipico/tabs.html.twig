@@ -1,0 +1,29 @@
+<div class="row col-lg-12">
+    {{ form_start(form,{'attr':{'id':'form_dch'}}) }}
+    <div id="tabs">
+      <ul>
+        <li><a href="#datalegal">Datos Legales del Establecimiento</a></li>
+        <li><a href="#datach">Datos del Establecimiento</a></li>
+      </ul>
+        <div id="temp"><h3> Espere un momento</h3> </div>
+         <div id="datalegal" style="display:none">
+             {% include 'CentrohipicoBundle:DataCentrohipico:DLtable_form.html.twig'  %}
+             {#<div id="btnDL"><button id="addDL" class="btn btn-info">Agregar Datos Legales </button> </div>
+             <div id="fDL"></div>#}
+         </div>
+         <div id="datach" style="display:none;">
+             {% include 'CentrohipicoBundle:DataCentrohipico:CHtable_form.html.twig'%}
+         </div>
+     </div>
+     <div class="col-md-12 form-group btn-group">
+         <div style="float: left">
+             <a href="{{ path('home') }}" class="btn btn-success btn-sm">Regresar</a>
+         </div>
+         <div style="float: right">
+             <button id="form_btn" type="submit" class="btn btn-primary btn-sm">Guardar</button>
+         </div>
+    </div>
+    {{form_end(form)}}
+</div> 
+
+

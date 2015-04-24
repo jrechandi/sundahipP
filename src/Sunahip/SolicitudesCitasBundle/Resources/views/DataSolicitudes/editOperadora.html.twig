@@ -1,0 +1,395 @@
+{% extends 'SolicitudesCitasBundle::solicitud_base.html.twig' %}  
+{% block content_content %}
+    <div id="contendor">
+        <div class="block-separator col-md-12"></div>
+	<div class="tit_principal">Solicitud Licencia Operadora</div>
+		<br /><br /><br />
+                 <div class="col-md-12">
+                    <div id="texto">Estimado Usuario, Para solicitar una cita, deber&aacute; antes adjuntar todos los recaudos, seg&uacute;n la licencia que solicite. Por cada Licencia deber&aacute; realizar una solicitud.</div>
+                    <div id="texto">Los campos con <span class="oblig">(*)</span> son obligatorios.</div>
+                    <div style="clear:both;"></div>
+                 </div>  
+           <div class="col-md-12">
+                <div class="form-group">
+                    <div class="col-md-12">
+                        {{ form_errors(form) }}  
+                    </div>
+                     {% for type, flashMessage in app.session.flashbag.all() %}
+                        <div class="alert alert-{{ type }} ">
+                            <button class="close" data-dismiss="alert" type="button"></button>
+                            {% if flashMessage.title is defined %}
+                            <strong>{{ flashMessage.title }}</strong>
+                            {{ flashMessage.message }}
+                            {% else %}
+                            {{ type }}
+                            {% endif %}
+                        </div>
+                     {% endfor %}
+                </div>
+            {#{ form_start(form,{'attr': {'id':'form_dslo'} }) }#}        
+	    <div id="accordion" class="">
+		<h3>1. Seleccionar Licencia para Operadora</h3>
+		<div >
+                       <div class="col-md-4">Tipo de Licencia <span class="oblig">(*)</span></div>
+                       <div class="col-md-4" id="D_licencia">
+                            <div id="V_licencia">{{entity.ClasLicencia.clasfLicencia}}</div> &nbsp;<button class="btn btn-warning" onclick="cambiar('licencia',true);">Cambiar</button>
+                        </div> 
+                        <div class="col-md-4" id="F_licencia" style="display:none;">
+                           {{ form_widget(form.ClasLicencia, {'attr': {'class': 'licencia'},'id':'alic' }) }}
+                                {% if form.ClasLicencia.vars.errors[0].message is defined %}
+                                <span class="help-block ">
+                                    {{ form.ClasLicencia.vars.errors[0].message }}
+                                </span>
+                                {% endif %}&nbsp;<br/>
+                            <div class="btn-group">  
+                                <button class="btn btn-info" onclick="actualiza('licencia','alic','solicitudes_updatelic');">Actualizar</button>
+                                <button class="btn btn-danger" onclick="cambiar('licencia',false);">Cancelar</button>
+                              </div>       
+                        </div>
+		</div>
+
+		<h3>2. Seleccione los Juegos a Explotar **Solo aplica para la Licencia Clase 1**</h3>
+		<div>
+                        <div class="col-md-3">Juegos a Explotar <span class="oblig">(*)</span></div>
+                        <div id="D_juegoe" class="text-center col-md-7" >
+                            {{ render (url('juegosexplotados_show',{ids:entity.id}) ) }}
+                        </div>
+                        <div id="F_juegoe" class="col-md-7 " style="display:none;" >
+                            <p>Para ver Lista: Seleccione Tipo de Licencia</p>
+                        </div>
+		</div>
+		<h3>3. Seleccionar Los hipódromos Internacionales en los que prestará señal **No Aplica para Licencia Clase 1**</h3>
+                  <div> 
+                    <div class="text-center col-md-12" id="D_hipointer" >
+                        <div id="D_hipointer2">{{entity.hipodromoInter}}</div> &nbsp;<button class="btn btn-warning" onclick="hipodromoInter();">Cambiar</button>    
+                    </div>   
+                    <div id="F_hipointer" class="col-md-12" style="display:none;">
+                    </div>
+                    <div id="F_hipointer2" class="col-md-12" style="display:none;"></div>
+                  </div>
+		<h3>4. Adjuntar Recaudos</h3>
+		<div> 
+                    <div class="text-center col-md-12" id="D_recaudos" >
+                         {{ render(url('recaudoscargados_show',{id:entity.id})) }}     
+                    </div>   
+                    <div id="F_recaudos" style="display:none;">
+                        <p>Para ver: Seleccione Tipo de Licencia </p>
+                    </div>
+                    <div id="F_recaudos2" style="display:none;"></div>
+                  </div>
+		<h3>5. Pago por Procesamiento</h3>
+                  <div>
+                        <div id="D_pagoP">
+                            {{ render(url('recaudospago_show',{ids:entity.id})) }}
+                        </div>
+                        <div id="F_pagoP" style="display:none;">
+                            <p>Para ver: Seleccione Tipo de Licencia</p>
+                        </div>
+                  </div> 
+<!--  FIN TABS 4 -->
+        </div>
+        <div class="block-separator col-md-12"></div>
+        <div class="col-md-12 form-group btn-group">
+             <div style="float: left">
+                 <a href="{{ path('solicitudoperadora_list') }}" class="btn btn-danger btn-sm">Cancelar</a>
+             </div>
+             {#<div style="float: right">
+                <a href="#" id="gensol" class="btn btn-primary btn-sm">Actualizar Solicitud</a>
+             </div>#}
+        </div>
+         {#{ form_widget(form._token)}#}
+       {#</form>  <!-- End form-->#}
+      </div>                 
+        <div class="block-separator col-md-12"></div> 
+</div>
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Cerrar</span></button>
+                <h4 class="modal-title" id="myModalLabel">Notificación</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12 alert text-left" id="myMessage">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>                                
+{%endblock%}
+{% block foot_script_assetic %}
+        {{ parent() }}
+  <script type="text/javascript">
+      var entityid = '{{entity.id}}';
+      var licid = '{{entity.ClasLicencia.id}}';
+      var recaudoactual=1;
+        $(document).ready(function() {
+             $( "#accordion" ).accordion({
+		    heightStyle: "content"
+		});
+                $(".form-horizontal").removeClass('form-horizontal');
+                $(".form-control").removeClass('form-control');       
+                          
+                $("#alic").change(function(){
+                    var id=$("#alic option:selected").val();
+                    licid=id;
+                    actualizaRecaudos(id);
+                });
+       });
+       
+function getRoute(elem,route)
+  {    $(elem).html("Actualizando Datos.. Espere...");
+        $.get(route)
+         .success(function(data) {
+             $(elem).html(data);
+         }).error(function(data, status, headers, config) {
+                if (status === '500') {
+                    message = "No hay conexión con el servidor";
+                    $(elem).html(message);
+                }
+           });
+  }
+  //Enviar Datos 
+  function postRoute(elem,url,Data)
+   {  
+        $.ajax({
+                type: "POST", 
+                contentType: false ,
+                processData: false,
+                url: url,  
+                data: Data,
+                success: function( data )  
+                {  if(typeof(data) ==='object'){
+                        cambiar(elem,false);
+                        //Cargar datos
+                        $("#D_"+elem).html(data);
+                    }else { $("#F_"+elem).html(data); }
+                },
+                error: function(jqXHR, textStatus, errorThrown)
+                {    message = "Ha ocurrido un error:";
+                      boton='<button class="btn btn-sm btn-warning" onclick="cambiar(\''+elem+'\',false);">Cancelar</button>';
+                    $("#F_"+elem).html(message+"<br/> "+textStatus+"<br/>"+errorThrown+"<br/>"+boton);
+                }
+           });
+    }
+    
+   function postData(elem,route, Data)
+    {
+        $.ajax({
+                type: "POST", 
+                url: route,  
+                data: Data,
+                success: function( data )  
+                {     //Cargar datos
+                        $("#D_"+elem).html(data);
+                },
+                error: function(jqXHR, textStatus, errorThrown)
+                {    message = "Ha ocurrido un error:";
+                      boton='<button class="btn btn-sm btn-warning" onclick="cambiar(\''+elem+'\',false);">Cancelar</button>';
+                    $("#F_"+elem).html(message+"<br/> "+textStatus+"<br/>"+errorThrown+"<br/>"+boton);
+                }
+           });
+    }
+    
+function cambiar(elem,action){
+    if(action){  
+      $("#D_"+elem).hide();
+      $("#F_"+elem).removeClass('hide').show();
+    }else{
+       $("#F_"+elem).hide();
+       $("#D_"+elem).removeClass('hide').show();
+    } 
+  }
+  
+  function Inicializar()
+  {
+      $(".disabled").prop('disabled',true);
+        //$(".readonly").prop('readonly',true);
+        var Options={
+            autoSize: true,
+            dateFormat: 'dd/mm/yy',
+            maxDate: '{{ "now" | date("d/m/Y") }}',
+            onSelect: function(dateText, inst) { 
+               var datets = Date.parse(inst.selectedYear+'-'+inst.selectedMonth+'-'+inst.selectedDay);
+               //GenerarSolicitud(datets);
+               $(this).val(dateText);                
+           } 
+        };
+        var Options2={
+            autoSize: true,
+            dateFormat: 'dd/mm/yy',
+            minDate: '{{ "now" | date_modify("+30 day") | date("d/m/Y") }}',
+            onSelect: function(dateText, inst) { 
+               var datets = Date.parse(inst.selectedYear+'-'+inst.selectedMonth+'-'+inst.selectedDay);
+               //GenerarSolicitud(datets);
+               $(this).val(dateText);                
+           } 
+        };
+      $(".date").each(function(index,elem){
+          $(this).datepicker(Options2);
+          $(this).attr('style','cursor: pointer !important');
+      });
+      $(".datePago").each(function(index,elem){
+          $(this).datepicker(Options);
+          $(this).attr('style','cursor: pointer !important');
+          //$(this).prop('readonly',true);
+      });   
+  }
+
+function actualiza(display,getid,ruta){
+      cambiar(display,false);
+      id=$("#"+getid+" option:selected").val();
+       actualizaRecaudos(id);
+      //ruta actualiza centrohipico de solicitud 
+      var route=Routing.generate(ruta,{id:id,idds:entityid});
+      getRoute("#V_"+display,route);
+  }
+  
+function actualizaRecaudos(id)
+  {
+        cambiar('juegoe',true);    
+        cambiar('recaudos',false);    
+        cambiar('hipointer',true);    
+         // Hipodromos internacionales
+        getRoute("#F_hipointer",Routing.generate('solicitudoperadora_hipodromos',{id:id,tipo:'edit'}));
+            // Juegos a Explotar
+        getRoute("#F_juegoe",Routing.generate('datasolicitudes_juegoslist',{id:id,tipo:'edit'}));
+           //Recaudos
+        getRoute("#D_recaudos",Routing.generate('datasolicitudes_recaudoslist',{id:id,tipo:'edit'}));
+        //cargar Pago
+        //getRoute("#F_pagoP",Routing.generate('recaudospago_new',{idcl:id}));
+  }
+
+function hipodromoInter()
+{
+   cambiar('hipointer',true);
+   getRoute("#F_hipointer",Routing.generate('solicitudoperadora_hipodromos',{id:licid,tipo:'edit'}));
+}
+function cargaHipointer(elem)
+{
+    var data='hipointer='+$("#text_hipointer").val();
+    console.log(data);
+    console.log($("#text_hipointer").text());
+    var url=Routing.generate('solicitudoperadora_hipodromos_update',{id:entityid});
+    cambiar("hipointer",false);
+    postData("hipointer2",url,data);
+}
+
+  // Recaudos
+function CargaRecaudo(id,url,elem){
+      cambiar(elem,true);
+      url=Routing.generate(url,{id:id});
+      getRoute("#F_"+elem,url);
+  }
+  
+    function cRecaudo(indx){
+         recaudoactual=indx;
+         idl=$("#recaudoLicencia_"+indx).val(); // Id Licencia
+         route=Routing.generate('recaudoscargados_new',{id:idl});
+         getRoute("#F_recaudos",route); 
+         cambiar("recaudos",true);
+    }
+    
+   // Cargar nuevos Recaudos
+   function newRecaudo(RL)
+    {  dataF=$("#form_drecaudos").serializeArray();
+        route=Routing.generate('recaudoscargados_add',{rlid:RL,ids:entityid});
+        $("#form_drecaudos").submit(function( event ) {
+            event.preventDefault();
+            dataF=new FormData(this);
+            createRecaudo("#F_recaudos",route,dataF);
+          });
+    }
+    
+  function createRecaudo(elem,url,Data)
+    {  $(elem).hide();
+       $("#F_recaudos2").html('Cargando Datos, Espere....').show();
+        $.ajax({
+                type: "POST", 
+                contentType: false ,
+                processData: false,
+                url: url,  
+                data: Data,
+                success: function( data )  
+                {  //cargar la data con la nueva fila de datos
+                    if(data.status==='OK')
+                    { $("#F_recaudos2").hide(); //Oculta mensaje
+                       cambiar("recaudos",false);  // Cambia las Vistas
+                       MostrarDataCell(data.datos); // Muestra los Datos Cargados
+                    }
+                    else{$("#F_recaudos2").hide();
+                        cambiar("recaudos",true); 
+                        alert("Ha ocurrido un Error en la carga de Datos "+data.datos.message);
+                     }
+                },
+                error: function(jqXHR, textStatus, errorThrown)
+                {    message = "Ha ocurrido un error:";
+                      boton='<button class="btn btn-sm btn-warning" onclick="cambiar(\'recaudos\',false);">Cancelar</button>';
+                    $(elem).html('<td colspan="5">'+message+"<br/> "+textStatus+"<br/>"+errorThrown+"<br/>"+boton+"</td>");
+                }
+           });
+    }   
+    
+    function MostrarDataCell(data)
+    {
+        var $tr=$("#tr_recaudos"+recaudoactual);
+        $tr.html('');
+        $tr.append($('<td>').attr('class','text-left').text(recaudoactual));
+        $.each(data,function(i,dato){
+            $tr.append($('<td>').attr('class','text-center').text(dato));
+        });
+        $tr.append($('<td>').attr('class','text-center').text('Cargado'));
+    }
+    // Pago 
+    function cargaDatosPago(route,elem,idform)
+    {
+        dataF=$("#"+idform).serializeArray();
+        $( "#"+idform).submit(function( event ) {
+            event.preventDefault();
+            dataF=new FormData(this);
+            postRoute(elem,route,dataF);
+          });
+    }
+    
+    function cargaJuegos(elem)
+    {   $("#D_"+elem).html("Por Favor Espere, Actualizando Datos.. ");
+        cambiar(elem,false);
+        
+        route=Routing.generate('juegosexplotados_create',{ids:entityid});
+         Data='juegose='+$('#Sjuegose').val();
+         $.ajax({
+                type: "POST", 
+                url: route,  
+                data: Data,
+                success: function( data )  
+                {  if(typeof(data) ==='object'){
+                        cambiar(elem,false);
+                        //Cargar datos
+                        $("#D_"+elem).html(data);
+                    }else { $("#F_"+elem).html(data); }
+                },
+                error: function(jqXHR, textStatus, errorThrown)
+                {    message = "Ha ocurrido un error:";
+                      boton='<button class="btn btn-sm btn-warning" onclick="cambiar(\''+elem+'\',false);">Cancelar</button>';
+                    $("#F_"+elem).html(message+"<br/> "+textStatus+"<br/>"+errorThrown+"<br/>"+boton);
+                }
+           });
+    }
+    
+    function updatePago(id)
+    {   route=Routing.generate('recaudospago_update',{id:id});
+        cargaDatosPago(route,'pagoP','form_pagoP');
+    }
+
+   function nuevoPago()
+   {
+       route=Routing.generate('recaudospago_create',{ids:entityid});
+       cargaDatosPago(route,'pagoP','form_pagoP'); 
+   }
+   
+   </script>          
+{% endblock foot_script_assetic %}          

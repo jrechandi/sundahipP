@@ -1,0 +1,92 @@
+{% extends 'CentrohipicoBundle::centroh_base.html.twig' %} 
+{% block content_content %}
+    <div class="block-separator col-sm-12"></div>
+    <div class="row col-sm-12">
+        <h1 class="tit_principal">Mis Sucursales</h1>
+    </div>
+{% include 'NewTemplateBundle::flashMessages.html.twig'%}
+ <div class="col-md-12">  
+    <table class="table table-hover text-center" id="tabla_reporte2">
+        <thead>
+            <tr id="table_header2">
+                <th class="text-center">Nº</th>
+                <th class="text-center">Rif</th>
+                <th class="text-center">Denominación Comercial</th>
+                <th class="text-center">Clasificación Licencia</th>
+                <th>&nbsp;</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td class="text-center bg-white">{{loop.index}}</td>
+                <td class="text-left bg-white">{{ entity.persJuridica }}-{{ entity.rif }}  </td>
+                <td class="text-left bg-white"><a href="#">{{ entity.denominacionComercial|upper }}</a></td>
+                <td class="text-left bg-white">
+                    {% for lic in entity.licenciasaprob %} {{lic.clasfLicencia}} &nbsp; {% endfor %}
+                    {% if entity.licenciasaprob is empty %}Sin Licencia {%endif%}
+                </td>
+                <td class="text-right  bg-white"><a href="#" class="btn btn-warning btn-sm" onclick="confirmaDel('{{entity.id}}','{{ entity.denominacionComercial|upper }}')"><i class="fa fa-times"></i> Desincorporar</a></td>
+            </tr>
+        {% endfor %}
+        {% if entities is empty %} 
+                <tr>
+                  <td colspan="5" class="text-center text-uppercase text-info">No hay Resultados</td>
+                </tr>       
+         {% endif%}      
+        </tbody>
+    </table>
+ </div>
+        <div class="col-md-6 ">
+            <a href="{{path('operadora_new_sucursal', {'tipo':'S'} )}}" class="btn btn-info btn-sm">Incorporar Sucursal</a>
+        </div>  
+      <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span><span class="sr-only">Cerrar</span>
+                    </button>
+                     <h4 class="modal-title" id="ModalTitle"></h4>
+                </div>
+                <div class="modal-body" id="Message"></div>
+                 <div class="modal-footer" id="Modalfooter"></div>
+            </div>
+        </div>
+    </div>      
+ <form id="sucursaldel" action="" method="POST">
+   <input id="sucursalid" name="sucursalid" type="hidden" value="">
+</form>
+    
+  {% endblock %}
+
+  {% block foot_script_assetic %}
+    <script src="{{asset('bundles/centrohipico/js/resource.js')}}"></script>
+    <script type="text/javascript" >
+        function confirmaDel(id,name){
+            var msg='<h1 class="tit_principal text-center">Esta Seguro que Desea Eliminar la sucursal? </h1><br/><br/>\n\
+             <div class="col-md-12 text-left"><h4>'+ name+'</h4><h5>Se Eliminaran los datos de licencia y sucursal.</h5><br/></div><br/><br/>\n\
+             <br/><div class="col-md-9 col-md-offset-3 text-center btn-group">\n\
+              <button onclick="EjecutarDel(\''+id+'\')" class="btn btn-warning">Desincorporar</button><button type="button" data-dismiss="modal" class="btn btn-info">Cancelar</button>\n\
+              </div>';
+            ModalShow(msg,"Desincorporar Sucursal");
+        }
+
+    function ModalShow(msg,title){
+        $("#Message").html(msg);
+        $("#ModalTitle").html(title);
+        console.log(msg);
+        $("#myModal").modal("show");
+    }  
+    
+    function EjecutarDel(id){
+        $("#Message").html("<h3>Espere un momento mientras se Procesa al Petición...<h3>");
+        var action=Routing.generate('operadora_delete_sucursal', {id: id});
+        $("#sucursalid").val(id);
+        $("#sucursaldel").attr('action',action);
+        $("#sucursaldel").submit();
+        //window.location=action;
+    }
+  </script>        
+  {% endblock foot_script_assetic %}   

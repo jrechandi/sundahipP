@@ -1,0 +1,38 @@
+{% extends 'SolicitudesCitasBundle::solicitud_base.html.twig' %} 
+
+{% block content_content %}
+       <div class="block-separator col-sm-12"></div>
+	<div class="col-md-12">
+           <h1 class="tit_principal">Detalle</h1>
+       </div>
+       <div class="col-md-12">
+                <table class="record_properties table table-condensed">
+                  <tbody>
+                        <tr>
+                            <th>Fecha</th>
+                            <td>{{ entity.date|date('d-m-Y') }}</td>
+                         </tr>
+                        <tr>
+                              <th>Descripci&oacute;n</th>
+                              <td>{{ entity.description }}</td>
+                        </tr>
+                         <tr>
+                          <th>Siempre</th>
+                          <td>{{ entity.allways==1?'Si':'No' }}</td>
+                         </tr>
+                   </tbody>
+                </table>
+        </div>               
+               <div class="col-md-6 col-md-offset-2 form-group btn-group">
+                  <div class="col-md-4 "> <a href="{{ path('nocitafecha_edit', { 'id': entity.id }) }}" class="btn btn-info btn-sm "><i class="icon-edit"></i>Modificar</a></div>
+                  <div class="col-md-4"><a href="{{ path('nocitafecha') }}" class="btn btn-warning btn-sm "><i class="icon-arrow-left"></i> Regresar</a></div>   
+                  <div class="col-md-4">{{ form(delete_form) }}</div>   
+               </div>
+{% endblock content_content %}
+{% block foot_script_assetic %}  
+   <script type="text/javascript">     
+   $(document).ready(function() {    
+       $("fieldset>legend").hide();
+     });     
+    </script>     
+{% endblock foot_script_assetic %}

@@ -1,0 +1,258 @@
+<div class="form-group">
+    <div class="col-md-12">
+        {{ form_errors(formLegal) }}
+    </div>
+</div>
+<table id="tabla_reporte2" class="tabla_reporte2">
+<tbody>
+{#<tr>#}
+    {#<td>{{ form_label(formLegal.nombreComercial, null, {'label_attr': {'class': 'text-left col-md-12'} }) }}</td>#}
+    {#<td colspan="3">{{ form_widget(formLegal.nombreComercial, {'attr': {'class': 'col-md-10 '} }) }}#}
+        {#{% if formLegal.nombreComercial.vars.errors[0].message is defined %}#}
+            {#<span class="help-block ">#}
+                {#{{ formLegal.nombreComercial.vars.errors[0].message }}#}
+            {#</span>#}
+        {#{% endif %}#}
+
+    {#</td>#}
+{#</tr>#}
+<tr id="table_header2">
+    <td colspan="4">Datos del apoderado o representante legal</td>
+</tr>
+<tr>
+    <td>{{ form_label(formLegal.nombre, null, {'label_attr': {'class': ' col-md-12 control-label text-left'} }) }}</td>
+    <td>{{ form_widget(formLegal.nombre, {'attr': {'class': ' '} }) }}
+        {% if formLegal.nombre.vars.errors[0].message is defined %}
+            <span class="help-block ">
+                                {{ formLegal.nombre.vars.errors[0].message }}
+                            </span>
+        {% endif %}
+
+    </td>
+    <td>{{ form_label(formLegal.apellido, null, {'label_attr': {'class': ' col-md-12 control-label text-left'} }) }}</td>
+    <td>{{ form_widget(formLegal.apellido, {'attr': {'class': ' '} }) }}
+        {% if formLegal.apellido.vars.errors[0].message is defined %}
+            <span class="help-block ">
+                                {{ formLegal.apellido.vars.errors[0].message }}
+                            </span>
+        {% endif %}
+
+    </td>
+
+</tr>
+<tr>
+    <td>{{ form_label(formLegal.ci, null, {'label_attr': {'class': ' col-md-12 text-left'} }) }}</td>
+    <td>
+        {{ form_widget(formLegal.tipoci, {'attr': {'class': ' input-mini'} }) }}
+        - {{ form_widget(formLegal.ci, {'attr': {'class': ' ', 'style':'width: 110px;'  } }) }}
+        {% if formLegal.ci.vars.errors[0].message is defined %}
+            <span class="help-block ">
+                        {{ formLegal.ci.vars.errors[0].message }}
+                    </span>
+        {% endif %}
+
+    </td>
+    <td>{{ form_label(formLegal.rif, null, {'label_attr': {'class': ' col-md-12 text-left'} }) }}</td>
+    <td>
+        {{ form_widget(formLegal.persJuridica, {'attr': {'class': 'input-mini '} }) }}
+        - {{ form_widget(formLegal.rif, {'attr': {'class': ' ', 'style':'width: 110px;'} }) }}
+        {% if formLegal.rif.vars.errors[0].message is defined %}
+            <span class="help-block ">
+                        {{ formLegal.rif.vars.errors[0].message }}
+                    </span>
+        {% endif %}
+
+    </td>
+
+</tr>
+<tr>
+    <td>{{ form_label(formLegal.estado, null, {'label_attr': {'class': ' col-md-12 text-left'} }) }}</td>
+    <td>{{ form_widget(formLegal.estado, {'attr': {'class': 'dlestado2', 'style':"width:160px !important"} }) }}
+        {% if formLegal.estado.vars.errors[0].message is defined %}
+            <span class="help-block ">
+                        {{ formLegal.estado.vars.errors[0].message }}
+                    </span>
+        {% endif %}
+
+    </td>
+    <td>{{ form_label(formLegal.municipio, null, {'label_attr': {'class': ' col-md-12 text-left control-label'} }) }}</td>
+    <td>{{ form_widget(formLegal.municipio, {'attr': {'class': 'dlmunicipio2 ', 'disabled':'disabled', 'style':"width:160px !important"} }) }}
+        {% if formLegal.municipio.vars.errors[0].message is defined %}
+            <span class="help-block ">
+                        {{ formLegal.municipio.vars.errors[0].message }}
+                    </span>
+        {% endif %}
+    </td>
+
+</tr>
+<tr>
+    <td>{{ form_label(formLegal.ciudad, null, {'label_attr': {'class': ' col-md-12 text-left control-label'} }) }}</td>
+    <td>{{ form_widget(formLegal.ciudad, {'attr': {'class': 'col-md-10 '} }) }}
+        {% if formLegal.ciudad.vars.errors[0].message is defined %}
+            <span class="help-block ">
+                        {{ formLegal.ciudad.vars.errors[0].message }}
+                    </span>
+        {% endif %}
+    </td>
+    <td>{{ form_label(formLegal.parroquia, null, {'label_attr': {'class': ' col-md-12 text-left control-label'} }) }}</td>
+    <td>{{ form_widget(formLegal.parroquia, {'attr': {'class': 'dlparroquia2', 'disabled':'disabled', 'style':"width:160px !important"} }) }}
+        {% if formLegal.parroquia.vars.errors[0].message is defined %}
+            <span class="help-block ">
+                        {{ formLegal.parroquia.vars.errors[0].message }}
+                    </span>
+        {% endif %}
+    </td>
+</tr>
+<tr>
+    <td>{{ form_label(formLegal.urbanSector, null, {'label_attr': {'class': ' col-md-12 text-left'} }) }}</td>
+    <td>{{ form_widget(formLegal.urbanSector, {'attr': {'class': 'col-md-10 '} }) }}
+        {% if formLegal.urbanSector.vars.errors[0].message is defined %}
+            <span class="help-block ">
+                        {{ formLegal.urbanSector.vars.errors[0].message }}
+                    </span>
+        {% endif %}
+    </td>
+    <td>{{ form_label(formLegal.avCalleCarrera, null, {'label_attr': {'class': ' col-md-12 text-left'} }) }}</td>
+    <td>
+        {{ form_widget(formLegal.avCalleCarrera, {'attr': {'class': 'col-md-10 '} }) }}
+        {% if formLegal.avCalleCarrera.vars.errors[0].message is defined %}
+            <span class="help-block ">
+                        {{ formLegal.avCalleCarrera.vars.errors[0].message }}
+                    </span>
+        {% endif %}
+
+    </td>
+</tr>
+<tr>
+    <td>{{ form_label(formLegal.edifCasa, null, {'label_attr': {'class': ' col-md-12 text-left'} }) }}</td>
+    <td>{{ form_widget(formLegal.edifCasa, {'attr': {'class': 'col-md-10 '} }) }}
+        {% if formLegal.edifCasa.vars.errors[0].message is defined %}
+            <span class="help-block ">
+                        {{ formLegal.edifCasa.vars.errors[0].message }}
+                    </span>
+        {% endif %}
+    </td>
+    <td>{{ form_label(formLegal.ofcAptoNum, null, {'label_attr': {'class': ' col-md-12 text-left'} }) }}</td>
+    <td>{{ form_widget(formLegal.ofcAptoNum, {'attr': {'class': 'col-md-10 '} }) }}
+        {% if formLegal.ofcAptoNum.vars.errors[0].message is defined %}
+            <span class="help-block ">
+                        {{ formLegal.ofcAptoNum.vars.errors[0].message }}
+                    </span>
+        {% endif %}
+
+
+    </td>
+    {#            #}
+</tr>
+<tr>
+    <td>{{ form_label(formLegal.puntoReferencia, null, {'label_attr': {'class': ' col-md-12 text-left'} }) }}</td>
+    <td>{{ form_widget(formLegal.puntoReferencia, {'attr': {'class': 'col-md-10 '} }) }}
+        {% if formLegal.puntoReferencia.vars.errors[0].message is defined %}
+            <span class="help-block ">
+                        {{ formLegal.puntoReferencia.vars.errors[0].message }}
+                    </span>
+        {% endif %}
+
+    </td>
+
+    <td>{{ form_label(formLegal.codigoPostal, null, {'label_attr': {'class': ' col-md-12 text-left'} }) }}</td>
+    <td>{{ form_widget(formLegal.codigoPostal, {'attr': {'class': 'col-md-6 '} }) }}
+        {% if formLegal.codigoPostal.vars.errors[0].message is defined %}
+            <span class="help-block ">
+                        {{ formLegal.codigoPostal.vars.errors[0].message }}
+                    </span>
+        {% endif %}
+
+    </td>
+</tr>
+<tr>
+    <td>{{ form_label(formLegal.email, null, {'label_attr': {'class': ' col-md-12 text-left'} }) }}</td>
+    <td>{{ form_widget(formLegal.email, {'attr': {'class': 'col-md-10 '} }) }}
+        {% if formLegal.email.vars.errors[0].message is defined %}
+            <span class="help-block ">
+                        {{ formLegal.email.vars.errors[0].message }}
+                    </span>
+        {% endif %}
+    </td>
+    <td>{{ form_label(formLegal.fax, null, {'label_attr': {'class': ' col-md-12 text-left'} }) }}</td>
+    <td>{{ form_widget(formLegal.codFax, {'attr': {'class': ' col-md-4'} }) }}
+        {{ form_widget(formLegal.fax, {'attr': {'class': 'col-md-6 '} }) }}
+        {% if formLegal.fax.vars.errors[0].message is defined %}
+            <span class="help-block ">
+                        {{ formLegal.fax.vars.errors[0].message }}
+                    </span>
+        {% endif %}
+    </td>
+</tr>
+<tr>
+    <td>{{ form_label(formLegal.tflFijo, null, {'label_attr': {'class': ' col-md-12 text-left'} }) }}</td>
+    <td>{{ form_widget(formLegal.codTlfFijo, {'attr': {'class': ' col-md-4'} }) }}
+        {{ form_widget(formLegal.tflFijo, {'attr': {'class': 'col-md-6 '} }) }}
+        {% if formLegal.tflFijo.vars.errors[0].message is defined %}
+            <span class="help-block ">
+                        {{ formLegal.tflFijo.vars.errors[0].message }}
+                    </span>
+        {% endif %}
+    </td>
+    <td>{{ form_label(formLegal.tflCelular, null, {'label_attr': {'class': ' col-md-12 text-left'} }) }}</td>
+    <td>{{ form_widget(formLegal.codTlfCelular, {'attr': {'class': ' col-md-4 '} }) }}
+        {{ form_widget(formLegal.tflCelular, {'attr': {'class': 'col-md-6 '} }) }}
+        {% if formLegal.tflCelular.vars.errors[0].message is defined %}
+            <span class="help-block ">
+                        {{ formLegal.tflCelular.vars.errors[0].message }}
+                    </span>
+        {% endif %}
+    </td>
+</tr>
+<tr>
+    <td>{{ form_label(formLegal.pagWeb, null, {'label_attr': {'class': ' col-md-12 text-left'} }) }}</td>
+    <td colspan="3">{{ form_widget(formLegal.pagWeb, {'attr': {'class': 'col-md-10 '} }) }}
+        {% if formLegal.pagWeb.vars.errors[0].message is defined %}
+            <span class="help-block ">
+                        {{ formLegal.pagWeb.vars.errors[0].message }}
+                    </span>
+        {% endif %}
+
+    </td>
+</tr>
+{# <tr>
+     <td colspan="2">{{ form_label(formLegal.isSocio, null, {'label_attr': {'class': ' col-md-12 text-left'} }) }}</td>
+     <td colspan="2">
+               {{ form_widget(formLegal.isSocio, {'attr': {'class': 'col-md-10 '} }) }}
+                 {% if formLegal.isSocio.vars.errors[0].message is defined %}
+                 <span class="help-block ">
+                     {{ formLegal.isSocio.vars.errors[0].message }}
+                 </span>
+                 {% endif %}
+             </td>
+ </tr>#}
+{#<tr>
+    <td colspan="4"><div class="col-md-1 col-md-offset-10"><button id="form_dlbtn" value="" class="btn btn-primary" onclick="sFormDL();">Agregar</button></div></td>
+</tr>#}
+</tbody>
+</table>
+<div class="block-separator col-md-12"></div>
+{{form_widget(formLegal._token)}}
+<script type="text/javascript" >
+    $(document).ready(function(){
+        $(".form-horizontal").removeClass('form-horizontal');
+        $(".form-control").removeClass('form-control');
+        $(".dlestado2").change(function() {
+            estado = $('.dlestado2 option:selected').val();
+            var Rmunicipio=Routing.generate('municipios', {estado_id: estado});
+            getSelect(Rmunicipio,'.dlmunicipio2',"Municipio");
+            $(".dlmunicipio2").removeAttr('disabled');
+            //var Rciudad=Routing.generate('ciudades', {estado_id: estado, municipio_id: null});
+            //console.log(Rciudad);
+            //getSelect(Rciudad,'#dlciudad',"Ciudad");
+        });
+        $(".dlmunicipio2").change(function() {
+            estado = $('.dlestado2 option:selected').val();
+            municipio = $('.dlmunicipio2 option:selected').val();
+            var Rparroquia=Routing.generate('parroquias', {municipio_id: municipio});
+            $(".dlparroquia2").removeAttr('disabled');
+            getSelect(Rparroquia,'.dlparroquia2',"Parroquia");
+        });
+    });
+
+</script>

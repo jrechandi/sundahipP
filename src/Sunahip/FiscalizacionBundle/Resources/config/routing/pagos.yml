@@ -1,0 +1,17 @@
+pagos:
+    path:     /{tipo}
+    defaults: { _controller: "FiscalizacionBundle:Pagos:index" }
+    requirements:
+        _method: get
+        tipo: MULTA|PROCESAMIENTO|OTORGAMIENTO|APORTE_MENSUAL
+
+pagos_pagar:
+    path:     /{id}/pagar/{tipo}
+    defaults: { _controller: "FiscalizacionBundle:Pagos:pagar" }
+    requirements:
+        id: \d+
+        tipo: MULTA|PROCESAMIENTO|OTORGAMIENTO|APORTE_MENSUAL
+        
+pagos_validar:
+     path: /validar
+     defaults: { _controller: "FiscalizacionBundle:Pagos:validar" }

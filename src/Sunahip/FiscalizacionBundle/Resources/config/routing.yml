@@ -1,0 +1,52 @@
+FiscalizacionBundle_providencia:
+    resource: "@FiscalizacionBundle/Resources/config/routing/providencia.yml"
+    prefix:   /providencia
+
+
+FiscalizacionBundle_fiscalizacion:
+    resource: "@FiscalizacionBundle/Resources/config/routing/fiscalizacion.yml"
+    prefix:   /fiscalizacion
+
+FiscalizacionBundle_pagos:
+    resource: "@FiscalizacionBundle/Resources/config/routing/pagos.yml"
+    prefix:   /pagos
+
+FiscalizacionBundle_citas:
+    resource: "@FiscalizacionBundle/Resources/config/routing/citas.yml"
+    prefix:   /citas
+
+FiscalizacionBundle_operadoras:
+    resource: "@FiscalizacionBundle/Resources/config/routing/operadoras.yml"
+    prefix:   /operadoras
+
+pdf_verificacion:
+    path:     /pdf/verificacion/{id}
+    defaults: { _controller: FiscalizacionBundle:PDF:verificacion }
+
+pdf_aceptacion:
+    path:     /pdf/aceptacion/{id}
+    defaults: { _controller: FiscalizacionBundle:PDF:aceptacion }
+
+pdf_citacion:
+    path:     /pdf/citacion/{id}
+    defaults: { _controller: FiscalizacionBundle:PDF:citacion }
+
+pdf_retencion:
+    path:     /pdf/retencion/{id}
+    defaults: { _controller: FiscalizacionBundle:PDF:retencion }
+
+pdf_show:
+    path:     /pdf/{id}/{type}/show/
+    defaults: { _controller: FiscalizacionBundle:PDF:show }
+    requirements:
+        _method: get
+        type: verificacion|citacion|retencion
+        id:  \d+
+
+pdf_mercantil:
+    path:     /pdf/mercantil/{id}/{type}
+    defaults: { _controller: FiscalizacionBundle:PDF:mercantil }
+    requirements:
+        _method: post
+        type: verificacion|citacion|retencion
+        id:  \d+

@@ -1,0 +1,7 @@
+parameters:
+#    sunahip_entity.example.class: Sunahip\EntityBundle\Example
+
+services:
+#    sunahip_entity.example:
+#        class: %sunahip_entity.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

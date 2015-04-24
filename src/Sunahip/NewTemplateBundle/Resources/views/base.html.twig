@@ -1,0 +1,102 @@
+{% extends "MopaBootstrapBundle::base.html.twig" %}
+
+{% block head_style %}
+    {% stylesheets
+           'bundles/newtemplate/css/style.css'
+           'bundles/newtemplate/css/genstyles.css'
+        filter='cssrewrite' %}
+        <link rel="stylesheet" href="{{ asset_url }}" />
+        {% endstylesheets %}
+  {% block stylesheets %}{% endblock %}
+{% endblock head_style %}
+
+    {% block body_start %}
+        <div id="cinta_gob" class="row-fluid ">        
+            <img src="{{ asset('bundles/newtemplate/images/cintillo.png') }}" height="53" width="1140" alt="Gobierno Bolivariano"> 
+       </div>
+  {% endblock body_start %}
+  {% block header %}
+   {% endblock header %}
+{% block page_header %}
+    <div id="header" class="row-fluid">
+            <div id="" class="col-md-4"> <img src="{{ asset('bundles/newtemplate/images/logo.png') }}" alt="SUNAHIP" title="SUNAHIP"> </div>
+            <div id="tit_pag" class="col-md-6 col-offset-2 ">
+                Registro Nacional de <span>Licencias Hípicas</span>
+            </div>
+     </div>
+     <div id="header2"class="row-fluid">
+	<div id="fecha" class="fecha col-md-4">
+            Fecha
+        </div>
+        <div class="col-md-7 col-offset-2">
+            <ul id="menu1">    
+                <li><a href="{{path('home')}}">Inicio</a></li>
+                <li> | </li>
+                <li><a href="#">Recaudos</a></li>
+                <li> | </li>
+                <li><a href="#">Tipo de Licencias</a></li>
+                <li> | </li>
+                <li><a href="#">Preguntas Frecuentes</a></li>
+            </ul>
+        </div>   
+      </div>
+{% endblock page_header %}
+{% block content %}
+<div id="main_content" clas="row-fluid">
+        {#<div id="right_side" class="col-md-3">#}
+    <div id="" class="col-md-3">
+        {% include 'NewTemplateBundle:Menu:Lateral.html.twig'%}
+    </div> 
+    <div id="right_side" class="col-md-9">     
+        {% block content_content %}{% endblock content_content %}
+    </div>   
+</div>        
+{% endblock content %}
+  {% block footer %} 
+      <div class="row-fluid">
+            <div id="footer">
+                <p>SUNAHIP - Superintendencia Nacional de Actividades Hípica 2015</p>
+            </div>    
+      </div>      
+  {% endblock footer %}
+  
+   {% block script_base %}
+       <script src="{{asset('bundles/newtemplate/js/func.js')}}"></script>
+       <script type="text/javascript" >
+           $(document).ready(function(){
+                $.datepicker.setDefaults($.datepicker.regional["es"]);
+                 var string = $.datepicker.formatDate('DD, dd --  MM --  yy', new Date(),{
+                     dayNames: $.datepicker.regional[ "es" ].dayNames,
+                     onthNames: $.datepicker.regional[ "es" ].monthNames
+                 });
+                    string= string.charAt(0).toUpperCase() + string.slice(1);
+                    string=string.replace("--", "de");
+                    string=string.replace("--", "de");
+                $(".fecha").html(string);
+                 //DataTable.defaults={};
+           });
+
+           function load(url) {
+               $.ajax({
+                   type: "GET",
+                   url: url,
+                   crossDomain: false,
+                   data: {ajax: 1},
+                   dataType: "html",
+                   success: function (data) {
+                       window.history.pushState("", "", url);
+                       $("#right_side").html(data);
+                   },
+                   error: function (data) {
+                       var message = "No se pudo completar la acci&oacute;n";
+                       $("#right_side").html("<div class='alert alert-info fade in'><i class='fa-fw fa fa-info'></i><strong>Info: </strong>" + message + "</div>");
+                   }
+               });
+           }
+       </script>
+  {% endblock script_base%}
+{% block foot_script %}
+            {% block foot_script_assetic %}
+            {% endblock foot_script_assetic %}
+  {% endblock foot_script %}
+ 

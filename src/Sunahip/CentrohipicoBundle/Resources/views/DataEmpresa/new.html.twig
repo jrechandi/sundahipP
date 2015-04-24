@@ -1,0 +1,80 @@
+{% extends 'CentrohipicoBundle::centroh_base.html.twig' %}
+{% block content_content %}
+    <style>
+        em{
+            color: #e70203;
+            font-size: 11px;
+        }
+    </style>
+    <div class="block-separator col-sm-12"></div>
+    <div class="col-md-12">
+        <h1 class="tit_principal">Centro Hipico | Empresas</h1>
+    </div>
+    <div class="col-md-12">
+        <p>Los campos con <span class="oblig">(*)</span> son obligatorios. Por favor ingrese los todos los Datos de la empresa y legales para guardar<br/>
+        Recuerde llenar los datos de las 3 pestañas (Datos Empresa, Datos Legales, Socios)
+        </p>
+    </div>
+    {% include 'CentrohipicoBundle:DataEmpresa:tabs.html.twig'%}
+{% endblock %}
+
+{% block foot_script_assetic %}
+    <script src="{{asset('bundles/centrohipico/js/DataEmpresa/validate.js')}}"></script>
+    <script src="{{asset('bundles/centrohipico/js/resource.js')}}"></script>
+    <script type="text/javascript" >
+        $(document).ready(function(){
+            $('#tabs').tabs();
+            $(".form-horizontal").removeClass('form-horizontal');
+            $(".form-control").removeClass('form-control');
+            $("#datach #datalegal").show();
+            $("#temp").hide();
+            $("#addDL").click(function(){
+                agregarDL();
+            });
+        });
+
+        function agregarDL(){
+            $("#btnDL").hide();
+            $("#fDL").show();
+            $("#fDL").html(getGifLoading());
+            //var route=Routing.generate('datalegal_new');
+            $.get('{{path('datalegal_new')}}').success(function(data) {
+                if (data.message) {
+                    message = data.message;
+                } else {
+                    $('#datalegal').html(data);
+                }
+            }).error(function(data, status, headers, config) {
+                        if (status === '500') {
+                            message = "No hay conexión con el servidor";
+                        }
+                    });
+        }
+        function sFormDL(){
+            var datach=$("#form_dl").serialize();
+            $("#form_dl").hide();
+            $("#fDL").hide();
+            $("#btnDL").show();
+            //$.post()
+        }
+
+        $(document).ready(function() {
+            $(".estados").change(function() {
+                estado = $(this).val();
+                var Rmunicipio=Routing.generate('municipios', {estado_id: estado||0});
+                getSelect(Rmunicipio,'.municipio',"Municipio");
+                $(".municipio").val('');
+
+            });
+
+            $(".municipio").change(function() {
+                municipio = $(this).val();
+                $(".parroquia").val('');
+                var Rparroquia=Routing.generate('parroquias', {municipio_id: municipio||0});
+                getSelect(Rparroquia,'.parroquia',"Parroquia");
+            });
+        });
+
+    </script>
+    <script src="{{asset('bundles/centrohipico/js/DataEmpresa/form.js')}}"></script>
+{% endblock foot_script_assetic %}

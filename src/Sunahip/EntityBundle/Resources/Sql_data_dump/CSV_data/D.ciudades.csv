@@ -1,0 +1,2787 @@
+1;14;NULL;Acequias;274;5110
+2;14;NULL;Apartaderos;271;5130
+3;14;NULL;Acarigua;274;5101
+4;14;NULL;Bailadores;275;5133
+5;14;NULL;Canagua;275;5154
+6;14;NULL;Capazón;275;3137
+7;14;NULL;Caño Zancudo;275;3137
+8;14;NULL;Chachopo;271;3112
+9;14;NULL;Chiguara;275;5138
+10;14;NULL;Chocanta;275;5112
+11;14;NULL;Ejido;274;5111
+12;14;NULL;El Morro;275;5101
+13;14;NULL;El Peñon;275;5142
+14;14;NULL;El Vigía;275;5145
+15;14;NULL;Estanques;275;5101
+16;14;NULL;Guaraque;275;5134
+17;14;NULL;Humboldt;274;5101
+18;14;NULL;Jajá;274;5107
+19;14;NULL;La Azulita;275;5102
+20;14;NULL;La Blanca;275;5145
+21;14;NULL;La Hechicera;274;5101
+22;14;NULL;La Mesa;274;5112
+23;14;NULL;La Mesa de Ejido;274;5112
+24;14;NULL;La Palmita;275;5145
+25;14;NULL;La Parroquia;274;5115
+26;14;NULL;La Pedregosa;274;5101
+27;14;NULL;La Playa;275;5143
+28;14;NULL;La Playita;275;5145
+29;14;NULL;La Punta;275;5115
+30;14;NULL;La Trampa;275;5138
+31;14;NULL;La Vega;274;5101
+32;14;NULL;Lagunilla;274;5138
+33;14;NULL;Las Piedras;274;5138
+34;14;NULL;Las Virtudes;274;3141
+35;14;NULL;Libertad;271;5145
+36;14;NULL;Los González;274;5111
+37;14;NULL;Los Sauzales;274;5101
+38;14;NULL;Mesa Bolívar;274;5141
+39;14;NULL;Mesa Quintero;274;5134
+40;14;NULL;Mucuchachi;271;5105
+41;14;NULL;Mucuchies;271;5130
+42;14;NULL;Mucuruba;271;5129
+43;14;NULL;Mucutuy;271;5106
+44;14;NULL;Mérida;274;5101
+45;14;NULL;Piñango;274;5114
+46;14;NULL;Pueblo Llano;271;5124
+47;14;NULL;Pueblo Nuevo;275;5108
+48;14;NULL;San Jacinto;274;5101
+49;14;NULL;San José;274;5101
+50;14;NULL;San Juan de Lagunilla;274;5138
+51;14;NULL;San Rafael de Mucuchies;271;5130
+52;14;NULL;Santa Cruz de Mora;275;5142
+53;14;NULL;Santa Elena de Arenales;274;5101
+54;14;NULL;Santo Domingo;271;5131
+55;14;NULL;Tabay;274;5116
+56;14;NULL;Timotes;271;3112
+57;14;NULL;Tovar;275;5143
+58;14;NULL;Tucantocani;275;5145
+59;14;NULL;Unión;274;5101
+60;14;NULL;Zea;275;5144
+61;14;NULL;La Gonzalez;275;5145
+62;14;NULL;Mucujepe;275;5101
+63;14;NULL;San Cristobal De Torondoy;271;3101
+64;14;NULL;Santa Apolonia De Merida;271;3101
+65;14;NULL;Tucani;275;5141
+66;14;NULL;Otras Poblaciones;274;5101
+67;18;NULL;Acarigua;255;3301
+68;18;NULL;Agua Blanca;255;3302
+69;18;NULL;Aparición;257;3350
+70;18;NULL;Araure;255;3303
+71;18;NULL;Biscucuy;257;3351
+72;18;NULL;Boconoito;257;3355
+73;18;NULL;Chabasquín;257;3357
+74;18;NULL;Colonia Tunón;0;3317
+75;18;NULL;Córdoba;0;3357
+76;18;NULL;El Poblado;0;3309
+77;18;NULL;Guanare;257;3350
+78;18;NULL;Guanarito;257;3354
+79;18;NULL;La Estación;0;3352
+80;18;NULL;La Misión;256;3301
+81;18;NULL;Los Colorados;0;3309
+82;18;NULL;Los Morrones;0;3350
+83;18;NULL;Mesa de Caruaca;257;3350
+84;18;NULL;Ospino;256;3352
+85;18;NULL;Papelón;257;3353
+86;18;NULL;Pimpinela;255;3304
+87;18;NULL;Pí­ritu;256;3305
+88;18;NULL;San Rafael de Onoto;255;3306
+89;18;NULL;Santa Rosalí­a de Turen;256;3307
+90;18;NULL;Turen;256;3309
+91;18;NULL;Unellez;0;3350
+92;18;NULL;Villa Bruzual;0;3309
+93;18;NULL;La Concepción;0;3354
+94;18;NULL;La Trinidad;0;3350
+95;18;NULL;Paraiso De Chabasquen;0;3357
+96;18;NULL;Payara;255;3301
+97;18;NULL;Otras Poblaciones;0;3350
+98;17;NULL;El Amparo;295;6301
+99;17;NULL;El Bicha;295;6301
+100;17;NULL;El Espinal;295;6301
+101;17;NULL;El Guamache (Isla de Coche);295;6301
+102;17;NULL;El Guamache (Punta de Piedras);295;6301
+103;17;NULL;El Maco;295;6301
+104;17;NULL;El Pilar;295;6301
+105;17;NULL;El Valle de Pedro González;295;6301
+106;17;NULL;El Valle del Espí­ritu Santo;295;6301
+107;17;NULL;Guinima;295;6301
+108;17;NULL;Juan Griego;295;6309
+109;17;NULL;La Guardia;295;6301
+110;17;NULL;La Isleta;295;6301
+111;17;NULL;La Plaza de Paraguachí­;295;6301
+112;17;NULL;La Vecindad;295;6301
+113;17;NULL;Las Cabreras;295;6301
+114;17;NULL;Las Hernández;295;6301
+115;17;NULL;Las Maritas;295;6301
+116;17;NULL;Las Piedras;295;6301
+117;17;NULL;Los Bagres;295;6301
+118;17;NULL;Los Cerritos;295;6301
+119;17;NULL;Los Giles;295;6301
+120;17;NULL;Los Gómez;295;6301
+121;17;NULL;Los Marvales;295;6301
+122;17;NULL;Los Millanes;295;6301
+123;17;NULL;Luisa Cáceres de Arismendi (Urbanización);295;6301
+124;17;NULL;Macanao;295;6301
+125;17;NULL;Manzanillo;295;6301
+126;17;NULL;Marino;295;6301
+127;17;NULL;Mariño;295;6301
+128;17;NULL;Orinoco;295;6301
+129;17;NULL;Pampatar;295;6316
+130;17;NULL;Pedregales;295;6301
+131;17;NULL;Playa el Angel (Urbanización);295;6301
+132;17;NULL;Porlamar;295;6301
+133;17;NULL;Puerto Fermí­n;295;6301
+134;17;NULL;Punta de Piedras;295;6318
+135;17;NULL;Robledal;295;6301
+136;17;NULL;San Antonio;295;6301
+137;17;NULL;San Juan Bautista;295;6320
+138;17;NULL;San Pedro de Coche;295;6321
+139;17;NULL;Santa Ana;295;6301
+140;17;NULL;Tacarigua;295;6301
+141;17;NULL;Valle Verde (Urbanización);295;6301
+142;17;NULL;Villa Rosa;295;6301
+143;17;NULL;La Asunción;295;6311
+144;17;NULL;Pedro González;295;6301
+145;17;NULL;Otras Poblaciones;295;6301
+146;17;NULL;Agua de Vaca;295;6301
+147;17;NULL;Altagracia;295;6301
+148;17;NULL;Antolin del Campo;295;6301
+149;17;NULL;Boca del Pozo;295;6301
+150;17;NULL;Boca del Rí­o;295;6304
+151;17;NULL;Bolí­var;295;6301
+152;17;NULL;Boquerón;295;6301
+153;17;NULL;Chacachacare;295;6301
+154;13;NULL;Aguada Grande;253;3031
+155;13;NULL;Aregue;251;3052
+156;13;NULL;Baragua;251;3034
+157;13;NULL;Barquisimeto;251;3001
+158;13;NULL;Bobare;253;3004
+159;13;NULL;Cabudare;251;3023
+160;13;NULL;Cariragua;251;3051
+161;13;NULL;Carora;252;3050
+162;13;NULL;Cubiro;253;3063
+163;13;NULL;Duaca;253;3025
+164;13;NULL;El Empedrado;251;3060
+165;13;NULL;Guarico;253;3057
+166;13;NULL;Humocaro Alto/Bajo;253;3058
+167;13;NULL;Las Guabinas;251;3033
+168;13;NULL;Los Rastrojos;251;3023
+169;13;NULL;Los Yabos;251;3050
+170;13;NULL;Quí­bor;253;3061
+171;13;NULL;Rí­o Claro;251;3009
+172;13;NULL;Rí­o Tocuyo;251;3054
+173;13;NULL;San Francisco;251;3055
+174;13;NULL;San Miguel;251;3016
+175;13;NULL;Sanare;253;3028
+176;13;NULL;Sarare;251;3015
+177;13;NULL;Siquisique;253;3032
+178;13;NULL;Guayabones;251;35101
+179;13;NULL;Quebrada Arriba;251;3101
+180;13;NULL;Otras poblaciones;251;3001
+181;6;NULL;Altamira;273;5208
+182;6;NULL;Barinas;273;5201
+183;6;NULL;Barinitas;273;5206
+184;6;NULL;Barrancas;273;5201
+185;6;NULL;Bruzual;273;5201
+186;6;NULL;Calderas;273;5207
+187;6;NULL;Ciudad Bolivia;273;5214
+188;6;NULL;Ciudad de Nutrias;273;5221
+189;6;NULL;Dolores;273;5217
+190;6;NULL;El Cantón;278;5201
+191;6;NULL;La Cochinilla (Barinitas);273;5201
+192;6;NULL;La Luz;273;5201
+193;6;NULL;La Unión;273;2312
+194;6;NULL;Libertad;273;5220
+195;6;NULL;Maporal;273;5201
+196;6;NULL;Mijagual;273;5201
+197;6;NULL;Obispos;273;5213
+198;6;NULL;Pedraza la Vieja;273;5201
+199;6;NULL;Puerto Nutrias;273;5201
+200;6;NULL;Quebrada Seca;273;5201
+201;6;NULL;Quintero;273;5201
+202;6;NULL;Sabaneta;273;5224
+203;6;NULL;Sacopó;273;5216
+204;6;NULL;San Rafael de Canagua;273;5201
+205;6;NULL;San Silvestre;273;5203
+206;6;NULL;San Vicente;273;5201
+207;6;NULL;Santa Barbara;278;5210
+208;6;NULL;Santa Catalina;273;5201
+209;6;NULL;Santa Inés;273;5201
+210;6;NULL;Santa Lucia;273;5201
+211;6;NULL;Santa Rosa;273;5219
+212;6;NULL;Torunos;273;5201
+213;6;NULL;Veguitas;273;5201
+214;6;NULL;Arismendi;273;2201
+215;6;NULL;Capitanejo;273;5201
+216;6;NULL;Chameta;273;5216
+217;6;NULL;El Real;273;5201
+218;6;NULL;El Regalo;273;5201
+219;6;NULL;Guadarrama;273;2201
+220;6;NULL;Quebrada Seca;273;5067
+221;6;NULL;Otras Poblaciones;273;5201
+222;7;NULL;Aeropuerto La Carlota (Caracas);212;1064
+223;7;NULL;Araira;212;1221
+224;7;NULL;Barrio El Carmen Minas de Baruta;212;1080
+225;7;NULL;Barrio El Carmen Petare;212;1073
+226;7;NULL;Barrio El Manguito Petare;212;1073
+227;7;NULL;Barrio El Rodeo;212;1221
+228;7;NULL;Barrio La Cruz Petare;212;1073
+229;7;NULL;Barrio La Cruz Chacao;212;1060
+230;7;NULL;Barrio Niño Jesús;212;1030
+231;7;NULL;Capaya;234;1225
+232;7;NULL;Carenero;234;1231
+233;7;NULL;Carrizal;212;1203
+234;7;NULL;Caucagua;234;1246
+235;7;NULL;Charallave;239;1210
+236;7;NULL;Chirimena;234;1231
+237;7;NULL;Chuspa;234;1166
+238;7;NULL;Chuspita;234;1246
+239;7;NULL;Cupira;234;1238
+240;7;NULL;Curiepe;234;1232
+241;7;NULL;Cúa;239;1211
+242;7;NULL;El Café;234;1225
+243;7;NULL;El Guapo;234;1243
+244;7;NULL;El Hatillo (Caracas);212;1083
+245;7;NULL;El Marquís;212;1071
+246;7;NULL;Guarenas;212;1220
+247;7;NULL;Guatire;212;1221
+248;7;NULL;Higuerote;234;1231
+249;7;NULL;La Tahona;212;1083
+250;7;NULL;Las González;212;1228
+251;7;NULL;Lomas de la Lagunita;212;1083
+252;7;NULL;Los Chorros;212;1071
+253;7;NULL;Los Samanes;212;1080
+254;7;NULL;Los Teques;212;1201
+255;7;NULL;Machurucuto;234;1245
+256;7;NULL;Mamporal;234;1228
+257;7;NULL;Ocumare del Tuy;239;1209
+258;7;NULL;Paparo;234;1236
+259;7;NULL;Paracotos;234;1201
+260;7;NULL;Petare;212;1073
+261;7;NULL;Plaza las Américas;212;1061
+262;7;NULL;Prados del Este;212;1080
+263;7;NULL;Pueblo Nuevo Mamporal;234;1235
+264;7;NULL;Rí­o Chico;234;1236
+265;7;NULL;San Antonio de los Altos;212;1204
+266;7;NULL;San Blas;212;1073
+267;7;NULL;San Diego de los Altos;212;1204
+268;7;NULL;San Fernando del Guapo;234;1243
+269;7;NULL;San Francisco de Yare;239;1212
+270;7;NULL;San José de Barlovento;234;1235
+271;7;NULL;San José de Rí­o Chico;234;1235
+272;7;NULL;San José de los Altos;212;1204
+273;7;NULL;San Pedro de los Altos;212;1204
+274;7;NULL;Santa Lucia;239;1214
+275;7;NULL;Santa Paula;212;1061
+276;7;NULL;Santa Rosa de Lima;212;1061
+277;7;NULL;Santa Teresa del Tuy;239;1215
+278;7;NULL;Sebucón;212;1071
+279;7;NULL;Sector La Estancia (Chuao;212;1064
+280;7;NULL;Sector Los Naranjos;212;1061
+281;7;NULL;Simón Bolí­var (Ciudad Tablita);212;1030
+282;7;NULL;Tacarigua Mamporal;234;1228
+283;7;NULL;Tacarigua de La Laguna;234;1236
+284;7;NULL;Tacata;239;1211
+285;7;NULL;Terrazas de Club Hí­pico (Caracas);212;1080
+286;7;NULL;U.S.B.;212;1086
+287;7;NULL;Urbanización La Urbina;212;1073
+288;7;NULL;Urbanización Altamira (Caracas);212;1060
+289;7;NULL;Urbanización Alto Hatillo (Caracas);212;1083
+290;7;NULL;Urbanización Alto Prado (Caracas);212;1080
+291;7;NULL;Urbanización Avila (Caracas);212;1050
+292;7;NULL;Urbanización Bello Campo (Caracas);212;1060
+293;7;NULL;Urbanización Boleita;212;1071
+294;7;NULL;Urbanización Boleita Alta;212;1071
+295;7;NULL;Urbanización California Norte;212;1071
+296;7;NULL;Urbanización California Sur;212;1071
+297;7;NULL;Urbanización Campo Alegre;212;1060
+298;7;NULL;Urbanización Canteras de Miranda;212;1073
+299;7;NULL;Urbanización Caracas Country Club;212;1060
+300;7;NULL;Urbanización Caurimare;212;1061
+301;7;NULL;Urbanización Chacao;212;1060
+302;7;NULL;Urbanización Chuao;212;1061
+303;7;NULL;Urbanización Colinas de Baruta;212;1080
+304;7;NULL;Urbanización Colinas de Bello Monte;212;1050
+305;7;NULL;Urbanización Colinas de La California;212;1071
+306;7;NULL;Urbanización Colinas de La Mariposa;212;1090
+307;7;NULL;Urbanización Colinas de La Trinidad;212;1080
+308;7;NULL;Urbanización Colinas de Los Ruices;212;1071
+309;7;NULL;Urbanización Colinas de Turumo;212;1073
+310;7;NULL;Urbanización Colinas de Valle Arriba;212;1080
+311;7;NULL;Urbanización Colinas del Tamanaco;212;1061
+312;7;NULL;Urbanización Cumbres de Curumo;212;1080
+313;7;NULL;Urbanización Cátira;212;1030
+314;7;NULL;Urbanización Don Bosco;212;1071
+315;7;NULL;Urbanización El Cafetal;212;1061
+316;7;NULL;Urbanización El Dorado;212;1073
+317;7;NULL;Urbanización El Llanito;212;1073
+318;7;NULL;Urbanización El Marqués;212;1071
+319;7;NULL;Urbanización El Pedregal;212;1060
+320;7;NULL;Urbanización El Peñón;212;1080
+321;7;NULL;Urbanización El Placer;212;1080
+322;7;NULL;Urbanización El Placer de Marí­a;212;1080
+323;7;NULL;Urbanización El Prado;212;1040
+324;7;NULL;Urbanización El Retiro;212;1060
+325;7;NULL;Urbanización El Rosal;212;1060
+326;7;NULL;Urbanización La Boyera;212;1083
+327;7;NULL;Urbanización La Carlota;212;1071
+328;7;NULL;Urbanización La Castellana;212;1060
+329;7;NULL;Urbanización La Ciudadela;212;1080
+330;7;NULL;Urbanización La Cumbre;212;1083
+331;7;NULL;Urbanización La Esmeralda;212;1083
+332;7;NULL;Urbanización La Esperanza;212;1030
+333;7;NULL;Urbanización La Estancia;212;1071
+334;7;NULL;Urbanización La Floresta;212;1060
+335;7;NULL;Urbanización La Lagunita Country Club;212;1083
+336;7;NULL;Urbanización La Mariposa;212;1090
+337;7;NULL;Urbanización La Trinidad;212;1080
+338;7;NULL;Urbanización Las Bonitas;212;1080
+339;7;NULL;Urbanización Las Mercedes;212;1060
+340;7;NULL;Urbanización Las Minas;212;1080
+341;7;NULL;Urbanización Las Vegas de Petare;212;1073
+342;7;NULL;Urbanización Lomas de Las Mercedes;212;1061
+343;7;NULL;Urbanización Lomas del Club Hí­pico;212;1080
+344;7;NULL;Urbanización Los Cortijos de Lourdes;212;1071
+345;7;NULL;Urbanización Los Dos Caminos;212;1071
+346;7;NULL;Urbanización Los Naranjos;212;1061
+347;7;NULL;Urbanización Los Ruices;212;1071
+348;7;NULL;Urbanización Macaracuay;212;1071
+349;7;NULL;Urbanización Mampote;212;1073
+350;7;NULL;Urbanización Mirador del Este;212;1073
+351;7;NULL;Urbanización Miranda Petare Guarenas;212;1073
+352;7;NULL;Urbanización Palo Verde;212;1073
+353;7;NULL;Urbanización Parque Anauco;212;1010
+354;7;NULL;Urbanización Parque Sebucón;212;1071
+355;7;NULL;Urbanización Paseo Las Mercedes;212;1061
+356;7;NULL;Urbanización Paulo VI;212;1073
+357;7;NULL;Barrio San Blas;212;1073
+358;7;NULL;Barrio San Miguel Petare;212;1073
+359;7;NULL;Barrio Unión;212;1020
+360;7;NULL;Centro Comercial Plaza Las Americas;212;1061
+361;7;NULL;Urbanización La Urbina;212;1073
+362;7;NULL;Urbanización Las Américas;212;1020
+363;7;NULL;Urbanización Los Chorros;212;1071
+364;7;NULL;Urbanización Prados Del Este;212;1080
+365;7;NULL;Urbanización Santa Fe Norte y Sur;212;1080
+366;7;NULL;Urbanización Santa Ines;212;1080
+367;7;NULL;Urbanización Santa Paula;212;1061
+368;7;NULL;Urbanización Santa Sofia;212;1061
+369;7;NULL;Urbanización Sartenejas;212;1080
+370;7;NULL;Urbanización Sebucan;212;1071
+371;7;NULL;Urbanización Sector Los Naranjos;212;1061
+372;7;NULL;Urbanización Sorocaima;212;1080
+373;7;NULL;Urbanización Terraza Del Club Hipico;212;1080
+374;7;NULL;Urbanización Terrazas Del Avila;212;1073
+375;7;NULL;Urbanización Turiamo;212;1020
+376;7;NULL;Urbanización Turumo;212;1073
+377;7;NULL;Urbanización Valle Arriba;212;1061
+378;16;NULL;Aguasay;292;6201
+379;16;NULL;Alto Guri;0;6201
+380;16;NULL;Altos de los Godos;0;6201
+381;16;NULL;Andrés Eloy Blanco;0;6201
+382;16;NULL;Aragua de Maturí­n;292;6206
+383;16;NULL;Areo;0;6201
+384;16;NULL;Azagua;0;6201
+385;16;NULL;Bajo Guarapiche;0;6201
+386;16;NULL;Barrancas;287;6208
+387;16;NULL;Brisas de Aribi;0;6201
+388;16;NULL;Cachipo;0;6201
+389;16;NULL;Caicara de Maturí­n;292;6209
+390;16;NULL;Campo Alegre;0;6201
+391;16;NULL;Carabobo;0;6201
+392;16;NULL;Caripe;292;6210
+393;16;NULL;Caripito;291;6211
+394;16;NULL;Caño Colorado;0;6201
+395;16;NULL;Chaguaramal;0;6201
+396;16;NULL;El Corozo;0;6201
+397;16;NULL;El Cortijo;0;6201
+398;16;NULL;El Furrial;0;6201
+399;16;NULL;El Juní­n;0;6201
+400;16;NULL;El Merey;0;6201
+401;16;NULL;El Para;0;6201
+402;16;NULL;El Pelón;0;6201
+403;16;NULL;El Respiro;0;6201
+404;16;NULL;El Tejero;0;6213
+405;16;NULL;El Zamuro;0;6201
+406;16;NULL;El Zorro;0;6201
+407;16;NULL;Guanaguana;0;6214
+408;16;NULL;Guarito;0;6201
+409;16;NULL;Jusepí­n;292;6204
+410;16;NULL;La Candelaria;0;6201
+411;16;NULL;La Cruz de La Paloma;0;6201
+412;16;NULL;La Guanota;0;6210
+413;16;NULL;La Morrocoya;0;6201
+414;16;NULL;La Pica;0;6201
+415;16;NULL;La Plantación;0;6201
+416;16;NULL;La Poderosa;0;6201
+417;16;NULL;La Toscana;0;6215
+418;16;NULL;Las Alhuacas;0;6201
+419;16;NULL;Las Brisas;0;6201
+420;16;NULL;Las Cocuizas;0;6201
+421;16;NULL;Las Palmeras;0;6201
+422;16;NULL;Las Pinas;0;6201
+423;16;NULL;Libertador;0;6201
+424;16;NULL;Los Guaritos;0;6201
+425;16;NULL;Los Pinos;0;6201
+426;16;NULL;Manreza;0;6201
+427;16;NULL;Maturí­n;291;6201
+428;16;NULL;Miraflores;291;6216
+429;16;NULL;Morichal Largo;0;6201
+430;16;NULL;Puerto Amador;0;6201
+431;16;NULL;Punta Gorda;0;6201
+432;16;NULL;Quiriquire;291;6218
+433;16;NULL;San Antonio de Maturí­n;292;6219
+434;16;NULL;San Antonio de Tabasca;0;6225
+435;16;NULL;San Felix de Monagas;0;6226
+436;16;NULL;San Francisco de Maturí­n;0;6219
+437;16;NULL;San Luis;0;6201
+438;16;NULL;San Miguel;0;6201
+439;16;NULL;San Vicente;0;6201
+440;16;NULL;Santa Bárbara;0;6221
+441;16;NULL;Santa Elena;0;6201
+442;16;NULL;Sarabria;0;6201
+443;16;NULL;Temblador;287;6223
+444;16;NULL;Teresen;0;6224
+445;16;NULL;Tirado;0;6201
+446;16;NULL;Viento Colao;0;6201
+447;16;NULL;Viento Fresco;0;6207
+448;16;NULL;Vuelta Larga;0;6201
+449;16;NULL;Zona Industrial;0;6201
+450;16;NULL;Guarapiche;0;6201
+451;16;NULL;Otras Poblaciones;0;6201
+452;3;NULL;Anaco;282;6003
+453;3;NULL;Aragua de Barcelona;282;6002
+454;3;NULL;Atapirire;281;6001
+455;3;NULL;Barbacoa;281;6001
+456;3;NULL;Barcelona;281;6001
+457;3;NULL;Bergantí­n;281;6001
+458;3;NULL;Boca de Uchire;281;6005
+459;3;NULL;Cachipo;281;6001
+460;3;NULL;Caigua;281;6001
+461;3;NULL;Cantaura;282;6007
+462;3;NULL;Clarines;281;6008
+463;3;NULL;El Carito;281;6001
+464;3;NULL;El Chaparro;283;2350
+465;3;NULL;El Hatillo;281;6001
+466;3;NULL;El Morro de Barcelona;281;6016
+467;3;NULL;El Pao;281;6001
+468;3;NULL;El Pilar;281;6001
+469;3;NULL;El Tigre;283;6050
+470;3;NULL;Guanape;281;6012
+471;3;NULL;Guanta;281;6014
+472;3;NULL;Guaribe de Cajigal;281;6001
+473;3;NULL;La Margarita;281;6002
+474;3;NULL;Lecherí­as;281;6016
+475;3;NULL;Los Altos de Santa Fe;281;6001
+476;3;NULL;Los Pilones;281;6003
+477;3;NULL;Mapire;281;6001
+478;3;NULL;Modulo de Boyacá;281;6001
+479;3;NULL;Modulo de Chuparin;281;6009
+480;3;NULL;Mundo Nuevo;281;6001
+481;3;NULL;Naricual;281;6001
+482;3;NULL;Onoto;281;6020
+483;3;NULL;Pariaguán;283;6052
+484;3;NULL;Pertigalete;281;6014
+485;3;NULL;Pozuelos;281;6022
+486;3;NULL;Puerto La Cruz;281;6023
+487;3;NULL;Puerto Pí­ritu;281;6022
+488;3;NULL;Pí­ritu;281;6022
+489;3;NULL;Sabana de Uchire;281;6001
+490;3;NULL;San Diego de Cabrutica;281;6001
+491;3;NULL;San Joaquí­n;282;6001
+492;3;NULL;San José de Guanipa;282;6054
+493;3;NULL;San Mateo;282;6048
+494;3;NULL;San Miguel;282;6001
+495;3;NULL;San Pablo;282;6001
+496;3;NULL;San Tomé;283;6055
+497;3;NULL;Santa Ana;282;6027
+498;3;NULL;Santa Clara;282;6001
+499;3;NULL;Santa Cruz del Orinoco;281;6001
+500;3;NULL;Santa Inés;282;6001
+501;3;NULL;Santa Rosa;282;6001
+502;3;NULL;Soledad;285;8013
+503;3;NULL;Urí­ca;292;6001
+504;3;NULL;Uverito;281;6001
+505;3;NULL;Valle Guanape;281;6032
+506;3;NULL;Zuata;281;6057
+507;3;NULL;Otras Poblaciones;281;6001
+508;5;NULL;10 de Diciembre;243;2107
+509;5;NULL;12 de Febrero;243;2104
+510;5;NULL;12 de Octubre Maracay;243;2103
+511;5;NULL;13 de Enero I, II, III (Maracay);243;2103
+512;5;NULL;13 de Junio (Maracay);243;2103
+513;5;NULL;18 de Mayo (Maracay);243;2103
+514;5;NULL;1;243;2103
+515;5;NULL;23 de Enero (Maracay);243;2104
+516;5;NULL;5 de Julio;243;2118
+517;5;NULL;5 de Julio (Maracay);243;2103
+518;5;NULL;Alayón (Maracay);243;2103
+519;5;NULL;Alberto Solano (Maracay);243;2103
+520;5;NULL;Alí­ Primera (Cagua);244;2122
+521;5;NULL;Andrés Bello (Maracay);243;2102
+522;5;NULL;Andrés Eloy (Santa Cruz);243;2123
+523;5;NULL;Andrés Eloy Blanco (Maracay);243;2103
+524;5;NULL;Angélica de Lusinchi (Cagua);244;2122
+525;5;NULL;Apolo (Villa de Cura);244;2126
+526;5;NULL;Aquiles Nazoa (Maracay);243;2103
+527;5;NULL;Araguita (Villa de Cura);244;2126
+528;5;NULL;Arias Blanco (El Limón);243;2105
+529;5;NULL;Arsenal (Maracay);243;2101
+530;5;NULL;Barrancón (Cagua);244;2122
+531;5;NULL;Base Aragua (Maracay);243;2102
+532;5;NULL;Bella Vista (Cagua);244;2122
+533;5;NULL;Bella Vista (Maracay);243;2102
+534;5;NULL;Bello Monte (Palo Negro);243;2117
+535;5;NULL;Bello Monte I y II (La Victoria);244;2121
+536;5;NULL;Bermúdez (Maracay);243;2103
+537;5;NULL;Bolí­var (La Victoria);244;2121
+538;5;NULL;Bolí­var (Maracay);243;2104
+539;5;NULL;Bolí­var (San Mateo);244;2120
+540;5;NULL;Bosque Lindo (El Consejo);244;2118
+541;5;NULL;Brisas del Lago (Maracay);243;2104
+542;5;NULL;Caballero (Cagua);244;2122
+543;5;NULL;Cadillal (Maracay);243;2104
+544;5;NULL;Cagua (Cagua);244;2122
+545;5;NULL;Calicanto (Maracay);243;2101
+546;5;NULL;Camburito (Maracay);243;2103
+547;5;NULL;Camejo (Villa de Cura);244;2126
+548;5;NULL;Campo Alegre (Cagua);244;2122
+549;5;NULL;Campo Alegre (Maracay);243;2103
+550;5;NULL;Campo Claro (Maracay);243;2101
+551;5;NULL;Campo Elí­as (La Victoria);244;2121
+552;5;NULL;Cantarrana (Maracay);243;2102
+553;5;NULL;Cantor Nieve Rí­o (Tejerí­as);244;2119
+554;5;NULL;Carlos Andrés Pérez (Palo Negro);243;2117
+555;5;NULL;Carlos Maza (Maracay);243;2103
+556;5;NULL;Carrizalito (Villa de Cura);244;2126
+557;5;NULL;Casanova Godoy (Maracay);243;2103
+558;5;NULL;Casco de La Ciudad (Maracay);243;2101
+559;5;NULL;Cata (Ocumare de La Costa);243;2114
+560;5;NULL;Caña de Azócar (Maracay);243;2105
+561;5;NULL;Cañaote (Tejerí­as);244;2119
+562;5;NULL;Cementerio (El Consejo);244;2118
+563;5;NULL;Choroní­ (Choroní­);243;2110
+564;5;NULL;Ciudad Jardí­n (Cagua);244;2122
+565;5;NULL;Ciudad Jardí­n (Maracay);243;2102
+566;5;NULL;Ciudad Universitaria (El Limón);243;2105
+567;5;NULL;Codazzi (Cagua);244;2122
+568;5;NULL;Colonia Tovar;244;1030
+569;5;NULL;Cooperativa Los Olivos Nuevos (Maracay);243;2102
+570;5;NULL;Cooperativa Los Olivos Viejos (Maracay);243;2102
+571;5;NULL;Corianza (Cagua);244;2122
+572;5;NULL;Corocito (San Mateo);244;2120
+573;5;NULL;Coromoto (Maracay);243;2101
+574;5;NULL;Curiepe (Tejerí­as);244;2119
+575;5;NULL;Cuyagua (Ocumare de La Costa);243;2112
+576;5;NULL;Doctor Pedro Garcí­a (Turmero);244;2116
+577;5;NULL;El Bosque (Maracay);243;2102
+578;5;NULL;El Béisbol (Tejerí­as);244;2119
+579;5;NULL;El Carmen (Cagua);244;2122
+580;5;NULL;El Carmen (La Victoria);244;2121
+581;5;NULL;El Carmen (Maracay);243;2101
+582;5;NULL;El Cementerio (La Victoria);244;2121
+583;5;NULL;El Centro (Maracay);243;2104
+584;5;NULL;El Consejo (El Consejo);244;2118
+585;5;NULL;El Esfuerzo (Maracay);243;2104
+586;5;NULL;El Estadium (La Victoria);244;2121
+587;5;NULL;El Hipódromo (Maracay);243;2104
+588;5;NULL;El Indio (Maracay);243;2104
+589;5;NULL;El Lago (Maracay);243;2104
+590;5;NULL;El Lechosal (Cagua);244;2122
+591;5;NULL;El Macaro (Turmero);244;2115
+592;5;NULL;El Maomo (Santa Cruz);243;2123
+593;5;NULL;El Milagro (Maracay);243;2101
+594;5;NULL;El Nido (El Consejo);244;2118
+595;5;NULL;El Ortiseño (Palo Negro);243;2117
+596;5;NULL;El Piñal (El Limón, Maracay);243;2105
+597;5;NULL;El Progreso (El Limón, Maracay);243;2105
+598;5;NULL;El Recreo (La Victoria);244;2121
+599;5;NULL;El Recurso (Maracay);243;2101
+600;5;NULL;El Remanso (Santa Cruz);243;2123
+601;5;NULL;El Tierral (19 de Abril Maracay);243;2107
+602;5;NULL;El Topo (Cagua);244;2122
+603;5;NULL;El Toquito (Villa de Cura);244;2126
+604;5;NULL;El Toro (Maracay);243;2102
+605;5;NULL;El Toro (Maracay);243;2101
+606;5;NULL;El Triunfo (Maracay);243;2104
+607;5;NULL;El Trébol (Maracay);243;2103
+608;5;NULL;El Valle de Santa Rita (Maracay);243;2103
+609;5;NULL;El Viñedo (Maracay);243;2104
+610;5;NULL;Ezequiel Zamora Palo Negro);243;2117
+611;5;NULL;Francisco de Miranda (Maracay);243;2103
+612;5;NULL;Francisco de Miranda (Villa de Cura);244;2126
+613;5;NULL;Funda Villa I y II (Villa de Cura);244;2126
+614;5;NULL;Fundación Mendoza (Maracay);243;2103
+615;5;NULL;Girardot (Maracay);243;2103
+616;5;NULL;Guanarito (Turmero);244;2115
+617;5;NULL;Guaracarima (La Victoria);244;2121
+618;5;NULL;Guaruto (Maracay);243;2103
+619;5;NULL;Guayabita (Turmero);244;2115
+620;5;NULL;Guayamura (Maracay);243;2104
+621;5;NULL;Guillen (Cagua);244;2122
+622;5;NULL;Guere (Turmero);244;2115
+623;5;NULL;Guerito (19 de Abril, Maracay);243;2107
+624;5;NULL;Jabillar (Tejerias);244;2119
+625;5;NULL;Jaime II (Villa de Cura);244;2126
+626;5;NULL;José Antonio Páez (Maracay);243;2103
+627;5;NULL;José Casanova Godoy (Maracay);243;2103
+628;5;NULL;José Félix Rivas (Maracay);243;2101
+629;5;NULL;José Gregorio Hernández (Maracay);243;2103
+630;5;NULL;Juan Moreno (El Consejo);244;2118
+631;5;NULL;Juana Medina (Maracay);243;2104
+632;5;NULL;Julio Bracho (El Consejo);244;2118
+633;5;NULL;La Arboleda (Maracay);243;2102
+634;5;NULL;La Arboleda (Santa Cruz);243;2123
+635;5;NULL;La Atascoza (Palo Negro);243;2117
+636;5;NULL;La Avanzada (Maracay);243;2103
+637;5;NULL;La Barraca (Maracay);243;2102
+638;5;NULL;La Candelaria (El Limón, Maracay);243;2105
+639;5;NULL;La Candelaria (Santa Cruz);243;2123
+640;5;NULL;La Capillita (Santa Cruz);243;2123
+641;5;NULL;La Carpiera (Cagua);244;2122
+642;5;NULL;La Chapa (La Victoria);244;2121
+643;5;NULL;La Chatarrera (Maracay);243;2104
+644;5;NULL;La Concepción (El Consejo);244;2118
+645;5;NULL;La Crispera (La Victoria);244;2121
+646;5;NULL;La Cruz (El Consejo);244;2118
+647;5;NULL;La Cruz (El Limón, Maracay);243;2105
+648;5;NULL;La Cruz(La Victoria);244;2121
+649;5;NULL;La Cuarta (Palo Negro);243;2117
+650;5;NULL;La Curia (San Mateo);244;2120
+651;5;NULL;La Democracia (Maracay);243;2101
+652;5;NULL;La Encrucijada (Turmero);244;2115
+653;5;NULL;La Esmeralda (Maracay);243;2103
+654;5;NULL;La Esmeraldita (Maracay);243;2103
+655;5;NULL;La Floresta (Maracay);243;2102
+656;5;NULL;La Frontera (Palo Negro);243;2117
+657;5;NULL;La Frontera (Santa Cruz);243;2123
+658;5;NULL;La Fuente (Turmero);244;2115
+659;5;NULL;La Fundación (Turmero);244;2115
+660;5;NULL;La Gallera (Maracay);243;2103
+661;5;NULL;La Hacienda (Cagua);244;2122
+662;5;NULL;La Haciendita (Santa Cruz);243;2123
+663;5;NULL;La Hamaca (Maracay);243;2104
+664;5;NULL;La Herrereí±a (19 de Abril, Maracay);243;2107
+665;5;NULL;La Iguana (El Consejo);244;2118
+666;5;NULL;La Independencia (Maracay);243;2102
+667;5;NULL;La Isabelita (Maracay);243;2104
+668;5;NULL;La Julia (Turmero);244;2115
+669;5;NULL;La Majada (Santa Cruz);243;2123
+670;5;NULL;La Maracaya (Maracay);243;2103
+671;5;NULL;La Mora (La Victoria);244;2121
+672;5;NULL;La Morita I y III (19 de Abril, Maracay);243;2107
+673;5;NULL;La Olla (El Consejo);244;2118
+674;5;NULL;La Ovallera (Palo Negro);243;2117
+675;5;NULL;La Participación (Maracay);243;2103
+676;5;NULL;La Paz (19 de Abril, Maracay);243;2107
+677;5;NULL;La Paz (Maracay);243;2103
+678;5;NULL;La Pedrera (Maracay);243;2102
+679;5;NULL;La Pica (Palo Negro);243;2117
+680;5;NULL;La Primavera (La Victoria);244;2121
+681;5;NULL;La Providencia (19 de Abril, Maracay);243;2107
+682;5;NULL;La Punta (Maracay);243;2103
+683;5;NULL;La Represa (Villa de Cura);244;2126
+684;5;NULL;La Rinconada (Maracay);243;2102
+685;5;NULL;La Romana Nueva (Maracay);243;2101
+686;5;NULL;La Romana Vieja (Maracay);243;2101
+687;5;NULL;La Rosa (El Consejo);244;2118
+688;5;NULL;La Segundera (Cagua);244;2122
+689;5;NULL;La Soledad (Maracay);243;2102
+690;5;NULL;Las Acacias (Maracay);243;2103
+691;5;NULL;Las Animas I y II (Palo Negro);243;2117
+692;5;NULL;Las Brisas (Maracay);243;2102
+693;5;NULL;Las Brisas (Maracay);243;2103
+694;5;NULL;Las Carmenes (Maracay);243;2104
+695;5;NULL;Las Casitas (La Victoria);244;2121
+696;5;NULL;Las Cruces (Maracay);243;2104
+697;5;NULL;Las Delicias (Barrio, Maracay);243;2102
+698;5;NULL;Las Delicias (Maracay);243;2103
+699;5;NULL;Las Delicias (Maracay);243;2102
+700;5;NULL;Las Flores (Maracay);243;2101
+701;5;NULL;Las Flores (San Mateo);244;2120
+702;5;NULL;Las Luisas (El Consejo);244;2118
+703;5;NULL;Las Mayas (El Limón, Maracay);243;2105
+704;5;NULL;Las Mercedes (La Victoria);244;2121
+705;5;NULL;Las Mercedes (Maracay);243;2104
+706;5;NULL;Las Mercedes (Villa de Cura);244;2126
+707;5;NULL;Las Peí±itas (Villa de Cura);244;2126
+708;5;NULL;Las Tunas (La Victoria);244;2121
+709;5;NULL;Las Vegas (Cagua);244;2122
+710;5;NULL;Las Vegas I y II (Maracay);243;2103
+711;5;NULL;Libertad (Maracay);243;2104
+712;5;NULL;Libertad (Tejerias);244;2119
+713;5;NULL;Libertador (19 de Abril, Palo Negro);243;2107
+714;5;NULL;Libertador (Maracay);243;2104
+715;5;NULL;Libertador (Palo Negro);243;2117
+716;5;NULL;Los Cachos (Tejerias);244;2119
+717;5;NULL;Los Caobos (Maracay);243;2101
+718;5;NULL;Los Caobos (Turmero);244;2115
+719;5;NULL;Los Cerritos (El Consejo);244;2118
+720;5;NULL;Los Chaguaramos (Maracay);243;2103
+721;5;NULL;Los Cocos (Cagua);244;2122
+722;5;NULL;Los Cocos (Maracay);243;2103
+723;5;NULL;Los Colorados (Villa de Cura);244;2126
+724;5;NULL;Los Galpones (Maracay);243;2104
+725;5;NULL;Los Hornos (Palo Negro);243;2117
+726;5;NULL;Los Jabillos (Maracay);243;2103
+727;5;NULL;Los Jabillos (Tejerias);244;2119
+728;5;NULL;Los Manguitos (Santa Cruz);243;2123
+729;5;NULL;Los Manguitos (Santa Cruz);243;2123
+730;5;NULL;Los Naranjos (Maracay);243;2102
+731;5;NULL;Los Naranjos (Palo Negro);243;2117
+732;5;NULL;Los Ní­speros (Maracay);243;2103
+733;5;NULL;Los Ní­speros (Turmero);244;2115
+734;5;NULL;Los Overos (Turmero);244;2115
+735;5;NULL;Los Pinos (Maracay);243;2104
+736;5;NULL;Los Próceres (Maracay);243;2103
+737;5;NULL;Los Rauceos (El Limón, Maracay);243;2105
+738;5;NULL;Los Rosales (Maracay);243;2102
+739;5;NULL;Los Samanes (Maracay);243;2104
+740;5;NULL;Los Tanques (La Victoria);244;2121
+741;5;NULL;Los Tubos (Maracay);243;2104
+742;5;NULL;Lourdes (Maracay);243;2104
+743;5;NULL;Magdaleno (Magdaleno);244;2128
+744;5;NULL;Malariologí­a Antonio Aranguren (Palo Negro);243;2117
+745;5;NULL;Maracay II (Maracay);243;2104
+746;5;NULL;Marcelo Guzmán (Turmero);244;2115
+747;5;NULL;Mario Briceí±o Iragorry (Maracay);243;2103
+748;5;NULL;Mariscal Sucre (Maracay);243;2104
+749;5;NULL;Marí­a Cristina (Maracay);243;2104
+750;5;NULL;Mata Redonda (Maracay);243;2104
+751;5;NULL;Mata Redonda (Maracay);243;2103
+752;5;NULL;Mata Seca (El Limón, Maracay);243;2105
+753;5;NULL;Medina Angarita (Cagua);244;2122
+754;5;NULL;Mendoza (Tejerias);244;2119
+755;5;NULL;Miranda (La Victoria);244;2121
+756;5;NULL;Monserrat (Santa Cruz);243;2123
+757;5;NULL;Mora 2 (La Victoria);244;2121
+758;5;NULL;Morean Soto (19 de Abril, Maracay);243;2107
+759;5;NULL;Morian Soto (Maracay);243;2103
+760;5;NULL;Morita II (Maracay);243;2103
+761;5;NULL;Negro Primero (Villa de Cura);244;2126
+762;5;NULL;Nií±o de Jesús (El Consejo);244;2118
+763;5;NULL;Nií±o de Jesús (El Limón, Maracay);243;2105
+764;5;NULL;Oasis (Maracay);243;2103
+765;5;NULL;Ocumare de La Costa (Ocumare de La Costa);243;2112
+766;5;NULL;Ocumarito (Palo Negro);243;2117
+767;5;NULL;Orope (San Mateo);244;2120
+768;5;NULL;Palma Real (Maracay);243;2103
+769;5;NULL;Palo Negro (Palo Negro);243;2117
+770;5;NULL;Paraparal I, II, III (Maracay);243;2103
+771;5;NULL;Payita (Turmero);244;2115
+772;5;NULL;Peí±uela Ruiz (Santa Cruz);243;2123
+773;5;NULL;Pií±onal (Maracay);243;2103
+774;5;NULL;Pií±onal Sur (Maracay);243;2103
+775;5;NULL;Polvorí­n (Turmero);244;2115
+776;5;NULL;Portachuelo (La Victoria);244;2121
+777;5;NULL;Primitivo de Jesús (La Victoria);244;2121
+778;5;NULL;Pueblo Nuevo (Tejerias);244;2119
+779;5;NULL;Puerto Colombia;243;2113
+780;5;NULL;Quebrada de Pipe (San Mateo);244;2120
+781;5;NULL;Rafael Caldera (Maracay);243;2103
+782;5;NULL;Rafael Urdaneta (Maracay);243;2103
+783;5;NULL;Residencias Coromoto (Maracay);243;2101
+784;5;NULL;Rodrí­guez Palencia (19 de Abril, Maracay);243;2107
+785;5;NULL;Rosario de Paya (Turmero);244;2115
+786;5;NULL;Ruiz (Tejerias);244;2119
+787;5;NULL;Rí­o Blanco I y II (Maracay);243;2103
+788;5;NULL;Rómulo Gallegos (Ocumare de La Costa - Cagua);243;2122
+789;5;NULL;Sabaneta (El Consejo);244;2118
+790;5;NULL;Samán de Guere (19 de Abril, Maracay);243;2107
+791;5;NULL;San Carlos (Maracay);243;2103
+792;5;NULL;San Carlos (Turmero);244;2115
+793;5;NULL;San Francisco (Maracay);243;2102
+794;5;NULL;San Francisco de Así­s (San Francisco de Así­s);243;2125
+795;5;NULL;San Ignacio (Maracay);243;2104
+796;5;NULL;San Isidro (Maracay);243;2101
+797;5;NULL;San Jacinto (Maracay);243;2102
+798;5;NULL;San Joaquí­n de Turmero (19 de Abril, Maracay);243;2107
+799;5;NULL;San José (Maracay);243;2103
+800;5;NULL;San Luis (Maracay);243;2103
+801;5;NULL;San Mateo (San Mateo);244;2120
+802;5;NULL;San Miguel (Maracay);243;2102
+803;5;NULL;San Miguel (Maracay);243;2104
+804;5;NULL;San Miguel (Maracay);243;2103
+805;5;NULL;San Miguel (Palo Negro);243;2117
+806;5;NULL;San Pablo (Turmero);244;2115
+807;5;NULL;San Pedro Alejandrino (Maracay);243;2103
+808;5;NULL;San Vicente (Maracay);243;2104
+809;5;NULL;San Vicente I y II (Maracay);243;2104
+810;5;NULL;Santa Ana (Maracay);243;2103
+811;5;NULL;Santa Ana (Palo Negro);243;2117
+812;5;NULL;Santa Cruz (Santa Cruz);243;2123
+813;5;NULL;Santa Eduvigis (Maracay);243;2102
+814;5;NULL;Santa Elena (Palo Negro);243;2117
+815;5;NULL;Santa Rita (Maracay);243;2103
+816;5;NULL;Santa Rosa (Maracay);243;2104
+817;5;NULL;Santa Rosalí­a (Cagua);244;2122
+818;5;NULL;Santa Rosalí­a (Palo Negro);243;2117
+819;5;NULL;Santo Domingo (El Consejo);244;2118
+820;5;NULL;Sector E (Maracay);243;2104
+821;5;NULL;Sector El Mijaú (La Victoria);244;2121
+822;5;NULL;Sector Jovalito (La Victoria);244;2121
+823;5;NULL;Sector La Ceiba (La Victoria);244;2121
+824;5;NULL;Sector La Vaquera (Maracay);243;2104
+825;5;NULL;Sector Punta del Monte (La Victoria);244;2121
+826;5;NULL;Sector San José (La Victoria);244;2121
+827;5;NULL;Sergio Medina (Maracay);243;2103
+828;5;NULL;Simón Bolí­var (El Consejo);244;2118
+829;5;NULL;Simón Rodrí­guez (Maracay);243;2103
+830;5;NULL;Soco (La Victoria);244;2121
+831;5;NULL;Sorocaima I y II (19 de Abril, Maracay);243;2107
+832;5;NULL;Sucre (19 de Abril, Maracay);243;2107
+833;5;NULL;Sucre (La Victoria);244;2121
+834;5;NULL;Sucre (Maracay);243;2102
+835;5;NULL;Surupei (Santa Cruz);243;2123
+836;5;NULL;Tamarindo (Maracay);243;2103
+837;5;NULL;Tejerí­as (Maracay);243;2105
+838;5;NULL;Tejerí­as (Tejerias);244;2119
+839;5;NULL;Tierra Amarilla (Tejerias);244;2119
+840;5;NULL;Tinapuey I y II (Tejerias);244;2119
+841;5;NULL;Tiuna (Maracay);243;2101
+842;5;NULL;Toronjal (Maracay);243;2104
+843;5;NULL;Trapiche del Medio (El Consejo);244;2118
+844;5;NULL;Tucutunemo;243;2126
+845;5;NULL;Turagua (Santa Cruz);243;2123
+846;5;NULL;Turmero (Turmero);244;2115
+847;5;NULL;Unión (San Mateo);244;2120
+848;5;NULL;Valle Fresco (Turmero);244;2115
+849;5;NULL;Valle Lindo I, II (Turmero);244;2115
+850;5;NULL;Valle Verde (Maracay);243;2105
+851;5;NULL;Victoria (La Victoria);244;2121
+852;5;NULL;Villa Zuica;244;2123
+853;5;NULL;Villa de Cura (Villa de Cura);244;2126
+854;5;NULL;Ví­a Colonia Tovar (La Victoria);244;2121
+855;5;NULL;Yarabi;244;2122
+856;5;NULL;Zamora;244;2120
+857;5;NULL;Zuata;244;2127
+858;5;NULL;Barbacoas;244;2301
+859;5;NULL;Buenos Aires (Maracay);243;2103
+860;5;NULL;Camatagua;246;2335
+861;5;NULL;Carmen de Cura;243;2335
+862;5;NULL;Cuyagua;243;2112
+863;5;NULL;El Pinal (Maracay);243;2101
+864;5;NULL;Guiripa;243;2338
+865;5;NULL;Independencia (Maracay);243;2101
+866;5;NULL;La Coromoto (maracay);243;2101
+867;5;NULL;San Casimiro;246;2338
+868;5;NULL;San Francisco de Cara;243;2335
+869;5;NULL;San Sebastian;246;2340
+870;5;NULL;Taguay;243;2335
+871;5;NULL;Tapatapa;243;2101
+872;5;NULL;Urbanización Andrí©s Bello;243;2101
+873;5;NULL;Urbanización Base Aragua;243;2101
+874;5;NULL;Urbanización Bermúdez (Maracay);243;2101
+875;5;NULL;Urbanización Calicanto (Maracay);243;2101
+876;5;NULL;Urbanización Caí±a de Azucar (Maracay);243;2101
+877;5;NULL;Urbanización El Castaí±o (Maracay);243;2101
+878;5;NULL;Urbanización El Limón (Maracay);243;2101
+879;5;NULL;Urbanización El Toro (Maracay);243;2101
+880;5;NULL;Urbanización Fundación Mendoza (Maracay);243;2103
+881;5;NULL;Urbanización Guey (Maracay);243;2101
+882;5;NULL;Urbanización Josí© Felix Rivas;243;2101
+883;5;NULL;Urbanización La Arboleda (Maracay);243;2101
+884;5;NULL;Urbanización La Candelaria (Maracay);243;2101
+885;5;NULL;Urbanización La Floresta (Maracay);243;2101
+886;5;NULL;Urbanización La Rinconada (Maracay);243;2101
+887;5;NULL;Urbanización La Romana (Maracay);243;2101
+888;5;NULL;Urbanización La Soledad (Maracay);243;2101
+889;5;NULL;Urbanización Las Acacias (Maracay);243;2103
+890;5;NULL;Urbanización Los Caobos (Maracay);243;2101
+891;5;NULL;Urbanización Los Naranjos (Maracay);243;2101
+892;5;NULL;Urbanización Maracay (Maracay);243;2103
+893;5;NULL;Urbanización Pií±onal (Maracay);243;2103
+894;5;NULL;Urbanización Pií±onal Sur (Maracay);243;2103
+895;5;NULL;Urbanización San Isidro (Maracay);243;2103
+896;5;NULL;Urbanización San Jacinto (Maracay);243;2101
+897;5;NULL;Urbanización Santa Fí© (Maracay);243;2101
+898;5;NULL;Urbanización Sergio Medina (Maracay);243;2103
+899;5;NULL;Urbanización Tiuna (Maracay);243;2101
+900;5;NULL;Valle Morin;244;2338
+901;5;NULL;Valle Verde (Maracay);243;2101
+902;5;NULL;Villa de Cura;244;2126
+903;5;NULL;Yarabí­;244;2122
+904;5;NULL;Zuata;244;2127
+905;5;NULL;Otras Poblaciones;243;2101
+906;4;NULL;Achaguas;247;7002
+907;4;NULL;Apurito;247;7003
+908;4;NULL;Arichuna;247;7001
+909;4;NULL;Biruaca;247;7007
+910;4;NULL;Bruzual;240;7005
+911;4;NULL;Camaguán;247;7007
+912;4;NULL;Cazorla;247;7001
+913;4;NULL;Cunaviche;247;7001
+914;4;NULL;El Samán de Apure;247;7001
+915;4;NULL;El Yagual;247;7001
+916;4;NULL;Elorza;240;7011
+917;4;NULL;Guasimal;247;7001
+918;4;NULL;Guayabal;247;7001
+919;4;NULL;Guáchara;247;7001
+920;4;NULL;La Trinidad de Orichuna;247;7001
+921;4;NULL;Mantecal;247;7010
+922;4;NULL;Municipio Quintero;247;7001
+923;4;NULL;Puerto Nova;247;7001
+924;4;NULL;San Fernando;247;7001
+925;4;NULL;San Juan de Payara;247;7001
+926;4;NULL;San Juan de Payara;247;7004
+927;4;NULL;San Rafael de Atamaica;247;7001
+928;4;NULL;San Vicente;247;7001
+929;12;NULL;Altagracia de Orituco;246;2320
+930;12;NULL;Barbacoa;246;2334
+931;12;NULL;Calabozo;246;2312
+932;12;NULL;Camatagua;246;2335
+933;12;NULL;Cambural de Cataure;246;2301
+934;12;NULL;Carmen de Cura;246;2311
+935;12;NULL;Chaguaramas;246;2358
+936;12;NULL;Corozopando;246;2301
+937;12;NULL;Dos Caminos;246;2301
+938;12;NULL;El Calvario;246;2303
+939;12;NULL;El Caro de La Negra;246;2301
+940;12;NULL;El Corozo;246;2301
+941;12;NULL;El Palito;246;2301
+942;12;NULL;El Punzón;246;2301
+943;12;NULL;El Rastro;246;2304
+944;12;NULL;El Socorro;246;2355
+945;12;NULL;El Sombrero;246;2319
+946;12;NULL;Espino;246;2301
+947;12;NULL;Francisco de Tiznado;246;2301
+948;12;NULL;Guardatinaja;246;2316
+949;12;NULL;Guaripa;246;2301
+950;12;NULL;Ipare de Orituco;246;2301
+951;12;NULL;La Arboleda;246;2301
+952;12;NULL;La Esperanza;246;2301
+953;12;NULL;Las Mercedes del Llano;246;2356
+954;12;NULL;Las Minas;246;2301
+955;12;NULL;Lezama;246;2301
+956;12;NULL;Libertad de Orituco;246;2301
+957;12;NULL;Mamonal;246;2301
+958;12;NULL;Ortí­z;246;2302
+959;12;NULL;Parapara de Ortí­z;246;2301
+960;12;NULL;Paso Real de Macaira;246;2301
+961;12;NULL;Pirital;246;2301
+962;12;NULL;Roblecito;246;2301
+963;12;NULL;Sabana Grande de Orituco;246;2301
+964;12;NULL;San Casimiro;246;2338
+965;12;NULL;San Francisco de Cara;246;2301
+966;12;NULL;San Francisco de Macaira;246;2301
+967;12;NULL;San Josí© de Anare;246;2301
+968;12;NULL;San Josí© de Guaribe;246;2301
+969;12;NULL;San Josí© de Tiznados;246;2305
+970;12;NULL;San Juan de los Morros;246;2301
+971;12;NULL;San Rafael de Laya;246;2301
+972;12;NULL;San Rafael de Orituco;246;2301
+973;12;NULL;San Sebastián;246;2340
+974;12;NULL;Santa Marí­a de Ipire;246;2354
+975;12;NULL;Taguay;246;2301
+976;12;NULL;Tucupido;246;2301
+977;12;NULL;Valle La Pascua;246;2350
+978;12;NULL;Valle de Morí­n (Aragua);246;2301
+979;12;NULL;Zaraza;246;2332
+980;12;NULL;Cabruta;246;8007
+981;12;NULL;Camatagua;246;7001
+982;12;NULL;Cazorla;246;2301
+983;12;NULL;Los Pozotes;246;2301
+984;12;NULL;San Jose Unare;246;2351
+985;12;NULL;Santa Rita de Manapire;246;2301
+986;12;NULL;Otras Poblaciones;246;2301
+987;11;NULL;Acurigua;268;4101
+988;11;NULL;Adaure;268;4102
+989;11;NULL;Agua Clara;268;4102
+990;11;NULL;Agua Larga;268;4101
+991;11;NULL;Agua Linda;268;4110
+992;11;NULL;Agua Salada;268;4101
+993;11;NULL;Aguide;268;4101
+994;11;NULL;Amuay;268;4101
+995;11;NULL;Aracua;268;4101
+996;11;NULL;Boca de Mangle;268;4101
+997;11;NULL;Boca de Tocuyo;268;4101
+998;11;NULL;Borojó;268;4118
+999;11;NULL;Cabure;268;4101
+1000;11;NULL;Caja de Agua;268;4150
+1001;11;NULL;Capadare;259;4101
+1002;11;NULL;Capatárida;279;4118
+1003;11;NULL;Casigua;268;4101
+1004;11;NULL;Chichiriviche;259;2054
+1005;11;NULL;Churuguara;268;4152
+1006;11;NULL;Coro;268;4101
+1007;11;NULL;Corralito;268;4101
+1008;11;NULL;Curamichate;268;4101
+1009;11;NULL;Curarí­;268;4101
+1010;11;NULL;Curimagua;268;4101
+1011;11;NULL;Dabajuro;279;4118
+1012;11;NULL;El Charal;268;4101
+1013;11;NULL;El Duvisí­;268;4102
+1014;11;NULL;El Vinculo;268;4101
+1015;11;NULL;Guaibacoa;268;4101
+1016;11;NULL;Jadacaquiva;268;4101
+1017;11;NULL;Jácura;268;4110
+1018;11;NULL;La Chapa;268;4101
+1019;11;NULL;La Cruz de Taratara;268;4114
+1020;11;NULL;La Negrita;268;4101
+1021;11;NULL;La Pastora;268;4101
+1022;11;NULL;La Tabla;268;4101
+1023;11;NULL;La Taza;268;4101
+1024;11;NULL;La Vela de Coro;268;4132
+1025;11;NULL;Lizardo;268;4101
+1026;11;NULL;Mancillar de La Costa;268;4101
+1027;11;NULL;Maparari;268;4104
+1028;11;NULL;Mataruca;268;4101
+1029;11;NULL;Mene Mauroa;279;4117
+1030;11;NULL;Mirimire;259;4110
+1031;11;NULL;Mitare;268;4101
+1032;11;NULL;Pecaya;268;4101
+1033;11;NULL;Pedregal;268;4137
+1034;11;NULL;Piedra Grande;268;4136
+1035;11;NULL;Pueblo Cumarebo;268;4101
+1036;11;NULL;Pueblo Nuevo de La Sierra;268;4101
+1037;11;NULL;Pueblo Nuevo de Paraguaná;268;4150
+1038;11;NULL;Puerto Cumarebo;268;4167
+1039;11;NULL;Punta Cardón;268;4154
+1040;11;NULL;Punto Fijo;268;4102
+1041;11;NULL;Pí­ritu;268;4103
+1042;11;NULL;San Josí© de Bruzual;268;4101
+1043;11;NULL;San Josí© de Seque;268;4101
+1044;11;NULL;San Juan de Los Cayos;259;2054
+1045;11;NULL;San Lorenzo;268;4101
+1046;11;NULL;San Lorenzo (El Menen);268;4101
+1047;11;NULL;San Luis;268;4109
+1048;11;NULL;San Miguel de Macoruca;268;4101
+1049;11;NULL;Santa Cruz de Bucaral;268;4101
+1050;11;NULL;Tocopero;268;4101
+1051;11;NULL;Tocumo de La Rosita;268;4101
+1052;11;NULL;Tupure;268;4101
+1053;11;NULL;Urumaco;268;4101
+1054;11;NULL;Zazarida;268;4101
+1055;11;NULL;Baraived;268;4102
+1056;11;NULL;Bariro;268;4101
+1057;11;NULL;Pureche;268;4101
+1058;11;NULL;Santa Ana;268;4102
+1059;11;NULL;Otras Poblaciones;268;4101
+1060;1;NULL;Antí­mano (Caracas);0;1000
+1061;1;NULL;Araguita;0;1223
+1062;1;NULL;Barrio 11 de Agosto (Caracas);0;1010
+1063;1;NULL;Barrio 12 de Octubre (Caracas);0;1073
+1064;1;NULL;Barrio 1;0;1073
+1065;1;NULL;Barrio 24 de Julio (Caracas);0;1073
+1066;1;NULL;Barrio 29 de Julio (Caracas);0;1020
+1067;1;NULL;Barrio 5 de Julio (Caracas);0;1073
+1068;1;NULL;Barrio Agricultura (Caracas);0;1073
+1069;1;NULL;Barrio Agua Amarilla (Caracas);0;1073
+1070;1;NULL;Barrio Aguacatico (Caracas);0;1073
+1071;1;NULL;Barrio Aguacaticos (Caracas);0;1040
+1072;1;NULL;Barrio Ajuro (Caracas);0;1040
+1073;1;NULL;Barrio Alberto Ravell (Caracas);0;1010
+1074;1;NULL;Barrio Alcabala (Caracas);0;1073
+1075;1;NULL;Barrio Alfredo Rojas (Caracas);0;1020
+1076;1;NULL;Barrio Altos de Cútira (Caracas);0;1030
+1077;1;NULL;Barrio Altos de Lí­dice (Caracas);0;1010
+1078;1;NULL;Barrio Anauco (Caracas);0;1010
+1079;1;NULL;Barrio Andrí©s Bello (Caracas);0;1050
+1080;1;NULL;Barrio Andrí©s Eloy Blanco (Caracas);0;1030
+1081;1;NULL;Barrio Angarita (Caracas);0;1030
+1082;1;NULL;Barrio Antonio Josí© de Sucre (Caracas);0;1073
+1083;1;NULL;Barrio Atlántico (Caracas);0;1030
+1084;1;NULL;Barrio Bambú (Caracas);0;1010
+1085;1;NULL;Barrio Boca de Lobo (Caracas);0;1000
+1086;1;NULL;Barrio Bosque de la Virgen (Caracas);0;1083
+1087;1;NULL;Barrio Brisas de Casalta (Caracas);0;1030
+1088;1;NULL;Barrio Brisas de Petare (Caracas);0;1073
+1089;1;NULL;Barrio Brisas de Propatria (Caracas);0;1030
+1090;1;NULL;Barrio Brisas del Paraí­so (Caracas);0;1020
+1091;1;NULL;Barrio Bruzual (Caracas);0;1040
+1092;1;NULL;Barrio Buenos Aires El Paraiso;0;1020
+1093;1;NULL;Barrio Buenos Aires Petare;0;1073
+1094;1;NULL;Barrio Campo Rico (Caracas);0;1073
+1095;1;NULL;Barrio Caraballo (Caracas);0;1000
+1096;1;NULL;Barrio Carapa (Caracas);0;1000
+1097;1;NULL;Barrio Carapita (Caracas);0;1000
+1098;1;NULL;Barrio Caucaguita;0;1073
+1099;1;NULL;Barrio Caí±o Amarillo (Caracas);0;1030
+1100;1;NULL;Barrio Centro Italo (Caracas);0;1080
+1101;1;NULL;Barrio Cerro Grande (Caracas);0;1040
+1102;1;NULL;Barrio Colón (Caracas);0;1030
+1103;1;NULL;Barrio Copey (Caracas);0;1000
+1104;1;NULL;Barrio Coromoto (Caracas);0;1020
+1105;1;NULL;Barrio Corral de Piedra (Caracas);0;1000
+1106;1;NULL;Barrio Cortada de Catia (Caracas);0;1030
+1107;1;NULL;Barrio Cortijos (Caracas);0;1050
+1108;1;NULL;Barrio Cotiza (Caracas);0;1010
+1109;1;NULL;Barrio Cristal (Caracas);0;1000
+1110;1;NULL;Barrio El Algodonal (Caracas);0;1020
+1111;1;NULL;Barrio El Calvario (Caracas);0;1030
+1112;1;NULL;Barrio El Campito (Caracas);0;1073
+1113;1;NULL;Barrio El Carmen Catia;0;1030
+1114;1;NULL;Barrio El Cerrito (Caracas);0;1073
+1115;1;NULL;Barrio El Desví­o (Caracas);0;1040
+1116;1;NULL;Barrio El Encanto (Caracas);0;1073
+1117;1;NULL;Barrio El Esfuerzo (Caracas);0;1073
+1118;1;NULL;Barrio El Guarataro (Caracas);0;1020
+1119;1;NULL;Barrio El Guire (Caracas);0;1080
+1120;1;NULL;Barrio El Mamón (Caracas);0;1010
+1121;1;NULL;Barrio El Manguito San Agustin del Sur;0;1010
+1122;1;NULL;Barrio El Matadero (Caracas);0;1073
+1123;1;NULL;Barrio El Mirador (Caracas);0;1030
+1124;1;NULL;Barrio El Morro (Caracas);0;1073
+1125;1;NULL;Barrio El Mosquito (Caracas);0;1073
+1126;1;NULL;Barrio El Nazareno (Caracas);0;1030
+1127;1;NULL;Barrio El Observatorio (Caracas);0;1030
+1128;1;NULL;Barrio El Refugio (Caracas);0;1030
+1129;1;NULL;Barrio El Retiro (Caracas);0;1010
+1130;1;NULL;Barrio El Sifón (Caracas);0;1000
+1131;1;NULL;Barrio El Triángulo El Cementerio;0;1040
+1132;1;NULL;Barrio El Triángulo La Vega;0;1020
+1133;1;NULL;Barrio Fundación Mendoza (Caracas);0;1073
+1134;1;NULL;Barrio Fátima I y II (Caracas);0;1073
+1135;1;NULL;Barrio Gato Negro (Caracas);0;1030
+1136;1;NULL;Barrio Gramoven (Caracas);0;1030
+1137;1;NULL;Barrio Guaicaipuro I (Caracas);0;1030
+1138;1;NULL;Barrio Guaicaipuro II (Caracas);0;1030
+1139;1;NULL;Barrio Guaicoco (Caracas);0;1073
+1140;1;NULL;Barrio Guzmán Blanco (Caracas);0;1020
+1141;1;NULL;Barrio Hoyada (Caracas);0;1020
+1142;1;NULL;Barrio Hoyo de Las Delicias (Caracas);0;1050
+1143;1;NULL;Barrio Isaí­as Medina (Caracas);0;1030
+1144;1;NULL;Barrio Jardí­n (Caracas);0;1010
+1145;1;NULL;Barrio Josí© Fí©lix Rivas (Caracas);0;1073
+1146;1;NULL;Barrio Josí© Gregorio Hernández (Caracas);0;1010
+1147;1;NULL;Barrio Juan XXIII (Caracas);0;1000
+1148;1;NULL;Barrio Julián Blanco (Caracas);0;1073
+1149;1;NULL;Barrio La Bandera (Caracas);0;1040
+1150;1;NULL;Barrio La Barraca (Caracas);0;1040
+1151;1;NULL;Barrio La Bombilla (Caracas);0;1073
+1152;1;NULL;Barrio La Ceiba (Caracas);0;1010
+1153;1;NULL;Barrio La Ceibita (Caracas);0;1040
+1154;1;NULL;Barrio La Charneca (Caracas);0;1010
+1155;1;NULL;Barrio La Cuesta (Caracas);0;1073
+1156;1;NULL;Barrio La Dolorita (Caracas);0;1073
+1157;1;NULL;Barrio La Fí©nix (Caracas);0;1073
+1158;1;NULL;Barrio La Lagunita (Caracas);0;1073
+1159;1;NULL;Barrio La Libertad (Caracas);0;1073
+1160;1;NULL;Barrio La Lí­nea (Caracas);0;1073
+1161;1;NULL;Barrio La Mampita (Caracas);0;1073
+1162;1;NULL;Barrio La Matanza (Caracas);0;1040
+1163;1;NULL;Barrio La Pedrera (Caracas);0;1073
+1164;1;NULL;Barrio La Planada (Caracas);0;1073
+1165;1;NULL;Barrio La Puma Rosa (Caracas);0;1073
+1166;1;NULL;Barrio La Rubia (Caracas);0;1073
+1167;1;NULL;Barrio La Silsa (Caracas);0;1030
+1168;1;NULL;Barrio La Trilla (Caracas);0;1010
+1169;1;NULL;Barrio La Veguita (Caracas);0;1020
+1170;1;NULL;Barrio La Yaguara II (Caracas);0;1000
+1171;1;NULL;Barrio Ladera (Caracas);0;1020
+1172;1;NULL;Barrio Larrazabal (Caracas);0;1030
+1173;1;NULL;Barrio Las Adjuntas (Caracas);0;1000
+1174;1;NULL;Barrio Las Luces (Caracas);0;1040
+1175;1;NULL;Barrio Las Mayas (Caracas);0;1090
+1176;1;NULL;Barrio Las Tapias (Caracas);0;1073
+1177;1;NULL;Barrio Las Tuní­tas (Caracas);0;1030
+1178;1;NULL;Barrio Los Alpes (Caracas);0;1040
+1179;1;NULL;Barrio Los Andinos (Caracas);0;1010
+1180;1;NULL;Barrio Los Cangilones (Caracas);0;1020
+1181;1;NULL;Barrio Los Cujicitos San Jose;0;1010
+1182;1;NULL;Barrio Los Cujicitos La Vega;0;1020
+1183;1;NULL;Barrio Los Erasos (Caracas);0;1010
+1184;1;NULL;Barrio Los Eucaliptos (Caracas);0;1020
+1185;1;NULL;Barrio Los Frailes;0;1030
+1186;1;NULL;Barrio Los Higitos;0;1030
+1187;1;NULL;Barrio Los Lanos (Caracas);0;1010
+1188;1;NULL;Barrio Los Manolos (Caracas);0;1050
+1189;1;NULL;Barrio Los Mecedores (Caracas);0;1010
+1190;1;NULL;Barrio Los Paraparos (Caracas);0;1020
+1191;1;NULL;Barrio Lí­dice (Caracas);0;1010
+1192;1;NULL;Barrio Maca (Caracas);0;1073
+1193;1;NULL;Barrio Mamera (Caracas);0;1000
+1194;1;NULL;Barrio Marí­n (Caracas);0;1010
+1195;1;NULL;Barrio Medina Angarita (Caracas);0;1073
+1196;1;NULL;Barrio Mesuca (Caracas);0;1073
+1197;1;NULL;Barrio Minas de Baruta (Caracas);0;1080
+1198;1;NULL;Barrio Monseí±or Lebrúm (Caracas);0;1073
+1199;1;NULL;Barrio Naranjal 1 y 2 (Caracas);0;1020
+1200;1;NULL;Barrio Nazareno (Caracas);0;1073
+1201;1;NULL;Barrio Negro Primero (Caracas);0;1073
+1202;1;NULL;Barrio Nuevo Chapellin (Caracas);0;1050
+1203;1;NULL;Barrio Nuevo Mundo (Caracas);0;1020
+1204;1;NULL;Barrio Palo Grande (Caracas);0;1020
+1205;1;NULL;Barrio Plan de Manzano;0;1030
+1206;1;NULL;Barrio Ruperto Lugo;0;1030
+1207;1;NULL;Baruta (Caracas);0;1080
+1208;1;NULL;Bella Vista (Caracas);0;1073
+1209;1;NULL;Birongo;0;1232
+1210;1;NULL;Cafetal (Caracas);0;1061
+1211;1;NULL;Candelaria (Caracas);0;1010
+1212;1;NULL;Caricuao (Caracas);0;1083
+1213;1;NULL;Carmeliatas (Caracas);0;1010
+1214;1;NULL;Carpintero (Caracas);0;1073
+1215;1;NULL;Centro Comercial Tamanaco (Caracas);0;1064
+1216;1;NULL;Centro Mí©dico Docente (Caracas);0;1083
+1217;1;NULL;Chichiriviche;0;1162
+1218;1;NULL;Colonia Mendoza;0;1209
+1219;1;NULL;Corocito;0;1209
+1220;1;NULL;El Clavo;0;1241
+1221;1;NULL;El Polvorí­n (Caracas);0;1010
+1222;1;NULL;El Valle;0;1090
+1223;1;NULL;La Candelaria (Caracas);0;1010
+1224;1;NULL;La Democracia;0;1209
+1225;1;NULL;La Pastora (Caracas);0;1010
+1226;1;NULL;La Vega (Caracas);0;1020
+1227;1;NULL;Las Casitas (Caracas);0;1020
+1228;1;NULL;Llanos de Miquillen;0;1201
+1229;1;NULL;Loma del Aguila (Caracas);0;1080
+1230;1;NULL;Lomas de Terrabel (Caracas);0;1083
+1231;1;NULL;Los Magallanes;0;1030
+1232;1;NULL;Macarao (Caracas);0;1000
+1233;1;NULL;Merecure;0;1241
+1234;1;NULL;Panaquire;0;1226
+1235;1;NULL;Para;0;1020
+1236;1;NULL;Parroquia Altagracia (Caracas);0;1010
+1237;1;NULL;Parroquia Catedral (Caracas);0;1010
+1238;1;NULL;Parroquia Santa Teresa (Caracas);0;1010
+1239;1;NULL;Piedra Azul (Caracas);0;1080
+1240;1;NULL;Piedras Pintadas (Caracas);0;1083
+1241;1;NULL;Pinto Salinas (Caracas);0;1050
+1242;1;NULL;Plaza Venezuela (Caracas);0;1050
+1243;1;NULL;Potrerito (Caracas);0;1090
+1244;1;NULL;Prado de Marí­a (Caracas);0;1040
+1245;1;NULL;Primero de Mayo (Caracas);0;1010
+1246;1;NULL;Propatria;0;1030
+1247;1;NULL;Providencia (Caracas);0;1040
+1248;1;NULL;Puerta de Caracas (Caracas);0;1010
+1249;1;NULL;Pí©rez Bonalde (Caracas);0;1030
+1250;1;NULL;Párate Bueno (Caracas);0;1000
+1251;1;NULL;Quebrada Honda (Caracas);0;1050
+1252;1;NULL;Quinta Crespo (Caracas);0;1010
+1253;1;NULL;Quiripital;0;1209
+1254;1;NULL;Ruiz Pineda (Caracas);0;1000
+1255;1;NULL;Sabana Grande (Caracas);0;1050
+1256;1;NULL;Sabana de Blanco;0;1010
+1257;1;NULL;San Agustí­n del Norte (Caracas);0;1010
+1258;1;NULL;San Agustí­n del Sur (Caracas);0;1010
+1259;1;NULL;San Andrí©s (Caracas);0;1040
+1260;1;NULL;San Antonio(Caracas);0;1050
+1261;1;NULL;San Antonio (Caracas);0;1040
+1262;1;NULL;San Antonio Landí©r;0;1215
+1263;1;NULL;San Bernardino (Caracas);0;1010
+1264;1;NULL;San Josí© (Caracas);0;1010
+1265;1;NULL;San Josí© del Avila (Caracas);0;1010
+1266;1;NULL;San Luis (Caracas);0;1061
+1267;1;NULL;San Marino (Caracas);0;1060
+1268;1;NULL;San Martí­n (Caracas);0;1020
+1269;1;NULL;San Michele (Caracas);0;1071
+1270;1;NULL;San Miguel (Caracas);0;1073
+1271;1;NULL;San Miguel (Caracas);0;1040
+1272;1;NULL;San Miguel (Caracas);0;1020
+1273;1;NULL;San Pascual (Caracas);0;1073
+1274;1;NULL;San Rafael o Sucre (Caracas);0;1020
+1275;1;NULL;San Román (Caracas);0;1061
+1276;1;NULL;Sans Souci (Caracas);0;1050
+1277;1;NULL;Santa Ana (Caracas);0;1061
+1278;1;NULL;Santa Barbara;0;1243
+1279;1;NULL;Santa Cecilia (Caracas);0;1071
+1280;1;NULL;Santa Clara (Caracas);0;1061
+1281;1;NULL;Santa Eduvigis (Caracas);0;1071
+1282;1;NULL;Santa Fe (Caracas);0;1080
+1283;1;NULL;Santa Gertrudis;0;1080
+1284;1;NULL;Santa Iní©s (Caracas);0;1080
+1285;1;NULL;Santa Marta (Caracas);0;1061
+1286;1;NULL;Santa Marí­a (Caracas);0;1071
+1287;1;NULL;Santa Mónica (Caracas);0;1040
+1288;1;NULL;Santa Rosa (Caracas);0;1050
+1289;1;NULL;Santa Sofí­a (Caracas);0;1061
+1290;1;NULL;Sarrí­a (Caracas);0;1050
+1291;1;NULL;Sartenejas (Caracas);0;1080
+1292;1;NULL;Simón Rodrí­guez (Caracas);0;1050
+1293;1;NULL;Solares del Carmen (Caracas);0;1083
+1294;1;NULL;Sorocaima (Caracas);0;1080
+1295;1;NULL;Taguao;0;1162
+1296;1;NULL;Tapipa;0;1224
+1297;1;NULL;Terrazas de Carapita (Caracas);0;1000
+1298;1;NULL;Terrazas de Caricuao (Caracas);0;1000
+1299;1;NULL;Turiamo (Caracas);0;1020
+1300;1;NULL;U.C.V. (Caracas);0;1053
+1301;1;NULL;Unidos (Caracas);0;1000
+1302;1;NULL;Unión (Caracas);0;1020
+1303;1;NULL;Urbanización Las Amí©ricas (Caracas);0;1020
+1304;1;NULL;Urbanización La Colina (Caracas);0;1050
+1305;1;NULL;Urbanización Los Molinos (Caracas);0;1020
+1306;1;NULL;Urbanización (Caracas);0;1073
+1307;1;NULL;Urbanización 23 de Enero (Caracas);0;1030
+1308;1;NULL;Urbanización Alberto Ravell (Caracas);0;1040
+1309;1;NULL;Urbanización Alegrí­a (Caracas);0;1071
+1310;1;NULL;Urbanización Alta Florida (Caracas);0;1050
+1311;1;NULL;Urbanización Alta Vista (Caracas);0;1030
+1312;1;NULL;Urbanización Artí­gas (Caracas);0;1020
+1313;1;NULL;Urbanización Arvelo (Caracas);0;1020
+1314;1;NULL;Urbanización Bella Vista (Caracas);0;1020
+1315;1;NULL;Urbanización Bello Monte (Caracas);0;1050
+1316;1;NULL;Urbanización Bicentenario (Caracas);0;1090
+1317;1;NULL;Urbanización Bolí­var (Caracas);0;1060
+1318;1;NULL;Urbanización Buen Pastor (Caracas);0;1071
+1319;1;NULL;Urbanización Buena Vista (Caracas);0;1073
+1320;1;NULL;Urbanización Campo Claro (Caracas);0;1071
+1321;1;NULL;Urbanización Cantarrana (Caracas);0;1080
+1322;1;NULL;Urbanización Caricuao (Caracas);0;1000
+1323;1;NULL;Urbanización Casalta II (Caracas);0;1030
+1324;1;NULL;Urbanización Casalta III (Caracas);0;1030
+1325;1;NULL;Urbanización Catia (Caracas);0;1030
+1326;1;NULL;Urbanización Caí±ada de La Iglesia (Caracas);0;1030
+1327;1;NULL;Urbanización Cementerio (Caracas);0;1040
+1328;1;NULL;Urbanización Chacaito (Caracas);0;1050
+1329;1;NULL;Urbanización Chapellí­n;0;1050
+1330;1;NULL;Urbanización Charallavito (Caracas);0;1080
+1331;1;NULL;Urbanización Ciudad Industrial Catia (Caracas);0;1030
+1332;1;NULL;Urbanización Coche (Caracas);0;1090
+1333;1;NULL;Urbanización Cochecito (Caracas);0;1090
+1334;1;NULL;Urbanización Colinas de Bella Vista (Caracas);0;1020
+1335;1;NULL;Urbanización Colinas de Coche (Caracas);0;1090
+1336;1;NULL;Urbanización Colinas de Las Acacias (Caracas);0;1040
+1337;1;NULL;Urbanización Colinas de Los Caobos (Caracas);0;1050
+1338;1;NULL;Urbanización Colinas de Los Chaguaramos (Caracas);0;1040
+1339;1;NULL;Urbanización Colinas de Santa Mónica (Caracas);0;1040
+1340;1;NULL;Urbanización Colinas de Vista Alegre (Caracas);0;1020
+1341;1;NULL;Urbanización Continente (Caracas);0;1030
+1342;1;NULL;Urbanización Coracrevi (Caracas);0;1080
+1343;1;NULL;Urbanización Cortijos de Sarrí­a (Caracas);0;1050
+1344;1;NULL;Urbanización Cristóbal Rojas (Caracas);0;1090
+1345;1;NULL;Urbanización Delgado Chalbaud (Caracas);0;1090
+1346;1;NULL;Urbanización Diego de Lozada (Caracas);0;1010
+1347;1;NULL;Urbanización El Amparo (Caracas);0;1030
+1348;1;NULL;Urbanización El Bosque;0;1050
+1349;1;NULL;Urbanización El Bosque (Caracas);0;1050
+1350;1;NULL;Urbanización El Conde (Caracas);0;1010
+1351;1;NULL;Urbanización El Estadio (Caracas);0;1020
+1352;1;NULL;Urbanización El Manicomio;0;1030
+1353;1;NULL;Urbanizaci;0;1020
+1354;1;NULL;Urbanización El Parque (Caracas);0;1071
+1355;1;NULL;Urbanización El Pinar (Caracas);0;1020
+1356;1;NULL;Urbanización El Rosario (Caracas);0;1071
+1357;1;NULL;Urbanización El Silencio (Caracas);0;1010
+1358;1;NULL;Urbanización El Topito (Caracas);0;1010
+1359;1;NULL;Urbanización Gran Colombia (Caracas);0;1040
+1360;1;NULL;Urbanización Guaicaipuro (Caracas);0;1050
+1361;1;NULL;Urbanización Guaicay (Caracas);0;1080
+1362;1;NULL;Urbanización Hijos de Dios (Caracas);0;1010
+1363;1;NULL;Urbanización Hipódromo (Caracas);0;1090
+1364;1;NULL;Urbanización Horizonte (Caracas);0;1071
+1365;1;NULL;Urbanización Hornos de Cal (Caracas);0;1010
+1366;1;NULL;Urbanización Industrial (Caracas);0;1030
+1367;1;NULL;Urbanización Industrial Carapa (Caracas);0;1000
+1368;1;NULL;Urbanización Industrial La Yaguara (Caracas);0;1020
+1369;1;NULL;Urbanización Industrial San Martí­n (Caracas);0;1020
+1370;1;NULL;Urbanización Kennedy (Caracas);0;1000
+1371;1;NULL;Urbanización La Campií±a (Caracas);0;1050
+1372;1;NULL;Urbanización La Florida (Caracas);0;1050
+1373;1;NULL;Urbanización La Hacienda (Caracas);0;1000
+1374;1;NULL;Urbanización La Haciendita (Caracas);0;1000
+1375;1;NULL;Urbanización La Montaí±a (Caracas);0;1020
+1376;1;NULL;Urbanización La Palmita (Caracas);0;1010
+1377;1;NULL;Urbanización La Paz (Caracas);0;1020
+1378;1;NULL;Urbanización La Quebradita (Caracas);0;1020
+1379;1;NULL;Urbanización La Rinconada (Caracas);0;1090
+1380;1;NULL;Urbanización La Unión (Caracas);0;1083
+1381;1;NULL;Urbanización La Vizcaya (Caracas);0;1061
+1382;1;NULL;Urbanización Las Delicias (Caracas);0;1050
+1383;1;NULL;Urbanización Las Dos Rosas (Caracas);0;1020
+1384;1;NULL;Urbanización Las Flores de Puente Hierro (Caracas);0;1010
+1385;1;NULL;Urbanización Las Fuentes (Caracas);0;1020
+1386;1;NULL;Urbanización Las Lomas (Caracas);0;1080
+1387;1;NULL;Urbanización Las Lomas de La Florida (Caracas);0;1050
+1388;1;NULL;Urbanización Las Lomas de San Rafael (Caracas);0;1050
+1389;1;NULL;Urbanización Las Lomitas (Caracas);0;1020
+1390;1;NULL;Urbanización Las Marí­as (Caracas);0;1083
+1391;1;NULL;Urbanización Las Mesetas (Caracas);0;1061
+1392;1;NULL;Urbanización Las Palmas (Caracas);0;1050
+1393;1;NULL;Urbanización Loira (Caracas);0;1020
+1394;1;NULL;Urbanización Lomas de Propatria (Caracas);0;1030
+1395;1;NULL;Urbanización Lomas de San Román (Caracas);0;1061
+1396;1;NULL;Urbanización Lomas de Santa Marta (Caracas);0;1061
+1397;1;NULL;Urbanización Lomas de Urdaneta;0;1030
+1398;1;NULL;Urbanización Lomas del Mirador (Caracas);0;1061
+1399;1;NULL;Urbanización Longaray (Caracas);0;1040
+1400;1;NULL;Urbanización Los Campitos (Caracas);0;1080
+1401;1;NULL;Urbanización Los Caobos (Caracas);0;1050
+1402;1;NULL;Urbanización Los Carmenes (Caracas);0;1040
+1403;1;NULL;Urbanización Los Castaí±os (Caracas);0;1040
+1404;1;NULL;Urbanización Los Cedros (Caracas);0;1050
+1405;1;NULL;Urbanización Los Chaguaramos (Caracas);0;1040
+1406;1;NULL;Urbanización Los Geranios (Caracas);0;1083
+1407;1;NULL;Urbanización Los Guayabitos (Caracas);0;1080
+1408;1;NULL;Urbanización Los Laureles (Caracas);0;1020
+1409;1;NULL;Urbanización Los Mangos (La Florida, Caracas);0;1050
+1410;1;NULL;Urbanización Los Mangos (San Martí­n, Caracas);0;1020
+1411;1;NULL;Urbanización Los Palos Grandes (Caracas);0;1060
+1412;1;NULL;Urbanización Los Pomelos (Caracas);0;1061
+1413;1;NULL;Urbanización Los Rosales (Caracas);0;1040
+1414;1;NULL;Urbanización Luis Hurtado;0;1030
+1415;1;NULL;Urbanización Mariperez (Caracas);0;1050
+1416;1;NULL;Urbanización Miranda (Casalta, Caracas);0;1030
+1417;1;NULL;Urbanización Mis Encantos (Caracas);0;1060
+1418;1;NULL;Urbanización Montalban (Caracas);0;1020
+1419;1;NULL;Urbanización Monte Cristo (Caracas);0;1071
+1420;1;NULL;Urbanización Monte Elena (Caracas);0;1080
+1421;1;NULL;Urbanización Monte Piedad;0;1030
+1422;1;NULL;Urbanización Monte Piedad (Caracas);0;1030
+1423;1;NULL;Urbanización Monterrey (Caracas);0;1080
+1424;1;NULL;Urbanización Nueva Caracas (Caracas);0;1030
+1425;1;NULL;Urbanización Nueva Granada;0;1040
+1426;1;NULL;Urbanización Oritopo (Caracas);0;1083
+1427;1;NULL;Urbanización Parque Avila (Caracas);0;1050
+1428;1;NULL;Urbanización Parque Carabobo (Caracas);0;1010
+1429;1;NULL;Urbanización Parque Central (Caracas);0;1010
+1430;1;NULL;Urbanización Parque Humboldt (Caracas);0;1080
+1431;1;NULL;Urbanización Pedro Camejo (Caracas);0;1050
+1432;1;NULL;Urbanización los flores de Catia;0;1030
+1433;1;NULL;Urdaneta (Caracas);0;1030
+1434;1;NULL;Valle Abajo (Caracas);0;1040
+1435;1;NULL;Valle Alto (Caracas);0;1073
+1436;1;NULL;Valle Arriba (Caracas);0;1061
+1437;1;NULL;Valle Fresco (Caracas);0;1073
+1438;1;NULL;Valmore Rodriguez (Caracas);0;1083
+1439;1;NULL;Valmore Rodrí­guez (Caracas);0;1000
+1440;1;NULL;Villa Croacia;0;1162
+1441;1;NULL;Villa Zoila (Caracas);0;1020
+1442;1;NULL;Vista Alegre (Caracas);0;1020
+1443;1;NULL;Washington (Caracas);0;1020
+1444;1;NULL;Zamora (Caracas);0;1040
+1445;1;NULL;Barrio Parate Bueno;0;1000
+1446;1;NULL;Barrio Providencia;0;1040
+1447;1;NULL;Barrio Puerta de Caracas;0;1010
+1448;1;NULL;Barrio Quebrada Honda;0;1050
+1449;1;NULL;Barrio Sabana Del Blanco;0;1010
+1450;1;NULL;Barrio San Andrí©s;0;1040
+1451;1;NULL;Barrio San Miguel Cota 905;0;1020
+1452;1;NULL;Barrio San Pascual;0;1073
+1453;1;NULL;Barrio San Rafael o Sucre;0;1020
+1454;1;NULL;Barrio Simon Bolí­var;0;1030
+1455;1;NULL;Barrio Unidos;0;1000
+1456;1;NULL;Barrio Valle Fresco;0;1073
+1457;1;NULL;Barrio Zamora;0;1040
+1458;1;NULL;Urbanización Las Lomas;0;1080
+1459;1;NULL;Urbanización Perez Bonalde;0;1030
+1460;1;NULL;Urbanización Piedra Azul;0;1080
+1461;1;NULL;Urbanización Pinto Salinas;0;1050
+1462;1;NULL;Urbanización Potrerito;0;1090
+1463;1;NULL;Urbanización Prados De Maria;0;1040
+1464;1;NULL;Urbanización Propatria;0;1030
+1465;1;NULL;Urbanización Quinta Crespo;0;1010
+1466;1;NULL;Urbanización Ruiz Pineda;0;1000
+1467;1;NULL;Urbanización Sabana Grande;0;1050
+1468;1;NULL;Urbanización San Agustin Del Norte;0;1010
+1469;1;NULL;Urbanización San Agustin Del Sur;0;1010
+1470;1;NULL;Urbanización San Antonio El Valle;0;1040
+1471;1;NULL;Urbanización San Antonio Sabana Grande;0;1050
+1472;1;NULL;Urbanización San Bernardino;0;1010
+1473;1;NULL;Urbanización San Jose Del Avila;0;1010
+1474;1;NULL;Urbanización San Luis;0;1061
+1475;1;NULL;Urbanización San Marino;0;1060
+1476;1;NULL;Urbanización San Martí­n;0;1020
+1477;1;NULL;Urbanización San Michele;0;1071
+1478;1;NULL;Urbanización San Román;0;1061
+1479;1;NULL;Urbanización Santa Ana;0;1061
+1480;1;NULL;Urbanización Santa Cecilia;0;1071
+1481;1;NULL;Urbanización Santa Clara;0;1061
+1482;1;NULL;Urbanización Santa Maria;0;1071
+1483;1;NULL;Urbanización Santa Monica;0;1040
+1484;1;NULL;Urbanización Santa Rosa;0;1050
+1485;1;NULL;Urbanización Santa Rosa De Lima;0;1061
+1486;1;NULL;Urbanización Sarria;0;1050
+1487;1;NULL;Urbanización Simon Rodriguez;0;1050
+1488;1;NULL;Urbanización Terraza De Caricuao;0;1000
+1489;1;NULL;Urbanización Terraza De Santa Monica;0;1040
+1490;1;NULL;Urbanización Urdaneta;0;1030
+1491;1;NULL;Urbanización Valmore Rodriguez;0;1000
+1492;1;NULL;Urbanización Valle Abajo;0;1040
+1493;1;NULL;Urbanización Valle Alto;0;1073
+1494;1;NULL;Urbanización Villa Zoila;0;1020
+1495;1;NULL;Urbanización Vista Alegre;0;1020
+1496;1;NULL;Urbanización Washington;0;1020
+1497;1;NULL;Villa Croacia;0;1162
+1498;1;NULL;Vista Al Mar;0;1030
+1499;1;NULL;Otras Poblaciones o Sectores;0;1020
+1500;10;NULL;Coporito;287;6401
+1501;10;NULL;Curiapo;287;6401
+1502;10;NULL;La Orquesta;287;6401
+1503;10;NULL;Macareito;287;6401
+1504;10;NULL;Pedernales;287;6401
+1505;10;NULL;Piacoa;287;6401
+1506;10;NULL;Sacupana;287;6401
+1507;10;NULL;San Josí© de Mazareito;287;6401
+1508;10;NULL;Santa Catalina;287;6401
+1509;10;NULL;Tabasca;287;6401
+1510;10;NULL;Tucupita;287;6401
+1511;10;NULL;Uracoa;287;6401
+1512;9;NULL;Apartaderos;258;2201
+1513;9;NULL;Arismendi;258;2213
+1514;9;NULL;Cojedes;258;2209
+1515;9;NULL;Cojeditos;258;2201
+1516;9;NULL;El Amparo;258;2216
+1517;9;NULL;El Baúl;258;2213
+1518;9;NULL;El Pao;258;2214
+1519;9;NULL;Guadarrama;258;2213
+1520;9;NULL;La Aguadita;258;2207
+1521;9;NULL;La Sierra;258;2203
+1522;9;NULL;Las Vegas;258;2204
+1523;9;NULL;Libertad de Cojedes;258;2216
+1524;9;NULL;Macapo;258;2207
+1525;9;NULL;Manrique;258;2203
+1526;9;NULL;San Carlos;258;2201
+1527;9;NULL;Tinaco;258;2206
+1528;9;NULL;Tinaquillo;258;2209
+1529;9;NULL;Vallecito;258;2207
+1530;9;NULL;Agua Linda;258;2201
+1531;9;NULL;Otras Poblaciones;258;2201
+1532;9;NULL;El Torito;258;6401
+1533;9;NULL;Otras Poblaciones;258;6401
+1534;8;NULL;13 de Septiembre (Valencia);241;2001
+1535;8;NULL;19 de Abril (Valencia);241;2001
+1536;8;NULL;1;241;2006
+1537;8;NULL;1;241;2001
+1538;8;NULL;24 Horas (Valencia);241;2001
+1539;8;NULL;3 de Mayo;241;2003
+1540;8;NULL;810 (Valencia);241;2001
+1541;8;NULL;Actoto Campesino Mirandita (Valencia);241;2001
+1542;8;NULL;Agua Blanca (Valencia);241;2001
+1543;8;NULL;Alegrí­a (Valencia);241;2001
+1544;8;NULL;Alexander Burgos (Valencia);241;2001
+1545;8;NULL;Altos De Guaparo (Valencia);241;2001
+1546;8;NULL;Ambrosio Plaza (Valencia);241;2001
+1547;8;NULL;Amí©rica (Valencia);241;2001
+1548;8;NULL;Andrí©s Bello (Valencia);241;2001
+1549;8;NULL;Antonio Josí© de Sucre Norte, Sur (Valencia);241;2001
+1550;8;NULL;Aquiles Nazoa (Valencia);241;2001
+1551;8;NULL;Armando Celli (Valencia);241;2001
+1552;8;NULL;Atlas (Valencia);241;2001
+1553;8;NULL;Barrera;241;2035
+1554;8;NULL;Base Naval;242;2050
+1555;8;NULL;Bejuma;249;2040
+1556;8;NULL;Bella Vista I, II, III Etapa (Valencia);241;2001
+1557;8;NULL;Bello Monte 1, 2, 3;241;2003
+1558;8;NULL;Big Low Center;241;2003
+1559;8;NULL;Boca de Aroa;241;2052
+1560;8;NULL;Boca de Tocuyo;241;2053
+1561;8;NULL;Bocaina 1 y 2 (Valencia);241;2001
+1562;8;NULL;Borburata;241;2050
+1563;8;NULL;Bosque Serino;241;2006
+1564;8;NULL;Brisas del Sur (Valencia);241;2001
+1565;8;NULL;Brisas del Terminal (Valencia);241;2001
+1566;8;NULL;Bárbula;241;2005
+1567;8;NULL;Cabriales (Valencia);241;2001
+1568;8;NULL;Camoruco (Valencia);241;2001
+1569;8;NULL;Campo Alegre (Valencia);241;2001
+1570;8;NULL;Campo Solo;241;2006
+1571;8;NULL;Canaima (Valencia);241;2001
+1572;8;NULL;Canoabo;249;2040
+1573;8;NULL;Carabobo;249;2035
+1574;8;NULL;Carabobo (Campo);249;2035
+1575;8;NULL;Carmen Norte, Sur (Valencia);241;2001
+1576;8;NULL;Caí±averal (Valencia);241;2001
+1577;8;NULL;Central Tacarigua;241;2003
+1578;8;NULL;Centro de Valencia (Valencia);241;2001
+1579;8;NULL;Cesar Giro (Valencia);241;2001
+1580;8;NULL;Chaguaramal (Valencia);241;2001
+1581;8;NULL;Chichiriviche;241;2054
+1582;8;NULL;Chirgua;249;2044
+1583;8;NULL;Ciudad Jardí­n Maí±ongo (Valencia);241;2001
+1584;8;NULL;Colinas de Guataparo (Valencia);241;2001
+1585;8;NULL;Concordia (Valencia);241;2001
+1586;8;NULL;Coromoto (Valencia);241;2001
+1587;8;NULL;Daimer (Valencia);241;2001
+1588;8;NULL;Democracia 1 y 2 (Valencia);241;2001
+1589;8;NULL;Don Bosco (Valencia);241;2001
+1590;8;NULL;El Bosque (Valencia);241;2001
+1591;8;NULL;El Calvario (Valencia);241;2001
+1592;8;NULL;El Cambur;241;2050
+1593;8;NULL;El Candelero (Valencia);241;2001
+1594;8;NULL;El Combate (Valencia);241;2001
+1595;8;NULL;El Consejo (Valencia);241;2001
+1596;8;NULL;El Morro 1 y 2;241;2006
+1597;8;NULL;El Pajal (Valencia);241;2001
+1598;8;NULL;El Palito;242;2050
+1599;8;NULL;El Palotal (Valencia);241;2001
+1600;8;NULL;El Parral (Valencia);241;2001
+1601;8;NULL;El Prado (Valencia);241;2001
+1602;8;NULL;El Prebo I, II, III (Valencia);241;2001
+1603;8;NULL;El Prebol (Valencia);241;2001
+1604;8;NULL;El Recreo (Valencia);241;2001
+1605;8;NULL;El Rincón (Valencia);241;2001
+1606;8;NULL;El Roble;241;2003
+1607;8;NULL;El Romancero (Valencia);241;2001
+1608;8;NULL;El Socorro (Valencia);241;2001
+1609;8;NULL;El Trigalito (Valencia);241;2001
+1610;8;NULL;El Trompillo;241;2010
+1611;8;NULL;El Vií±edo (Valencia);241;2001
+1612;8;NULL;El triunfo (Valencia);241;2001
+1613;8;NULL;Escalona (Valencia);241;2001
+1614;8;NULL;Escorcha (Valencia);241;2001
+1615;8;NULL;Eutimio Rivas (Valencia);241;2001
+1616;8;NULL;Ezequiel Zamora (Valencia);241;2001
+1617;8;NULL;Federación (Valencia);241;2001
+1618;8;NULL;Finca (Los Taladros) (Valencia);241;2001
+1619;8;NULL;Flor Amarilla;241;2003
+1620;8;NULL;Flor Amarillo;241;2003
+1621;8;NULL;Flores (Valencia);241;2001
+1622;8;NULL;Florida Norte y Sur (Valencia);241;2001
+1623;8;NULL;Francisco de Miranda (Valencia);241;2001
+1624;8;NULL;Freddy Franco (Valencia);241;2001
+1625;8;NULL;Goaigoaza;241;2050
+1626;8;NULL;Guacara;245;2015
+1627;8;NULL;Guataparo Country Club (Valencia);241;2001
+1628;8;NULL;Guigue;245;2010
+1629;8;NULL;Haras los Aguacates (Valencia);241;2001
+1630;8;NULL;Impacto 1 y 2 (Valencia);241;2001
+1631;8;NULL;Industrial Carabobo;241;2003
+1632;8;NULL;Industrial Castillito;241;2003
+1633;8;NULL;Industrial La Guacamaya (Valencia);241;2001
+1634;8;NULL;Industrial La Quizanda;241;2003
+1635;8;NULL;Industrial Municipal Norte;241;2003
+1636;8;NULL;Isabelita;241;2003
+1637;8;NULL;Josí© Gregorio Hernández (Valencia);241;2001
+1638;8;NULL;Josí© Regino Peí±a (Valencia);241;2001
+1639;8;NULL;Kerdel (Valencia);241;2001
+1640;8;NULL;La Arboleada (Valencia);241;2001
+1641;8;NULL;La Blanquera (Valencia);241;2001
+1642;8;NULL;La California (Valencia);241;2001
+1643;8;NULL;La Castellana (Valencia);241;2001
+1644;8;NULL;La Castrera (Valencia);241;2001
+1645;8;NULL;La Entrada;241;2005
+1646;8;NULL;La Esmeralda;241;2006
+1647;8;NULL;La Florida (Valencia);241;2001
+1648;8;NULL;La Guacamaya 1;241;2001
+1649;8;NULL;La Isabelica;241;2003
+1650;8;NULL;La Lí­nea (Valencia);241;2001
+1651;8;NULL;La Maestranza (Valencia);241;2001
+1652;8;NULL;La Manguita (Valencia);241;2001
+1653;8;NULL;La Milagrosa (Valencia);241;2001
+1654;8;NULL;La Planta (Valencia);241;2001
+1655;8;NULL;La Raya (Valencia);241;2001
+1656;8;NULL;La Romana (Valencia);241;2001
+1657;8;NULL;La Romanita (Valencia);241;2001
+1658;8;NULL;La Sorpresa;241;2050
+1659;8;NULL;La Trigaleí±a (Valencia);241;2001
+1660;8;NULL;La Unidad (Valencia);241;2001
+1661;8;NULL;La Vií±a (Valencia);241;2001
+1662;8;NULL;Las Acacias (Valencia);241;2001
+1663;8;NULL;Las Aguitas;241;2003
+1664;8;NULL;Las Clavellinas (Valencia);241;2001
+1665;8;NULL;Las Lomas (Valencia);241;2001
+1666;8;NULL;Las Quintas;241;2005
+1667;8;NULL;Las Trincheras;241;2005
+1668;8;NULL;Libertador (Valencia);241;2001
+1669;8;NULL;Llano Verde (Valencia);241;2001
+1670;8;NULL;Lomas de Funval (Valencia);241;2001
+1671;8;NULL;Lomas del Este (Valencia);241;2001
+1672;8;NULL;Los Alpes (Valencia);241;2001
+1673;8;NULL;Los Arales;241;2006
+1674;8;NULL;Los Bucares 1, 2;241;2003
+1675;8;NULL;Los Caimitos (Valencia);241;2001
+1676;8;NULL;Los Caobos (Valencia);241;2001
+1677;8;NULL;Los Cerritos;241;2003
+1678;8;NULL;Los Colorados (Valencia);241;2001
+1679;8;NULL;Los Criollitos (Valencia);241;2001
+1680;8;NULL;Los Guayos;241;2003
+1681;8;NULL;Los Harales;241;2006
+1682;8;NULL;Los Jardines (Valencia);241;2001
+1683;8;NULL;Los Magallanes;241;2006
+1684;8;NULL;Los Mangos (Valencia);241;2001
+1685;8;NULL;Los Manguitos (Valencia);241;2001
+1686;8;NULL;Los Naranjos (Valencia);241;2001
+1687;8;NULL;Los Ní­speros (Valencia);241;2001
+1688;8;NULL;Los Parques (Valencia);241;2001
+1689;8;NULL;Los Pozones (Valencia);241;2001
+1690;8;NULL;Los Sauces (Valencia);241;2001
+1691;8;NULL;Los Taladros (Valencia);241;2001
+1692;8;NULL;Los Viveros (Valencia);241;2001
+1693;8;NULL;Luis Herrera Campins (Valencia);241;2001
+1694;8;NULL;Maí±onguito (Valencia);241;2001
+1695;8;NULL;Mendoza 1, 2, 3, 4, 5, 6 y 7 (Valencia);241;2001
+1696;8;NULL;Michelena Norte y Sur;241;2001
+1697;8;NULL;Miguel Achí© (Valencia);241;2001
+1698;8;NULL;Miranda;249;2041
+1699;8;NULL;Montalban;249;2042
+1700;8;NULL;Monte Serino;241;2006
+1701;8;NULL;Monumental (Valencia);241;2001
+1702;8;NULL;Morón;242;2051
+1703;8;NULL;Máximo Romero (Valencia);241;2001
+1704;8;NULL;Naguanagua;241;2005
+1705;8;NULL;Padre Alonzo (Valencia);241;2001
+1706;8;NULL;Palma Real (Valencia);241;2001
+1707;8;NULL;Paraparal;241;2003
+1708;8;NULL;Parque Valencia;241;2003
+1709;8;NULL;Parque el Trigal;241;2001
+1710;8;NULL;Paso Real;241;2003
+1711;8;NULL;Patanemo;241;2050
+1712;8;NULL;Piedras Negras;241;2003
+1713;8;NULL;Piedras Pintadas;241;2001
+1714;8;NULL;Pueblo de Belí©n;241;2039
+1715;8;NULL;Pueblo de Maraira;241;2017
+1716;8;NULL;Pueblo de San Diego;241;2006
+1717;8;NULL;Puerto Cabello;242;2050
+1718;8;NULL;Punto Nutria;241;2050
+1719;8;NULL;Rancho Grande;241;2050
+1720;8;NULL;Renny Ottolina (Valencia);241;2001
+1721;8;NULL;Ricardo Urriera (Valencia);241;2001
+1722;8;NULL;Rinconcito Maí±ongo (Valencia);241;2001
+1723;8;NULL;Ritec (Valencia);241;2001
+1724;8;NULL;Rosarito (Valencia);241;2001
+1725;8;NULL;Ruiz Pineda 1, 2 y 3 (Valencia);241;2001
+1726;8;NULL;Sabana Larga (Valencia);241;2001
+1727;8;NULL;San Agustí­n (Valencia);241;2001
+1728;8;NULL;San Blas 1, 2 (Valencia);241;2001
+1729;8;NULL;San Blas Viejo (Valencia);241;2001
+1730;8;NULL;San Diego;241;2006
+1731;8;NULL;San Joaquí­n;245;2018
+1732;8;NULL;San Josí© de Tarbes (Valencia);241;2001
+1733;8;NULL;San Rafael (Valencia);241;2001
+1734;8;NULL;San Sebastián (Valencia);241;2001
+1735;8;NULL;Santa Ana (Valencia);241;2001
+1736;8;NULL;Santa Cecilia (Valencia);241;2001
+1737;8;NULL;Santa Eduvigis;241;2005
+1738;8;NULL;Santa Teresa (Valencia);241;2001
+1739;8;NULL;Sesquicentenario (Valencia);241;2001
+1740;8;NULL;Simón Bolí­var (Valencia);241;2001
+1741;8;NULL;Taborda;241;2050
+1742;8;NULL;Terraza de los Ní­speros (Valencia);241;2001
+1743;8;NULL;Tocuyito;241;2035
+1744;8;NULL;Tocuyo de La Costa;241;2053
+1745;8;NULL;Trigal Norte, Sur, Centro (Valencia);241;2001
+1746;8;NULL;Tucacas;242;2055
+1747;8;NULL;Unión (Valencia);241;2001
+1748;8;NULL;Urama;242;2051
+1749;8;NULL;Urbanización Ciudad Alianza;241;2016
+1750;8;NULL;Urbanización el Morro;241;2006
+1751;8;NULL;Valle de Aguirre;241;2041
+1752;8;NULL;Valle de Camoruco (Valencia);241;2001
+1753;8;NULL;Venezuela (Valencia);241;2001
+1754;8;NULL;Victoria (Valencia);241;2001
+1755;8;NULL;Vigirima;241;2015
+1756;8;NULL;Villa Jardí­n;241;2035
+1757;8;NULL;Vivienda Popular de los Guayos;241;2003
+1758;8;NULL;Vivienda Rural los Arales;241;2006
+1759;8;NULL;Yagua;241;2015
+1760;8;NULL;Yuma 1 y 2;241;2006
+1761;8;NULL;Zona Industrial La Isabelica;241;2003
+1762;8;NULL;Urbanización Alegria;241;2001
+1763;8;NULL;Urbanización Altos de Guaparo;241;2001
+1764;8;NULL;Urbanización Camoruco;241;2001
+1765;8;NULL;Urbanización Campo Alegre;241;2001
+1766;8;NULL;Urbanización Campo Solo;241;2001
+1767;8;NULL;Urbanización Carabobo;241;2001
+1768;8;NULL;Urbsanización Castillito;241;2001
+1769;8;NULL;Urbanización Ciudad Jardin Maí±ongo;241;2001
+1770;8;NULL;Urbanización Colinas de Guataparo;241;2001
+1771;8;NULL;Urbanización Colon;241;2005
+1772;8;NULL;Urbanización chaguaramal;241;2001
+1773;8;NULL;Urbanización Don Bosco;241;2001
+1774;8;NULL;Urbanización El Bosque;241;2001
+1775;8;NULL;Urbanización El Morro 1 y 2;241;2001
+1776;8;NULL;Urbanización El Palotal;241;2001
+1777;8;NULL;Urbanización El Parral;241;2001
+1778;8;NULL;Urbanización El Prado;241;2001
+1779;8;NULL;Urbanización El Prebo I II III;241;2001
+1780;8;NULL;Urbanización El Prebol;241;2001
+1781;8;NULL;Urbanización El Recreo;241;2001
+1782;8;NULL;Urbanización El Trigalito;241;2001
+1783;8;NULL;Urbanización El Vií±edo;241;2001
+1784;8;NULL;Urbanización Flor Amarillo;241;2003
+1785;8;NULL;Urbanización Fundación Mendoza;241;2001
+1786;8;NULL;Urbanización Guatsaparo Country Club;241;2001
+1787;8;NULL;Urbanización Guayabal;241;2001
+1788;8;NULL;Urbanización Kerdel;241;2001
+1789;8;NULL;Urbanización La Arboleda;241;2001
+1790;8;NULL;Urbanización La Castellana;241;2001
+1791;8;NULL;Urbanización La Esmeralda;241;2001
+1792;8;NULL;Urbanización La Guacamaya 1 2 3 Etapa;241;2005
+1793;8;NULL;Urbanización La Isabelica;241;2003
+1794;8;NULL;Urbanización La Trigaleí±a;241;2001
+1795;8;NULL;Urbanización La Vií±a;241;2001
+1796;8;NULL;Urbanización Las Acacias;241;2001
+1797;8;NULL;Urbanización Las Clavellinas;241;2001
+1798;8;NULL;Urbanización Las Quintas;241;2005
+1799;8;NULL;Urbanización Lomas Del Este;241;2001
+1800;8;NULL;Urbanización Los Arales;241;2006
+1801;8;NULL;Urbanización Los Bucares 1 y 2;241;2003
+1802;8;NULL;Urbanización Los Jardines;241;2001
+1803;8;NULL;Urbanización Los Magallanes;241;2006
+1804;8;NULL;Urbanización Los Naranjos;241;2001
+1805;8;NULL;Urbanización Los Nisperos;241;2001
+1806;8;NULL;Urbanización Los Sauces;241;2001
+1807;8;NULL;Urbanización Mendoza 1.2.3.4.5.6.y.7;241;2001
+1808;8;NULL;Urbanización Michelena Norte y Sur;241;2001
+1809;8;NULL;Urbanización Monte Serino;241;2001
+1810;8;NULL;Urbanización Nueva Esparta;241;2001
+1811;8;NULL;Urbanizaci;241;2001
+1812;8;NULL;Urbanización Parque El Trigal;241;2001
+1813;8;NULL;Urbanización Parque Valencia;241;2001
+1814;8;NULL;Urbanización Paso Real;241;2001
+1815;8;NULL;Urabanización Piedras Pintada;241;2001
+1816;8;NULL;Urbanizacion Ritec;241;2001
+1817;8;NULL;Urbanización Terraza De Los Nisperos;241;2001
+1818;8;NULL;Urbanización Trigal Norte Sur Centro;241;2001
+1819;8;NULL;Urbanización Valle De Camoruco;241;2001
+1820;8;NULL;Urdaneta;241;2001
+1821;8;NULL;Valle De Aguirre;241;2001
+1822;8;NULL;Victoria;241;2001
+1823;8;NULL;Vigirima;241;2001
+1824;8;NULL;Vivienda Popular De Los Guayos;241;2001
+1825;8;NULL;Yagua;241;2001
+1826;8;NULL;Yuma 1 y 2;241;2006
+1827;8;NULL;Zona Industrial La Isabelica;241;2003
+1828;8;NULL;Otras Poblaciones;241;2001
+1829;15;NULL;Aripao;285;8001
+1830;15;NULL;Caicara del Orinoco;284;8007
+1831;15;NULL;Ciudad Bolí­var;285;8001
+1832;15;NULL;Ciudad Piar;285;8003
+1833;15;NULL;Cuchiberos;285;8001
+1834;15;NULL;El Callao;288;8056
+1835;15;NULL;El Dorado;288;8050
+1836;15;NULL;El Manteco;288;8050
+1837;15;NULL;El Miamo;285;8050
+1838;15;NULL;El Palmar;288;8054
+1839;15;NULL;El Pao;285;8050
+1840;15;NULL;Guasipati;283;8050
+1841;15;NULL;Icabarú;285;8001
+1842;15;NULL;Jabillal;285;8050
+1843;15;NULL;Kanavayen;285;8001
+1844;15;NULL;La Canoa;285;8001
+1845;15;NULL;La Paragua;288;8001
+1846;15;NULL;La Urbina;285;8001
+1847;15;NULL;Las Bonitas;285;8001
+1848;15;NULL;Las Trincheras;285;8001
+1849;15;NULL;Los Castillos de Guayana;285;8050
+1850;15;NULL;Los Morichales;285;8001
+1851;15;NULL;Maripa;285;8009
+1852;15;NULL;Matanzas;285;8001
+1853;15;NULL;Moitaco;285;8001
+1854;15;NULL;Puerto Ordáz;286;8050
+1855;15;NULL;Puruey;285;8001
+1856;15;NULL;San Francisco de La Paragua;285;8001
+1857;15;NULL;San Fí©lix;285;8051
+1858;15;NULL;San Pedro de Las Bocas;285;8001
+1859;15;NULL;Santa Cruz de Orinoco;285;8001
+1860;15;NULL;Santa Elena de Uairí©n;289;8011
+1861;15;NULL;Santa Rosalí­a;285;8001
+1862;15;NULL;Santa Teresa de Canavayen;285;8001
+1863;15;NULL;Soledad;285;8013
+1864;15;NULL;Tumeremo;288;8057
+1865;15;NULL;Upata;288;8052
+1866;15;NULL;Vista Hermosa;285;8001
+1867;15;NULL;Ciudad Guayana;286;8050
+1868;15;NULL;Las Majadas;285;8001
+1869;15;NULL;Otras Poblaciones;285;8001
+1870;22;NULL;Agua Negra;0;3201
+1871;22;NULL;Albarico;0;3201
+1872;22;NULL;Aroa;253;3210
+1873;22;NULL;Boraure;0;3201
+1874;22;NULL;Campo Elí­as;253;3209
+1875;22;NULL;Chivacoa;253;3202
+1876;22;NULL;Corocote;254;3201
+1877;22;NULL;El Caserí­o de Carabobo;0;3201
+1878;22;NULL;El Cedrito;0;3201
+1879;22;NULL;El Guayabo;0;3201
+1880;22;NULL;Farriar;254;3222
+1881;22;NULL;Guama;254;3207
+1882;22;NULL;Hato Viejo;0;3201
+1883;22;NULL;Independencia;0;3201
+1884;22;NULL;La Hoya;0;2050
+1885;22;NULL;Las Rositas;0;3201
+1886;22;NULL;Marí­n;254;3206
+1887;22;NULL;Nirgua;254;3205
+1888;22;NULL;Sabana de Parra;253;3211
+1889;22;NULL;Salom;254;3214
+1890;22;NULL;San Felipe;254;3201
+1891;22;NULL;San Pablo;254;3201
+1892;22;NULL;Taria;0;3201
+1893;22;NULL;Temerla;0;3201
+1894;22;NULL;Urachiche;253;3201
+1895;22;NULL;Yaritagua;253;3203
+1896;22;NULL;Yumare;254;3201
+1897;22;NULL;Otras Poblaciones;0;3201
+1898;24;NULL;Anare;212;1160
+1899;24;NULL;Camuri Grande;212;1160
+1900;24;NULL;Caraballeda;212;1165
+1901;24;NULL;Carayaca;212;1168
+1902;24;NULL;Catia La Mar;212;1162
+1903;24;NULL;El Junquito;212;1030
+1904;24;NULL;La Guaira;212;1160
+1905;24;NULL;La Sabana;212;1166
+1906;24;NULL;Las Salinas;212;1162
+1907;24;NULL;Los Caracas;212;1166
+1908;24;NULL;Macuto;212;1160
+1909;24;NULL;Maiquetí­a;212;1160
+1910;24;NULL;Marapa;212;1162
+1911;24;NULL;Naiguatá;212;1160
+1912;24;NULL;Oricao;212;1162
+1913;24;NULL;Puerto Carayaca;212;1162
+1914;24;NULL;Urbanización Caribe;212;1030
+1915;24;NULL;Urbanización El Junko Country Club;212;1030
+1916;23;NULL;Aeropuerto La Chinita;0;4012
+1917;23;NULL;Alturitas;0;4047
+1918;23;NULL;Avenida Los Haticos (Maracaibo);261;4001
+1919;23;NULL;Bachaquero;267;4014
+1920;23;NULL;Barranca;0;4020
+1921;23;NULL;Barranquitas;0;4047
+1922;23;NULL;Barrio 14 de Noviembre (Maracaibo);261;4005
+1923;23;NULL;Barrio 18 de Diciembre (Maracaibo);261;4004
+1924;23;NULL;Barrio 19 de Abril (Maracaibo);261;4005
+1925;23;NULL;Barrio 1;261;4001
+1926;23;NULL;Barrio 1;261;4005
+1927;23;NULL;Barrio 21 de Octubre (Maracaibo);261;4001
+1928;23;NULL;Barrio 23 de Enero (Maracaibo);261;4001
+1929;23;NULL;Barrio 24 de Julio (Maracaibo);261;4004
+1930;23;NULL;Barrio 24 de Noviembre (Maracaibo);261;4005
+1931;23;NULL;Barrio 24 de Octubre (Maracaibo);261;4004
+1932;23;NULL;Barrio 28 de Diciembre (Maracaibo);261;4004
+1933;23;NULL;Barrio 5 de Julio (Maracaibo);261;4001
+1934;23;NULL;Barrio Alberto Carnevali (Maracaibo);261;4005
+1935;23;NULL;Barrio Altamira (Maracaibo);261;4001
+1936;23;NULL;Barrio Ana Marí­a Campos (Maracaibo);261;4005
+1937;23;NULL;Barrio Andrades Labarca (Maracaibo);261;4004
+1938;23;NULL;Barrio Ayacucho (Maracaibo);261;4005
+1939;23;NULL;Barrio Betulio González (Maracaibo);261;4004
+1940;23;NULL;Barrio Blanco (Maracaibo);261;4005
+1941;23;NULL;Barrio Bolivia (Maracaibo);261;4001
+1942;23;NULL;Barrio Brisas del Sur (Maracaibo);261;4001
+1943;23;NULL;Barrio Buena Vista (Maracaibo);261;4001
+1944;23;NULL;Barrio Cabeza de Toro (Maracaibo);261;4005
+1945;23;NULL;Barrio Calendario (Maracaibo);261;4005
+1946;23;NULL;Barrio Canchancha (Maracaibo);261;4002
+1947;23;NULL;Barrio Capitán Chico (Maracaibo);261;4002
+1948;23;NULL;Barrio Carabobo (Maracaibo);261;4004
+1949;23;NULL;Barrio Carmelo Urdaneta (Maracaibo);261;4005
+1950;23;NULL;Barrio Caí±ada Honda (Maracaibo);261;4001
+1951;23;NULL;Barrio Cerro de Marí­n (Maracaibo);261;4002
+1952;23;NULL;Barrio Corazón de Jesús (Maracaibo);261;4004
+1953;23;NULL;Barrio Corea (Maracaibo);261;4001
+1954;23;NULL;Barrio Coromoto (Maracaibo);261;4004
+1955;23;NULL;Barrio Cruz de Mayo (Maracaibo);261;4001
+1956;23;NULL;Barrio Cuatricentenario (Maracaibo);261;4001
+1957;23;NULL;Barrio Don Bosco (Maracaibo);261;4002
+1958;23;NULL;Barrio El Amparo (Maracaibo);261;4001
+1959;23;NULL;Barrio El Bajo Grande (Maracaibo);261;4004
+1960;23;NULL;Barrio El Callao 1;261;4004
+1961;23;NULL;Barrio El Cardonal (Maracaibo);261;4004
+1962;23;NULL;Barrio El Corito (Maracaibo);261;4001
+1963;23;NULL;Barrio El Cují­ (Maracaibo);261;4005
+1964;23;NULL;Barrio El Guaicaipuro (Maracaibo);261;4005
+1965;23;NULL;Barrio El Indio (Maracaibo);261;4005
+1966;23;NULL;Barrio El Jazmí­n (Maracaibo);261;4005
+1967;23;NULL;Barrio El Manzanillo (Maracaibo);261;4004
+1968;23;NULL;Barrio El Oso (Maracaibo);261;4001
+1969;23;NULL;Barrio El Pajal (Maracaibo);261;4001
+1970;23;NULL;Barrio El Pedregal (Maracaibo);261;4005
+1971;23;NULL;Barrio El Perú (Maracaibo);261;4004
+1972;23;NULL;Barrio El Potente (Maracaibo);261;4001
+1973;23;NULL;Barrio El Progreso (Maracaibo);261;4001
+1974;23;NULL;Barrio El Puente (Maracaibo);261;4001
+1975;23;NULL;Barrio El Silencio (Maracaibo);261;4004
+1976;23;NULL;Barrio El Socorro (Maracaibo);261;4001
+1977;23;NULL;Barrio El Valle (Maracaibo);261;4002
+1978;23;NULL;Barrio El Vivero (Maracaibo);261;4004
+1979;23;NULL;Barrio Francisco de Miranda (Maracaibo);261;4005
+1980;23;NULL;Barrio Fundación Mendoza (Maracaibo);261;4001
+1981;23;NULL;Barrio Gallo Verde (Maracaibo);261;4001
+1982;23;NULL;Barrio Jaguey Cují­ (Maracaibo);261;4005
+1983;23;NULL;Barrio Josí© Antonio Páez (Maracaibo);261;4005
+1984;23;NULL;Barrio Josí© Gregorio Hernández (Maracaibo);261;4004
+1985;23;NULL;Barrio Josí© Hernández (Maracaibo);261;4001
+1986;23;NULL;Barrio La Bandera (Maracaibo);261;4001
+1987;23;NULL;Barrio La Chinita (Maracaibo);261;4001
+1988;23;NULL;Barrio La Ensenada (Maracaibo);261;4004
+1989;23;NULL;Barrio La Limpia (Maracaibo);261;4004
+1990;23;NULL;Barrio La Lucha (Maracaibo);261;4002
+1991;23;NULL;Barrio La Manzana de Oro (Maracaibo);261;4005
+1992;23;NULL;Barrio La Polar (Maracaibo);261;4004
+1993;23;NULL;Barrio La Pomona;0;4001
+1994;23;NULL;Barrio La Rinconada (Maracaibo);261;4005
+1995;23;NULL;Barrio La Salina (Maracaibo);261;4002
+1996;23;NULL;Barrio La Unidad (Maracaibo);261;4005
+1997;23;NULL;Barrio La Victoria (Maracaibo);261;4005
+1998;23;NULL;Barrio Las Cabrias (Maracaibo);261;4005
+1999;23;NULL;Barrio Las Marí­as (Maracaibo);261;4001
+2000;23;NULL;Barrio Las Tarabas (Maracaibo);261;4005
+2001;23;NULL;Barrio Las Tres Marí­as (Maracaibo);261;4005
+2002;23;NULL;Barrio Leonardo Ruiz Pineda (Maracaibo);261;4002
+2003;23;NULL;Barrio Libertad;0;4001
+2004;23;NULL;Barrio Libertador (Maracaibo);261;4005
+2005;23;NULL;Barrio Los Andes (Maracaibo);261;4001
+2006;23;NULL;Barrio Los Claveles (Maracaibo);261;4001
+2007;23;NULL;Barrio Los Cortijos (Maracaibo);261;4004
+2008;23;NULL;Barrio Los Cujicitos (Maracaibo);261;4005
+2009;23;NULL;Barrio Los Estanques (Maracaibo);261;4004
+2010;23;NULL;Barrio Los Manglares (Maracaibo);261;4002
+2011;23;NULL;Barrio Los Olivos (Maracaibo);261;4005
+2012;23;NULL;Barrio Los Pinos (Maracaibo);261;4001
+2013;23;NULL;Barrio Los Planazos (Maracaibo);261;4005
+2014;23;NULL;Barrio Los Robles (Maracaibo);261;4004
+2015;23;NULL;Barrio Los Sufridos (Maracaibo);261;4005
+2016;23;NULL;Barrio Marite (Maracaibo);261;4005
+2017;23;NULL;Barrio Misión (Maracaibo);261;4001
+2018;23;NULL;Barrio Monte Claro (Maracaibo);261;4002
+2019;23;NULL;Barrio Nueva Independencia (Maracaibo);261;4005
+2020;23;NULL;Barrio Nueva Ví­a (Maracaibo);261;4005
+2021;23;NULL;Barrio Nuevo(Maracaibo);261;4005
+2022;23;NULL;Barrio Nuevo Mundo (Maracaibo);261;4002
+2023;23;NULL;Barrio Obrero (Maracaibo);261;4005
+2024;23;NULL;Barrio Panamericano (Maracaibo);261;4005
+2025;23;NULL;Barrio Paraí­so (Maracaibo);261;4004
+2026;23;NULL;Barrio Pueblo Aparte (Maracaibo);261;4002
+2027;23;NULL;Barrio Pueblo Nuevo (Maracaibo);261;4002
+2028;23;NULL;Barrio Puerto Cabello (Maracaibo);261;4002
+2029;23;NULL;Barrio Puerto Rico (Maracaibo);261;4001
+2030;23;NULL;Barrio Puntica de Piedra (Maracaibo);261;4002
+2031;23;NULL;Barrio Rancherí­a (Maracaibo);261;4001
+2032;23;NULL;Barrio Raúl Leoni (Maracaibo);261;4005
+2033;23;NULL;Barrio Ricardo Aguirre (Maracaibo);261;4001
+2034;23;NULL;Barrio Robinson Ferreira (Maracaibo);261;4004
+2035;23;NULL;Barrio Rómulo Betancourt (Maracaibo);261;4005
+2036;23;NULL;Barrio Sabaneta (Maracaibo);261;4001
+2037;23;NULL;Barrio San Agustí­n (Maracaibo);261;4005
+2038;23;NULL;Barrio San Francisco (Maracaibo);261;4004
+2039;23;NULL;Barrio San Javier (Maracaibo);261;4004
+2040;23;NULL;Barrio San Josí© (Maracaibo);261;4001
+2041;23;NULL;Barrio San Luis (Maracaibo);261;4002
+2042;23;NULL;Barrio San Miguel (Maracaibo);261;4001
+2043;23;NULL;Barrio San Pedro (Maracaibo);261;4001
+2044;23;NULL;Barrio San Rafael (Maracaibo);261;4001
+2045;23;NULL;Barrio Santa Rosa de Agua (Maracaibo);261;4002
+2046;23;NULL;Barrio Santa Rosa de Tierra (Maracaibo);261;4002
+2047;23;NULL;Barrio Santo Domingo (Maracaibo);261;4001
+2048;23;NULL;Barrio Sierra Maestra (Maracaibo);261;4004
+2049;23;NULL;Barrio Simón Bolí­var (Maracaibo);261;4001
+2050;23;NULL;Barrio Sur Amí©rica (Maracaibo);261;4004
+2051;23;NULL;Barrio Tamanaco (Maracaibo);261;4001
+2052;23;NULL;Barrio Teotiste de Gallegos (Maracaibo);261;4002
+2053;23;NULL;Barrio Terepaima (Maracaibo);261;4005
+2054;23;NULL;Barrio Tierra Negra (Maracaibo);261;4002
+2055;23;NULL;Barrio Udón Pí©rez (Maracaibo);261;4005
+2056;23;NULL;Barrio Unión (Maracaibo);261;4005
+2057;23;NULL;Barrio Valle Frí­o (Maracaibo);261;4001
+2058;23;NULL;Barrio Venezuela (Maracaibo);261;4005
+2059;23;NULL;Barrio Zulia (Maracaibo);261;4005
+2060;23;NULL;Barrio de Estanques (Maracaibo);261;4001
+2061;23;NULL;Barrio el Calvario (Maracaibo);261;4001
+2062;23;NULL;Cabimas;264;4013
+2063;23;NULL;Calle Larga;0;4021
+2064;23;NULL;Campo Mara;262;4044
+2065;23;NULL;Campos Petroleros;0;4032
+2066;23;NULL;Carrasquero;262;4044
+2067;23;NULL;Carretal;0;4037
+2068;23;NULL;Cerro de Los Cachos (Maracaibo);261;4002
+2069;23;NULL;Cerro de los Cachos (Maracaibo);261;4002
+2070;23;NULL;Chiquinquirá;262;4033
+2071;23;NULL;Ciudad Ojeda;265;4019
+2072;23;NULL;Cojoro;0;4037
+2073;23;NULL;Cojua;0;4037
+2074;23;NULL;Concepción;0;4032
+2075;23;NULL;Conjunto Residencial Gallo Verde (Maracaibo);261;4001
+2076;23;NULL;El Mene;0;4020
+2077;23;NULL;El Moralito;0;4001
+2078;23;NULL;El Portón (Maracaibo);261;4002
+2079;23;NULL;El Portón (Maracaibo);261;4002
+2080;23;NULL;El Siete;0;4001
+2081;23;NULL;El Tablazo;0;4036
+2082;23;NULL;El Venado;267;4022
+2083;23;NULL;Guarero;0;4037
+2084;23;NULL;I.N.O.S. (Maracaibo);261;4004
+2085;23;NULL;Isla de San Carlos;0;4044
+2086;23;NULL;Isla de Toas;262;4031
+2087;23;NULL;La Caí±ada;0;4001
+2088;23;NULL;La Paz;262;4001
+2089;23;NULL;La Rosita;0;4044
+2090;23;NULL;Laberinto;0;4032
+2091;23;NULL;Lagunillas;265;4016
+2092;23;NULL;Las Cruces;0;4044
+2093;23;NULL;Las Morochas;0;4019
+2094;23;NULL;Las Piedras;263;4021
+2095;23;NULL;Los Puertos de Altagracia;266;4036
+2096;23;NULL;M.A.C. (Maracaibo);261;4004
+2097;23;NULL;Machango;0;4015
+2098;23;NULL;Machiques;263;4021
+2099;23;NULL;Mene Grande;267;4015
+2100;23;NULL;Monte Claro;0;4005
+2101;23;NULL;Paraguaipoa;0;4037
+2102;23;NULL;Parcelamiento Los Altos (Maracaibo);261;4001
+2103;23;NULL;Parcelamiento Ricaurte (Maracaibo);261;4002
+2104;23;NULL;Pica Pica;0;4019
+2105;23;NULL;Plaza de Toro (Maracaibo);261;4005
+2106;23;NULL;Pueblo Nuevo;267;4015
+2107;23;NULL;Pueblo de San Francisco (Maracaibo);261;4004
+2108;23;NULL;Puerto Escondido;0;4020
+2109;23;NULL;Punta Gorda;264;4013
+2110;23;NULL;Quisiro;0;4036
+2111;23;NULL;Residencia San Luis;0;4005
+2112;23;NULL;San Ignacio;0;4047
+2113;23;NULL;San Josí©;0;4021
+2114;23;NULL;San Lorenzo;0;4041
+2115;23;NULL;San Rafael de Machiques;0;4043
+2116;23;NULL;San Rafael de Mara (El Mojan);0;4044
+2117;23;NULL;San Timoteo;0;4018
+2118;23;NULL;Santa Cruz de Mara;0;4045
+2119;23;NULL;Santa Lucia (Maracaibo);261;4001
+2120;23;NULL;Santa Rita;264;4020
+2121;23;NULL;Sinamaica;0;4046
+2122;23;NULL;Tí­a Juana;0;4017
+2123;23;NULL;Universidad del Zulia;0;4011
+2124;23;NULL;Urbanización 3;261;4004
+2125;23;NULL;Urbanización Adán Sthormes (Maracaibo);261;4004
+2126;23;NULL;Urbanización Alberto Carnavalli (Maracaibo);261;4005
+2127;23;NULL;Urbanización Alhambra (Maracaibo);261;4004
+2128;23;NULL;Urbanización Altos de La Vega (Maracaibo);261;4001
+2129;23;NULL;Urbanización Altos del Pilar (Maracaibo);261;4002
+2130;23;NULL;Urbanización Amalias (Maracaibo);261;4005
+2131;23;NULL;Urbanización Bella Vista (Maracaibo);261;4002
+2132;23;NULL;Urbanización Bello Monte (Maracaibo);261;4002
+2133;23;NULL;Urbanización Bloques de San Francisco (Maracaibo);261;4004
+2134;23;NULL;Urbanización Buena Vista (Maracaibo);261;4005
+2135;23;NULL;Urbanización Canta Claro (Maracaibo);261;4002
+2136;23;NULL;Urbanización Chevron (Maracaibo);261;4001
+2137;23;NULL;Urbanización Club Hí­pico (Maracaibo);261;4005
+2138;23;NULL;Urbanización Corazón de Jesús (Maracaibo);261;4005
+2139;23;NULL;Urbanización Coromoto 1;261;4004
+2140;23;NULL;Urbanización Creoles (Maracaibo);261;4002
+2141;23;NULL;Urbanización Cuatricentenario 1;261;4001
+2142;23;NULL;Urbanización Cumbres de Maracaibo (Maracaibo);261;4005
+2143;23;NULL;Urbanización El Callao (Maracaibo);261;4004
+2144;23;NULL;Urbanización El Estanque (Maracaibo);261;4004
+2145;23;NULL;Urbanización El Guayabal (Maracaibo);261;4001
+2146;23;NULL;Urbanización El Parque (Maracaibo);261;4002
+2147;23;NULL;Urbanización El Pilar (Maracaibo);261;4002
+2148;23;NULL;Urbanización El Pilarcito (Maracaibo);261;4002
+2149;23;NULL;Urbanización El Portal (Maracaibo);261;4002
+2150;23;NULL;Urbanización El Prado (Maracaibo);261;4005
+2151;23;NULL;Urbanización El Rosal Sur (Maracaibo);261;4002
+2152;23;NULL;Urbanización El Trí©bol (Maracaibo);261;4004
+2153;23;NULL;Urbanización El Varillal (Maracaibo);261;4001
+2154;23;NULL;Urbanización Enerbal (Maracaibo);261;4005
+2155;23;NULL;Urbanización FAC (Maracaibo);261;4001
+2156;23;NULL;Urbanización Fundación Mendoza (Maracaibo);261;4001
+2157;23;NULL;Urbanización Irama (Maracaibo);261;4002
+2158;23;NULL;Urbanización Islas Doradas (Maracaibo);261;4002
+2159;23;NULL;Urbanización Juana de Avila (Maracaibo);261;4005
+2160;23;NULL;Urbanización La California (Maracaibo);261;4005
+2161;23;NULL;Urbanización La Curva (Maracaibo);261;4005
+2162;23;NULL;Urbanización La Estrella (Maracaibo);261;4002
+2163;23;NULL;Urbanización La Floresta (Maracaibo);261;4005
+2164;23;NULL;Urbanización La Lago (Maracaibo);261;4002
+2165;23;NULL;Urbanización La Pastora (Maracaibo);261;4001
+2166;23;NULL;Urbanización La Paz 1;261;4001
+2167;23;NULL;Urbanización La Rosaleda (Maracaibo);261;4005
+2168;23;NULL;Urbanización La Trinidad (Maracaibo);261;4005
+2169;23;NULL;Urbanización La Victoria 1;261;4005
+2170;23;NULL;Urbanización Lagomar (Maracaibo);261;4002
+2171;23;NULL;Urbanización Lajas Blancas (Maracaibo);261;4001
+2172;23;NULL;Urbanización Las Aceitunas (Maracaibo);261;4005
+2173;23;NULL;Urbanización Las Carmelias (Maracaibo);261;4005
+2174;23;NULL;Urbanización Las Lomas (Maracaibo);261;4005
+2175;23;NULL;Urbanización Las Mercedes (Maracaibo);261;4002
+2176;23;NULL;Urbanización Lomas de Sabaneta (Maracaibo);261;4001
+2177;23;NULL;Urbanización Los Altos (Maracaibo);261;4001
+2178;23;NULL;Urbanización Los Olivos (Maracaibo);261;4005
+2179;23;NULL;Urbanización Maracaibo (Maracaibo);261;4002
+2180;23;NULL;Urbanización Miramar (Maracaibo);261;4002
+2181;23;NULL;Urbanización Monte Bello (Maracaibo);261;4002
+2182;23;NULL;Urbanización Monte Claro (Maracaibo);261;4005
+2183;23;NULL;Urbanización Naranjal (Maracaibo);261;4005
+2184;23;NULL;Urbanización Obrero (Maracaibo);261;4005
+2185;23;NULL;Urbanización Perijá (Maracaibo);261;4004
+2186;23;NULL;Urbanización Portuaria (Maracaibo);261;4004
+2187;23;NULL;Urbanización Raúl Leoni (Maracaibo);261;4005
+2188;23;NULL;Urbanización Ricaurte (Maracaibo);261;4002
+2189;23;NULL;Urbanización Ritchamond (Maracaibo);261;4001
+2190;23;NULL;Urbanización Rotaria 1;261;4005
+2191;23;NULL;Urbanización Rómulo Gallego (Maracaibo);261;4005
+2192;23;NULL;Urbanización Sabatorio (Maracaibo);261;4001
+2193;23;NULL;Urbanización San Felipe 1;261;4004
+2194;23;NULL;Urbanización San Francisco de Miranda 3;0;4004
+2195;23;NULL;Urbanización San Jacinto (Maracaibo);261;4005
+2196;23;NULL;Urbanización San Miguel (Maracaibo);261;4001
+2197;23;NULL;Urbanización San Rafael (Maracaibo);261;4001
+2198;23;NULL;Urbanización Santa Ana (Maracaibo);261;4005
+2199;23;NULL;Urbanización Santa Eduvigis (Maracaibo);261;4005
+2200;23;NULL;Urbanización Santa Marí­a (Maracaibo);261;4005
+2201;23;NULL;Urbanización Sucre (Maracaibo);261;4005
+2202;23;NULL;Urbanización Urdaneta (Maracaibo);261;4001
+2203;23;NULL;Urbanización Villa Nueva (Maracaibo);261;4005
+2204;23;NULL;Urbanización Virginia (Maracaibo);261;4002
+2205;23;NULL;Urbanización Vista del Lago (Maracaibo);261;4001
+2206;23;NULL;Urbanización Zapara (Maracaibo);261;4002
+2207;23;NULL;Villa del Rosario;0;4047
+2208;23;NULL;Zona Central de La Ciudad (Maracaibo);261;4001
+2209;23;NULL;Zona Industrial (Maracaibo);261;4004
+2210;23;NULL;Arapuey;0;3101
+2211;23;NULL;Barrio de Estanques;0;4001
+2212;23;NULL;Barrio El Calvario;0;4001
+2213;23;NULL;Bobures;271;3158
+2214;23;NULL;Boscán;0;3101
+2215;23;NULL;Caja Seca (Nueva Bolivia);0;3158
+2216;23;NULL;Campo Mara;0;4044
+2217;23;NULL;Ceuta;0;4001
+2218;23;NULL;El Batey;271;3101
+2219;23;NULL;El Carmelo;262;4001
+2220;23;NULL;El Cinco;0;4001
+2221;23;NULL;El Consejo De Siruma;0;4001
+2222;23;NULL;El Guanabano;0;4001
+2223;23;NULL;El Guayabo;275;5101
+2224;23;NULL;El Laberinto;0;4032
+2225;23;NULL;El LLano;0;4001
+2226;23;NULL;Encontrados;275;5101
+2227;23;NULL;Las Delicias;0;4001
+2228;23;NULL;Los Haticos;0;4047
+2229;23;NULL;Los Teques;0;4001
+2230;23;NULL;Macoa;0;4021
+2231;23;NULL;Medio Cuarto;0;5101
+2232;23;NULL;Moralito;0;5101
+2233;23;NULL;Palmarejo;0;4001
+2234;23;NULL;San Jose De Perija;263;4021
+2235;23;NULL;Otras Poblaciones;0;4001
+2236;23;NULL;Aeropuerto La Chinita;0;4012
+2237;23;NULL;Alturitas;0;4047
+2238;23;NULL;Avenida Los Haticos (Maracaibo);261;4001
+2239;23;NULL;Bachaquero;0;4014
+2240;23;NULL;Barranca;0;4020
+2241;23;NULL;Barranquitas;0;4047
+2242;23;NULL;Barrio 14 de Noviembre (Maracaibo);261;4005
+2243;23;NULL;Barrio 18 de Diciembre (Maracaibo);261;4004
+2244;23;NULL;Barrio 19 de Abril (Maracaibo);261;4005
+2245;23;NULL;Barrio 1;261;4001
+2246;23;NULL;Barrio 1;261;4005
+2247;23;NULL;Barrio 21 de Octubre (Maracaibo);261;4001
+2248;23;NULL;Barrio 23 de Enero (Maracaibo);261;4001
+2249;23;NULL;Barrio 24 de Julio (Maracaibo);261;4004
+2250;23;NULL;Barrio 24 de Noviembre (Maracaibo);261;4005
+2251;23;NULL;Barrio 24 de Octubre (Maracaibo);261;4004
+2252;23;NULL;Barrio 28 de Diciembre (Maracaibo);261;4004
+2253;23;NULL;Barrio 5 de Julio (Maracaibo);261;4001
+2254;23;NULL;Barrio Alberto Carnevali (Maracaibo);261;4005
+2255;23;NULL;Barrio Altamira (Maracaibo);261;4001
+2256;23;NULL;Barrio Ana Marí­a Campos (Maracaibo);261;4005
+2257;23;NULL;Barrio Andrades Labarca (Maracaibo);261;4004
+2258;23;NULL;Barrio Ayacucho (Maracaibo);261;4005
+2259;23;NULL;Barrio Betulio González (Maracaibo);261;4004
+2260;23;NULL;Barrio Blanco (Maracaibo);261;4005
+2261;23;NULL;Barrio Bolivia (Maracaibo);261;4001
+2262;23;NULL;Barrio Brisas del Sur (Maracaibo);261;4001
+2263;23;NULL;Barrio Buena Vista (Maracaibo);261;4001
+2264;23;NULL;Barrio Cabeza de Toro (Maracaibo);261;4005
+2265;23;NULL;Barrio Calendario (Maracaibo);261;4005
+2266;23;NULL;Barrio Canchancha (Maracaibo);261;4002
+2267;23;NULL;Barrio Capitán Chico (Maracaibo);261;4002
+2268;23;NULL;Barrio Carabobo (Maracaibo);261;4004
+2269;23;NULL;Barrio Carmelo Urdaneta (Maracaibo);261;4005
+2270;23;NULL;Barrio Caí±ada Honda (Maracaibo);261;4001
+2271;23;NULL;Barrio Cerro de Marí­n (Maracaibo);261;4002
+2272;23;NULL;Barrio Corazón de Jesús (Maracaibo);261;4004
+2273;23;NULL;Barrio Corea (Maracaibo);261;4001
+2274;23;NULL;Barrio Coromoto (Maracaibo);261;4004
+2275;23;NULL;Barrio Cruz de Mayo (Maracaibo);261;4001
+2276;23;NULL;Barrio Cuatricentenario (Maracaibo);261;4001
+2277;23;NULL;Barrio Don Bosco (Maracaibo);261;4002
+2278;23;NULL;Barrio El Amparo (Maracaibo);261;4001
+2279;23;NULL;Barrio El Bajo Grande (Maracaibo);261;4004
+2280;23;NULL;Barrio El Callao 1;261;4004
+2281;23;NULL;Barrio El Cardonal (Maracaibo);261;4004
+2282;23;NULL;Barrio El Corito (Maracaibo);261;4001
+2283;23;NULL;Barrio El Cují­ (Maracaibo);261;4005
+2284;23;NULL;Barrio El Guaicaipuro (Maracaibo);261;4005
+2285;23;NULL;Barrio El Indio (Maracaibo);261;4005
+2286;23;NULL;Barrio El Jazmí­n (Maracaibo);261;4005
+2287;23;NULL;Barrio El Manzanillo (Maracaibo);261;4004
+2288;23;NULL;Barrio El Oso (Maracaibo);261;4001
+2289;23;NULL;Barrio El Pajal (Maracaibo);261;4001
+2290;23;NULL;Barrio El Pedregal (Maracaibo);261;4005
+2291;23;NULL;Barrio El Perú (Maracaibo);261;4004
+2292;23;NULL;Barrio El Potente (Maracaibo);261;4001
+2293;23;NULL;Barrio El Progreso (Maracaibo);261;4001
+2294;23;NULL;Barrio El Puente (Maracaibo);261;4001
+2295;23;NULL;Barrio El Silencio (Maracaibo);261;4004
+2296;23;NULL;Barrio El Socorro (Maracaibo);261;4001
+2297;23;NULL;Barrio El Valle (Maracaibo);261;4002
+2298;23;NULL;Barrio El Vivero (Maracaibo);261;4004
+2299;23;NULL;Barrio Francisco de Miranda (Maracaibo);261;4005
+2300;23;NULL;Barrio Fundación Mendoza (Maracaibo);261;4001
+2301;23;NULL;Barrio Gallo Verde (Maracaibo);261;4001
+2302;23;NULL;Barrio Jaguey Cují­ (Maracaibo);261;4005
+2303;23;NULL;Barrio Josí© Antonio Páez (Maracaibo);261;4005
+2304;23;NULL;Barrio Josí© Gregorio Hernández (Maracaibo);261;4004
+2305;23;NULL;Barrio Josí© Hernández (Maracaibo);261;4001
+2306;23;NULL;Barrio La Bandera (Maracaibo);261;4001
+2307;23;NULL;Barrio La Chinita (Maracaibo);261;4001
+2308;23;NULL;Barrio La Ensenada (Maracaibo);261;4004
+2309;23;NULL;Barrio La Limpia (Maracaibo);261;4004
+2310;23;NULL;Barrio La Lucha (Maracaibo);261;4002
+2311;23;NULL;Barrio La Manzana de Oro (Maracaibo);261;4005
+2312;23;NULL;Barrio La Polar (Maracaibo);261;4004
+2313;23;NULL;Barrio La Pomona;0;4001
+2314;23;NULL;Barrio La Rinconada (Maracaibo);261;4005
+2315;23;NULL;Barrio La Salina (Maracaibo);261;4002
+2316;23;NULL;Barrio La Unidad (Maracaibo);261;4005
+2317;23;NULL;Barrio La Victoria (Maracaibo);261;4005
+2318;23;NULL;Barrio Las Cabrias (Maracaibo);261;4005
+2319;23;NULL;Barrio Las Marí­as (Maracaibo);261;4001
+2320;23;NULL;Barrio Las Tarabas (Maracaibo);261;4005
+2321;23;NULL;Barrio Las Tres Marí­as (Maracaibo);261;4005
+2322;23;NULL;Barrio Leonardo Ruiz Pineda (Maracaibo);261;4002
+2323;23;NULL;Barrio Libertad;0;4001
+2324;23;NULL;Barrio Libertador (Maracaibo);261;4005
+2325;23;NULL;Barrio Los Andes (Maracaibo);261;4001
+2326;23;NULL;Barrio Los Claveles (Maracaibo);261;4001
+2327;23;NULL;Barrio Los Cortijos (Maracaibo);261;4004
+2328;23;NULL;Barrio Los Cujicitos (Maracaibo);261;4005
+2329;23;NULL;Barrio Los Estanques (Maracaibo);261;4004
+2330;23;NULL;Barrio Los Manglares (Maracaibo);261;4002
+2331;23;NULL;Barrio Los Olivos (Maracaibo);261;4005
+2332;23;NULL;Barrio Los Pinos (Maracaibo);261;4001
+2333;23;NULL;Barrio Los Planazos (Maracaibo);261;4005
+2334;23;NULL;Barrio Los Robles (Maracaibo);261;4004
+2335;23;NULL;Barrio Los Sufridos (Maracaibo);261;4005
+2336;23;NULL;Barrio Marite (Maracaibo);261;4005
+2337;23;NULL;Barrio Misión (Maracaibo);261;4001
+2338;23;NULL;Barrio Monte Claro (Maracaibo);261;4002
+2339;23;NULL;Barrio Nueva Independencia (Maracaibo);261;4005
+2340;23;NULL;Barrio Nueva Ví­a (Maracaibo);261;4005
+2341;23;NULL;Barrio Nuevo(Maracaibo);261;4005
+2342;23;NULL;Barrio Nuevo Mundo (Maracaibo);261;4002
+2343;23;NULL;Barrio Obrero (Maracaibo);261;4005
+2344;23;NULL;Barrio Panamericano (Maracaibo);261;4005
+2345;23;NULL;Barrio Paraí­so (Maracaibo);261;4004
+2346;23;NULL;Barrio Pueblo Aparte (Maracaibo);261;4002
+2347;23;NULL;Barrio Pueblo Nuevo (Maracaibo);261;4002
+2348;23;NULL;Barrio Puerto Cabello (Maracaibo);261;4002
+2349;23;NULL;Barrio Puerto Rico (Maracaibo);261;4001
+2350;23;NULL;Barrio Puntica de Piedra (Maracaibo);261;4002
+2351;23;NULL;Barrio Rancherí­a (Maracaibo);261;4001
+2352;23;NULL;Barrio Raúl Leoni (Maracaibo);261;4005
+2353;23;NULL;Barrio Ricardo Aguirre (Maracaibo);261;4001
+2354;23;NULL;Barrio Robinson Ferreira (Maracaibo);261;4004
+2355;23;NULL;Barrio Rómulo Betancourt (Maracaibo);261;4005
+2356;23;NULL;Barrio Sabaneta (Maracaibo);261;4001
+2357;23;NULL;Barrio San Agustí­n (Maracaibo);261;4005
+2358;23;NULL;Barrio San Francisco (Maracaibo);261;4004
+2359;23;NULL;Barrio San Javier (Maracaibo);261;4004
+2360;23;NULL;Barrio San Josí© (Maracaibo);261;4001
+2361;23;NULL;Barrio San Luis (Maracaibo);261;4002
+2362;23;NULL;Barrio San Miguel (Maracaibo);261;4001
+2363;23;NULL;Barrio San Pedro (Maracaibo);261;4001
+2364;23;NULL;Barrio San Rafael (Maracaibo);261;4001
+2365;23;NULL;Barrio Santa Rosa de Agua (Maracaibo);261;4002
+2366;23;NULL;Barrio Santa Rosa de Tierra (Maracaibo);261;4002
+2367;23;NULL;Barrio Santo Domingo (Maracaibo);261;4001
+2368;23;NULL;Barrio Sierra Maestra (Maracaibo);261;4004
+2369;23;NULL;Barrio Simón Bolí­var (Maracaibo);261;4001
+2370;23;NULL;Barrio Sur Amí©rica (Maracaibo);261;4004
+2371;23;NULL;Barrio Tamanaco (Maracaibo);261;4001
+2372;23;NULL;Barrio Teotiste de Gallegos (Maracaibo);261;4002
+2373;23;NULL;Barrio Terepaima (Maracaibo);261;4005
+2374;23;NULL;Barrio Tierra Negra (Maracaibo);261;4002
+2375;23;NULL;Barrio Udón Pí©rez (Maracaibo);261;4005
+2376;23;NULL;Barrio Unión (Maracaibo);261;4005
+2377;23;NULL;Barrio Valle Frí­o (Maracaibo);261;4001
+2378;23;NULL;Barrio Venezuela (Maracaibo);261;4005
+2379;23;NULL;Barrio Zulia (Maracaibo);261;4005
+2380;23;NULL;Barrio de Estanques (Maracaibo);261;4001
+2381;23;NULL;Barrio el Calvario (Maracaibo);261;4001
+2382;23;NULL;Cabimas;0;4013
+2383;23;NULL;Calle Larga;0;4021
+2384;23;NULL;Campo Mara;0;4044
+2385;23;NULL;Campos Petroleros;0;4032
+2386;23;NULL;Carrasquero;0;4044
+2387;23;NULL;Carretal;0;4037
+2388;23;NULL;Cerro de Los Cachos (Maracaibo);261;4002
+2389;23;NULL;Cerro de los Cachos (Maracaibo);261;4002
+2390;23;NULL;Chiquinquirá;0;4033
+2391;23;NULL;Ciudad Ojeda;0;4019
+2392;23;NULL;Cojoro;0;4037
+2393;23;NULL;Cojua;0;4037
+2394;23;NULL;Concepción;0;4032
+2395;23;NULL;Conjunto Residencial Gallo Verde (Maracaibo);261;4001
+2396;23;NULL;El Mene;0;4020
+2397;23;NULL;El Moralito;0;4001
+2398;23;NULL;El Portón (Maracaibo);261;4002
+2399;23;NULL;El Portón (Maracaibo);261;4002
+2400;23;NULL;El Siete;0;4001
+2401;23;NULL;El Tablazo;0;4036
+2402;23;NULL;El Venado;0;4022
+2403;23;NULL;Guarero;0;4037
+2404;23;NULL;I.N.O.S. (Maracaibo);261;4004
+2405;23;NULL;Isla de San Carlos;0;4044
+2406;23;NULL;Isla de Toas;0;4031
+2407;23;NULL;La Caí±ada;0;4001
+2408;23;NULL;La Paz;0;4001
+2409;23;NULL;La Rosita;0;4044
+2410;23;NULL;Laberinto;0;4032
+2411;23;NULL;Lagunillas;0;4016
+2412;23;NULL;Las Cruces;0;4044
+2413;23;NULL;Las Morochas;0;4019
+2414;23;NULL;Las Piedras;0;4021
+2415;23;NULL;Los Puertos de Altagracia;0;4036
+2416;23;NULL;M.A.C. (Maracaibo);261;4004
+2417;23;NULL;Machango;0;4015
+2418;23;NULL;Machiques;0;4021
+2419;23;NULL;Mene Grande;0;4015
+2420;23;NULL;Monte Claro;0;4005
+2421;23;NULL;Paraguaipoa;0;4037
+2422;23;NULL;Parcelamiento Los Altos (Maracaibo);261;4001
+2423;23;NULL;Parcelamiento Ricaurte (Maracaibo);261;4002
+2424;23;NULL;Pica Pica;0;4019
+2425;23;NULL;Plaza de Toro (Maracaibo);261;4005
+2426;23;NULL;Pueblo Nuevo;0;4015
+2427;23;NULL;Pueblo de San Francisco (Maracaibo);261;4004
+2428;23;NULL;Puerto Escondido;0;4020
+2429;23;NULL;Punta Gorda;0;4013
+2430;23;NULL;Quisiro;0;4036
+2431;23;NULL;Residencia San Luis;0;4005
+2432;23;NULL;San Ignacio;0;4047
+2433;23;NULL;San Josí©;0;4021
+2434;23;NULL;San Lorenzo;0;4041
+2435;23;NULL;San Rafael de Machiques;0;4043
+2436;23;NULL;San Rafael de Mara (El Mojan);262;4044
+2437;23;NULL;San Timoteo;0;4018
+2438;23;NULL;Santa Cruz de Mara;262;4045
+2439;23;NULL;Santa Lucia (Maracaibo);261;4001
+2440;23;NULL;Santa Rita;0;4020
+2441;23;NULL;Sinamaica;262;4046
+2442;23;NULL;Tí­a Juana;0;4017
+2443;23;NULL;Universidad del Zulia;0;4011
+2444;23;NULL;Urbanización 3;261;4004
+2445;23;NULL;Urbanización Adán Sthormes (Maracaibo);261;4004
+2446;23;NULL;Urbanización Alberto Carnavalli (Maracaibo);261;4005
+2447;23;NULL;Urbanización Alhambra (Maracaibo);261;4004
+2448;23;NULL;Urbanización Altos de La Vega (Maracaibo);261;4001
+2449;23;NULL;Urbanización Altos del Pilar (Maracaibo);261;4002
+2450;23;NULL;Urbanización Amalias (Maracaibo);261;4005
+2451;23;NULL;Urbanización Bella Vista (Maracaibo);261;4002
+2452;23;NULL;Urbanización Bello Monte (Maracaibo);261;4002
+2453;23;NULL;Urbanización Bloques de San Francisco (Maracaibo);261;4004
+2454;23;NULL;Urbanización Buena Vista (Maracaibo);261;4005
+2455;23;NULL;Urbanización Canta Claro (Maracaibo);261;4002
+2456;23;NULL;Urbanización Chevron (Maracaibo);261;4001
+2457;23;NULL;Urbanización Club Hí­pico (Maracaibo);261;4005
+2458;23;NULL;Urbanización Corazón de Jesús (Maracaibo);261;4005
+2459;23;NULL;Urbanización Coromoto 1;261;4004
+2460;23;NULL;Urbanización Creoles (Maracaibo);261;4002
+2461;23;NULL;Urbanización Cuatricentenario 1;261;4001
+2462;23;NULL;Urbanización Cumbres de Maracaibo (Maracaibo);261;4005
+2463;23;NULL;Urbanización El Callao (Maracaibo);261;4004
+2464;23;NULL;Urbanización El Estanque (Maracaibo);261;4004
+2465;23;NULL;Urbanización El Guayabal (Maracaibo);261;4001
+2466;23;NULL;Urbanización El Parque (Maracaibo);261;4002
+2467;23;NULL;Urbanización El Pilar (Maracaibo);261;4002
+2468;23;NULL;Urbanización El Pilarcito (Maracaibo);261;4002
+2469;23;NULL;Urbanización El Portal (Maracaibo);261;4002
+2470;23;NULL;Urbanización El Prado (Maracaibo);261;4005
+2471;23;NULL;Urbanización El Rosal Sur (Maracaibo);261;4002
+2472;23;NULL;Urbanización El Trí©bol (Maracaibo);261;4004
+2473;23;NULL;Urbanización El Varillal (Maracaibo);261;4001
+2474;23;NULL;Urbanización Enerbal (Maracaibo);261;4005
+2475;23;NULL;Urbanización FAC (Maracaibo);261;4001
+2476;23;NULL;Urbanización Fundación Mendoza (Maracaibo);261;4001
+2477;23;NULL;Urbanización Irama (Maracaibo);261;4002
+2478;23;NULL;Urbanización Islas Doradas (Maracaibo);261;4002
+2479;23;NULL;Urbanización Juana de Avila (Maracaibo);261;4005
+2480;23;NULL;Urbanización La California (Maracaibo);261;4005
+2481;23;NULL;Urbanización La Curva (Maracaibo);261;4005
+2482;23;NULL;Urbanización La Estrella (Maracaibo);261;4002
+2483;23;NULL;Urbanización La Floresta (Maracaibo);261;4005
+2484;23;NULL;Urbanización La Lago (Maracaibo);261;4002
+2485;23;NULL;Urbanización La Pastora (Maracaibo);261;4001
+2486;23;NULL;Urbanización La Paz 1;261;4001
+2487;23;NULL;Urbanización La Rosaleda (Maracaibo);261;4005
+2488;23;NULL;Urbanización La Trinidad (Maracaibo);261;4005
+2489;23;NULL;Urbanización La Victoria 1;261;4005
+2490;23;NULL;Urbanización Lagomar (Maracaibo);261;4002
+2491;23;NULL;Urbanización Lajas Blancas (Maracaibo);261;4001
+2492;23;NULL;Urbanización Las Aceitunas (Maracaibo);261;4005
+2493;23;NULL;Urbanización Las Carmelias (Maracaibo);261;4005
+2494;23;NULL;Urbanización Las Lomas (Maracaibo);261;4005
+2495;23;NULL;Urbanización Las Mercedes (Maracaibo);261;4002
+2496;23;NULL;Urbanización Lomas de Sabaneta (Maracaibo);261;4001
+2497;23;NULL;Urbanización Los Altos (Maracaibo);261;4001
+2498;23;NULL;Urbanización Los Olivos (Maracaibo);261;4005
+2499;23;NULL;Urbanización Maracaibo (Maracaibo);261;4002
+2500;23;NULL;Urbanización Miramar (Maracaibo);261;4002
+2501;23;NULL;Urbanización Monte Bello (Maracaibo);261;4002
+2502;23;NULL;Urbanización Monte Claro (Maracaibo);261;4005
+2503;23;NULL;Urbanización Naranjal (Maracaibo);261;4005
+2504;23;NULL;Urbanización Obrero (Maracaibo);261;4005
+2505;23;NULL;Urbanización Perijá (Maracaibo);261;4004
+2506;23;NULL;Urbanización Portuaria (Maracaibo);261;4004
+2507;23;NULL;Urbanización Raúl Leoni (Maracaibo);261;4005
+2508;23;NULL;Urbanización Ricaurte (Maracaibo);261;4002
+2509;23;NULL;Urbanización Ritchamond (Maracaibo);261;4001
+2510;23;NULL;Urbanización Rotaria 1;261;4005
+2511;23;NULL;Urbanización Rómulo Gallego (Maracaibo);261;4005
+2512;23;NULL;Urbanización Sabatorio (Maracaibo);261;4001
+2513;23;NULL;Urbanización San Felipe 1;261;4004
+2514;23;NULL;Urbanización San Francisco de Miranda 3;0;4004
+2515;23;NULL;Urbanización San Jacinto (Maracaibo);261;4005
+2516;23;NULL;Urbanización San Miguel (Maracaibo);261;4001
+2517;23;NULL;Urbanización San Rafael (Maracaibo);261;4001
+2518;23;NULL;Urbanización Santa Ana (Maracaibo);261;4005
+2519;23;NULL;Urbanización Santa Eduvigis (Maracaibo);261;4005
+2520;23;NULL;Urbanización Santa Marí­a (Maracaibo);261;4005
+2521;23;NULL;Urbanización Sucre (Maracaibo);261;4005
+2522;23;NULL;Urbanización Urdaneta (Maracaibo);261;4001
+2523;23;NULL;Urbanización Villa Nueva (Maracaibo);261;4005
+2524;23;NULL;Urbanización Virginia (Maracaibo);261;4002
+2525;23;NULL;Urbanización Vista del Lago (Maracaibo);261;4001
+2526;23;NULL;Urbanización Zapara (Maracaibo);261;4002
+2527;23;NULL;Villa del Rosario;263;4047
+2528;23;NULL;Zona Central de La Ciudad (Maracaibo);261;4001
+2529;23;NULL;Zona Industrial (Maracaibo);261;4004
+2530;23;NULL;Arapuey;0;3101
+2531;23;NULL;Barrio de Estanques;0;4001
+2532;23;NULL;Barrio El Calvario;0;4001
+2533;23;NULL;Bobures;0;3158
+2534;23;NULL;Boscán;0;3101
+2535;23;NULL;Caja Seca (Nueva Bolivia);0;3158
+2536;23;NULL;Campo Mara;0;4044
+2537;23;NULL;Ceuta;0;4001
+2538;23;NULL;El Batey;0;3101
+2539;23;NULL;El Carmelo;0;4001
+2540;23;NULL;El Cinco;0;4001
+2541;23;NULL;El Consejo De Siruma;0;4001
+2542;23;NULL;El Guanabano;0;4001
+2543;23;NULL;El Guayabo;0;5101
+2544;23;NULL;El Laberinto;0;4032
+2545;23;NULL;El LLano;0;4001
+2546;23;NULL;Encontrados;0;5101
+2547;23;NULL;Las Delicias;0;4001
+2548;23;NULL;Los Haticos;0;4047
+2549;23;NULL;Los Teques;0;4001
+2550;23;NULL;Macoa;0;4021
+2551;23;NULL;Medio Cuarto;0;5101
+2552;23;NULL;Moralito;0;5101
+2553;23;NULL;Palmarejo;264;4001
+2554;23;NULL;San Jose De Perija;0;4021
+2555;23;NULL;Otras Poblaciones;0;4001
+2556;21;NULL;Agua Santa;0;3101
+2557;21;NULL;Agua Viva;0;3101
+2558;21;NULL;Altos de Estanque;0;3132
+2559;21;NULL;Arapuey (Mí©rida);0;3164
+2560;21;NULL;Betijoque;272;3104
+2561;21;NULL;Boconó;272;3103
+2562;21;NULL;Bolivia;0;3157
+2563;21;NULL;Buena Vista;0;3101
+2564;21;NULL;Burbusay;0;3115
+2565;21;NULL;Caja Seca (Nueva Bolivia);0;3141
+2566;21;NULL;Campo Alegre (Urbanización);0;3101
+2567;21;NULL;Campo Elí­as;0;3116
+2568;21;NULL;Carache;272;3123
+2569;21;NULL;Carvajal;0;3102
+2570;21;NULL;Chejende;272;3124
+2571;21;NULL;Cuicas;272;3125
+2572;21;NULL;Dividive;271;3107
+2573;21;NULL;El Batatal;0;3101
+2574;21;NULL;El Cenizo;0;3101
+2575;21;NULL;Escuque;271;3105
+2576;21;NULL;Isnotú;271;3109
+2577;21;NULL;Jajó;0;3145
+2578;21;NULL;La Ceiba;271;3108
+2579;21;NULL;La Cejita;0;3149
+2580;21;NULL;La Cuchilla;0;3101
+2581;21;NULL;La Mesa de Esnujaque;0;3146
+2582;21;NULL;La Mulata;0;3101
+2583;21;NULL;La Plazuelita;0;3101
+2584;21;NULL;La Puerta;271;3106
+2585;21;NULL;La Quebrada;271;3147
+2586;21;NULL;La Unión;0;3101
+2587;21;NULL;Las Mesitas;0;3101
+2588;21;NULL;Mendoza Frí­a;271;3122
+2589;21;NULL;Miton;0;3128
+2590;21;NULL;Monay;272;3153
+2591;21;NULL;Monte Carmelo;0;3134
+2592;21;NULL;Motatán;271;3140
+2593;21;NULL;Niquitao;0;3118
+2594;21;NULL;Nueva Bolivia;0;3101
+2595;21;NULL;Pampan;272;3151
+2596;21;NULL;Pampanito;272;3152
+2597;21;NULL;Punto Palmarito;0;3141
+2598;21;NULL;Sabana Grande;0;3101
+2599;21;NULL;Sabana Libre;0;3135
+2600;21;NULL;Sabana de Mendoza;271;3110
+2601;21;NULL;San Cristóbal de Torondoy;0;3133
+2602;21;NULL;San Josí© de Palmira;0;3101
+2603;21;NULL;San Juan de Betijoque;0;3101
+2604;21;NULL;San Lázaro;272;3154
+2605;21;NULL;San Miguel;0;3119
+2606;21;NULL;San Rafael de Boconó;0;3103
+2607;21;NULL;San Rafael de Carvajal;0;3101
+2608;21;NULL;Santa Ana;272;3156
+2609;21;NULL;Santa Apolonia de Mí©rida;0;3136
+2610;21;NULL;Santa Apolonia de Trujillo;0;3127
+2611;21;NULL;Santa Isabel;0;3113
+2612;21;NULL;Santa Rosa;0;3101
+2613;21;NULL;Torococo;0;3129
+2614;21;NULL;Torondoy;0;3101
+2615;21;NULL;Tostos;271;3101
+2616;21;NULL;Trujillo;272;3150
+2617;21;NULL;Trujillo (Casco Central);272;3150
+2618;21;NULL;Valera;271;3101
+2619;21;NULL;El Alto Escuque;0;3105
+2620;21;NULL;El Socorro;0;3101
+2621;21;NULL;La Concepción De Carache;272;3150
+2622;21;NULL;La Concepción De Pampanito;272;3150
+2623;21;NULL;La Plazuela;0;3150
+2624;21;NULL;Palmarito;0;3101
+2625;21;NULL;San Miguel De Bocono;0;3101
+2626;21;NULL;Santiago;272;3101
+2627;21;NULL;Otras Poblaciones;272;3150
+2628;20;NULL;Abejales;277;5002
+2629;20;NULL;Aguas Calientes;0;5048
+2630;20;NULL;Boca de Grita;0;5020
+2631;20;NULL;Borota;276;5033
+2632;20;NULL;Caí±o Macho;0;5020
+2633;20;NULL;Colon;277;5003
+2634;20;NULL;Coloncito;277;5038
+2635;20;NULL;Cordero;276;5012
+2636;20;NULL;Delicias;0;5030
+2637;20;NULL;El Amparo;0;5062
+2638;20;NULL;El Cantón;0;5067
+2639;20;NULL;El Carmen (Aldea);0;5038
+2640;20;NULL;El Cobre;277;5021
+2641;20;NULL;El Hato de La Virgen;0;5010
+2642;20;NULL;El Nula;0;5063
+2643;20;NULL;El Pinal;277;5032
+2644;20;NULL;El Pino;0;5007
+2645;20;NULL;El Potosí­;0;5020
+2646;20;NULL;El Teteo;0;5032
+2647;20;NULL;Guasdualito;0;5063
+2648;20;NULL;Independencia;276;5009
+2649;20;NULL;La Concordia;0;5001
+2650;20;NULL;La Florida;0;5001
+2651;20;NULL;La Frí­a;277;5020
+2652;20;NULL;La Fundación;0;5001
+2653;20;NULL;La Grita;277;5022
+2654;20;NULL;La Pedrera;0;5002
+2655;20;NULL;La Revancha;0;5017
+2656;20;NULL;La Rinconada;0;5048
+2657;20;NULL;La Tendida;275;5038
+2658;20;NULL;La Victoria (Apure);0;5063
+2659;20;NULL;Las Dantas;0;5030
+2660;20;NULL;Libertad del Táchira;0;5010
+2661;20;NULL;Llano Largo;0;5022
+2662;20;NULL;Lobatera;277;5036
+2663;20;NULL;Los Caneyes;0;5017
+2664;20;NULL;Los Kioscos;0;5001
+2665;20;NULL;Los Naranjos;0;5032
+2666;20;NULL;Michelena;277;5037
+2667;20;NULL;Morotuto;0;5038
+2668;20;NULL;Nueva Arcadia;0;5048
+2669;20;NULL;Orope;0;5020
+2670;20;NULL;Palmarito;0;5065
+2671;20;NULL;Palmira;276;5015
+2672;20;NULL;Patiecito;0;5015
+2673;20;NULL;Peribeca;0;5009
+2674;20;NULL;Pregonero;277;5058
+2675;20;NULL;Pueblo Encima;0;5022
+2676;20;NULL;Pueblo Hondo;0;5022
+2677;20;NULL;Pueblo Las Hernández;0;5038
+2678;20;NULL;Pueblo Nuevo;0;5001
+2679;20;NULL;Queniquea;277;5001
+2680;20;NULL;Ramos;0;5030
+2681;20;NULL;Rubio;276;5030
+2682;20;NULL;Rí­o Chiquito;0;5030
+2683;20;NULL;Sabana Grande;0;5022
+2684;20;NULL;San Antonio del Táchira;276;5007
+2685;20;NULL;San Cristóbal;276;5001
+2686;20;NULL;San Felix;0;5003
+2687;20;NULL;San Josí© de Bolí­var;0;5054
+2688;20;NULL;San Juan Bautista;0;5001
+2689;20;NULL;San Pedro de Lirio;0;5003
+2690;20;NULL;San Simón;0;5038
+2691;20;NULL;Santa Ana;276;5051
+2692;20;NULL;Santa Marí­a de Caparo (Mí©rida);0;5002
+2693;20;NULL;Seboruco;277;5027
+2694;20;NULL;Táriba;276;5017
+2695;20;NULL;Umuquena;277;5038
+2696;20;NULL;Ureí±a;276;5048
+2697;20;NULL;Villa Páez;0;5030
+2698;20;NULL;Batatal;0;5001
+2699;20;NULL;El Corozo;0;5001
+2700;20;NULL;El Jordan;0;5001
+2701;20;NULL;Helechales;0;5001
+2702;20;NULL;Hernandez;275;5001
+2703;20;NULL;San Felix De Urraca;0;5001
+2704;20;NULL;San Joaquin De Navay;0;5001
+2705;20;NULL;San Josecito;276;5001
+2706;20;NULL;San Juan De Colon;0;5001
+2707;20;NULL;San Rafael Del Piñal;0;5032
+2708;20;NULL;Otras Poblaciones;276;5001
+2709;19;NULL;Acarigua;0;6106
+2710;19;NULL;Altos de Sucre;0;6123
+2711;19;NULL;Araya;293;6102
+2712;19;NULL;Arenas;0;6106
+2713;19;NULL;Bohordal;0;6150
+2714;19;NULL;Caiguire;0;6101
+2715;19;NULL;Campearito;0;6150
+2716;19;NULL;Campo Claro;294;6101
+2717;19;NULL;Cariaco;294;6126
+2718;19;NULL;CarÃºpano;294;6150
+2719;19;NULL;Casanay;294;6168
+2720;19;NULL;Catuaro;0;6150
+2721;19;NULL;Chacopata;0;6101
+2722;19;NULL;Cristóbal Colón;0;6160
+2723;19;NULL;Cumanacoa;293;6106
+2724;19;NULL;Cumaná;293;6101
+2725;19;NULL;El Morro;0;6163
+2726;19;NULL;El Paujil;0;6150
+2727;19;NULL;El Peñón;0;6101
+2728;19;NULL;El Pilar;294;6152
+2729;19;NULL;El Rincón;294;6150
+2730;19;NULL;Guanoco;0;6150
+2731;19;NULL;Guarapiche;0;6168
+2732;19;NULL;Guarauna;0;6150
+2733;19;NULL;Guariquen;0;6150
+2734;19;NULL;Guiria;294;6161
+2735;19;NULL;Irapa;294;6156
+2736;19;NULL;Las Piedras de Cocollar;0;6101
+2737;19;NULL;Macarapana;0;6101
+2738;19;NULL;Macuro;294;6150
+2739;19;NULL;Maraval;0;6156
+2740;19;NULL;Mariguitar;293;6107
+2741;19;NULL;Muelle de Cariaco;0;6101
+2742;19;NULL;Nueva Colombia;0;6150
+2743;19;NULL;Playa Grande;0;6150
+2744;19;NULL;Puerto Santo;0;6163
+2745;19;NULL;Punta Brava (Tunapuycito);0;6154
+2746;19;NULL;Quebrada Seca;0;6101
+2747;19;NULL;Rí­o Caribe;294;6164
+2748;19;NULL;Río Casanay;0;6168
+2749;19;NULL;Río Grande;0;6160
+2750;19;NULL;San Antonio del Golfo;293;6110
+2751;19;NULL;San José de Aerocuar;294;6167
+2752;19;NULL;San Juan de Unare;0;6150
+2753;19;NULL;San Juan de las Galdonas;0;6150
+2754;19;NULL;San Lorenzo;0;6106
+2755;19;NULL;Santa Fe;0;6101
+2756;19;NULL;Santa Marí­a de Cariaco;0;6150
+2757;19;NULL;Saucedo;0;6150
+2758;19;NULL;Soro;0;6150
+2759;19;NULL;Tunapuy;294;6154
+2760;19;NULL;Valle de San Bonifacio;0;6150
+2761;19;NULL;Yaguaraparo;294;6155
+2762;19;NULL;Yoco;294;6150
+2763;19;NULL;Agua Fria;0;6150
+2764;19;NULL;Guaca;0;6150
+2765;19;NULL;Guanoco;0;6150
+2766;19;NULL;Guaraunos;0;6150
+2767;19;NULL;Guayana;0;6150
+2768;19;NULL;Las Piedras De Cocollar;0;6101
+2769;19;NULL;Las Vegas;0;6101
+2770;19;NULL;Los Altos De Santa fe;0;6101
+2771;19;NULL;Los Arroyos;0;6150
+2772;19;NULL;Rio Salado;0;6150
+2773;19;NULL;Rio Seco;0;6150
+2774;19;NULL;San Vicente;0;6150
+2775;19;NULL;Santa Cruz;0;6150
+2776;19;NULL;Tunapuicito;0;6150
+2777;19;NULL;Otras Poblaciones;0;6150
+2778;2;NULL;Maroa;248;7101
+2779;2;NULL;Puerto Ayacucho;248;7101
+2780;2;NULL;Puerto Páez;248;7101
+2781;2;NULL;San Carlos de Rí­o Negro;248;7101
+2782;2;NULL;San Fernando de Atabapo;248;7101
+2783;2;NULL;San Fernando de Guainia;248;7101
+2784;2;NULL;San Juan de Manapiare;248;7101
+2785;2;NULL;San Simón de Cocuy;248;7101
+2786;2;NULL;Santa Rosa de Amanadona;248;7101
+2787;2;NULL;Otras Poblaciones;248;7101

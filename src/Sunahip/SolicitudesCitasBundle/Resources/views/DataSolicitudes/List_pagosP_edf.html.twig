@@ -1,0 +1,75 @@
+{{ form_start(form,{'attr': {'id':'form_pagoP'} }) }}  
+<table id="tabla_reporte2">				
+        <tr id="table_header2">
+                 <td>Tipo de Documento</td>
+                 <td>Buscar Archivo<span class="oblig">(*)</span></td>
+                 <td>Fecha de Pago<span class="oblig">(*)</span></td>
+                 <td>N de Recibo<span class="oblig">(*)</span></td>
+                 <td>Banco<span class="oblig">(*)</span></td>
+                 <td>Monto a Pagar<span class="oblig">(*)</span></td>
+                 <td>Acción</td>
+        </tr>
+         <tr>
+            <td class="text-left">Pago por Procesamiento</td>
+            <td class="text-center">{{ form_widget(form.archivoAdjunto, {'attr': {'class': 'mediarecaudo'}}) }}
+                           {% if form.archivoAdjunto.vars.errors[0].message is defined %}
+                           <span class="help-block ">
+                               {{ form.archivoAdjunto.vars.errors[0].message }}
+                           </span>
+                           {% endif %}
+             </td>
+            <td class="text-center">{{ form_widget(form.fechaDeposito, {'attr': {'class': 'datePago fechapago'}}) }}
+                           {% if form.fechaDeposito.vars.errors[0].message is defined %}
+                           <span class="help-block ">
+                               {{ form.fechaDeposito.vars.errors[0].message }}
+                           </span>
+                           {% endif %}
+             </td>
+            <td class="text-center">{{ form_widget(form.numReferencia, {'attr': {'class': 'reciboN'},'id':'reciboNP' }) }}
+                           {% if form.numReferencia.vars.errors[0].message is defined %}
+                           <span class="help-block ">
+                               {{ form.numReferencia.vars.errors[0].message }}
+                           </span>
+                           {% endif %}
+             </td>
+            <td class="text-center">{{ form_widget(form.banco, {'attr': {'class': 'banco'},'id':'banco' }) }}
+                           {% if form.banco.vars.errors[0].message is defined %}
+                           <span class="help-block ">
+                               {{ form.banco.vars.errors[0].message }}
+                           </span>
+                           {% endif %}
+             </td>
+            <td class="text-center">
+                {{ nuevo is defined ? PP :entity.monto }} Bs       
+            </td>
+            <td>
+               {%if nuevo is defined %}
+                   <button class="btn btn-sm btn-info" onclick="nuevoPago();">Cargar</button>
+                {%else %}   
+                <button class="btn btn-sm btn-info" onclick="updatePago('{{entity.id}}');">Actualizar</button>
+                <button class="btn btn-sm btn-warning" onclick="cambiar('pagoP',false);">Cancelar</button>
+               {%endif%} 
+            </td>
+        </tr>
+</table>
+     {{form_widget(form._token)}}
+</form>                
+<script type="text/javascript">
+    $(document).ready(function(){
+        $( "#form_pagoP" ).submit(function( event ) {
+            event.preventDefault();
+          });   
+            var Options={
+                autoSize: true,
+                dateFormat: 'dd/mm/yy',
+                maxDate: '{{ "now"|date("d/m/Y") }}',
+                onSelect: function(dateText, inst) { 
+                   var datets = Date.parse(inst.selectedYear+'-'+inst.selectedMonth+'-'+inst.selectedDay);
+                   $(this).val(dateText);                
+               } 
+            };
+        $(".datePago").each(function(index,elem){
+            $(this).datepicker(Options); 
+        });
+    });
+</script>            

@@ -1,0 +1,22 @@
+<div class="row col-lg-12">
+    {{ form_start(form,{'attr':{'id':'form_doper'}}) }}
+    <div id="tabs">
+      <ul>
+        <li><a href="#datalegal" data-toggle="tab">Datos Legales</a></li>
+        <li><a href="#dataoper" data-toggle="tab">Datos de la Oficina Principal</a></li>
+      </ul>
+        <div id="temp"><h3> Espere un momento</h3> </div>
+         <div id="datalegal" class="tab-content">
+             {% include 'CentrohipicoBundle:DataOperadora:DLtable_form.html.twig'  %}
+             {#<div id="btnDL"><button id="addDL" class="btn btn-info">Agregar Datos Legales </button> </div>
+             <div id="fDL"></div>#}
+         </div>
+         <div id="dataoper" class="tab-content">
+             {% include 'CentrohipicoBundle:DataOperadora:DOpertable_form.html.twig'%}
+         </div>
+     </div>
+         <div class="col-md-1 col-md-offset-10"><button type="submit" id="form_dobtn" value="Guardar" class="btn btn-primary" >Guardar</button></div>
+    {{form_end(form)}}      
+</div> 
+
+

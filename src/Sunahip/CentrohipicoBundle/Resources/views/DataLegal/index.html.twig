@@ -1,0 +1,43 @@
+{% extends 'CentrohipicoBundle::centroh_base.html.twig' %} 
+{% block content_content %}
+    <h1>Datos Legales Establecimiento</h1>
+    <table class="table table-condensed table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombrecomercial</th>
+                <th>Datos</th>
+                <th>Fecharegistro</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>    
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('datalegal_show', { 'id': entity.id }) }}" targe="_blank">{{ entity.id }}</a></td>
+                <td>{{ entity.nombreComercial }}</td>
+                <td>{{ entity.apellido }}, {{ entity.nombre }}</td>
+                <td>{% if entity.fechaRegistro %}{{ entity.fechaRegistro|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ entity.status }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('datalegal_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('datalegal_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+     {%if entities is empty %}  
+         <tr >
+           <td colspan="6" class="text-center text-uppercase text-info">No hay Resultados</td>
+         </tr>       
+     {%endif%}    
+        </tbody>
+    </table>
+
+    {% endblock %}

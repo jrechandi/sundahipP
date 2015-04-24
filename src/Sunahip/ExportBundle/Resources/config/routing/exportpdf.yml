@@ -1,0 +1,69 @@
+exportpdf_operafiliados:
+    path:     /operadora-afiliados-list
+    defaults: { _controller: ExportBundle:ExportPdf:operAfiliados }
+    
+exportpdf_gerente_operadoras:
+    path:     /gerente-operadoras-list
+    defaults: { _controller: ExportBundle:ExportPdf:gerenteOperList }
+
+exportpdf_citas:
+    path:     /citas-list
+    defaults: { _controller: ExportBundle:ExportPdf:CitasList }
+
+exportpdf_licencias:
+    path:     /{tipo}-licencias-list
+    defaults: { _controller: ExportBundle:ExportPdf:LicenciasList }
+
+exportpdf_licencias_aprob:
+    path:     /licencias-aprobadas-list
+    defaults: { _controller: ExportBundle:ExportPdf:LicenciasListAprob }
+
+exportpdf_providencia:
+    path:     /providencias-list
+    defaults: { _controller: ExportBundle:ExportPdf:ProvidenciaList }
+
+exportpdf_fiscales:
+    path:     /fiscales-list
+    defaults: { _controller: ExportBundle:ExportPdf:FiscalesList }
+
+exportpdf_fiscalizacion_todos:
+    path:     /fiscalizaciones-{tipo}-list
+    defaults: { _controller: ExportBundle:ExportPdf:FiscalizacionList, tipo: todos }
+
+exportpdf_fiscalizacion_citados:
+    path:     /fiscalizaciones-{tipo}-list
+    defaults: { _controller: ExportBundle:ExportPdf:FiscalizacionList, tipo: citados }
+
+exportpdf_fiscalizacion_multados:
+    path:     /fiscalizaciones-{tipo}-list
+    defaults: { _controller: ExportBundle:ExportPdf:FiscalizacionList, tipo: multados }
+    
+exportpdf_pagos_MULTA:
+    path:     /{tipo}-list
+    defaults: { _controller: ExportBundle:ExportPdf:PagosList, tipo: MULTA}
+    requirements:
+        _method: get
+        tipo: MULTA|PROCESAMIENTO|OTORGAMIENTO|APORTE_MENSUAL    
+
+exportpdf_pagos_PROCESAMIENTO:
+    path:     /{tipo}-list
+    defaults: { _controller: ExportBundle:ExportPdf:PagosList, tipo: PROCESAMIENTO}
+    requirements:
+        _method: get
+        tipo: MULTA|PROCESAMIENTO|OTORGAMIENTO|APORTE_MENSUAL    
+
+exportpdf_pagos_OTORGAMIENTO:
+    path:     /{tipo}-list
+    defaults: { _controller: ExportBundle:ExportPdf:PagosList, tipo: OTORGAMIENTO}
+    requirements:
+        _method: get
+        tipo: MULTA|PROCESAMIENTO|OTORGAMIENTO|APORTE_MENSUAL    
+
+exportpdf_pagos_APORTE_MENSUAL:
+    path:     /{tipo}-list
+    defaults: { _controller: ExportBundle:ExportPdf:PagosList, tipo: APORTE_MENSUAL}
+    requirements:
+        _method: get
+        tipo: MULTA|PROCESAMIENTO|OTORGAMIENTO|APORTE_MENSUAL    
+
+    

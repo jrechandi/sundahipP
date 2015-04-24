@@ -1,0 +1,109 @@
+<div class="row col-lg-12">
+       <div class="form-horizontal">
+           {#{ form(form) }#}
+            {{ form_start(form) }}
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            {{ form_errors(form) }}  
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-12 table_header2"> 
+                            <h3 class="tit_principal">DATOS DEL ESTABLECIMIENTO</h3>
+                        </div>
+                    </div>    
+                  <div class="form-group{% if form.denominacionComercial.vars.errors[0].message is defined %} has-error{% endif %}">
+                        {{ form_label(form.denominacionComercial, null, {'label_attr': {'class': ' col-md-3 control-label text-left'} }) }}
+                        <div class="col-md-9">
+                            {{ form_widget(form.denominacionComercial, {'attr': {'class': 'form-control '} }) }}
+                            
+                            {% if form.denominacionComercial.vars.errors[0].message is defined %}
+                            <span class="help-block ">
+                                {{ form.denominacionComercial.vars.errors[0].message }}
+                            </span>
+                            {% endif %}
+                        </div > 
+                    </div>            
+                  <div class="form-group{% if form.estatusLocal.vars.errors[0].message is defined %} has-error{% endif %}">
+                        {{ form_label(form.estatusLocal, null, {'label_attr': {'class': ' col-md-3 control-label text-left'} }) }}
+                        <div class="col-md-9">
+                            {{ form_widget(form.estatusLocal, {'attr': {'class': 'form-control '} }) }}
+                            
+                            {% if form.estatusLocal.vars.errors[0].message is defined %}
+                            <span class="help-block ">
+                                {{ form.estatusLocal.vars.errors[0].message }}
+                            </span>
+                            {% endif %}
+                        </div > 
+                    </div>            
+                  <div class="form-group{% if form.propietarioLocal.vars.errors[0].message is defined %} has-error{% endif %}">
+                        {{ form_label(form.propietarioLocal, null, {'label_attr': {'class': ' col-md-3 control-label text-left'} }) }}
+                        <div class="col-md-9">
+                            {{ form_widget(form.propietarioLocal, {'attr': {'class': 'form-control '} }) }}
+                            
+                            {% if form.propietarioLocal.vars.errors[0].message is defined %}
+                            <span class="help-block ">
+                                {{ form.propietarioLocal.vars.errors[0].message }}
+                            </span>
+                            {% endif %}
+                        </div > 
+                    </div>
+                  <div class="form-group{% if form.nombre.vars.errors[0].message is defined %} has-error{% endif %}">
+                        {{ form_label(form.nombre, null, {'label_attr': {'class': ' col-md-2 control-label text-left'} }) }}
+                        <div class="col-md-4">
+                            {{ form_widget(form.nombre, {'attr': {'class': 'form-control '} }) }}
+                            
+                            {% if form.nombre.vars.errors[0].message is defined %}
+                            <span class="help-block ">
+                                {{ form.nombre.vars.errors[0].message }}
+                            </span>
+                            {% endif %}
+                        </div>
+                            {{ form_label(form.apellido, null, {'label_attr': {'class': ' col-md-2 control-label text-left'} }) }}
+                        <div class="col-md-4">
+                            {{ form_widget(form.apellido, {'attr': {'class': 'form-control '} }) }}
+                            
+                            {% if form.apellido.vars.errors[0].message is defined %}
+                            <span class="help-block ">
+                                {{ form.apellido.vars.errors[0].message }}
+                            </span>
+                            {% endif %}
+                        </div > 
+                    </div>
+                  <div class="col-md-12{% if form.ci.vars.errors[0].message is defined %} has-error{% endif %}">
+                        {{ form_label(form.ci, null, {'label_attr': {'class': ' col-md-2 control-label text-left'} }) }}
+                        <div class="col-md-4 ">
+                            {{ form_widget(form.tipoci, {'attr': {'class': ' input-mini'} }) }}
+                             - {{ form_widget(form.ci, {'attr': {'class': ' '} }) }}
+                            
+                            {% if form.ci.vars.errors[0].message is defined %}
+                            <span class="help-block ">
+                                {{ form.ci.vars.errors[0].message }}
+                            </span>
+                            {% endif %}
+                        </div>
+                            {{ form_label(form.rif, null, {'label_attr': {'class': ' col-md-2 control-label text-left'} }) }}
+                        <div class="col-md-4">
+                            {{ form_widget(form.persJuridica, {'attr': {'class': 'input-mini '} }) }}
+                            - {{ form_widget(form.rif, {'attr': {'class': ' '} }) }}
+                            
+                            {% if form.rif.vars.errors[0].message is defined %}
+                            <span class="help-block ">
+                                {{ form.rif.vars.errors[0].message }}
+                            </span>
+                            {% endif %}
+                        </div > 
+                    </div>
+                        
+                  {{ form(form) }} 
+                  <div class="block-separator col-md-12"></div>
+                            <div class="col-md-4 col-md-offset-2 form-group btn-group">
+                                <div class="col-md-6 ">{{ form_widget(form.submit) }}</div>
+                                <div class="col-md-6"><a href="{{ path('datacentrohipico_list') }}" class="btn btn-warning btn-sm "><i class="icon-arrow-left"></i>Cancelar</a></div>   
+                            </div>
+                            
+               {{ form_end(form) }}      
+  
+
+       </div>
+    </div>

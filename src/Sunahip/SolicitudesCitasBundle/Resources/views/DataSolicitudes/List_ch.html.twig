@@ -1,0 +1,6 @@
+<select id="dch" name="datasolicitud[dch]">
+    <option >Seleccione Centro Hípico</option>
+    {%for ch in list %}   
+       <option value="{{ch.id}}">{{ch.denominacionComercial}}</option>
+    {%endfor%}
+</select>

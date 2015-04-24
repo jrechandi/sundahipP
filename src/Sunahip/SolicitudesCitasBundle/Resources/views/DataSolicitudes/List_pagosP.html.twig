@@ -1,0 +1,83 @@
+<table id="tabla_reporte2">				
+        <tr id="table_header2">
+                 <td>Tipo de Documento</td>
+                 <td>Buscar Archivo<span class="oblig">(*)</span></td>
+                 <td>Fecha de Pago<span class="oblig">(*)</span></td>
+                 <td>N de Recibo<span class="oblig">(*)</span></td>
+                 <td>Banco<span class="oblig">(*)</span></td>
+                 <td>Monto a Pagar<span class="oblig">(*)</span></td>
+        </tr>
+         <tr>
+            <td class="text-left">Pago por Procesamiento</td>
+            <td class="text-center">{{ form_widget(FDSolicitud.pago.archivoAdjunto, {'attr': {'class': 'mediarecaudo'}}) }}
+                           {% if FDSolicitud.pago.archivoAdjunto.vars.errors[0].message is defined %}
+                           <span class="help-block ">
+                               {{ FDSolicitud.pago.archivoAdjunto.vars.errors[0].message }}
+                           </span>
+                           {% endif %}
+             </td>
+            <td class="text-center">{{ form_widget(FDSolicitud.pago.fechaDeposito, {'attr': {'class': 'datePago fechapago'}}) }}
+                           {% if FDSolicitud.pago.fechaDeposito.vars.errors[0].message is defined %}
+                           <span class="help-block ">
+                               {{ FDSolicitud.pago.fechaDeposito.vars.errors[0].message }}
+                           </span>
+                           {% endif %}
+             </td>
+            <td class="text-center">{{ form_widget(FDSolicitud.pago.numReferencia, {'attr': {'class': 'reciboN'},'id':'reciboNP','maxlength': '15' }) }}
+                           {% if FDSolicitud.pago.numReferencia.vars.errors[0].message is defined %}
+                           <span class="help-block ">
+                               {{ FDSolicitud.pago.numReferencia.vars.errors[0].message }}
+                           </span>
+                           {% endif %}
+             </td>
+            <td class="text-center">{{ form_widget(FDSolicitud.pago.banco, {'attr': {'class': 'banco'},'id':'banco' }) }}
+                           {% if FDSolicitud.pago.banco.vars.errors[0].message is defined %}
+                           <span class="help-block ">
+                               {{ FDSolicitud.pago.banco.vars.errors[0].message }}
+                           </span>
+                           {% endif %}
+             </td>
+            <td class="text-center">
+                {#{ form_widget(FDSolicitud.pago.monto, {'attr': {'class': 'pagomonto'} }) }#} 
+                 {{PP}} Bs{#Pago por Procesamiento PP#}
+            </td>
+        </tr>
+</table>
+
+<script type="text/javascript">
+
+    $(".mediarecaudo").change(function(){
+        console.info('valor', $(this).val());
+        comprueba_extension($(this).val(),$(this));
+    })
+
+    function comprueba_extension(archivo, obj) {
+        extensiones_permitidas = new Array(".pdf");
+        mierror = "";
+        if (!archivo) {
+            //Si no tengo archivo, es que no se ha seleccionado un archivo en el formulario
+            mierror = "No has seleccionado ningún archivo";
+        }else{
+            //recupero la extensión de este nombre de archivo
+            extension = (archivo.substring(archivo.lastIndexOf("."))).toLowerCase();
+            //compruebo si la extensión está entre las permitidas
+            permitida = false;
+            for (var i = 0; i < extensiones_permitidas.length; i++) {
+                if (extensiones_permitidas[i] == extension) {
+                    permitida = true;
+                    break;
+                }
+            }
+            if (!permitida) {
+                mierror = "Comprueba la extensión de los archivos a subir. \nSolo se pueden subir archivos con extensiones: " + extensiones_permitidas.join();
+                obj.val('');
+                alert (mierror);
+            }else{
+                return 1;
+            }
+        }
+
+        return 0;
+    }
+</script>
+            

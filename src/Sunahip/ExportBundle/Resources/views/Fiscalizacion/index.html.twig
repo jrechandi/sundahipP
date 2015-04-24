@@ -1,0 +1,53 @@
+{% extends 'ExportBundle::export_pdf.html.twig' %}
+
+{% block content_content %} 
+<div class="col-md-11">
+    <div class="block-separator col-sm-11"></div>
+
+    <h1>Lista de Fiscalizacion {% block titulo %}{% endblock %}</h1>
+
+    <br/><br>
+    {% if entities|length > 0 %}
+        <table class="table table-condensed table-striped">
+            <thead>
+            <tr>
+                <th>No</th>
+                {% block preheader %}{% endblock %}
+                <th>D. Comercial</th>
+                <th>RIF</th>
+                <th>Providencia</th>
+                <th>Responsable</th>
+                <th>Cedula</th>
+                <th>Cargo</th>
+                <th>Estatus</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            {% set est = entity.centro | default(entity.operadora) %}
+            <tr>
+                <td><a href="{{ path('fiscalizacion_show', { 'id': entity.id }) }}">{{ loop.index }}</a></td>
+                {% block precols %}{% endblock %}
+                <td>{{ est.denominacionComercial }}</td>
+                <td>{{ est.persJuridica}}-{{est.rif}}</td>
+                <td>{{ entity.providencia.num | default('-') }}</td>
+                <td>{{ entity.responsable }}</td>
+                <td>{{ entity.cedula }}</td>
+                <td>{{ entity.cargo }}</td>
+                <td>{{ entity.estatus }} </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+        
+        {% else %}
+        <div class="col-md-12">
+            <div id="notificaciones">
+                <ul>
+                    <li class="n1"><h5>No se encontraron resultados</h5></li>
+                </ul>
+            </div>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

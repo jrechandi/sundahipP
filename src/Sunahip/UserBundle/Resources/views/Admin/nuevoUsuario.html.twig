@@ -1,0 +1,123 @@
+{% extends "NewTemplateBundle::base.html.twig" %}
+
+{% block content_content %}
+    <div class="page-header">
+        <h1>Crear nuevo usuario</h1>
+    </div>
+
+    <div class="padding-15">
+        {{ form_start(form, {'attr': {'class':'form-horizontal', 'role':"form"}}) }}
+        <fieldset>
+            <div class="form-group">
+                {{ form_label(form.perfil.roleType, null, { 'label_attr': { 'class':'col-sm-4 padding-1' }}) }}
+                <div class="col-sm-8">
+                    <div class="col-sm-12 padding-1">
+                        {{ form_widget(form.perfil.roleType) }}
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                {{ form_label(form.perfil.persJuridica, null, { 'label_attr': { 'class':'col-sm-4 padding-1' }}) }}
+                <div class="col-sm-8">
+                    <div class="col-sm-3 padding-1">
+                        {{ form_widget(form.perfil.persJuridica) }}
+                    </div>
+                    <div class="col-sm-9 padding-1">
+                        {{ form_widget(form.perfil.rif) }}
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                {{ form_label(form.perfil.ci, null, { 'label_attr': { 'class':'col-sm-4 padding-1' }}) }}
+                <div class="col-sm-8">
+                    <div class="col-sm-12 padding-1">
+                        {{ form_widget(form.perfil.ci) }}
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                {{ form_label(form.perfil.nombre, null, { 'label_attr': { 'class':'col-sm-4 padding-1' }}) }}
+                <div class="col-sm-8">
+                    <div class="col-sm-12 padding-1">
+                        {{ form_widget(form.perfil.nombre) }}
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                {{ form_label(form.perfil.apellido, null, { 'label_attr': { 'class':'col-sm-4 padding-1' }}) }}
+                <div class="col-sm-8">
+                    <div class="col-sm-12 padding-1">
+                        {{ form_widget(form.perfil.apellido) }}
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                {{ form_label(form.email, null, { 'label_attr': { 'class':'col-sm-4 padding-1' }}) }}
+                <div class="col-sm-8">
+                    <div class="col-sm-12 padding-1">
+                        {{ form_widget(form.email) }}
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                {{ form_label(form.password, null, { 'label_attr': { 'class':'col-sm-4 padding-1' }}) }}
+                <div class="col-sm-8">
+                    <div class="col-sm-12 padding-1">
+                        {{ form_widget(form.password) }}
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                {{ form_label(form.confirm, null, { 'label_attr': { 'class':'col-sm-4 padding-1' }}) }}
+                <div class="col-sm-8">
+                    <div class="col-sm-12 padding-1">
+                        {{ form_widget(form.confirm) }}
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-2 padding-1"></div>
+                <div class="col-sm-10">
+                    <div class="col-sm-12 padding-1">
+                        {{ form_widget(form.enabled) }}
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-11">
+                    <div class="col-sm-12 padding-1">
+                        <button id="form_btn" type="submit" class="btn btn-default pull-right">Crear</button>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+        {{ form_widget(form._token) }}
+        {{ form_errors(form) }}
+        {{ form_end(form) }}
+    </div>
+
+    {% block script_base %}
+        <script>
+            $(document).ready(function() {
+                $(".persJuridica").change(function() {
+                    userType = $('.persJuridica  option:selected').val();
+                    if (userType == "V" || userType == "E") {
+                        $('.ci').removeAttr('disabled');
+                    } else {
+                        $('.ci').attr('disabled', 'disabled');
+                    }
+                });
+
+                $(".numeric").keydown(function(e) {
+                    if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 110]) !== -1 || (e.keyCode == 65 && e.ctrlKey === true) || (e.keyCode >= 35 && e.keyCode <= 39)) {
+                        return;
+                    }
+
+                    if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+                        e.preventDefault();
+                    }
+                });
+            });
+        </script>
+    {% endblock %}
+{% endblock %}

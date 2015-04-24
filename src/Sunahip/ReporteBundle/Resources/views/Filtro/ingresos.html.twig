@@ -1,0 +1,16 @@
+<li>
+    Ingresos por procesamiento:
+    <input type="radio" name="status" value="PROCESAMIENTO" {% if status is defined %} {% if status == 'Solicitada' %} checked="checked" {%  endif %} {%  endif %}>
+</li>
+<li>
+    Ingresos por otorgamiento:
+    <input type="radio" name="status" value="OTORGAMIENTO" {% if status is defined %} {% if status == 'Solicitada' %} checked="checked" {%  endif %} {%  endif %}>
+</li>
+<li>
+    Ingresos por aportes:
+    <input type="radio" name="status" value="APORTE_MENSUAL" {% if status is defined %} {% if status == 'Solicitada' %} checked="checked" {%  endif %} {%  endif %}>
+</li>
+<li>
+    Ingresos por multas:
+    <input type="radio" name="status" value="MULTAS" {% if status is defined %} {% if status == 'Solicitada' %} checked="checked" {%  endif %} {%  endif %}>
+</li>

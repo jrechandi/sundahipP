@@ -1,0 +1,10 @@
+{% extends 'FiscalizacionBundle::base.html.twig' %}
+
+{% block content_content %}
+<div class="col-md-12">
+    <div class="alert alert-warning">
+        No hay una <strong>providencia vigente</strong> en este momento. Puede crear una en 
+        <a href="{{path('providencia')}}" class="btn btn-default">Providencia</a>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,79 @@
+{% extends "NewTemplateBundle::base.html.twig" %}
+
+
+{% block content_content %}
+    <div class="block-separator col-sm-12"></div>
+    <div class="tit_principal">Usuario</div>
+
+    <div class="col-md-12">
+        <table class="record_properties table table-condensed">
+            <thead>
+                <tr>
+                    <th colspan="2" >Datos del Usuario</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>Usuario</th>
+                     <td>{{ entity.username }}</td>
+                </tr>
+                <tr>
+                    <th>Tipo Usuario</th>
+                    <td>{{ entity.perfil[0].getRoleType|default('Sin datos')|e }}</td>
+                </tr>
+
+                <tr>
+                    <th>Nombre</th>
+                    <td>{{ entity.perfil[0].getNombre|default('Sin datos')|e }} </td>
+                </tr>
+
+                <tr>
+                    <th>Apellido</th>
+                    <td>{{ entity.perfil[0].getApellido|default('Sin datos')|e }}</td>
+                </tr>
+                
+                <tr>
+                    <th>Cédula</th>
+                    <td>{{ entity.perfil[0].ci|default('Sin datos')|e }}</td>
+                </tr>
+
+                <tr>
+                    <th>Email</th>
+                    <td>{{ entity.email|default('Sin datos')|e }}</td>
+                </tr>
+
+                <tr>
+                    <th>Estatus</th>
+                    <td>{{ entity.enabled==1?'Activo':'Inactivo' }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-6 col-md-offset-2 form-group btn-group">
+        <div class="col-md-4" style="text-align:center"><a href="{{ path('listado') }}" class="btn btn-primary btn-sm ">Regresar</a></div>
+        {#<div class="col-md-4" style="text-align:center"><a href="#" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#myModal">Eliminar</a></div>#}
+        <div class="col-md-4" style="text-align:center"><a href="{{ path('editar-usuario', { 'user_id': entity.id }) }}" class="btn btn-success btn-sm ">Modificar</a></div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Cerrar</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Eliminar el Registro</h4>
+                </div>
+                <div class="modal-body">
+                    Realmente desea eliminar el registro <b>"{{entity.username}}"</b>?
+                </div>
+                <div class="modal-footer">
+                {#
+                    {{ form_start(delete_form) }}
+                    {{ form_widget(delete_form.submit) }}
+                    {{ form_end(delete_form) }} #}
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock content_content %}

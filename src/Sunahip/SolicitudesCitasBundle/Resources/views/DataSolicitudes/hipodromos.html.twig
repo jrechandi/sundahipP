@@ -1,0 +1,11 @@
+{% if hasHipodromo == "true" %}
+<div class="col-md-4"> Hipódromos Internacionales <span class="oblig">(*)</span>:</div>
+<div class="col-md-8">
+    <textarea cols="60" rows="6" id="hipointer" class="hipointer form-control" required="required" name="sunahip_solicitudescitasbundle_datasolicitudes[hipodromoInter]"></textarea><br>
+    Ejemplo:<br>Argentina: Hipodromo, Estados Unidos: Hipódromo, ...    
+</div>
+{% else %}
+<div class="col-md-4"><p>No Aplica para este tipo de Licencia</p></div>
+<div class="col-md-8">&nbsp;</div>
+<input type="hidden" id="hipointer" class="hipointer form-control" name="sunahip_solicitudescitasbundle_datasolicitudes[hipodromoInter]">
+{% endif %}

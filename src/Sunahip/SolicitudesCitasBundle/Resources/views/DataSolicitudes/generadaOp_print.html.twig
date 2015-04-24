@@ -1,0 +1,101 @@
+<div style="font-family: tahoma; font-size: 13px; text-align: center; width: 698px; height: 952px; padding: 10px; margin: 0px auto;">
+		<div style="width: 100%; text-align: right; margin-top: 0px; float: left;"><img src="{{ asset('bundles/common/images/header_gubernamental.png') }}" alt=""></div>
+
+		<div style="width: 698px; text-align: center; float: left; margin-top: 20px;">
+			<p style=" float: left; font-size: 14px; font-weight: bold; margin: 0; width: 100%;">SISTEMA NACIONAL DE LICENCIAS HÍPICAS (SISNALHP)</p>
+			<p style=" float: left; font-size: 14px; font-weight: bold; margin: 0; width: 100%;">COMPROBANTE DE CITA PARA ENTREGA DE DOCUMENTOS</p>
+			<p style=" float: left; font-size: 14px; font-weight: bold; margin: 0; width: 100%;">OPERADORA</p>
+		</div>
+
+		<div style="width: 100%; text-align: center; margin-top: 30px; float: left;">
+			<table style="width: 100%; border: 1px solid rgb(200, 200, 200);">
+				<tr style="background: none repeat scroll 0% 0% rgb(160, 21, 3); color: rgb(255, 255, 255); text-transform: uppercase;">
+					<td colspan="3">Datos de la Solicitud</td>		
+				</tr>
+				<tr style="background: #efefef;">
+					<td>RIF del Solicitante</td>
+					<td>Fecha Cita</td>	
+					<td>Localizador</td>					
+				</tr>
+				<tr>
+					<td>{{entity.operadora.rif}}</td>					
+					<td>{{entity.cita.fechaSolicitud|date('d-m-Y')}}</td>	
+					<td>{{entity.codsolicitud}}</td>					
+				</tr>
+			</table>
+		</div>
+		<div style="width: 100%; text-align: center; margin-top: 30px; float: left;">
+			<table style="width: 100%; border: 1px solid rgb(200, 200, 200);">
+				<tr style="background: none repeat scroll 0% 0% rgb(160, 21, 3); color: rgb(255, 255, 255); text-transform: uppercase;">
+					<td colspan="2">Detalles de la Solicitud</td>		
+				</tr>
+				<tr style="background: #efefef;">
+					<td>Tipo de Licencia</td>
+					<td>Clasificación</td>		
+				</tr>
+				<tr>
+					<td>{{entity.tipoSolicitud}}</td>
+					<td>{{entity.ClasLicencia.clasfLicencia}}</td>		
+				</tr>
+			</table>
+		</div>		
+		<div style="width: 100%; text-align: left; margin-top: 30px; float: left;">
+			<table style="width: 100%; border: 1px solid rgb(200, 200, 200);">
+				<tr style="background: none repeat scroll 0% 0% rgb(160, 21, 3); color: rgb(255, 255, 255); text-transform: uppercase;">
+					<td colspan="2">Documentos a Consignar</td>		
+				</tr>
+				<tr>
+					<td style="vertical-align: top;">1.	</td>
+					<td>Persona Natural Copia de la Cédula de Identidad. Persona Jurídica. Acta constitutiva de la empresa, sus modificaciones estatutarias si las hubiere, debidamente registradas. Las empresa debe tener claramente establecido en el objeto de sus estatutos “la operación de actividades hípicas”.</td>		
+				</tr>
+				<tr>
+					<td style="vertical-align: top;">2.	</td>
+					<td>Registro de Información Fiscal de la persona solicitante.</td>		
+				</tr>
+				<tr>
+					<td style="vertical-align: top;">3.	</td>
+					<td>Persona Jurídica: Cédula de Identidad del Representante Legal y de las persona solicitante.</td>		
+				</tr>
+				<tr>
+					<td style="vertical-align: top;">4.	</td>
+					<td>Si la solicitud se realiza a través de un apoderado, deberá consignar copia certificada del poder autenticado que acredita el mandato y la  cédula del apoderado. Si el Inmueble donde se explotará la actividad es propio: Copia del documento de propiedad del Inmueble.</td>		
+				</tr>
+				<tr>
+					<td style="vertical-align: top;">5.	</td>
+					<td>Si el Inmueble donde se explotará la actividad es propio: Copia del documento de propiedad del Inmueble. Si el inmueble donde se explotará la actividad es arrendado : Copia del documento de arrendamiento del inmueble y autorización autenticada del propietario del mismo que lo autoriza a utilizar el inmueble arrendado para explotar la actividad hípica.</td>	
+				</tr>	
+				<tr>
+					<td style="vertical-align: top;">6.	</td>
+					<td>Plano de ubicación del establecimiento.</td>		
+				</tr>
+				<tr>
+					<td style="vertical-align: top;">7.	</td>
+					<td>Carta de Buena Pro emitida por la empresa Operadora con la que pretende trabajar.</td>		
+				</tr>
+				<tr>
+					<td style="vertical-align: top;">8.	</td>
+					<td>Listado de los juegos a explotar.</td>		
+				</tr>
+				<tr>
+					<td style="vertical-align: top;">9.	</td>
+					<td>Concesión otorgada por el Instituto Nacional de Hipódromos que lo acredita como Centro de Apuestas autorizado por dicha institución.</td>		
+				</tr>
+				<tr>
+					<td style="vertical-align: top;">10.	</td>
+					<td>Declaración Jurada debidamente autenticada, indicando el origen de los recursos económicos del capital, aumentos de capital.</td>		
+				</tr>
+				<tr>
+					<td style="vertical-align: top;">11.	</td>
+					<td>Depósito bancario con el que se canceló la tarifa correspondiente al procesamiento de la solicitud.</td>		
+				</tr>
+			</table>
+		</div>	
+		<div style="width: 100%; text-align: left; float: left; background: none repeat scroll 0% 0% rgb(160, 21, 3); color: rgb(255, 255, 255); height: 2px; margin-top: 10px; margin-bottom: 2px;">
+		</div>
+
+		<div style="width: 100%; text-align: center; float: left; font-size: 12px;">
+			<p>Oficina Principal: Hipódromo la rinconada, sede central del Instituto Nacional Hipódromo, Piso 5, parroquia Coche del Municipio Libertador. Teléfonos: 58 (212)681 33 31</p>
+		</div>
+
+
+	</div>

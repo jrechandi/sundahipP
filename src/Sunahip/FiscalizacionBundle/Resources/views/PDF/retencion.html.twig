@@ -1,0 +1,55 @@
+{% extends 'FiscalizacionBundle::pdf.html.twig' %}
+{% set centro = entity.centro | default(entity.operadora) %}
+
+{% block content_content %}
+<h1>ACTA DE RETENCIÓN Nº {{entity.providencia.num}}-____</h1>
+
+<p>{% include 'FiscalizacionBundle:PDF:header.html.twig' %}</p>
+
+<p>{% include 'FiscalizacionBundle:PDF:providencia.html.twig' %}</p>
+
+ <p>Acto seguido el funcionario antes identificado, solicita información de todos los juegos, de apuesta hípica que se efectúan en el establecimiento, al respecto el ciudadano  antes identificado, señaló que en el establecimiento se efectúan los siguientes juegos: 
+ {% for i in entity.juegos %}
+    <strong>{{i}}</strong>, 
+ {% endfor %} .</p>
+
+ <p>Acto seguido el funcionario antes identificado, solicitó la presentación de la permisología  vigente al ciudadano antes identificado,  quien presentó la siguiente documentación:</p>
+ <ol>
+     {% for i in entity.documentos %}
+     <li>{{i.nombre}}</li>
+     {% endfor %}
+ </ol>
+
+ <p>El funcionario antes identificado, solicita la permisología otorgadas por la Superintendencia Nacional de Actividades Hípicas para la explotación del (los) juego (s) que explota en el establecimiento <strong>{{ entity.centro }}</strong> a lo que el ciudadano <strong>{{entity.responsable | upper}}</strong>, manifestó _________________ </p>
+
+
+<p>Por cuanto no cuenta con la permisología pertinente solicitada para explotar ________________________________________________________________________ y visto que los funcionarios asistentes observaron que se efectuaban jugadas sobre la mencionada actividad y el ciudadano antes identificado, reconoce que explota el juego mencionado sin la debida permisología  de conformidad con el Artículo 40 del Decreto N° 422 con Rango y Fuerza de Ley que Suprime y Liquida el Instituto Nacional de Hipódromos y Regula las Actividades Hípicas,  publicado en la Gaceta Oficial de la República de Venezuela N° 5.397 Extraordinario de fecha 25-10-1999, se procede a retener los siguientes equipos vinculados con la explotación ilegal del juego mencionado anteriormente.</p>
+
+<table class="border">
+    <tr>
+        <th>No</th>
+        <th>Descripción</th>
+        <th>  Cant. </th>
+        <th>Serial  </th>
+        <th>Observación</th>
+    </tr>
+    
+    {% for i in data.equipos %}
+    <tr>
+        <td>{{i.num}}</td>
+        <td>{{i.descr}}</td>
+        <td>{{i.cant}}</td>
+        <td>{{i.serial}}</td>
+        <td>{{i.observacion}}</td>
+    </tr>
+    {% endfor %}
+    
+</table>
+
+<p>Los equipos antes identificados estarán bajo la responsabilidad, guarda y custodia de la SUPERINTENDENCIA NACIONAL DE ACTIVIDADES HÍPICAS, la cual se compromete a mantener en el mismo estado de conservación que recibe el equipos (s) identificado (s).</p>
+
+<p>Los firmantes declaran estar de acuerdo con el contenido en la presente acta y que lo expuesto en ella refleja la totalidad del procedimiento efectuado.
+</p>
+
+{% include 'FiscalizacionBundle:PDF:footer.html.twig' %}
+{% endblock %}

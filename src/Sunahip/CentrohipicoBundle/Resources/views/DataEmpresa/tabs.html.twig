@@ -1,0 +1,94 @@
+<div class="row col-lg-12">
+    {{ form_start(form,{'attr':{'id':'form_dch'}}) }}
+    <div id="tabs">
+        <ul>
+            <li><a href="#data">Datos Empresa</a></li>
+            <li><a href="#dataLegal">Datos Legales</a></li>
+            <li><a href="#dataPartner">Socios</a></li>
+        </ul>
+        <div id="temp"><h3> Espere un momento</h3> </div>
+        <div id="data" style="display:none">
+            {% include 'CentrohipicoBundle:DataEmpresa:form.html.twig'  %}
+        </div>
+        <div id="dataLegal" style="display:none;">
+            {% include 'CentrohipicoBundle:DataEmpresa:formLegal.html.twig' %}
+        </div>
+    {{ form_widget(form._token) }}
+        <div id="divBtnSubmit">
+            <div class="col-md-12 form-group btn-group" id="btnSubmitABack">
+                <div style="float: left">
+                    <a href="{{ path('home') }}" class="btn btn-success btn-sm">Regresar</a>
+                </div>
+                <div style="float: right">
+                    <button onclick="validateForm()" type="button" class="btn btn-primary btn-sm">Guardar</button>
+                </div>
+            </div>
+        </div>
+    </form>
+        <div id="dataPartner" style="display:none;">
+            <table id="tabla_reporte2" class="socios tabla_reporte2" style="">
+                <tr id="table_header2">
+                    <td colspan="3">Socios</td>
+                </tr>
+                <tr id="rowPartner">
+                    <td><a href="#">Nombre</a></td>
+                    <td><a href="#">Tipo</a></td>
+                    <td><a href="#"># Socios</a></td>
+                </tr>
+            </table>
+            <div style="float: right;margin-right: 20px; margin-top: 10px;">
+                <button class="btn" id="addPartner" type="button">Agregar socio</button>
+            </div>
+            <br><br>
+            <div>
+                <br>
+                <form id="partnerAddForm">
+                    <table id="tabla_reporte2" class="tabla_reporte2 dataPartner" style="display: none">
+                        <tbody>
+                        <tr id="table_header2">
+                            <td colspan="4">Datos del socio</td>
+                        </tr>
+                        <tr id="zone_select_partner">
+                        </tr>
+                    </tbody>
+                    </table>
+                    <div id="zone_form_partner"></div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+    <div class="col-md-12 form-group btn-group">
+        (*) Campos obligatorios
+    </div>
+    <div id="divBtnSubmitPartner" style="display: none;">
+
+        <div class="col-md-12 form-group btn-group">
+            <div style="float: left">
+                <a href="{{ path('home') }}" class="btn btn-success btn-sm">Regresar</a>
+            </div>
+            <div style="float: right">
+                <button onclick="validateForm()" type="button" class="btn btn-primary btn-sm">Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" id="buttonCloseModal" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Cerrar</span></button>
+                <h4 class="modal-title" id="myModalLabel">Notificación</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12 alert text-left" id="myMessage">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+<table id="tabla_reporte2">				
+        <tr id="table_header2">
+                 <td>N#</td>
+                 <td>Tipo de Documento</td>
+                 <td>Archivo<span class="oblig">(*)</span></td>
+                 <td>Fecha de Vencimiento<span class="oblig">(*)</span></td>
+                 <td> </td>
+        </tr>
+        {% set last = 1 %}
+        {%for row in entity.recaudoscargados %}   
+          <tr>
+                 <td class="text-center">{{loop.index}}</td>
+                 <td class="text-left">{{row.recaudoLicencia.recaudo}}</td>
+                 <td class="text-center">{{row.mediarecaudo.name}}</td>
+                 <td class="text-center ">{{row.fechaVencimiento|date('d/m/Y')|default('none')}}</td>
+                 <td class="text-center">
+                     <button class="btn btn-warning" onclick="CargaRecaudo('{{row.id}}','recaudoscargados_edit','recaudos');">Cambiar</button>
+                 </td>
+        </tr>
+          {% set last = loop.length %}
+        {%endfor%}
+</table>
+    

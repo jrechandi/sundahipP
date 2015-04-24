@@ -1,0 +1,167 @@
+<style type="text/css">
+    .popover.rigth {
+        position: fixed !important;
+        z-index: 8600 !important;
+        display: inline-table !important;
+    }
+</style>
+    <table id="tabla_reporte">
+        <tbody><tr id="table_header">
+            <td colspan="4">Denominación Comercial:
+                <strong>
+                    {% if entity.operadora.denominacionComercial is defined %}
+                        {{ entity.operadora.denominacionComercial }}
+                    {% else %}
+                        {{ entity.centroHipico.denominacionComercial }}
+                    {% endif %}
+                </strong>
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 70%; text-align: right;" colspan="3">Nª de Solicitud:</td>
+            <td><strong>{{ entity.cita.codsolicitud  }}</strong></td>
+        </tr>
+        <tr>
+            <td style="width: 70%; text-align: right;" colspan="3">Licencia:</td>
+            <td><strong>{{ entity.clasLicencia.admTiposLicencias.tipoLicencia }}</strong></td>
+        </tr>
+        <tr>
+            <td style="width: 70%; text-align: right;" colspan="3">Clasificación de Licencia:</td>
+            <td><strong>{{ entity.clasLicencia.clasfLicencia }}</strong></td>
+        </tr>
+        <tr>
+            <td style="width: 70%; text-align: right;" colspan="3">Estatus de Solicitud:</td>
+            <td><strong>{{ entity.status }}</strong></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <form id="form-info">
+       <input type="hidden" name="solicitud_id" id="solicitud_id" value="{{ entity.id }}" /> 
+       <table id="tabla_reporte">
+            <tbody>
+                <tr id="table_header">
+                    <td>Nº</td>
+                    <td>Recaudo</td>
+                    <td>Descargar</td>
+                    <td>Fecha de Vencimiento</td>
+                    <td>Verificado y Aprobado</td>
+                </tr>
+            {% set count = 0 %}
+            {% for document in documents %}
+            <tr>
+                <td>{{ loop.index }}</td>
+                {% if document.recaudoLicencia.recaudo|length > 100 %}
+                <td data-toggle="popover" data-content="{{ document.recaudoLicencia.recaudo }}"> 
+                {% else %}
+                <td>
+                {% endif %} 
+                    {{ document.recaudoLicencia.recaudo|truncate(100) }}
+                </td>
+                <td class="center">
+                    {% if document.getMediarecaudo is defined %}
+                        {{ document.getMediarecaudo|vlabs_media('CentrohipicoBundle:SolicitudAfiliacion:ver_doc.html.twig') }}
+                    {% endif %}
+                </td>
+                <td class="center" style="text-align: center !important">{{ document.fechaVencimiento |date("d-m-Y") }}</td>
+                <td class="center" style="text-align: center !important">
+                    Sí<input type="radio" name="option-{{ count }}" id="{{ document.id }}" class="option" value="1*{{ document.id }}" required="true"><br>
+                    No<input type="radio" name="option-{{ count }}" id="{{ document.id }}" class="option" value="0*{{ document.id }}" required="true">
+                </td>
+            </tr>
+                {% set count =  1 + count %}
+            {% endfor %}
+            <tr>
+                <td>{{ count + 1 }}</td>
+                <td>Pago por Procesamiento</td>
+                <td class="center">
+                    {% if pago.getArchivoAdjunto is defined %}
+                        {{ pago.getArchivoAdjunto|vlabs_media('CentrohipicoBundle:SolicitudAfiliacion:ver_doc.html.twig') }}
+                    {% endif %}
+                </td>
+                <td class="center" style="text-align: center !important">{{ pago.fechaDeposito |date("d-m-Y") }}</td>
+                <td class="center" style="text-align: center !important">
+                    Sí<input type="radio" name="pago" id="pago_{{ pago.id }}" class="option" value="1*{{ pago.id }}" required="true"><br>
+                    No<input type="radio" name="pago" id="pago_{{ pago.id }}" class="option" value="0*{{ pago.id }}" required="true">
+                </td>
+            </tr>            
+            <tr>
+                <td colspan="3">&nbsp;<input type="hidden" name="total_document" value="{{ count }}" ></td>
+                <td colspan="2" class="center" style="text-align: right !important">
+                    <select name="status_recaudos" id="statusRecaudos" required="true">
+                        <option value="Recaudos incompletos">Recaudos Incompletos</option>
+                        <option value="No cumple con las especificaciones">No Cumple con las especificaciones</option>
+                        <option value="Recuados vencidos">Recaudos Vencidos</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">&nbsp;</td>
+                <td colspan="2" class="center" style="text-align: right !important">
+                    <div class="btn_aprob" style="text-align: right !important">
+                        <input type="submit" value="Aplicar" id="btnSave" class="btn btn-primary btn-sm"/>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </form>
+</div>
+
+<script type="text/javascript">
+
+    $('[data-toggle="tooltip"]').tooltip({
+        'placement': 'rigth'
+    });
+    $('[data-toggle="popover"]').popover({
+        trigger: 'hover',
+        'placement': 'rigth'
+    });
+    
+    $(".option").click(function() {
+        var total = 0;
+        var checked = 0;
+        $(":radio").each(function(){
+            total++;
+        });
+        $(":radio:checked").each(function(){
+            if($(this).val().substr(0,1)==1) {
+                checked++;
+            }
+         });
+         if(total/2==checked){
+            var html ="<option id='optionComplete' value='Recaudos completos' selected>Recaudos Completos</option>";
+            $('#statusRecaudos').append(html);
+         } else {
+            $('#optionComplete').remove();
+         }
+    });    
+    
+    $('#form-info').on('submit', function(e){
+        e.stopPropagation();
+        e.preventDefault();
+        if(confirm('¿Está seguro que desea continuar?')) {
+            $("#btnSave").attr("disabled","disabled");
+            var id = $("#solicitud_id").val();
+            var url = Routing.generate('fiscal_citas_guardar_status',{ 'id': id })
+            $.ajax({
+                async: false,
+                type: "POST",
+                cache: false,
+                url: url,
+                data: $("#form-info").serialize(),
+                dataType: "json",
+                success: function(data) {
+                    window.location = Routing.generate('fiscal_citas_listado',{'tipo':'Revisada'});
+                    $("#btnSave").removeAttr("disabled");
+                },
+                error: function(){
+                    $("#btnSave").removeAttr("disabled");
+                    e.preventDefault();
+                }
+            });
+            e.preventDefault();
+        } 
+        return false;
+    });
+</script>

@@ -1,0 +1,239 @@
+{% extends "NewTemplateBundle::base.html.twig" %}
+
+{% block content_content %}
+    {{ form_start(form, {'attr': {'class':'form-horizontal form-datos-basicos','role':"form",'style':'width:85%','id':'extra_user_profile'}}) }}
+    <div class="block-separator col-sm-12"></div>
+    <div class="col-md-12">
+            <h1 class="tit_principal">Modificar Datos Básicos</h1>
+    </div>
+    <div class="col-md-12"><p>Los campos con <span class="oblig">(*)</span> son obligatorios</p></div>
+        <div class="form-group">
+            <div class="col-md-12">
+                {{ form_errors(form) }}  
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="rif_t" class="col-sm-4 padding-1 control-label">RIF</label>
+            <div class="col-sm-8">
+                <div class="col-sm-12 padding-1">
+                    <div class="col-sm-3 padding-1">
+                        <select name="rif_t" disabled="disabled" class="form-control">
+                            <option>{{ app.user.perfil[0].getPersJuridica }}</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-9 padding-1">
+                        <input type="text" class="form-control" required="required" value="{{ app.user.perfil[0].getRif }}" disabled="disabled" size="10" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="ci" class="col-sm-4 padding-1 control-label">CI</label>
+            <div class="col-sm-8">
+                <div class="col-sm-12 padding-1">
+                    <div class="col-sm-3 padding-1">
+                        <select name="ci" class="form-control" disabled="disabled">
+                            <option>{{ app.user.perfil[0].getPersJuridica }}</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-9 padding-1">
+                        <input type="text" name="cedula" required="required" value="{{ app.user.perfil[0].getCi }}" disabled="disabled" size="10" class="form-control" />
+                    </div>
+                </div>
+            </div>
+        </div>        
+        <div class="form-group">
+            <label for="nombre" class="col-sm-4 padding-1 control-label">Nombre</label>
+            <div class="col-sm-8">
+                <div class="col-sm-12 padding-1">
+                    <input type="text" disabled="disabled" value="{{ app.user.perfil[0].getNombre }}" class="form-control">
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="ci" class="col-sm-4 padding-1 control-label">Apellido</label>
+            <div class="col-sm-8">
+                <div class="col-sm-12 padding-1">
+                    <input type="text" disabled="disabled" value="{{ app.user.perfil[0].getApellido }}" class="form-control">
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            {{ form_label(form.estado, null, { 'label_attr': { 'class':'col-sm-4 padding-1' }}) }}
+            <div class="col-sm-8">
+                <div class="col-sm-12 padding-1">
+                    {{ form_widget(form.estado) }}
+                </div>
+            </div>
+        </div>
+    {#verificando que los datos ya vengan con ciudades y municipios pre-cargados#}
+    <input type="hidden" id="validaCiudMunParro" value="-1">
+        {%if idEstado == null%}
+        <div class="form-group">
+            <label for="ci" class="col-sm-4 padding-1 control-label">Municipio</label>
+            <div class="col-sm-8">
+                <div class="col-sm-12 padding-1">
+                    <select class="municipios form-control" name="municipio" id="municipios" required="required" disabled="disabled">
+                        <option value="-1">Seleccione un municipio</option>
+                        <span class="oblig">(*)</span>
+                    </select>
+                </div>
+            </div>
+        </div> 
+            <div class="form-group">
+            <label for="ci" class="col-sm-4 padding-1 control-label">Ciudad</label>
+            <div class="col-sm-8">
+                <div class="col-sm-12 padding-1">
+                    {{ form_widget(form.ciudad, { 'attr': { 'required':'required' }}) }}
+                </div>
+            </div>
+        </div>       
+        <div class="form-group">
+            <label for="ci" class="col-sm-4 padding-1 control-label">Parroquia</label>
+            <div class="col-sm-8">
+                <div class="col-sm-12 padding-1">
+                    <select class="parroquias form-control" name="parroquia" id="parroquias" required="required" disabled="disabled">
+                        <option value="-1">Seleccione una parroquia</option>
+                    </select>
+                </div>
+            </div>
+        </div> 
+        {%else%}
+        <div class="form-group">
+            {{ form_label(form.municipio, null, { 'label_attr': { 'class':'col-sm-4 padding-1' }}) }}
+            <div class="col-sm-8">
+                <div class="col-sm-12 padding-1">
+                    {{ form_widget(form.municipio, { 'attr': { 'required':'required' }}) }}
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            {{ form_label(form.ciudad, null, { 'label_attr': { 'class':'col-sm-4 padding-1' }}) }}
+            <div class="col-sm-8">
+                <div class="col-sm-12 padding-1">
+                    {{ form_widget(form.ciudad, { 'attr': { 'required':'required' }}) }}
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            {{ form_label(form.parroquia, null, { 'label_attr': { 'class':'col-sm-4 padding-1' }}) }}
+            <div class="col-sm-8">
+                <div class="col-sm-12 padding-1">
+                    {{ form_widget(form.parroquia, { 'attr': { 'required':'required' }}) }}
+                </div>
+            </div>
+        </div>
+        {%endif%}
+
+      <div class="form-group">
+            <label for="ci" class="col-sm-4 padding-1 control-label">Urbanización/Sector (Opcional)</label>
+            <div class="col-sm-8">
+                <div class="col-sm-12 padding-1">
+                    <input class="form-control" type="text" name="urbanizacion" id="urbanizacion" required="required" value="{{ app.user.perfil[0].urbanizacion }}">
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            {{ form_label(form.calle, null, { 'label_attr': { 'class':'col-sm-4 padding-1' }}) }}
+            <div class="col-sm-8">
+                <div class="col-sm-12 padding-1">
+                    {{ form_widget(form.calle) }}
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            {{ form_label(form.apartamento, null, { 'label_attr': { 'class':'col-sm-4 padding-1' }}) }}
+            <div class="col-sm-8">
+                <div class="col-sm-12 padding-1">
+                    {{ form_widget(form.apartamento) }}
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            {{ form_label(form.apartamento_no, null, { 'label_attr': { 'class':'col-sm-4 padding-1' }}) }}
+            <div class="col-sm-8">
+                <div class="col-sm-12 padding-1">
+                    {{ form_widget(form.apartamento_no) }}
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            {{ form_label(form.referencia, null, { 'label_attr': { 'class':'col-sm-4 padding-1' }}) }}
+            <div class="col-sm-8">
+                <div class="col-sm-12 padding-1">
+                    {{ form_widget(form.referencia) }}
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            {{ form_label(form.codigo_postal, null, { 'label_attr': { 'class':'col-sm-4 padding-1' }}) }}
+            <div class="col-sm-8">
+                <div class="col-sm-12 padding-1">
+                    {{ form_widget(form.codigo_postal) }}
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            {{ form_label(form.fax, null, { 'label_attr': { 'class':'col-sm-4 padding-1' }}) }}
+            <div class="col-sm-8">
+                <div class="col-sm-12 padding-1">
+                    {{ form_widget(form.fax) }}
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            {{ form_label(form.cod_telefono_local, null, { 'label_attr': { 'class':'col-sm-4 padding-1' }}) }}
+            <div class="col-sm-8">
+                <div class="col-sm-3 padding-1">
+                    {{ form_widget(form.cod_telefono_local, {'attr': {'class': 'col-md-4'} }) }}
+                </div>
+                <div class="col-sm-9 padding-1">
+                    {{ form_widget(form.telefono_local, {'attr': {'class': 'col-md-6'} }) }}
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            {{ form_label(form.cod_telefono_movil, null, { 'label_attr': { 'class':'col-sm-4 padding-1' }}) }}
+            <div class="col-sm-8">
+                <div class="col-sm-3 padding-1">
+                    {{ form_widget(form.cod_telefono_movil, {'attr': {'class': ' col-md-4'} }) }}
+                </div>
+                <div class="col-sm-9 padding-1">
+                    {{ form_widget(form.telefono_movil, {'attr': {'class': 'col-md-6'} }) }}
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            {{ form_label(form.correo_alternativo, null, { 'label_attr': { 'class':'col-sm-4 padding-1' }}) }}
+            <div class="col-sm-8">
+                <div class="col-sm-12 padding-1">
+                    {{ form_widget(form.correo_alternativo) }}
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            {{ form_label(form.sitio_web, null, { 'label_attr': { 'class':'col-sm-4 padding-1' }}) }}
+            <div class="col-sm-8">
+                <div class="col-sm-12 padding-1">
+                    {{ form_widget(form.sitio_web) }}
+                </div>
+            </div>
+        </div>
+<div class="col-md-12 form-group btn-group">
+     <div style="float: left">
+         <a href="{{ path('datos-basicos') }}" class="btn btn-success btn-sm">Regresar</a>
+     </div>
+     <div style="float: right">
+         <button id="form_btn" type="submit" class="btn btn-primary btn-sm">Guardar</button>
+     </div>
+</div>
+    
+    {{ form_widget(form._token) }}
+    {{ form_errors(form) }}
+    {{ form_end(form) }}
+{% endblock %}
+
+{% block script_base %}
+    <script src="{{asset('bundles/user/js/registro.js')}}"></script>
+   <script src="{{asset('bundles/user/js/DatosBasicos/validate.js')}}"></script>
+{% endblock  %}

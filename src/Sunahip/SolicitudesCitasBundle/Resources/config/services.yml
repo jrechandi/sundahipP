@@ -1,0 +1,7 @@
+parameters:
+#    solicitudes_citas.example.class: Sunahip\SolicitudesCitasBundle\Example
+
+services:
+#    solicitudes_citas.example:
+#        class: %solicitudes_citas.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

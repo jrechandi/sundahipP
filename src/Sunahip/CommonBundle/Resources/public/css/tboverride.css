@@ -1,0 +1,12 @@
+.padding-1 {
+    padding-left: 1px !important; 
+    padding-right: 1px !important;
+}
+.padding-15 {
+    padding:15px; 
+}
+.page-header-border-top {
+    border-top: 1px solid #eee;
+    margin: 20px 0 40px;
+    padding-bottom: 9px;
+}

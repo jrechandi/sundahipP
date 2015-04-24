@@ -1,0 +1,64 @@
+{% extends 'CentrohipicoBundle::centroh_base.html.twig' %}
+{% block content_content %}
+    <div class="block-separator col-sm-12"></div>
+    <div class="row col-sm-12">
+        <h1 class="tit_principal">Socios</h1>
+    </div>
+    <div class="block-separator col-sm-12"></div>
+ {% if entities is defined %}
+    <div id="action">
+        <div class="left">
+            {% if entities | length > 0 %}
+                <article class="col-sm-12 col-md-12 col-lg-12 sortable-grid ui-sortable" style="width: 50%">
+                    {{ knp_pagination_render(entities) }}
+                </article>
+            {% endif %}
+        </div>
+        <div class="right">
+            <a href="{{ path('datacentrohipico_new_partner') }}" class="btn btn-primary" style="float:right; margin: 20px 31px 0px 0px;height: 32px"> Agregar socio </a>
+            {% if app.request.get('keyword') or (entities|length > 0) %}
+                {#<input type="search" name="keyword" style="margin: 20px 0px 0px 0px;height: 32px" id="txtKeyword"#}
+                {#aria-controls="dt_basic" value="{{ app.request.get('keyword') }}">#}
+                {#<button type="button" style="margin: -1px 0px 0px 0px;height: 32px" class="btn btn-primary" id="btnSearch">#}
+                {#Buscar#}
+                {#</button>#}
+            {% endif %}
+        </div>
+    </div>
+        
+        <div class="col-md-12">
+            <table id="tabla_reporte">
+                <tbody>
+                <tr id="table_header">
+                    <td><a href="#">Nº</a></td>
+                    <td><a href="#">RIF</a></td>
+                    <td><a href="#">Denominación Comercial</a></td>
+                    <td><a href="#">Status</a></td>
+                </tr>
+                {% for entity in entities %}
+                    <tr id="request-{{ entity.id }}">
+                        <th>{{ entity.id }}</th>
+                        <th>{{ entity.persJuridica }}-{{ entity.rif }}</th>
+                        <th>{{ entity.nombreComercial }}</th>
+                        <th>{{ entity.status }}</th>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% else %}
+        <div class="col-md-12">
+            <div id="notificaciones">
+                <ul>
+                    <li class="n1">
+                        {{ message|raw }}
+                    {#<a href="{{path('datacentrohipico_new')}}">Agregar Oficina</a>#}
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+    {% endif %}
+    <div class="block-separator col-sm-12"></div>
+
+{% endblock %}

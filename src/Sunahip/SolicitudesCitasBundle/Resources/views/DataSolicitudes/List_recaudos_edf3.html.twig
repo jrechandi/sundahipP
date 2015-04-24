@@ -1,0 +1,89 @@
+{{ form_start(form,{'attr': {'id':'form_drecaudos'} }) }}   
+               <div class="form-group">
+                    <div class="col-md-12">
+                        {{ form_errors(form) }}
+                        {% if errors is defined and errors is not null %} {{errors}} {%endif%}
+                    </div>
+                     {% for type, flashMessage in app.session.flashbag.all() %}
+                        <div class="alert alert-{{ type }} ">
+                            <button class="close" data-dismiss="alert" type="button"></button>
+                            {% if flashMessage.title is defined %}
+                            <strong>{{ flashMessage.title }}</strong>
+                            {{ flashMessage.message }}
+                            {% else %}
+                            {{ type }}
+                            {% endif %}
+                        </div>
+                     {% endfor %}
+                </div>
+<table id="tabla_reporte2">				
+        <tr id="table_header2">
+                 <td>Tipo de Documento</td>
+                 <td>Buscar Archivo<span class="oblig">(*)</span></td>
+                 <td>Fecha de Vencimiento<span class="oblig">(*)</span></td>
+                 <td>Acción<span class="oblig">(*)</span></td>
+        </tr>
+          <tr>
+                 <td class="text-left">{{recaudoLicencia.recaudo}}</td>
+                 <td class="text-center">{{ form_widget(form.mediarecaudo, {'attr': {'class': 'mediarecaudo'}}) }}
+                                {% if form.mediarecaudo.vars.errors[0].message is defined %}
+                                <span class="help-block ">
+                                    {{ form.mediarecaudo.vars.errors[0].message }}
+                                </span>
+                                {% endif %}
+                  </td>
+                 <td class="text-center">{% set disable= recaudoLicencia.fechaVencimiento==0?'disabled':' ' %}
+                                {{ form_widget(form.fechaVencimiento, {'attr': {'class': 'date fechavencimiento '~disable} }) }}
+                                {% if form.fechaVencimiento.vars.errors[0].message is defined %}
+                                <span class="help-block ">
+                                    {{ form.fechaVencimiento.vars.errors[0].message }}
+                                </span>
+                                {% endif %}
+                  </td>
+                 <td class="text-center">
+                     {#<input type="checkbox" disabled="disabled" />#}
+                     <button class="btn btn-sm btn-info" onclick="newRecaudo('{{recaudoLicencia.id}}');">Agregar</button>
+                     <button class="btn btn-sm btn-warning" onclick="cambiar('recaudos',false)">Cancelar</button>
+                     {{ form_widget(form.tipodoc, {'attr': {'class': 'tipodoc'},'data':'D' }) }}
+                     {{ form_widget(form.status, {'attr': {'class': 'status'} }) }}
+                     {{ form_widget(form.reciboN, {'attr': {'class': 'hide'} }) }}
+                 </td>
+        </tr>
+</table>
+{{form_widget(form._token)}}
+</form>  
+<script type="text/javascript">
+    $(document).ready(function(){
+        $(".disabled").prop('disabled',true);       
+        var Options={
+            autoSize: true,
+            dateFormat: 'dd/mm/yy',
+            maxDate: '{{ "now" | date("d/m/Y") }}',
+            onSelect: function(dateText, inst) { 
+               var datets = Date.parse(inst.selectedYear+'-'+inst.selectedMonth+'-'+inst.selectedDay);
+               //GenerarSolicitud(datets);
+               $(this).val(dateText);                
+           } 
+        };
+        var Options2={
+            autoSize: true,
+            dateFormat: 'dd/mm/yy',
+            minDate: '{{ "now" | date_modify("+30 day") | date("d/m/Y") }}',
+            onSelect: function(dateText, inst) { 
+               var datets = Date.parse(inst.selectedYear+'-'+inst.selectedMonth+'-'+inst.selectedDay);
+               //GenerarSolicitud(datets);
+               $(this).val(dateText);                
+           } 
+        };
+      $(".date").each(function(index,elem){
+          $(this).datepicker(Options2);
+          //$(this).attr('readonly','true');
+      });
+      $(".datePago").each(function(index,elem){
+          $(this).datepicker(Options);
+          //$(this).attr('readonly','true');
+      });      
+    });
+  
+</script>
+    

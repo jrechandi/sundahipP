@@ -1,0 +1,3 @@
+#sunahip_entity_homepage:
+#    path:     /hello/{name}
+#    defaults: { _controller: SunahipEntityBundle:Default:index }

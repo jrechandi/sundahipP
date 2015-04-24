@@ -1,0 +1,364 @@
+<style type="text/css">
+    .popover {
+        position: fixed !important;
+        z-index: 8600 !important;
+        display: inline-table !important;
+    }
+</style>
+<table id="tabla_reporte">
+    <tbody><tr id="table_header">
+        <td colspan="4">Denominación Comercial:
+            <strong>
+                {% if entity.operadora.denominacionComercial is defined %}
+                    {{ entity.operadora.denominacionComercial }}
+                {% else %}
+                    {{ entity.centroHipico.denominacionComercial }}
+                {% endif %}
+            </strong>
+        </td>
+    </tr>
+    <tr>
+        <td style="width: 70%; text-align: right;" colspan="3">Nª de Solicitud:</td>
+        <td><strong>{{ entity.cita.codsolicitud  }}</strong></td>
+    </tr>
+    <tr>
+        <td style="width: 70%; text-align: right;" colspan="3">Licencia:</td>
+        <td><strong>{{ entity.clasLicencia.admTiposLicencias.tipoLicencia }}</strong></td>
+    </tr>
+    <tr>
+        <td style="width: 70%; text-align: right;" colspan="3">Clasificación de Licencia:</td>
+        <td><strong>{{ entity.clasLicencia.clasfLicencia }}</strong></td>
+    </tr>
+    <tr>
+        <td style="width: 70%; text-align: right;" colspan="3">Estatus de Solicitud:</td>
+        <td><strong>{{ entity.status }}</strong></td>
+    </tr>
+    </tbody></table>
+
+<form id="form-info">
+    <input type="hidden" name="solicitud_id" id="solicitud_id" value="{{ entity.id }}" /> 
+    <table id="tabla_reporte">
+        <tbody><tr id="table_header">
+            <td>Nº</td>
+            <td>Recaudo</td>
+            <td>Descargar</td>
+            <td>Fecha de Vencimiento</td>
+            <td>{% if app.user.hasRole('ROLE_FISCAL') %}Verificado y Aprobado {% else %} Fiscal {% endif %}</td>
+            {% if (app.user.hasRole('ROLE_GERENTE') or app.user.hasRole('ROLE_ASESOR') ) and aprob_fiscal == true%}
+                <td>Gerencia</td>
+            {% endif %}
+            {% if app.user.hasRole('ROLE_ASESOR') %}
+                <td>Asesor&iacute;a legal</td>
+            {% endif %}
+        </tr>
+        {% set count = 1 %}
+        {% for document in documents %}
+            <tr>
+                <td>{{ loop.index }}</td>
+                {% if document.getRecaudo.recaudoLicencia.recaudo|length > 100 %}
+                <td data-toggle="popover" data-content="{{ document.getRecaudo.recaudoLicencia.recaudo }}"> 
+                {% else %}
+                <td>
+                {% endif %}
+                    {{ document.getRecaudo.recaudoLicencia.recaudo|truncate(100) }}
+                </td>
+                <td class="center">
+                    {% if document.getRecaudo.getMediarecaudo is defined %}
+                        {{ document.getRecaudo.getMediarecaudo|vlabs_media('CentrohipicoBundle:SolicitudAfiliacion:ver_doc.html.twig') }}
+                    {% endif %}
+                </td>
+                <td class="center" style="text-align: center !important">{{ document.getRecaudo.fechaVencimiento|date("d-m-Y") }}</td>
+                {% if (app.user.hasRole('ROLE_GERENTE') or app.user.hasRole('ROLE_ASESOR') )  %}
+                    <td class="center" style="text-align: center !important">
+                        {% if document.getApobacionFiscal == true %}
+                            <span class="glyphicon glyphicon-ok"></span>
+                        {% else %}
+                            <span class="glyphicon glyphicon-remove"></span>
+                        {% endif %}
+                    </td>
+                {% endif %}
+                {% if app.user.hasRole('ROLE_GERENTE') %}
+                    <td class="center" style="text-align: center !important">
+                        Sí<input type="radio" name="option{{ count }}" id="{{ document.id }}" class="option" value="1*{{ document.id }}" required="true" ><br>
+                        No<input type="radio" name="option{{ count }}" id="{{ document.id }}" class="option" value="0*{{ document.id }}" required="true">
+                    </td>
+                {% endif %}
+                {% if app.user.hasRole('ROLE_ASESOR') %}
+                    <td class="center" style="text-align: center !important">
+                        {% if document.getAprobGerente == true %}
+                            <span class="glyphicon glyphicon-ok"></span>
+                        {% else %}
+                            <span class="glyphicon glyphicon-remove"></span>
+                        {% endif %}
+                    </td>
+                    <td class="center" style="text-align: center !important">
+                        Sí<input type="radio" name="option{{ count }}" id="{{ document.id }}" class="option" value="1*{{ document.id }}" required="true" ><br>
+                        No<input type="radio" name="option{{ count }}" id="{{ document.id }}" class="option" value="0*{{ document.id }}" required="true">
+                        <textarea rows="2" name="desc{{ count }}" id="c{{ count }}" cols="10" placeholder="coloque su comentario"></textarea>
+                    </td>
+                {% endif %}
+            </tr>
+            {% set count =  1 + count %}
+        {% endfor %}
+            <tr>
+                <td>{{ count }}</td>
+                <td>Pago por Procesamiento</td>
+                <td class="center">
+                    {% if pago.getArchivoAdjunto is defined %}
+                        {{ pago.getArchivoAdjunto|vlabs_media('CentrohipicoBundle:SolicitudAfiliacion:ver_doc.html.twig') }}
+                    {% endif %}
+                </td>
+                <td class="center" style="text-align: center !important">{{ pago.fechaDeposito |date("d-m-Y") }}</td>
+                {% if (app.user.hasRole('ROLE_GERENTE') or app.user.hasRole('ROLE_ASESOR') )  %}
+                    <td class="center" style="text-align: center !important">
+                        {% if aprob_fiscal == true %}
+                            <span class="glyphicon glyphicon-ok"></span>
+                        {% else %}
+                            <span class="glyphicon glyphicon-remove"></span>
+                        {% endif %}
+                    </td>
+                {% endif %}
+                {% if app.user.hasRole('ROLE_GERENTE') and aprob_fiscal == true %}
+                <td class="center" style="text-align: center !important">
+                    Sí<input type="radio" name="pago" id="pago_{{ pago.id }}" class="option" value="1*{{ pago.id }}" required="true"><br>
+                    No<input type="radio" name="pago" id="pago_{{ pago.id }}" class="option" value="0*{{ pago.id }}" required="true">
+                </td>
+                {% endif %}
+                {% if app.user.hasRole('ROLE_ASESOR') %}
+                    <td class="center" style="text-align: center !important">
+                        {% if aprob_gerente == true %}
+                            <span class="glyphicon glyphicon-ok"></span>
+                        {% else %}
+                            <span class="glyphicon glyphicon-remove"></span>
+                        {% endif %}
+                    </td>
+                    <td class="center" style="text-align: center !important">
+                        Sí<input type="radio" name="pago" id="pago_{{ pago.id }}" class="option" value="1*{{ pago.id }}" required="true"><br>
+                        No<input type="radio" name="pago" id="pago_{{ pago.id }}" class="option" value="0*{{ pago.id }}" required="true">
+                    </td>
+                {% endif %}
+            </tr>
+            <input type="hidden" name="total_document" value="{{ count }}" >            
+            <tr>
+            {% if app.user.hasRole('ROLE_FISCAL') %}
+                <td colspan="3">&nbsp;</td>
+                <td class="center">
+                    <select name="status_recaudos" id="statusRecaudos" required="true">
+                        <option value="Recaudos incompletos">Recaudos Incompletos</option>
+                        <option value="No cumple con las especificaciones">No Cumple con las especificaciones</option>
+                        <option value="Recuados vencidos">Recaudos Vencidos</option>
+                    </select>
+                </td>
+            {% endif %}
+            {% if app.user.hasRole('ROLE_GERENTE') and aprob_fiscal == true %}
+                <td colspan="4">&nbsp;</td>
+                <td class="center">
+                        {{ fecha|date("d-m-Y") }} <br>
+                        {{ fiscal }}
+                </td>
+                <td class="center" style="width: 15%">
+                    <input type="checkbox" id="btnApproved" disabled="true" name="paprob">Aprobación<br>
+                    <input type="checkbox" id="btnRechazo" disabled="true" name="prechazo">Rechazo
+                </td>
+            {% endif %}
+            {% if app.user.hasRole('ROLE_ASESOR') %}
+                <td colspan="4">&nbsp;</td>
+                <td class="center" style="text-align: center !important; vertical-align: top !important">
+                    {{ fecha|date("d-m-Y") }} <br>
+                    {{ fiscal }}
+                </td>
+                <td class="center" style="text-align: center !important; vertical-align: top !important">
+                    {{ fecha_gerente|date("d-m-Y") }} <br>
+                    {{ gerente }}
+                </td>
+                <td class="center" style="text-align: left !important; padding-left: 30px;">
+                    <input type="hidden" name="paprob" value="0">
+                    <input type="checkbox" id="legalApprove" disabled="true" name="paprob" value="1">Aprobación<br>
+                    <input type="hidden" name="prechazo" value="0">
+                    <input type="checkbox" id="legalRechazo" disabled="true" name="prechazo" value="1">Rechazo
+                </td>
+            {% endif %}
+        </tr>
+        {% if app.user.hasRole('ROLE_FISCAL') %}
+        <tr>
+            <td colspan="4">&nbsp;</td>
+            <td class="center" style="text-align: right !important">
+                <div class="btn_aprob" style="text-align: right !important">
+                    <input type="submit" value="Aplicar" id="btnSave" class="btn btn-primary btn-sm"/>
+                </div>
+            </td>
+         </tr>
+         {% elseif app.user.hasRole('ROLE_ASESOR') %}
+                <tr>
+                    <td colspan="5">&nbsp;</td>
+                    <td colspan="2" class="center" style="text-align: right !important">
+                        Nº de Providencia<br><input id="numPro" type="text" name="numero-prov" required="true" style="width: 130px;"><br>
+                        Fecha de Providencia<br><input id="datepicker" type="text" name="fecha-prov" required="true" style="width: 130px;"><br>
+                        Fecha de Inicio<br><input id="datestart" type="text" name="fecha-inicio" required="true" style="width: 130px;"><br>
+                        Fecha de Fin<br><input id="dateend" type="text" name="fecha-fin" required="true"style="width: 130px;"><br>
+                        <input type="submit" id="btnApp" value="Aplicar" class="btn btn-primary btn-sm">
+                    </td>
+                </tr>
+        {% endif %}
+        </tbody>
+    </table>
+</form>
+</div>
+
+<script type="text/javascript">
+
+    $('[data-toggle="tooltip"]').tooltip({
+        'placement': 'left'
+    });
+    $('[data-toggle="popover"]').popover({
+        trigger: 'hover',
+       'placement': 'left'
+    });
+
+    $(function() {
+        $( "#datepicker" ).datepicker({ maxDate: "+1M +10D" });
+        $( "#datestart" ).datepicker({ maxDate: "+1Y",
+            onSelect: function(dateStr){
+            var date = $("#datestart").val();
+            var date = date.split('/');
+            var year = parseInt(date[2]) + 1;
+                $("#dateend").val( date[0]+'/'+date[1]+'/'+ year);
+            }  });
+        $( "#dateend" ).datepicker({ minDate: "1D", defaultDate: $("#datestart").val()+"1Y" });
+    });
+    
+    var item = 0;
+    var appr = 0;
+
+    $(".option").click(function() {
+        var total = 0;
+        var checked = 0;
+        var totalChecked = 0;
+        $(":radio").each(function(){
+            total++;
+            if($(this).is(':checked')) {
+                totalChecked++;
+                if($(this).val().substr(0,1)==1) {
+                    checked++;
+                }
+            }
+        });
+        if(total/2==totalChecked) {
+            if(total/2==checked){
+                $("#btnApproved").removeAttr('disabled');
+                $("#legalApprove").removeAttr('disabled');
+                $("#btnRechazo").attr('disabled','disabled');
+                $("#legalRechazo").attr('disabled','disabled');
+            } else {
+                $("#btnApproved").attr('disabled','disabled');
+                $("#legalApprove").attr('disabled','disabled');
+                $("#btnRechazo").removeAttr('disabled');
+                $("#legalRechazo").removeAttr('disabled');
+            }
+        } else {
+            $("#btnApproved").attr('disabled','disabled');
+            $("#legalApprove").attr('disabled','disabled');
+            $("#btnRechazo").attr('disabled','disabled');
+            $("#legalRechazo").attr('disabled','disabled');
+        }
+    });
+
+    $(document).on('submit','#form-info',function(e){
+        e.stopPropagation();
+        e.preventDefault();
+        if(confirm('¿Está seguro que desea continuar?')) {
+            $("#myModal").modal('hide');
+            setStatusDocument();
+        }
+        return true;
+    });
+
+    $('#btnApproved,#btnRechazo').each(function() {
+        $(this).on('change', function() {
+            if($(this).is(':checked')) {
+                if(confirm('¿Está seguro que desea continuar?')) {
+                    $("#btnRechazo").attr('disabled','disabled');
+                    var id = $("#solicitud_id").val();
+                    var url = Routing.generate('gerente_guardar_status',{ 'id': id });
+                    $.ajax({
+                        async: false,
+                        type: "POST",
+                        cache: false,
+                        url: url,
+                        data: $("#form-info").serialize(),
+                        dataType: "json",
+                        success: function(response) {
+                            if(response.status == 'true') {
+                                window.item = 1;
+                                var url = Routing.generate('fiscal_citas_listado',{'tipo':'Revisada'});
+                                window.location = url;
+                                $("#btnRechazo").removeAttr('disabled');
+                            } else {
+                                alert(response.mensaje);
+                            }
+                        },
+                        error: function(){
+                            $("#btnSave").removeAttr("disabled");
+                            e.preventDefault();
+                        }
+                    });
+                } else {
+                    $(this).attr('checked', false);
+                }
+            }
+            return true;
+        });        
+    });
+    
+    $('#legalRechazo').on('change', function() {
+        if ($(this).is(':checked')) {
+            $("#numPro").attr('disabled','disabled');
+            $("#datepicker").attr('disabled','disabled');
+            $("#datestart").attr('disabled','disabled');
+            $("#dateend").attr('disabled','disabled');
+        } else {
+            $("#numPro").removeAttr('disabled');
+            $("#datepicker").removeAttr('disabled');
+            $("#datestart").removeAttr('disabled');
+            $("#dateend").removeAttr('disabled');
+        }
+    });
+
+    function setStatusDocument() {
+        $("#btnSave").attr("disabled","disabled");
+        var id = $("#solicitud_id").val();
+        var url = Routing.generate('asesor_guardar_status',{ 'id': id });
+        $.ajax({
+            async: false,
+            type: "POST",
+            cache: false,
+            url: url,
+            data: $("#form-info").serialize(),
+            dataType: "json",
+            success: function(response) {
+                if(response.status == 'true') {
+                    var url = Routing.generate('fiscal_citas_listado',{'tipo':'Verificada'});
+                    $("#btnSave").removeAttr('disabled');
+                    window.location = url;
+                } else {
+                    alert(response.mensaje);
+                }
+            },
+            error: function(){
+                $("#btnSave").removeAttr("disabled");
+                e.preventDefault();
+            }
+        });
+    }
+
+    $(".numeric").keydown(function(e) {
+        if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 110]) !== -1 || (e.keyCode == 65 && e.ctrlKey === true) || (e.keyCode >= 35 && e.keyCode <= 39)) {
+            return;
+        }
+
+        if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+            e.preventDefault();
+        }
+    });
+
+</script>

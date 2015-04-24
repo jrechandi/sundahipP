@@ -1,0 +1,40 @@
+{% set num = [
+'cero', 'uno', 'dos', 'tres', 'cuatro', 'cinco', 'seis', 'siete', 'ocho', 'nueve', 'diez',
+'once', 'doce', 'trece', 'catorce', 'quince', 'dieciseis', 'diecisiete', 'dieciocho', 'diecinueve', 'veinte', 'veintiuno', 'veintidos', 'veintitres', 'veinticuatro', 'veinticinco', 'veintiseis', 'veintisiete', 'veintiocho', 'veintinueve', 'treinta', 'treintaiuno'
+] %}
+
+{% set mes = ['', 'enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre']%}
+<!DOCTYPE html>
+<html> 
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+       <style type="text/css">
+       h1{text-align:center}
+       .center{text-align:center}
+       @page {
+            header: html_myheader;
+            footer: html_myfooter;
+        }
+        #content{padding:3ex}
+       </style>
+    </head>
+<body>
+<htmlpageheader name="myheader">
+  <img src="{{asset('bundles/newtemplate/images/cintillo.png')}}" height="53" width="1140" alt="Gobierno Bolivariano"> 
+    <div id="header" class="row-fluid">
+        Registro Nacional de <span>Licencias Hípicas</span>
+    </div><br/>
+</htmlpageheader>
+
+
+<htmlpagefooter name="myfooter">
+<div class="center">
+Edificio Sede del Hipódromo la Rinconada – INH, piso 5. Parroquia Coche - Caracas, D.C. Teléfono (0212) 395-35-11 /
+681-33-31. <a href="www.sunahip.gob.ve">www.sunahip.gob.ve</a></div>
+</htmlpagefooter>
+
+<div id="content">
+{% block content_content %}{% endblock %}
+</div>
+</body>
+</html>

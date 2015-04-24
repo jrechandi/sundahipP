@@ -1,0 +1,36 @@
+<h3>Datos de Usuario</h3>
+<ul class="menu2">
+<li><a href="{{path('datos-basicos')}}" title="">Datos Básicos</a></li>
+{#<li><a href="#" title="">Cambiar Contraseña</a></li>#}
+</ul>
+
+<h3>Mis Empresas</h3>
+<ul class="menu2">
+<li><a href="{{path('data_empresa_list')}}" title="">Consultar</a></li>
+</ul>    
+
+<h3>Mis Centros Hípicos</h3>
+<ul class="menu2">
+{#<li><a href="{{path('datacentrohipico_new')}}" title="">Crear</a></li>#}
+<li><a href="{{path('datacentrohipico_new_est')}}" title="">Crear</a></li>
+<li><a href="{{path('datacentrohipico_list')}}" title="">Consultar</a></li>
+</ul>
+
+<h3>Mis Solicitudes de Licencia</h3>
+<ul class="menu2">
+<li><a href="{{path('solicitudes_citas_create')}}" title="Crear Solicitudes">Crear</a></li>
+<li><a href="{{path('solicitudes_list')}}" title="Consulta de Solicitudes">Consultar</a></li>
+{#<li><a href="#" title="frames/solicitudes_pendientes.html">Solicitudes Pendientes</a></li>#}
+</ul>	
+
+<h3>Mis Pagos</h3>
+<ul class="menu2">
+<li><a href="{{path('pagos', {tipo:'PROCESAMIENTO'})}}" title="Pago de Procesamiento">Procesamiento</a></li>
+<li><a href="{{path('pagos', {tipo:'OTORGAMIENTO'})}}" title="Pago de Otorgamiento">Otorgamiento</a></li>
+<li><a href="{{path('pagos', {tipo:'MULTA'})}}" title="Pago de Multas">Multa</a></li>
+</ul>
+
+<h3>Mis Fiscalizaciones</h3>
+<ul class="menu2">
+<li><a href="{{path('fiscalizacion_mis')}}" title="Consulta de Fiscalizaciones">Consultar</a></li>
+</ul>

@@ -1,0 +1,63 @@
+fiscalizacion:
+    path:     /
+    defaults: { _controller: "FiscalizacionBundle:Fiscalizacion:index" }
+
+fiscalizacion_show:
+    path:     /{id}/show
+    defaults: { _controller: "FiscalizacionBundle:Fiscalizacion:show" }
+
+fiscalizacion_new:
+    path:     /{idprov}/{idcentro}/{tipo}/fiscalizar
+    defaults: { _controller: "FiscalizacionBundle:Fiscalizacion:new" }
+    requirements:
+        _method: get
+        tipo: centro|operadora
+        prov: \d+
+        id:  \d+
+
+fiscalizacion_create:
+    path:     /{idprov}/{idcentro}/{tipo}/create
+    defaults: { _controller: "FiscalizacionBundle:Fiscalizacion:create" }
+    requirements:
+        _method: post
+        tipo: centro|operadora
+        prov: \d+
+        id:  \d+
+
+fiscalizacion_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "FiscalizacionBundle:Fiscalizacion:edit" }
+
+fiscalizacion_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "FiscalizacionBundle:Fiscalizacion:delete" }
+    requirements: { _method: post|delete }
+
+fiscalizacion_fiscalizar:
+    path:     /fiscalizar
+    defaults: { _controller: "FiscalizacionBundle:Fiscalizacion:fiscalizar" }
+    requirements: { _method: get|post }
+
+fiscalizacion_centro:
+    path:     /fiscalizar/centro
+    defaults: { _controller: "FiscalizacionBundle:Default:centro" }
+    requirements: { _method: get|post }
+
+fiscalizacion_citados:
+    path:     /citados
+    defaults: { _controller: "FiscalizacionBundle:Fiscalizacion:citados" }
+
+fiscalizacion_multar:
+    path:     /{id}/multar
+    defaults: { _controller: "FiscalizacionBundle:Fiscalizacion:multar" }
+    requirements:
+        id:  \d+
+
+
+fiscalizacion_multados:
+    path:     /multado
+    defaults: { _controller: "FiscalizacionBundle:Fiscalizacion:multados" }
+
+fiscalizacion_mis:
+    path:     /mis
+    defaults: { _controller: "FiscalizacionBundle:Fiscalizacion:mis" }

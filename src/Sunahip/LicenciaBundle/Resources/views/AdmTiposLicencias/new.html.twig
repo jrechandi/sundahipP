@@ -1,0 +1,74 @@
+{% extends 'NewTemplateBundle::base.html.twig' %}
+
+{% block stylesheets %}
+	{{ parent() }}
+	<link href="{{ asset('bundles/solicitudescitas/css/genstyles.css')}}" rel="stylesheet">
+	<link href="{{ asset('bundles/solicitudescitas/css/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" media="print">
+
+{% endblock stylesheets %}
+
+{% block content_content %}
+    <div class="block-separator col-sm-12"></div>
+	<div class="tit_principal">Crear Tipo de Licencia</div>
+	<div class="row col-lg-12">
+		<div class="form-horizontal">
+			{{ form_start(form) }}
+				<div class="form-group">
+					<div class="col-md-12">
+						{{ form_errors(form) }}
+					</div>
+					<div class="col-md-12">Los campos con <span class="oblig">(*)</span> son obligatorios</div><br/>
+				</div>
+
+				<div class="form-group{% if form.tipoLicencia.vars.errors[0].message is defined %} has-error{% endif %}">
+					{{ form_label(form.tipoLicencia, null, {'label_attr': {'class': ' col-md-3 control-label text-left'} }) }}
+					<div class="col-md-8">
+						{{ form_widget(form.tipoLicencia, {'attr': {'class': 'form-control'}}) }}
+
+						{% if form.tipoLicencia.vars.errors[0].message is defined %}
+							<span class="help-block ">
+								Ingrese una Licencia V&aacute;lida
+								{{ form.tipoLicencia.vars.errors[0].message }}
+							</span>
+						{% endif %}
+					</div >
+				</div>
+                        
+                                <div class="form-group{% if form.roleType.vars.errors[0].message is defined %} has-error{% endif %}">
+					{{ form_label(form.roleType, null, {'label_attr': {'class': ' col-md-3 control-label text-left'} }) }}
+					<div class="col-md-8">
+						{{ form_widget(form.roleType, {'attr': {'class': 'form-control'} }) }}
+                                                
+                                                {% if form.roleType.vars.errors[0].message is defined %}
+							<span class="help-block ">
+								Seleccionar
+								{{ form.form.vars.errors[0].message }}
+							</span>
+						{% endif %}
+					</div >
+				</div>
+
+				<div class="form-group{% if form.status.vars.errors[0].message is defined %} has-error{% endif %}">
+					{{ form_label(form.status, null, {'label_attr': {'class': ' col-md-3 control-label text-left'} }) }}
+					<div class="col-md-8">
+						{{ form_widget(form.status, {'attr': {'class': 'form-control'}}) }}
+
+						{% if form.status.vars.errors[0].message is defined %}
+							<span class="help-block ">
+								Seleccionar
+								{{ form.status.vars.errors[0].message }}
+							</span>
+						{% endif %}
+					</div >
+				</div>
+
+				<div class="block-separator col-md-12"></div>
+
+				<div class="col-md-12 col-md-offset-2 form-group btn-group">
+					<div class="col-md-6" style="text-align:center"><a href="{{ path('admtiposlicencias') }}" class="btn btn-primary btn-sm ">Regresar</a></div>
+					<div class="col-md-6" style="text-align:center">{{ form_widget(form.submit) }}</div>
+				</div>
+			{{ form_end(form) }}
+		</div>
+	</div>
+{% endblock content_content %}

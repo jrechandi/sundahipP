@@ -1,0 +1,256 @@
+{#{ form_start(fdl,{'attr':{'id':'form_dl'}}) }#}
+<table id="tabla_reporte2" class="tabla_reporte2">	
+    <tbody>
+      <tr>
+            <td>{{ form_label(fdl.nombreComercial, null, {'label_attr': {'class': 'text-left col-md-12'} }) }}</td>
+            <td colspan="3">{{ form_widget(fdl.nombreComercial, {'attr': {'class': 'col-md-10 '} }) }}
+            {% if fdl.nombreComercial.vars.errors[0].message is defined %}
+            <span class="help-block ">
+                {{ fdl.nombreComercial.vars.errors[0].message }}
+            </span>
+            {% endif %}
+
+            </td>
+        </tr>
+        <tr id="table_header2">
+                 <td colspan="4">Datos del apoderado o representante legal</td>
+        </tr>
+    <tr>
+             <td>{{ form_label(fdl.nombre, null, {'label_attr': {'class': ' col-md-12 control-label text-left'} }) }}</td>
+             <td>{{ form_widget(fdl.nombre, {'attr': {'class': ' '} }) }}
+                            {% if fdl.nombre.vars.errors[0].message is defined %}
+                            <span class="help-block ">
+                                {{ fdl.nombre.vars.errors[0].message }}
+                            </span>
+                            {% endif %}
+                 
+             </td>
+             <td>{{ form_label(fdl.apellido, null, {'label_attr': {'class': ' col-md-12 control-label text-left'} }) }}</td>
+             <td>{{ form_widget(fdl.apellido, {'attr': {'class': ' '} }) }}
+                            {% if fdl.apellido.vars.errors[0].message is defined %}
+                            <span class="help-block ">
+                                {{ fdl.apellido.vars.errors[0].message }}
+                            </span>
+                            {% endif %}
+                 
+             </td>
+             
+    </tr>
+    <tr>
+             <td>{{ form_label(fdl.ci, null, {'label_attr': {'class': ' col-md-12 text-left'} }) }}</td>
+             <td>
+                  {{ form_widget(fdl.tipoci, {'attr': {'class': ' input-mini'} }) }}
+                  - {{ form_widget(fdl.ci, {'attr': {'class': ' '} }) }}
+                    {% if fdl.ci.vars.errors[0].message is defined %}
+                    <span class="help-block ">
+                        {{ fdl.ci.vars.errors[0].message }}
+                    </span>
+                    {% endif %}
+                 
+             </td>
+             <td>{{ form_label(fdl.rif, null, {'label_attr': {'class': ' col-md-12 text-left'} }) }}</td>
+             <td>
+                 {{ form_widget(fdl.persJuridica, {'attr': {'class': 'input-mini '} }) }}
+                  - {{ form_widget(fdl.rif, {'attr': {'class': ' '} }) }}
+                    {% if fdl.rif.vars.errors[0].message is defined %}
+                    <span class="help-block ">
+                        {{ fdl.rif.vars.errors[0].message }}
+                    </span>
+                    {% endif %}
+                 
+             </td>
+
+    </tr>
+    <tr>
+             <td>{{ form_label(fdl.estado, null, {'label_attr': {'class': ' col-md-12 text-left'} }) }}</td>
+             <td>{{ form_widget(fdl.estado, {'attr': {'class': 'dlestado'} }) }}
+                    {% if fdl.estado.vars.errors[0].message is defined %}
+                    <span class="help-block ">
+                        {{ fdl.estado.vars.errors[0].message }}
+                    </span>
+                    {% endif %}
+                
+             </td>
+             <td><label class="col-md-12 control-label text-left required" for="dlmunicipio">Municipio <span class="asterisk">*</span></label></td>
+             <td>
+                   {{ form_widget(fdl.municipio, {'attr': {'class': 'dlmunicipio'} }) }}
+                    {% if fdl.municipio.vars.errors[0].message is defined %}
+                    <span class="help-block ">
+                        {{ fdl.municipio.vars.errors[0].message }}
+                    </span>
+                    {% endif %}
+                 
+             </td>
+             
+    </tr>
+    <tr>
+            <td>{{ form_label(fdl.ciudad, null, {'label_attr': {'class': ' col-md-12 text-left control-label'} }) }}</td>
+             <td>{{ form_widget(fdl.ciudad, {'attr': {'class': 'col-md-10 '} }) }}
+                    {% if fdl.ciudad.vars.errors[0].message is defined %}
+                    <span class="help-block ">
+                        {{ fdl.ciudad.vars.errors[0].message }}
+                    </span>
+                    {% endif %}
+             </td>
+             <td><label class="col-md-12 control-label text-left required" for="parroquia">Parroquia <span class="asterisk">*</span></label> </td>
+             <td>
+                 {{ form_widget(fdl.parroquia, {'attr': {'class': 'dlparroquia'} }) }}
+                    {% if fdl.parroquia.vars.errors[0].message is defined %}
+                    <span class="help-block ">
+                        {{ fdl.parroquia.vars.errors[0].message }}
+                    </span>
+                    {% endif %}
+                 
+             </td>
+    </tr>
+    <tr>
+        <td>{{ form_label(fdl.urbanSector, null, {'label_attr': {'class': ' col-md-12 text-left'} }) }}</td>
+             <td>{{ form_widget(fdl.urbanSector, {'attr': {'class': 'col-md-10 '} }) }}
+                    {% if fdl.urbanSector.vars.errors[0].message is defined %}
+                    <span class="help-block ">
+                        {{ fdl.urbanSector.vars.errors[0].message }}
+                    </span>
+                    {% endif %}
+             </td>
+             <td>{{ form_label(fdl.avCalleCarrera, null, {'label_attr': {'class': ' col-md-12 text-left'} }) }}</td>
+             <td>
+                 {{ form_widget(fdl.avCalleCarrera, {'attr': {'class': 'col-md-10 '} }) }}
+                    {% if fdl.avCalleCarrera.vars.errors[0].message is defined %}
+                    <span class="help-block ">
+                        {{ fdl.avCalleCarrera.vars.errors[0].message }}
+                    </span>
+                    {% endif %}
+                
+             </td>
+    </tr>
+    <tr>
+             <td>{{ form_label(fdl.edifCasa, null, {'label_attr': {'class': ' col-md-12 text-left'} }) }}</td>
+             <td>{{ form_widget(fdl.edifCasa, {'attr': {'class': 'col-md-10 '} }) }}
+                    {% if fdl.edifCasa.vars.errors[0].message is defined %}
+                    <span class="help-block ">
+                        {{ fdl.edifCasa.vars.errors[0].message }}
+                    </span>
+                    {% endif %}
+             </td>
+            <td>{{ form_label(fdl.ofcAptoNum, null, {'label_attr': {'class': ' col-md-12 text-left'} }) }}</td>
+             <td>{{ form_widget(fdl.ofcAptoNum, {'attr': {'class': 'col-md-10 '} }) }}
+                    {% if fdl.ofcAptoNum.vars.errors[0].message is defined %}
+                    <span class="help-block ">
+                        {{ fdl.ofcAptoNum.vars.errors[0].message }}
+                    </span>
+                    {% endif %}
+                
+                 
+             </td>
+{#            #}
+    </tr>
+    <tr>
+        <td>{{ form_label(fdl.puntoReferencia, null, {'label_attr': {'class': ' col-md-12 text-left'} }) }}</td>
+             <td>{{ form_widget(fdl.puntoReferencia, {'attr': {'class': 'col-md-10 '} }) }}
+                    {% if fdl.puntoReferencia.vars.errors[0].message is defined %}
+                    <span class="help-block ">
+                        {{ fdl.puntoReferencia.vars.errors[0].message }}
+                    </span>
+                    {% endif %}
+                
+             </td>
+             
+                         <td>{{ form_label(fdl.codigoPostal, null, {'label_attr': {'class': ' col-md-12 text-left'} }) }}</td>
+             <td>{{ form_widget(fdl.codigoPostal, {'attr': {'class': 'col-md-6 '} }) }}
+                    {% if fdl.codigoPostal.vars.errors[0].message is defined %}
+                    <span class="help-block ">
+                        {{ fdl.codigoPostal.vars.errors[0].message }}
+                    </span>
+                    {% endif %}
+                
+             </td>
+    </tr>
+    <tr>
+             <td>{{ form_label(fdl.email, null, {'label_attr': {'class': ' col-md-12 text-left'} }) }}</td>
+             <td>{{ form_widget(fdl.email, {'attr': {'class': 'col-md-10 '} }) }}
+                    {% if fdl.email.vars.errors[0].message is defined %}
+                    <span class="help-block ">
+                        {{ fdl.email.vars.errors[0].message }}
+                    </span>
+                    {% endif %}
+             </td>
+             <td>{{ form_label(fdl.fax, null, {'label_attr': {'class': ' col-md-12 text-left'} }) }}</td>
+             <td>{{ form_widget(fdl.fax, {'attr': {'class': 'col-md-10 '} }) }}
+                    {% if fdl.fax.vars.errors[0].message is defined %}
+                    <span class="help-block ">
+                        {{ fdl.fax.vars.errors[0].message }}
+                    </span>
+                    {% endif %}
+             </td>
+    </tr>
+    <tr>
+             <td>{{ form_label(fdl.tflFijo, null, {'label_attr': {'class': ' col-md-12 text-left'} }) }}</td>
+             <td>{{ form_widget(fdl.codTlfFijo, {'attr': {'class': ' col-md-4'} }) }}
+                 {{ form_widget(fdl.tflFijo, {'attr': {'class': 'col-md-6 '} }) }}
+                    {% if fdl.tflFijo.vars.errors[0].message is defined %}
+                    <span class="help-block ">
+                        {{ fdl.tflFijo.vars.errors[0].message }}
+                    </span>
+                    {% endif %}
+             </td>
+             <td>{{ form_label(fdl.tflCelular, null, {'label_attr': {'class': ' col-md-12 text-left'} }) }}</td>
+             <td>{{ form_widget(fdl.codTlfCelular, {'attr': {'class': ' col-md-4 '} }) }}
+                 {{ form_widget(fdl.tflCelular, {'attr': {'class': 'col-md-6 '} }) }}
+                    {% if fdl.tflCelular.vars.errors[0].message is defined %}
+                    <span class="help-block ">
+                        {{ fdl.tflCelular.vars.errors[0].message }}
+                    </span>
+                    {% endif %}
+             </td>
+    </tr>
+    <tr>
+             <td>{{ form_label(fdl.pagWeb, null, {'label_attr': {'class': ' col-md-12 text-left'} }) }}</td>
+             <td colspan="3">{{ form_widget(fdl.pagWeb, {'attr': {'class': 'col-md-10 '} }) }}
+                    {% if fdl.pagWeb.vars.errors[0].message is defined %}
+                    <span class="help-block ">
+                        {{ fdl.pagWeb.vars.errors[0].message }}
+                    </span>
+                    {% endif %}
+               
+             </td>
+    </tr>
+   {# <tr>
+        <td colspan="2">{{ form_label(fdl.isSocio, null, {'label_attr': {'class': ' col-md-12 text-left'} }) }}</td>
+        <td colspan="2">
+                  {{ form_widget(fdl.isSocio, {'attr': {'class': 'col-md-10 '} }) }}
+                    {% if fdl.isSocio.vars.errors[0].message is defined %}
+                    <span class="help-block ">
+                        {{ fdl.isSocio.vars.errors[0].message }}
+                    </span>
+                    {% endif %}
+                </td>
+    </tr>#}
+    {#<tr>
+        <td colspan="4"><div class="col-md-1 col-md-offset-10"><button id="form_dlbtn" value="" class="btn btn-primary" onclick="sFormDL();">Agregar</button></div></td>
+    </tr>#}
+  </tbody>
+</table>
+ <div class="block-separator col-md-12"></div>
+ {{form_widget(fdl._token)}}
+{#{form_end(fdl)}#}
+
+<script type="text/javascript" >
+$(document).ready(function(){
+    //$(".form-horizontal").removeClass('form-horizontal');
+    //$(".form-control").removeClass('form-control');
+    $(".dlestado").change(function() {
+        estado = $('.dlestado option:selected').val();
+        var Rmunicipio=Routing.generate('municipios', {estado_id: estado});
+        getSelect(Rmunicipio,'.dlmunicipio',"Municipio");
+    });
+    
+    
+    $(".dlmunicipio").change(function() {
+        municipio = $('.dlmunicipio option:selected').val();
+        var Rparroquia=Routing.generate('parroquias', {municipio_id: municipio});
+        getSelect(Rparroquia,'.dlparroquia',"Parroquia");
+    });
+    $(".dlestado").change();
+    $(".dlmunicipio").change();
+});
+ </script>           

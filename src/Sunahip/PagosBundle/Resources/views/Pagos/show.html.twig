@@ -1,0 +1,56 @@
+{% extends 'NewTemplateBundle::base.html.twig' %}
+
+{% block content_content %}
+    <h1>Pago</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Tipopago</th>
+                <td>{{ entity.tipoPago }}</td>
+            </tr>
+            <tr>
+                <th>Numreferencia</th>
+                <td>{{ entity.numReferencia }}</td>
+            </tr>
+            <tr>
+                <th>Fechadeposito</th>
+                <td>{{ entity.fechaDeposito|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Monto</th>
+                <td>{{ entity.monto }}</td>
+            </tr>
+            <tr>
+                <th>Fechacreacion</th>
+                <td>{{ entity.fechaCreacion|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Fechaproceso</th>
+                <td>{{ entity.fechaProceso|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Status</th>
+                <td>{{ entity.status }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        {#<ul class="record_actions">#}
+    {#<li>#}
+        {#<a href="{{ path('pago') }}">#}
+            {#Regresar#}
+        {#</a>#}
+    {#</li>#}
+    {#<li>#}
+        {#<a href="{{ path('pago_edit', { 'id': entity.id }) }}">#}
+            {#Editar#}
+        {#</a>#}
+    {#</li>#}
+    {#<li>{{ form(delete_form) }}</li>#}
+{#</ul>#}
+{% endblock %}

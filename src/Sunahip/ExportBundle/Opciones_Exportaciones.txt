@@ -1,0 +1,54 @@
+exportaciones a Excel
+Opciones de Menus
+*** -> Usuario
+ + -> Menu
+   - -> Opcion
+
+***OPERADORA(V5555555)
++Mis Afiliados
+ - Consultar Afiliados  (LISTO -> PDF, XLS) -> 09.09.2014
+ - Aporte de afiliados  -> paginado
+
+
+***GERENTE(V1234567)
++Licencias 
+     - por Aprobar ->Paginado (LISTO, PDF,XLS) -> 09.09.2014
+     - Aprobadas -> Paginado  (LISTO, PDF, XLS) -> 09.09.2014
+     - En espera por REcaudos ->paginado
+     - Rechazadas 
+     - Notificaciones para Licenciatarios - SMS
+
++gestion de Operadoras
+    - Operadoras (LISTO-> XLS, PDF)
+    - Aprobar Incorporación de Afiliados a Operadoras (LISTO)
+
++Fiscalizaciones
+  - Gestionar Providencias (LISTO PDF,XLS) -> 09.09.2014
+  - Consultar
+
++Consulta de Pagos (LISTO ) ->10.09.2014
+ -Aportes Mensuales (LISTO )
+ -Pagos por Procesamiento(LISTO )
+ -Pagos por Otorgamiento(LISTO )
+ -Pagos de Multas(LISTO )
+
++Fiscales
+ - Ficha de Fiscales (LISTO )->10.09.2014
+ - Gestión del Fiscal 
+
+
+***FISCAL (V3333333)
++Licencias
+  -Citas Asignadas (LISTO PDF,XLS) -> 09.09.2014
+  -Recaudos Recibidos
++Fiscalizaciones
+  -Por Fiscalizar
+  -Providencias ?¿=¿? (LISTO PDF, XLS) -> 09.09.2014
+  -Licenciatarios Fiscalizados
+
+
+***ASESOR(V4444444)
++Licencias
+  -Por Aprobar (LISTO PDF,XLS) -> 09.09.2014
+  -Aprobadas
+  -Rechazadas

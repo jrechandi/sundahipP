@@ -1,0 +1,9 @@
+#Prefix: /solicitud-licencia/juegosexplotados
+juegosexplotados_show:
+    path:     /ver-juegos{ids}
+    defaults: { _controller: "SolicitudesCitasBundle:JuegosExplotados:show" }
+
+juegosexplotados_create:
+    path:     /cargar-juegos{ids}
+    defaults: { _controller: "SolicitudesCitasBundle:JuegosExplotados:create" }
+

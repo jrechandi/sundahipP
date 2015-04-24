@@ -1,0 +1,120 @@
+{% extends 'SolicitudesCitasBundle::solicitud_base.html.twig' %}  
+{% block content_content %}
+    <div id="contendor">
+        <div class="block-separator col-md-12"></div>
+	<div class="tit_principal">Modificar Fecha de Cita</div>
+		<br /><br />
+                  <div class="col-md-12">
+                     <div class="col-md-4"> 
+                      <table id="tabla_reporte2">
+                          <tr id="table_header2">
+                              <td >Solicitud</td>
+                          </tr>
+                          <tr>
+                              <td class="text-center">
+                                  {% if datasolicitud.operadora %} {{datasolicitud.operadora.denominacionComercial}}{%endif%}
+                                  {% if datasolicitud.centroHipico  %} {{datasolicitud.centroHipico.denominacionComercial}}{%endif%}
+                              </td>
+                          </tr>
+                          <tr>
+                              <td class="text-center">
+                                  {% if datasolicitud.operadora %} {{datasolicitud.operadora.persJuridica}}-{{datasolicitud.operadora.rif}} {%endif%}
+                                  {% if datasolicitud.centroHipico  %} {{datasolicitud.centroHipico.persJuridica}}-{{datasolicitud.centroHipico.rif}}{%endif%}
+                              </td>
+                          </tr>
+                      </table>
+                     </div>  
+                     <div class="block-separator col-md-12"></div>
+                     <div class="col-md-4"> 
+                      <table id="tabla_reporte2">
+                          <tr id="table_header2">
+                              <td >Su cita Actual</td>
+                          </tr>
+                          <tr>
+                              <td class="text-center">
+                                  {% if datasolicitud.cita.fechaSolicitud %} {{datasolicitud.cita.fechaSolicitud|date('d-m-Y')}}{%endif%}
+                                  <input type="hidden" id="citaid" name="citaid" value="{{datasolicitud.cita.id}}"/>
+                                  <input type="hidden" id="fecha_actual" value="{{datasolicitud.cita.fechaSolicitud|date('d/m/Y')}}" />                                         
+                              </td>
+                          </tr>
+                      </table>
+                     </div> 
+                  </div>
+                  {# Mostrar Datos de Cita#}
+                  <div class="col-md-12">
+                     <h3>Cambiar D&iacute;a de Cita</h3>
+                            <div class="col-md-2"><label for="date">Fecha:</label> <br/>
+                              <input type="text" id="date" name="datacita" placeholder="Fecha dd/mm/aaaa" class="" size="13px;" readonly/> <div id="error"></div>
+                            </div>
+                           <div class="col-md-4 alert-warning" >
+                               <p style="margin-top: 10px;">Debe seleccionar alguno de los Dias Activos.</p>
+                           </div>
+                            <div class="col-md-4 "><div id="datepick"></div> </div>
+                           <div class="block-separator col-md-12"></div>                 
+                           <div class="col-md-4 col-md-offset-8 text-right">
+                                   <a href="{{ path('home') }}" class="btn btn-warning btn-sm">Cancelar</a>
+                                   <a href="#" class="btn btn-primary btn-sm" onclick="ActualizaCita();">Actualizar Cita</a> 
+                           </div>
+                  </div>
+                  <div class="block-separator col-md-12"></div>
+    </div>
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Cerrar</span></button>
+                <h4 class="modal-title" id="myModalLabel">Notificación</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12 alert text-left" id="myMessage">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+ {%endblock %}
+ 
+ {% block foot_script_assetic %}
+        {{ parent() }}
+<script src="{{asset('bundles/solicitudescitas/js/solfun.js')}}"></script>        
+  <script type="text/javascript">
+        $(document).ready(function() {
+               ActiveCalendar();
+           });
+           
+ function ActualizaCita(){
+          var idsol='{{datasolicitud.id}}';
+          var arrdate=$( "#date" ).val().split("/");
+          var dia = parseInt(arrdate[0]) - 1;
+          var datets = Date.parse(arrdate[2]+"-"+arrdate[1]+"-"+dia);
+          if($( "#date" ).val() == $( "#fecha_actual" ).val()) {
+             $("#myMessage").html("La fecha de la cita es igual a la fecha previa solicitada. Seleccione otro día");
+             $("#myModal").modal("show");
+             return false;
+          }
+          
+          if(isNaN(datets)) {
+             //Dialog('<div class="col-md-12 has-error"> Debe Seleccionar una Fecha para la Cita </div>','ERROR');
+             $("#myMessage").html("Debe Seleccionar una Fecha para la Cita");
+             $("#myModal").modal("show");
+             return false;  
+            }
+            //Dialog('<div class="col-md-12 "> Procesando Su cita Espere.. </div>','Procesando');
+            $("#myMessage").html("Espere un momento mientras se envian los Datos");
+            $("#myModal").modal("show");
+            
+           ///{id}/actualiza-cita/{fecha}
+          var path=Routing.generate('solicitudes_updatecita',{id:idsol,fecha:datets},true);
+          //alert(path);
+          window.location.href=path;
+          //$(location).href(path);
+    }
+    
+  
+  </script>
+ 
+ {%endblock %}                  

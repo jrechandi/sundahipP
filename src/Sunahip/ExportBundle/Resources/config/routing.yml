@@ -1,0 +1,8 @@
+ExportBundle_exportpdf:
+        resource: "@ExportBundle/Resources/config/routing/exportpdf.yml"
+        prefix:   /exportar/pdf
+
+ExportBundle_exportxls:
+        resource: "@ExportBundle/Resources/config/routing/exportxls.yml"
+        prefix:   /exportar/xls
+        

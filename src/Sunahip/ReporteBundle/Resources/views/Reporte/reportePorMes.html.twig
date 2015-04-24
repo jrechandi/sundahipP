@@ -1,0 +1,92 @@
+{% extends "ReporteBundle::base.html.twig" %}
+
+{% block content_reporte %}
+<div class="col-md-5">
+    <canvas id="grafico" width="300" height="300"></canvas>
+</div>
+<div class="col-md-7">
+    <div id="dataTable">
+        <table id="tablaDatos" class="table table-condensed table-striped">
+            <caption><b><b></caption>
+            <thead>
+                <tr>
+                    <th class="col-md-1"></th>
+                    <th class="col-md-5 text-left"></th>
+                    <th class="col-md-3"></th>
+                    <th class="col-md-3"></th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th></th>
+                    <th class="text-left">Totales</th>
+                    <th class="text-right"></th>
+                    <th class="text-right"></th>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>
+{% endblock content_reporte %}
+
+{% block script_reporte %}
+    
+            $('.filtroPorMes').show();
+            $('#porMes').prop('checked', true).parent('label').addClass('btn-info');
+            $("#xMes").hide();
+            $("#xEstado").show();
+            $("#xAnio").show();
+
+            var d = new Date();
+            for(var a=d.getFullYear(); a>=1990; a--){
+                $('#anio').append('<option value="'+a+'">'+a+'</option>');
+            }
+            
+            {% if anio is defined and anio is not empty %}
+                $('#anio > option:contains("{{ anio }}")').prop('selected', true);
+            {% endif %}
+
+            {% if mes is defined and mes is not empty %}
+                $('#mes > option:eq({{ mes-1 }})').prop('selected', true);
+            {% else %}
+                $('#mes > option:eq('+d.getMonth()+')').prop('selected', true);
+            {% endif %}
+            
+            var encab = {{ encabezado|raw }};
+            var report = {{ data|raw }};
+            var data = report.data;
+            var total = report.total;
+            
+            var chart = new Chart($("#grafico").get(0).getContext("2d"));
+            chart.Pie(data);
+            
+            $('#tablaDatos > caption > b').html( $('#mes > option:selected').html() + ' ' + $('#anio').val() );
+
+            $('#tablaDatos > thead > tr > th:eq(1)').html(encab.descripcion);
+            $('#tablaDatos > thead > tr > th:eq(2)').html(encab.cantidad);
+            $('#tablaDatos > thead > tr > th:eq(3)').html(encab.porcentaje);
+            
+            var tabla = $('#tablaDatos > tbody');
+            $.each(data, function(i,o){
+                tabla.append('<tr></tr>');
+                var row = $('#tablaDatos > tbody > tr:last');
+                row.append('<td><span style="background-color:'+o.color+'">&nbsp;&nbsp;&nbsp;&nbsp;</span></td>');
+                row.append('<td>'+o.label+'</td>');
+                {% if reporte != "ingresos" %}
+                    row.append('<td class="text-right">'+o.value+'</td>');
+                {% else %}
+                    row.append('<td class="text-right">'+o.value.toFixed(2)+'</td>');
+                {% endif %}
+                row.append('<td class="text-right">'+o.percent.toFixed(2)+'%</td>');
+            });
+            
+            {% if reporte != "ingresos" %}
+                $('#tablaDatos > tfoot > tr > th:eq(2)').html(total.cantidad);
+            {% else %}
+                $('#tablaDatos > tfoot > tr > th:eq(2)').html(total.cantidad.toFixed(2));
+            {% endif %}
+            $('#tablaDatos > tfoot > tr > th:eq(3)').html(total.porcentaje+'%');
+
+{% endblock script_reporte %}

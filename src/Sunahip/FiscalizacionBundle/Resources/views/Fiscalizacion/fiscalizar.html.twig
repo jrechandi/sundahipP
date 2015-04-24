@@ -1,0 +1,64 @@
+{% extends 'FiscalizacionBundle::base.html.twig' %}
+
+{% block content_content %} 
+<div class="col-md-11">
+    <div class="block-separator col-sm-11"></div>
+    <br/>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Providencia</h3>
+        </div>
+        <div class="panel-body">
+            <div class="col-md-6">
+                <strong>Providencia:</strong> {{prov.num}}
+            </div>
+            <div class="col-md-6">
+            <strong>Fecha:</strong>   {% if prov.finicio %}
+                        {{ prov.finicio|date('d/m/Y') }}
+                    {% endif %}
+                    {% if prov.ffinal %}
+                        - {{ prov.ffinal|date('d/m/Y') }}
+                    {% endif %}
+            </div>
+
+        </div>
+    </div> 
+
+    <h1>Buscar Centro Hípico</h1>
+    
+    {{ form_start(form) }}
+    {{ form_errors(form) }}
+    {{form_rest(form)}}
+
+<div class="col-md-12 form-group btn-group">
+     <div style="float: left">
+         <a href="{{ path('fiscalizacion_centro')}}" class="btn btn-info btn-sm">Crear Centro Hípico</a>
+     </div>
+     <div style="float: right">
+         <button type="submit" class="btn btn-primary btn-sm">Buscar</button>
+     </div>
+</div>
+    
+    
+    {{ form_end(form) }}
+
+    {% if result%}
+
+    <table class="table">
+        <tr>
+            <th>RIF</th>
+            <th>D. Comercial</th>
+            <th>Acción</th>
+        </tr>
+        
+        {% for i in result %}
+        <tr>
+            <td>{{i.persJuridica}}-{{i.rif}}</td>
+            <td>{{i.denominacionComercial}}</td>
+            <td><a class="btn btn-primary" href="{{ path('fiscalizacion_new', { 'tipo':'centro', 'idcentro': i.id, 'idprov': 0 }) }}">Fiscalizar</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+</div>
+{% endblock %}

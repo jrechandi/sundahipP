@@ -1,0 +1,32 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+
+{% block menu %}
+<div id="lateral">
+    <h2>Menú Principal</h2>
+    <div id="bienvenido">
+        <p>Bienvenido, <strong>Usuario</strong></p><br>
+        <ul class="menuu">
+            <li><img src="{{ asset('bundles/common/images/notificacion.png') }}"><a href="#cambio_clave">Notificaciones <span class="notif">2</span></a></li>
+            <li><img src="{{ asset('bundles/common/images/contrasena.png') }}"><a href="#cambio_clave">Cambiar Contraseña</a></li>
+        </ul>
+        <a href="{{ path('fos_user_security_logout') }}">Cerrar sesión</a>
+    </div>
+
+    <h3>Datos de Usuario</h3>
+    <ul class="menu2">
+        <li><a href="datos_basicos" title="frames/datos_basicos.html">Datos Básicos</a></li>
+    </ul>
+    <h3>Administrador de Licencias</h3>
+    <ul class="menu2">
+        <li><a href="{{ path('admclasflicencias') }}" title="frames/fiscalizaciones_consulta.html">Licencias</a></li>
+        <li><a href="{{ path('admtiposlicencias') }}" title="Administrar los Tipos de Licencia">Tipos de Licencia</a></li>
+        <li><a href="{{ path('admrecaudoslicencias') }}" title="Administrar los Recaudos">Recaudos</a></li>
+        <li><a href="{{ path('admjuegosexplotados') }}" title="Administrar los Juegos Explotados">Juegos Explotados</a></li>
+        <li><a href="{{ path('admclasfestab') }}" title="Administrar la Clasificación de Establecimientos">Establecimientos</a></li>
+    </ul>
+</div>
+{% endblock menu %}
+
+{% endblock body %}

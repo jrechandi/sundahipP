@@ -1,0 +1,106 @@
+{% extends 'CentrohipicoBundle::centroh_base.html.twig' %}
+{% block content_content %}
+    <div class="block-separator col-sm-12"></div>
+    <div class="row col-sm-12">
+        <h1>Empresas</h1>
+    </div>
+
+    <div id="action">
+        <div class="left">
+            {% if entities | length > 0 %}
+                <article class="col-sm-12 col-md-12 col-lg-12 sortable-grid ui-sortable" style="width: 50%">
+                    {{ knp_pagination_render(entities) }}
+                </article>
+            {% endif %}
+        </div>
+        <div class="right">
+            <a href="{{ path('data_empresa_new') }}" class="btn btn-primary" style="float:right; margin: 20px 25px 10px 0px;height: 32px"> Agregar nueva empresa </a>
+        </div>
+    </div>
+
+    {% if entities|length > 0 %}
+        </br>
+        <div class="col-md-12">
+            <table class="table table-condensed table-striped">
+                <thead>
+                <tr>
+                    <th>No</th>
+                    <th>RIF</th>
+                    <th>Nombre</th>
+                    <th>Acciones</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for entity in entities %}
+                    <tr id="request-{{ entity.id }}">
+                        <td>{{ loop.index }}</td>
+                        <td align="center">{{ entity.persJuridica }}-{{ entity.rif }}</td>
+                        <td align="center">
+                            <a href="#" id="{{ entity.id  }}"  data-toggle="modal" data-target="#myModal" class="show_detail">
+                                {{ entity.denominacionComercial }}
+                            </a>
+                        </td>
+                        <td class="text-center">
+                            <a href="{{ path('data_empresa_edit',{'id': entity.id}) }}"><i class="fa fa-pencil-square-o" data-toggle="tooltip" data-placement="top" title="Editar"></i></a>
+                            <a href="{{ path('data_empresa_add_partner',{'id': entity.id}) }}"><i class="fa fa-group" data-toggle="tooltip" data-placement="top" title="Agregar socio"></i></a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-12">
+            <div id="action">
+                <div class="left">
+                    {% if entities | length > 0 %}
+                        <article class="col-sm-12 col-md-12 col-lg-12 sortable-grid ui-sortable" style="width: 50%">
+                            {{ knp_pagination_render(entities) }}
+                        </article>
+                    {% endif %}
+                </div>
+                <div class="right">
+                    </br>
+                </div>
+            </div>
+        </div>
+
+    {% else %}
+        <div class="col-md-12">
+            <div id="notificaciones">
+                <ul>
+                    <li class="n1"><h5>{{ message }}</h5></li>
+                </ul>
+            </div>
+        </div>
+    {% endif %}
+    <div class="block-separator col-sm-12"></div>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span><span class="sr-only">Cerrar</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="datos_empresas"> cargando...</div>
+                <div class="modal-footer"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(function() {
+            $(".show_detail").click(function(ev) {
+                var id = $(this).attr("id");
+                $.get(Routing.generate('data_empresa_detail', {id: id}),
+                        function(data) {
+                            $('#datos_empresas').html(data);// llenarel div llenar del body de la ventana modal
+                        });
+            });
+        });
+    </script>
+
+{% endblock %}

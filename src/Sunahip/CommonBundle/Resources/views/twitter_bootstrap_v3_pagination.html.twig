@@ -1,0 +1,87 @@
+{% if pageCount > 1 %}
+    <ul class="pagination">
+
+        {# La pulpa de yasmany y felipe #}
+        {% set queryIndex = 0 %}
+        {% set ajaxIndex = 0 %}
+        {% for key,value in query %}
+            {% if key == 'ajax' %}
+                {% set ajaxIndex = queryIndex %}
+            {% endif %}
+            {% set queryIndex = queryIndex + 1 %}
+        {% endfor %}
+
+        {% set query = []|merge(query|slice(0,ajaxIndex-1), query|slice(ajaxIndex-1,query|length)) %}
+        {# La pulpa de yasmany y felipe #}
+
+        {% if previous is defined %}
+            <li>
+                <a href="#" onclick="load('{{ path(route, query|merge({(pageParameterName): previous})) }}')">&laquo;&nbsp;{{ 'Anterior'|trans }}</a>
+            </li>
+        {% else %}
+            <li class="disabled">
+                <span>&laquo;&nbsp;{{ 'Anterior'|trans }}</span>
+            </li>
+        {% endif %}
+
+        {% if startPage > 1 %}
+            <li>
+                <a href="#" onclick="load('{{ path(route, query|merge({(pageParameterName): 1})) }}')">1</a>
+            </li>
+            {% if startPage == 3 %}
+                <li>
+                    <a href="#" onclick="load('{{ path(route, query|merge({(pageParameterName): 2})) }}')">2</a>
+                </li>
+            {% elseif startPage != 2 %}
+                <li class="disabled">
+                    <span>&hellip;</span>
+                </li>
+            {% endif %}
+        {% endif %}
+
+        {% for page in pagesInRange %}
+            {% if page != current %}
+                <li>
+                    <a href="#"
+                       onclick="load('{{ path(route, query|merge({(pageParameterName): page})) }}')">{{ page }}</a>
+                </li>
+            {% else %}
+                <li class="active">
+                    <span>{{ page }}</span>
+                </li>
+            {% endif %}
+
+        {% endfor %}
+
+        {% if pageCount > endPage %}
+            {% if pageCount > (endPage + 1) %}
+                {% if pageCount > (endPage + 2) %}
+                    <li class="disabled">
+                        <span>&hellip;</span>
+                    </li>
+                {% else %}
+                    <li>
+                        <a href="#"
+                           onclick="load('{{ path(route, query|merge({(pageParameterName): (pageCount - 1)})) }}')">{{ pageCount -1 }}</a>
+                    </li>
+                {% endif %}
+            {% endif %}
+            <li>
+                <a href="#"
+                   onclick="load('{{ path(route, query|merge({(pageParameterName): pageCount})) }}')">{{ pageCount }}</a>
+            </li>
+        {% endif %}
+
+        {% if next is defined %}
+            <li>
+                <a href="#"
+                   onclick="load('{{ path(route, query|merge({(pageParameterName): next})) }}')">{{ 'Siguiente'|trans }}
+                    &nbsp;&raquo;</a>
+            </li>
+        {% else %}
+            <li class="disabled">
+                <span>{{ 'Siguiente'|trans }}&nbsp;&raquo;</span>
+            </li>
+        {% endif %}
+    </ul>
+{% endif %}

@@ -1,0 +1,130 @@
+{% extends 'FiscalizacionBundle::base.html.twig' %}
+
+{% block content_content %}
+<div class="col-md-11">
+    <div class="block-separator col-sm-11"></div>
+    
+<h1>Providencia {{ entity.num }}</h1>
+
+<table class="table">
+    <tbody>
+        <tr>
+            <th>F. de Inicio</th>
+            <td>{{ entity.finicio|date('Y-m-d') }}</td>
+        </tr>
+        <tr>
+            <th>F. de finalización</th>
+            <td>{{ entity.ffinal|date('Y-m-d') }}</td>
+        </tr>
+        <tr>
+            <th>Status</th>
+            <td>{{ entity.status }}</td>
+        </tr>
+        <tr>
+            <th>Motivo</th>
+            <td>{{ entity.motivo }}</td>
+        </tr>
+
+        <tr>
+            <th>Gerente</th>
+            <td>{{ entity.gerente.fullname }}</td>
+        </tr>
+
+        <tr>
+            <th>Fiscales</th>
+            <td>
+                <ul>
+                        {% for i in entity.fiscales  %}
+                        <li>{{ i.fullname }}</li>
+                        {% endfor %}
+                        </ul>
+                    </td>
+                </tr>
+
+                {% if is_granted('ROLE_GERENTE')  or date(entity.finicio) < date() %}
+                    {% if  not entity.centros is empty %}
+                    <tr>
+                    <th>Centro(s) Hipico(s)</th>
+                    <td>    
+                        <ul>
+                        {% for i in entity.centros  %}
+                            <li>
+                                <a href="#" id="{{ i.id  }}" data-toggle="modal" data-target="#myModal" class="show_detail">
+                                    {{ i.denominacionComercial }}
+                                </a>  
+
+                                <a href="{{ path('providencia_fiscalizacion', { 'prov': entity.id, 'id': i.id, 'tipo':'centro' }) }}" class="btn btn-default btn-sm">
+                                    Fiscalizar
+                                </a>
+                            </li>
+                        {% endfor %}
+                        </ul>
+                    </td>
+                    </tr>
+                    {% endif %}
+
+                    {% if  not entity.operadoras is empty %}
+                    <tr>
+                    <th>Operadoras</th>
+                    <td>    
+                        <ul>
+                        {% for i in entity.operadoras  %}
+                            <li>
+                                <a href="#" id="{{ i.id  }}" data-toggle="modal" data-target="#myModal" class="show_detail">
+                                    {{ i.denominacionComercial }}
+                                </a>  
+                                    &nbsp; &nbsp; 
+                                <a href="{{ path('providencia_fiscalizacion', { 'prov': entity.id, 'id': i.id, 'tipo': 'operadora' }) }}" class="btn btn-default btn-sm">
+                                    Fiscalizar
+                                </a>
+                            </li>
+                        {% endfor %}
+                        </ul>
+                    </td>
+                    </tr>
+                    {% endif %}
+
+
+                {% else %}            
+                    <div class="alert alert-warning" role="alert">
+                        No puede visualizar los centros hipicos hasta el dia de la fiscalización
+                    </div>
+                {% endif %} 
+                    </tbody>
+                </table>
+
+                <div class="">
+                        <a href="{{ path('providencia') }}" class="btn btn-success btn-sm">
+                            Volver
+                        </a>
+                            {#
+                            <a href="{{ path('providencia_edit', { 'id': entity.id }) }}">
+                                Edit
+                            </a>
+                             {{ form(delete_form) }}
+                            #}
+                </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span><span class="sr-only">Cerrar</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="datos_hipicos">
+                    
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+    
+{% block foot_script_assetic %}
+<script src="{{asset('bundles/centrohipico/js/DataCentroHipico/list.js')}}"></script>
+{% endblock foot_script_assetic %}

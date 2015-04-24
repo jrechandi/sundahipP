@@ -1,0 +1,34 @@
+nocitafecha:
+    path:     /
+    defaults: { _controller: "SolicitudesCitasBundle:AdmFechasCitas:index" }
+
+nocitafecha_show:
+    path:     /{id}/show
+    defaults: { _controller: "SolicitudesCitasBundle:AdmFechasCitas:show" }
+
+nocitafecha_new:
+    path:     /new
+    defaults: { _controller: "SolicitudesCitasBundle:AdmFechasCitas:new" }
+
+nocitafecha_create:
+    path:     /create
+    defaults: { _controller: "SolicitudesCitasBundle:AdmFechasCitas:create" }
+    requirements: { _method: post }
+
+nocitafecha_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "SolicitudesCitasBundle:AdmFechasCitas:edit" }
+
+nocitafecha_update:
+    path:     /{id}/update
+    defaults: { _controller: "SolicitudesCitasBundle:AdmFechasCitas:update" }
+    requirements: { _method: post|put }
+
+nocitafecha_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "SolicitudesCitasBundle:AdmFechasCitas:delete" }
+    requirements: { _method: post|delete }
+
+nocitafecha_maxcita:
+    path:     /maxcitaxdia/{max}
+    defaults: { _controller: SolicitudesCitasBundle:AdmFechasCitas:maxcita, max:5 }

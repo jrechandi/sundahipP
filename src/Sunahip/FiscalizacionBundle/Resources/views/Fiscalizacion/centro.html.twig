@@ -1,0 +1,61 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title">Centro Hipico</h3>
+  </div>
+  <div class="panel-body">
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Denominación Comercial</th>
+                <td>{{ centro.denominacionComercial }}</td>
+                <th>RIF</th>
+                <td>{{ centro.persJuridica }}-{{ centro.rif }}</td>
+            </tr>
+            <tr>
+                <th>Estado</th>
+                <td>
+                    {% if centro.estado is not null %}
+                        {{ centro.estado.nombre}}
+                    {% endif %}
+                </td>
+                <th>Ciudad</th>
+                <td>{{ centro.nombre }}</td>
+            </tr>
+            <tr>
+                <th>Municipio</th>
+                <td>
+                    {% if centro.municipio is not null %}   
+                        {{ centro.municipio.nombre }}
+                    {% endif %}
+                </td>
+                <th>Urbanización/sector</th>
+                <td>{{ centro.urbanSector }}</td>
+            </tr>
+            <tr>
+                <th>Av/Calle/Carrera</th>
+                <td>{{ centro.avCalleCarrera }}</td>
+                <th>Edif/Casa</th>
+                <td>{{ centro.edifCasa }}</td>
+            </tr>
+            <tr>
+                <th>Ofic/Apto Nº</th>
+                <td>{{ centro.ofcAptoNum }}</td>
+                <th>Punto de Referencia</th>
+                <td>{{ centro.puntoReferencia }}</td>
+            </tr>
+            <tr>
+                <th>Codigo Postal</th>
+                <td>{{ centro.codigoPostal }}</td>
+                <th>Fax</th>
+                <td>{{ centro.fax }}</td>
+            </tr>
+            <tr>
+                <th>Tlf Fijo</th>
+                <td>{{ centro.codTlfFijo }} {{ centro.tflFijo }} </td>
+                <th>Tlf Celular</th>
+                <td>{{ centro.codTlfCelular }} {{ centro.tflCelular }}</td>
+            </tr>
+        </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,61 @@
+{% extends 'SolicitudesCitasBundle::solicitud_base.html.twig' %}  
+{% block content_content %}
+    <div class="block-separator col-md-12"></div>
+    <h1 class="tit_principal">Mis solicitudes de Licencia</h1>
+    {#<div class="tit_principal">Solicitud Centro Hípico Generada</div>#}
+         <br /><br /><br />
+    <table class="table table-condensed table-striped">
+        <thead>
+        <tr>
+                            <th>Nº</th>
+                            <th>Nº Localizador</th>
+                            <th>Centro Hípico</th>
+                            <th>F. Solicitud </th>
+                            <th>F. de Cita  &nbsp;</th>
+                            <th>Lic. Tipo</th>
+                            <th>Status</th>
+                            <th>Acciones</th>
+	               </tr>
+        </thead>
+        <tbody>
+              {% for entity in entities %}          
+                        <tr >
+                            <td>{{loop.index}}</td>
+                            <td>{{entity.codsolicitud}}</td>
+                            <td>{{entity.centroHipico.denominacionComercial}}</td>
+                            <td>{% if entity.fechaSolicitud is not null %}{{entity.fechaSolicitud|date('d-m-Y')}} {%endif%}</td>
+                            <td>{% if entity.cita is not null %} {{entity.cita.fechaSolicitud|date('d-m-Y')}} {%else%} None {%endif%}</td>
+                            <td>{{entity.ClasLicencia.clasfLicencia}}</td>
+                            <td>{{entity.status}} </td>
+                            <td>
+                               {#<div class="col-md-12 btn-group"> #}
+                                <a href="{{path('solicitudes_printGen',{'id':entity.id,'tipo':'1'})}}" target="_blank" 
+                                   class="btn btn-info" title="Ver e Imprimir" {% if entity.status != 'Solicitada' %} disabled {% endif %}>
+                                    <i class="fa fa-print"></i>
+                                </a><!--Ver-->
+                                <a href="{{path('solicitudes_cambiarcita',{'id':entity.id})}}" 
+                                    class="btn btn-success" title="Reprogramar Cita" {% if entity.status != 'Solicitada' %} disabled {% endif %}>
+                                    <i class="fa fa-clock-o"></i>
+                                </a><!--Cambiar Cita-->
+                                <a href="{{path('datasolicitudes_edit',{'id':entity.id})}}" 
+                                    class="btn btn-warning" title="Cambiar Datos" {% if entity.status != 'Solicitada' %} disabled {% endif %}>
+                                    <i class="fa fa-edit"></i>
+                                </a><!--Cambiar Datos-->
+                                {#<a href="#" class="btn btn-primary" title="Cambiar Documentos"><i class="fa fa-files-o"></i></a><!--Cambiar Documentos-->#}
+                               {#</div>#}
+                            </td>
+                         </tr>
+                 {%endfor%}
+                 {% if not entities %}
+                     <tr><td class="text-center" colspan="8">No Existen Registros de Solicitudes</td></tr>
+               {%endif%}
+		</tbody>
+             </table>        
+    {% endblock %}
+{% block foot_script_assetic %}
+    {{ parent() }}
+    <script type="text/javascript">
+        
+    </script>
+
+{%endblock%}

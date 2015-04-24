@@ -1,0 +1,218 @@
+{% extends "NewTemplateBundle::base.html.twig" %}
+
+{% block content_content %}
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/reporte/css/style.css') }}"/>
+    <style>
+        #table_header td{
+            color:white;
+        }
+    </style>
+
+    <div id="contenido">
+        <div class="row col-sm-12">
+            <h1>
+                Informes
+            </h1>
+        </div>
+
+        <form class="form-inline" role="form" action="{{ path('imprimir_ejecutivo') }}" method="post">
+            <div class="informe">
+                <h2>Informe ejecutivo</h2>
+                {% block content_reporte %}{% endblock content_reporte %}
+                <div class="rango">
+                    <ul class="select_date">
+                        <li>
+                            Vista por Mes
+                            <select id="mes" name="mes" class="form-control">
+                                <option value="1">Enero</option>
+                                <option value="2">Febrero</option>
+                                <option value="3">Marzo</option>
+                                <option value="4">Abril</option>
+                                <option value="5">Mayo</option>
+                                <option value="6">Junio</option>
+                                <option value="7">Julio</option>
+                                <option value="8">Agosto</option>
+                                <option value="9">Septiembre</option>
+                                <option value="10">Octubre</option>
+                                <option value="11">Noviembre</option>
+                                <option value="12">Diciembre</option>
+                            </select>
+                        </li>
+                        <li>Año:
+                            <select id="anio" name="anio" class="form-control" onchange="setDays();"></select>
+                        </li>
+                    </ul>
+                    <input type="button" id="xMes" style="color: black;padding: 4px" value="Ver por mes" data-url="{{ path('informe_xmes', {'reporte': '@reporte'}) }}" class="btn_informe btn_anio" title="ver por mes" onclick="onClickTipo(this);" style="display: none;" >
+                    <input type="button" id="xAnio" style="color: black;padding: 4px" value="Ver por año" data-url="{{ path('informe_xanio', {'reporte': '@reporte'}) }}" class="btn_informe btn_anio" title="ver por año" onclick="onClickTipo(this);" style="display: none;" >
+                    <input type="button" id="xEstado" style="color: black;padding: 4px" value="Ver por estado" data-url="{{ path('informe_xestado', {'reporte': '@reporte'}) }}" class="btn_informe btn_anio" title="ver por estado" onclick="onClickTipo(this);" style="display: none;" >
+
+                    <input type="radio" class="btn_informe btn_anio" id="porMes" name="tipo" value="mes" data-url="{{ path('informe_xmes', {'reporte': '@reporte'}) }}" onclick="onClickTipo(this);" style="display: none;" />
+                    <input type="radio" class="btn_informe btn_anio" id="porAnio" name="tipo" value="anio" data-url="{{ path('informe_xanio', {'reporte': '@reporte'}) }}" onclick="onClickTipo(this);" style="display: none;" />
+                    <input type="radio" class="btn_informe btn_anio" id="porEstado" name="tipo" value="estado" data-url="{{ path('informe_xestado', {'reporte': '@reporte'}) }}" onclick="onClickTipo(this);" style="display: none;" />
+
+                    <ul id="datepickerList" >
+                        <li> <strong style="margin-top: 10px; margin-right: 12px; padding:10px">Vista por Rango</strong></li>
+                        <li> Desde:
+                            <input readonly="readonly"  style="color: black" type="text" {% if desde is defined %} value="{{ desde }}" {% else %} value="" {% endif %} name="desde" id="datepicker">
+                        </li>
+                        <li> Hasta:
+                            <input readonly="readonly"  style="color: black" type="text" {% if hasta is defined %} value="{{ hasta }}" {% else %} value="" {% endif %} name="hasta" id="datepickerEnd">
+                        </li>
+                        <li>
+                            <button  id="btnReset" type="button" onclick="reset()" style="color: black;padding: 2px" >Limpiar</button>
+                        </li>
+                    </ul>
+
+                    <input type="submit" style="color: black;padding: 4px" value="Consultar" class="consultar">
+
+                    <div class="div_class">
+                        <p><strong style="color: white;">Ver por Status:</strong></p>
+                        <ul>
+                            <li>
+                                En Espera de Recaudos:
+                                <input type="checkbox" name="select_status">
+                            </li>
+                            <li>
+                                En Espera de Pago por Otorgamiento:
+                                <input type="checkbox" name="select_status">
+                            </li>
+                            <li>
+                                En Espera de Informe Técnico:
+                                <input type="checkbox" name="select_status">
+                            </li>
+                            <li>
+                                En Espera de Informe Legal:
+                                <input type="checkbox" name="select_status">
+                            </li>
+                            <li>
+                                En Espera de Providencia:
+                                <input type="checkbox" name="select_status">
+                            </li>
+                            <li>
+                                En Espera de Aprobación:
+                                <input type="checkbox" name="select_status">
+                            </li>
+                            <li>
+                                Aprobadas:
+                                <input type="checkbox" name="select_status">
+                            </li>
+                            <li>
+                                Rechazadas:
+                                <input type="checkbox" name="select_status">
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+{% endblock content_content %}
+
+{% block script_base %}
+    {{ parent() }}
+
+    <script>
+        function reset()
+        {
+            getElementById("form-query").reset();
+            $('#datepicker').val(' ');
+            $('#datepickerEnd').val(' ');
+        }
+    </script>
+
+
+    <script src="//code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('#datepicker').datepicker({ dateFormat: 'yy-mm-dd' });
+            $('#datepickerEnd').datepicker({ dateFormat: 'yy-mm-dd' });
+        });
+    </script>
+
+    {% javascripts '@ReporteBundle/Resources/public/js/Chart.min.js' %}
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+
+    <script>
+        $(document).ready(function(){
+            Chart.defaults.global = {
+                animation: true,
+                animationSteps: 30,
+                animationEasing: "easeOutQuart",
+                showScale: true,
+                scaleOverride: false,
+                scaleSteps: null,
+                scaleStepWidth: null,
+                scaleStartValue: null,
+                scaleLineColor: "rgba(0,0,0,.1)",
+                scaleLineWidth: 1,
+                scaleShowLabels: true,
+                scaleLabel: "<%=value%>",
+                scaleIntegersOnly: true,
+                scaleBeginAtZero: false,
+                scaleFontFamily: "'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
+                scaleFontSize: 12,
+                scaleFontStyle: "normal",
+                scaleFontColor: "#666",
+                responsive: false,
+                maintainAspectRatio: true,
+                showTooltips: true,
+                tooltipEvents: ["mousemove", "touchstart", "touchmove"],
+                tooltipFillColor: "rgba(0,0,0,0.8)",
+                tooltipFontFamily: "'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
+                tooltipFontSize: 14,
+                tooltipFontStyle: "normal",
+                tooltipFontColor: "#fff",
+                tooltipTitleFontFamily: "'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
+                tooltipTitleFontSize: 14,
+                tooltipTitleFontStyle: "bold",
+                tooltipTitleFontColor: "#fff",
+                tooltipYPadding: 6,
+                tooltipXPadding: 6,
+                tooltipCaretSize: 8,
+                tooltipCornerRadius: 6,
+                tooltipXOffset: 10,
+                tooltipTemplate: "<% if (label){ %><%= label %>: <% } %><%= value %>",
+                multiTooltipTemplate: "<%= value %>",
+                onAnimationProgress: function(){},
+                onAnimationComplete: function(){}
+            };
+
+            $('#grafico').prop('width', $("#grafico").parent('div').width());
+
+            var d = new Date();
+            for(var a=d.getFullYear(); a>=1990; a--){
+                $('#anio').append('<option value="'+a+'">'+a+'</option>');
+            }
+            $('#mes > option:eq('+d.getMonth()+')').prop('selected', true);
+            setDays();
+            $('#dia > option:eq('+(d.getDate()-1)+')').prop('selected', true);
+
+            $('form').submit(function(e){
+                e.preventDefault();
+                window.open($(this).prop('action')+'?'+$(this).serialize(),'Informe Ejecutivo');
+            });
+
+        });
+
+        function setDays(){
+            var mm = $('#mes > option:selected').val();
+            var yyyy = $('#anio > option:selected').val();
+            var N=31;
+            if(mm==4 || mm==6 || mm==9 || mm==11){
+                N=30;
+            }else if(mm==2){
+                if(yyyy%4!=0){
+                    N=28;
+                }else{
+                    N=29;
+                }
+            }
+            $('#dia > option').remove();
+            for(var i=1; i<=N; i++){
+                $('#dia').append('<option value="'+i+'">'+i+'</option>');
+            }
+        }
+    </script>
+{% endblock script_base %}

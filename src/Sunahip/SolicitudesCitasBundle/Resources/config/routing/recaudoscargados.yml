@@ -1,0 +1,47 @@
+#Prefix: /solicitud-licencia/recaudoscargados
+recaudoscargados_edit:
+    path:     /edit-recaudo{id}
+    defaults: { _controller: "SolicitudesCitasBundle:RecaudosCargados:edit" }
+
+recaudoscargados_update:
+    path:     /actualiza-recaudo{id}
+    defaults: { _controller: "SolicitudesCitasBundle:RecaudosCargados:update" }
+
+recaudoscargados_show:
+    path:     /vertodos-recaudo{id}
+    defaults: { _controller: "SolicitudesCitasBundle:RecaudosCargados:show" }
+
+recaudoscargados_new:
+    path:     /nuevos-recaudos-{id}
+    defaults: { _controller: "SolicitudesCitasBundle:RecaudosCargados:new" }
+
+recaudoscargados_add:
+    path:     /{ids}/agregar-recaudo-{rlid}
+    defaults: { _controller: "SolicitudesCitasBundle:RecaudosCargados:create" }
+    requirements: { _method: post }
+    
+recaudospago_edit:
+    path:     /edit-pago{id}
+    defaults: { _controller: "SolicitudesCitasBundle:Pago:edit" }
+
+recaudospago_new:
+    path:     /nuevo-pago-{idcl}
+    defaults: { _controller: "SolicitudesCitasBundle:Pago:new" }
+
+recaudospago_create:
+    path:     /cargar-pago-{ids}
+    defaults: { _controller: "SolicitudesCitasBundle:Pago:create" }
+
+recaudospago_update:
+    path:     /actualiza-pago{id}
+    defaults: { _controller: "SolicitudesCitasBundle:Pago:update" }
+
+recaudospago_show:
+    path:     /ver-pago{ids}
+    defaults: { _controller: "SolicitudesCitasBundle:Pago:show" }
+    
+recaudos_remove:
+    path:     /remover-recaudo{id}
+    defaults: { _controller: "SolicitudesCitasBundle:RecaudosCargados:removeRecaudos" }
+    
+    

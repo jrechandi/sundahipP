@@ -1,0 +1,13 @@
+{% if hasHipodromo == "true" %}
+<div class="col-md-4"> Hipódromos Internacionales <span class="oblig">(*)</span>:</div>
+<div class="col-md-8">
+    <textarea cols="60" rows="6" id="text_hipointer" class="hipointer form-control" required="required" name="hipodromoInter"></textarea><br>
+    Ejemplo:<br>Argentina: Hipodromo, Estados Unidos: Hipódromo, ...    
+</div>
+<br/>
+<button class="btn btn-info" onclick="cargaHipointer('hipointer');">Actualizar</button>
+{% else %}
+<div class="col-md-4"><p>No Aplica para este tipo de Licencia</p></div>
+<div class="col-md-8">&nbsp;</div>
+{#<button class="btn btn-danger" onclick="cambiar('hipointer',false);">Cancelar</button>#}
+{% endif %}

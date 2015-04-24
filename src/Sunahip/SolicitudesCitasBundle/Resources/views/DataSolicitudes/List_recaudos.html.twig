@@ -1,0 +1,125 @@
+<table id="tabla_reporte2">				
+        <tr id="table_header2">
+                 <td>N#</td>
+                 <td>Tipo de Documento</td>
+                 <td>Buscar Archivo<span class="oblig">(*)</span></td>
+                 <td>Fecha de Vencimiento<span class="oblig">(*)</span></td>
+                 <td>Consignado<span class="oblig">(*)</span></td>
+        </tr>
+        {% set last = 1 %}
+        {%for row in list %}   
+          <tr>
+                 <td class="text-center">{{loop.index}}</td>
+                 <td class="text-left">{{row.recaudo}}</td>
+                 <td class="text-center">{{ form_widget(FDSolicitud.recaudoscargados[loop.index-1].mediarecaudo, {'attr': {'class': 'mediarecaudo' }}) }}
+                                {% if FDSolicitud.recaudoscargados[loop.index-1].mediarecaudo.vars.errors[0].message is defined %}
+                                <span class="help-block ">
+                                    {{ FDSolicitud.recaudoscargados[loop.index-1].mediarecaudo.vars.errors[0].message }}
+                                </span>
+                                {% endif %}
+                  </td>
+                 <td class="text-center ">{% set disable= row.fechaVencimiento==0?'disabled':'readonly' %}
+                                {{ form_widget(FDSolicitud.recaudoscargados[loop.index-1].fechaVencimiento, {'attr': {'class': 'date fechavencimiento '~disable} }) }}
+                                {% if FDSolicitud.recaudoscargados[loop.index-1].fechaVencimiento.vars.errors[0].message is defined %}
+                                <span class="help-block ">
+                                    {{ FDSolicitud.recaudoscargados[loop.index-1].fechaVencimiento.vars.errors[0].message }}
+                                </span>
+                                {% endif %}
+                  </td>
+                 
+                 {#<td><input type="file" name="datasolicitud[recaudo][{{row.id}}][file]" id="adj"></td>#}
+                 {#<td><input type="date" name="datasolicitud[recaudo][{{row.id}}][fecha]" id="R_date" placeholder="dd/mm/aaaa" /></td>#}
+                 <td class="text-center">
+                     <input type="checkbox" disabled="disabled" />
+                     {{ form_widget(FDSolicitud.recaudoscargados[loop.index-1].tipodoc, {'attr': {'class': 'tipodoc'},'data':'D' }) }}
+                     {{ form_widget(FDSolicitud.recaudoscargados[loop.index-1].status, {'attr': {'class': 'status'} }) }}
+                     {{ form_widget(FDSolicitud.recaudoscargados[loop.index-1].reciboN, {'attr': {'class': 'hide'} }) }}
+                     {#{ form_widget(FDSolicitud.recaudoscargados[loop.index-1].recaudoLicencia, {'value':row.id, 'attr': {'class': 'hide'} }) }#}
+                     <input type="hidden" id="recaudos_{{loop.index-1}}" name="recaudoLicencia[{{loop.index-1}}]" class="hide" value="{{row.id}}">
+                 </td>
+        </tr>
+          {% set last = loop.length %}
+        {%endfor%}
+</table>
+<div id="pagoP">
+    {% include 'SolicitudesCitasBundle:DataSolicitudes:List_pagosP.html.twig' %}
+</div>
+<script type="text/javascript">
+
+    $(".mediarecaudo").change(function(){
+        console.info('valor', $(this).val());
+        comprueba_extension($(this).val(),$(this));
+    })
+
+    function comprueba_extension(archivo, obj) {
+        extensiones_permitidas = new Array(".pdf");
+        mierror = "";
+        if (!archivo) {
+            //Si no tengo archivo, es que no se ha seleccionado un archivo en el formulario
+            mierror = "No has seleccionado ningún archivo";
+        }else{
+            //recupero la extensión de este nombre de archivo
+            extension = (archivo.substring(archivo.lastIndexOf("."))).toLowerCase();
+            //alert (extension);
+            //compruebo si la extensión está entre las permitidas
+            permitida = false;
+            for (var i = 0; i < extensiones_permitidas.length; i++) {
+                if (extensiones_permitidas[i] == extension) {
+                    permitida = true;
+                    break;
+                }
+            }
+            if (!permitida) {
+                mierror = "Comprueba la extensión de los archivos a subir. \nSólo se pueden subir archivos con extensiones: " + extensiones_permitidas.join();
+                obj.val('');
+                alert (mierror);
+            }else{
+//                alert ("Todo correcto. Voy a submitir el formulario.");
+                //formulario.submit();
+                return 1;
+            }
+        }
+        //si estoy aqui es que no se ha podido submitir
+
+        return 0;
+    }
+</script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#pago_procesamiento").html($("#pagoP").html());
+        $("#F_pagoP").html($("#pagoP").html());
+        $("#pagoP").remove();
+        $(".disabled").prop('disabled',true);
+        //$(".readonly").prop('readonly',true);
+        var Options={
+            autoSize: true,
+            dateFormat: 'dd/mm/yy',
+            maxDate: '{{ "now" | date("d/m/Y") }}',
+            onSelect: function(dateText, inst) { 
+               var datets = Date.parse(inst.selectedYear+'-'+inst.selectedMonth+'-'+inst.selectedDay);
+               //GenerarSolicitud(datets);
+               $(this).val(dateText);                
+           } 
+        };
+        var Options2={
+            autoSize: true,
+            dateFormat: 'dd/mm/yy',
+            minDate: '{{ "now" | date_modify("+30 day") | date("d/m/Y") }}',
+            onSelect: function(dateText, inst) { 
+               var datets = Date.parse(inst.selectedYear+'-'+inst.selectedMonth+'-'+inst.selectedDay);
+               //GenerarSolicitud(datets);
+               $(this).val(dateText);                
+           } 
+        };
+      $(".date").each(function(index,elem){
+          $(this).datepicker(Options2);
+          $(this).attr('style','cursor: pointer !important');
+      });
+      $(".datePago").each(function(index,elem){
+          $(this).datepicker(Options);
+          $(this).attr('style','cursor: pointer !important');
+          //$(this).prop('readonly',true);
+      });      
+    });
+</script>
+    

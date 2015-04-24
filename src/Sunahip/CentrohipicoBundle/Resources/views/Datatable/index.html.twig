@@ -1,0 +1,54 @@
+{% extends "NewTemplateBundle::base.html.twig" %}
+
+{% block content_content %}
+    <div class="block-separator col-sm-12"></div>
+    <div class="row col-sm-12">
+        <h1>Listado de Usuarios</h1>
+    </div>
+
+    <div class="block-separator col-sm-12"></div>
+    <div class="row">
+        <div class="col-sm-2">
+            <a href="{{ path('nuevo-usuario') }}" class="btn btn-primary btn-sm "><i class="icon-plus-sign"></i> Agregar usuario</a>
+        </div>
+        <div class="col-sm-10 block-separator"></div>
+    </div>
+
+    <div class="col-md-12">
+        {{ datatable_render(datatable) }}
+    </div>
+    <div class="block-separator col-sm-12"></div>
+
+{% endblock %}
+{#{% block script_base %}#}
+    {#<script type="text/javascript">#}
+        {#$( document ).ready(function() {#}
+            {#setTimeout(function(){#}
+                {#$('a[class=delete-user][href]').each(function() {#}
+                    {#$(this).attr('data-href', $(this).attr('href'));#}
+                    {#$(this).attr('href', '#');#}
+                    {#$(this).attr("disabled",false);#}
+                {#});#}
+
+                {#$('a[class=disable-user][href]').each(function() {#}
+                    {#var href = $(this).attr('href');#}
+                    {#$(this).attr('data-href', href+"/0");#}
+                    {#$(this).attr('href', '#');#}
+                    {#$(this).attr("disabled",false);#}
+                {#});#}
+
+            {#}, 1500);#}
+
+        {#});#}
+
+        {#$('#confirm-delete').on('show.bs.modal', function(e) {#}
+            {#$(this).find('.danger').attr('href', $(e.relatedTarget).data('href'));#}
+        {#});#}
+        {#$('#confirm-enable').on('show.bs.modal', function(e) {#}
+            {#$(this).find('.danger').attr('href', $(e.relatedTarget).data('href'));#}
+        {#});#}
+        {#$('#confirm-disable').on('show.bs.modal', function(e) {#}
+            {#$(this).find('.danger').attr('href', $(e.relatedTarget).data('href'));#}
+        {#});#}
+    {#</script>#}
+{#{% endblock %}#}

@@ -1,0 +1,23 @@
+{% extends 'CentrohipicoBundle::centroh_base.html.twig' %} 
+{% block content_content %}
+    <div class="block-separator col-sm-12"></div>
+    <div class="row col-sm-12">
+        <h1 class="tit_principal">Detalle de  Operadora </h1>
+    </div>
+   <div class="block-separator col-sm-12"></div>
+{%if entity is not empty %}
+  {% include 'CentrohipicoBundle:DataOperadora:verDatos.html.twig'%}
+{%else%}
+    <div class='alert adjusted alert-info fade in'>
+        <i class='fa-fw fa-lg fa fa-exclamation'></i><strong>Info: </strong>no se Encontró Ningún Registro de Datos
+    </div>   
+{%endif%}
+{% endblock content_content%}
+{% block foot_script_assetic %}
+    <script type="text/javascript" >
+            $(document).ready(function(){
+                $('#tabs').tabs();
+                $("#dataoper #datalegal").show();
+            });
+    </script>   
+{% endblock foot_script_assetic%}

@@ -1,0 +1,39 @@
+#solicitudes_citas:
+#    resource: "@SolicitudesCitasBundle/Resources/config/routing/routing.yml"
+#    prefix:   /citas
+       
+SolicitudesCitasBundle_centrohipico:
+    resource: "@SolicitudesCitasBundle/Resources/config/routing/solicitudeschipico.yml"
+    prefix:   /solicitud-licencia/centro-hipico
+
+SolicitudesCitasBundle_operadora:
+    resource: "@SolicitudesCitasBundle/Resources/config/routing/solicitudesoperadora.yml"
+    prefix:   /solicitud-licencia/operadora
+
+SolicitudesCitasBundle_recaudoscargados:
+    resource: "@SolicitudesCitasBundle/Resources/config/routing/recaudoscargados.yml"
+    prefix:   /solicitud-licencia/recaudoscargados
+    options:
+         expose: true
+
+SolicitudesCitasBundle_juegosexplotados:
+    resource: "@SolicitudesCitasBundle/Resources/config/routing/juegosexplotados.yml"
+    prefix:   /solicitud-licencia/juegosexplotados
+    options:
+         expose: true
+    
+SolicitudesCitasBundle_nocitafecha:
+    resource: "@SolicitudesCitasBundle/Resources/config/routing/admfechascitas.yml"
+    prefix:   /admfechascitas
+
+admin_citas_:
+    resource: "@SolicitudesCitasBundle/Controller/AdminCitasController.php"
+    type:     annotation
+    options:
+        expose: true
+
+admin_licencias_:
+    resource: "@SolicitudesCitasBundle/Controller/AdminLicenciasController.php"
+    type:     annotation
+    options:
+        expose: true

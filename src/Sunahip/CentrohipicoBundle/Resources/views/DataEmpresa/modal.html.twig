@@ -1,0 +1,236 @@
+<style>
+    .ui-widget-header {
+        background: transparent !important;
+        color: transparent !important;
+        border: none !important;
+    }
+    .ui-widget-content {
+        background: transparent !important;
+        color: transparent !important;
+        border: none !important;
+    }
+</style>
+
+<table class="record_properties table table-condensed col-lg-12 col-md-12 col-sm-12" id="tabla_reporte">
+    <thead>
+    <tr>
+        <th colspan="2" > Denominacion Comercial: {{ entity.denominacionComercial }}</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td style="width: 60%; text-align: right;"> RIF </td>
+        <th>{{ entity.persJuridica }} - {{ entity.rif }}</th>
+    </tr>
+    </tbody>
+</table>
+<div id="tabs">
+    <ul>
+        <li><a href="#dataempresa" data-toggle="tab">Empresa</a></li>
+        <li><a href="#datalegal" data-toggle="tab">Representante Legal</a></li>
+        <li><a href="#socios" data-toggle="tab">Socios</a></li>
+    </ul>
+
+    <div id="dataempresa"  class="col-md-12">
+        <table class="table table-condensed col-lg-12 col-md-12 col-sm-12" id="tabla_reporte2">
+            <thead>
+            <tr>
+                <th colspan="4" >DATOS DE LA EMPRESA</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Denominación Comercial:</td>
+                <th colspan="3">{{ entity.denominacionComercial}}</th>
+            </tr>
+            <tr>
+                <td>Rif</td>
+                <th colspan="3">{{ entity.persJuridica }}-{{ entity.rif }}</th>
+            </tr>
+            <tr>
+                <td>Estado:</td>
+
+                <th>{%if entity.estado|length  > 0%}
+                        {{ entity.estado.nombre }}
+                    {%endif%}
+                </th>
+                <td>Ciudad:</td>
+                <th>{%if entity.ciudad|length  > 0%}
+                        {{ entity.ciudad }}
+                    {%endif%}
+                </th>
+            </tr>
+            <tr>
+                <td>Municipio:</td>
+                <th>{%if entity.municipio|length  > 0%}
+                        {{ entity.municipio.nombre}}
+                    {%endif%}
+                </th>
+                <td>Urbanización/Sector:</td>
+                <th>{{ entity.urbanSector }}</th>
+            </tr>
+            <tr>
+                <td>Av/Calle/Carrera:</td>
+                <th>{{ entity.avCalleCarrera }}</th>
+                <td>Edif/Casa:</td>
+                <th>{{ entity.edifCasa }}</th>
+            </tr>
+            <tr>
+                <td>Oficina/Apto/No:</td>
+                <th>{{ entity.ofcAptoNum }}</th>
+                <td>Punto Referencia</td>
+                <th>{{ entity.puntoReferencia }}</th>
+            </tr>
+            <tr>
+                <td>Teléfono Fijo:</td>
+                <th>{{ entity.codTlfFijo }} {{ entity.tflFijo }}</th>
+                <td>Teléfono Celular</td>
+                <th>{{ entity.codTlfCelular }} {{ entity.tflCelular }}</th>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div id="datalegal" class="col-lg-12 col-md-12 col-sm-12">
+    <table class=" table table-condensed col-lg-12 col-md-12 col-sm-12" id="tabla_reporte">
+    <thead>
+    <tr>
+    <th colspan="4" > DATOS DEL APODERADO O REPRESENTANTE LEGAL</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td>Nombre:</td>
+    <th>{{ legal.nombre }}</th>
+    <td>Rif:</td>
+    <th>{{ legal.persJuridica }}-{{ legal.rif }}</th>
+    </tr>
+    <tr>
+    <td>No. Teléfono Fijo:</td>
+    <th>{{ legal.codTlfFijo }} {{ legal.tflFijo }}</th>
+    <td>No. Teléfono Celular:</td>
+    <th>{{ legal.codTlfCelular }} {{ legal.tflCelular }}</th>
+    </tr>
+    <tr>
+    <td>Estado:</td>
+    <th>{%if legal.estado|length  > 0%}
+    {{ legal.estado.nombre }}
+    {%endif%}
+    </th>
+    <td>Ciudad:</td>
+    <th>{%if legal.ciudad|length  > 0%}
+    {{ legal.ciudad }}
+    {%endif%}
+    </th>
+    </tr>
+    <tr>
+    <td>Municipio:</td>
+    <th>{%if legal.municipio|length  > 0%}
+    {{ legal.municipio.nombre}}
+    {%endif%}
+    </th>
+    <td>Parroquia:</td>
+    <th>{%if legal.parroquia|length  > 0%}
+    {{legal.parroquia.nombre }}
+    {%endif%}
+    </th>
+    </tr>
+    <tr>
+    <td>Urbanización/Sector:</td>
+    <th>{{ legal.urbanSector }}</th>
+    <td>Av/Calle/Carrera:</td>
+    <th>{{ legal.avCalleCarrera }}</th>
+    </tr>
+    <tr>
+    <td>Edif/Casa:</td>
+    <th>{{ legal.edifCasa }}</th>
+    <td>Oficina/Apto/No:</td>
+    <th>{{ legal.ofcAptoNum }}</th>
+    </tr>
+    <tr>
+    <td>Punto Referencia:</td>
+    <th>{{ legal.puntoReferencia }}</th>
+    <td>Código Postal:</td>
+    <th>{{ legal.codigoPostal }}</th>
+    </tr>
+    <tr>
+    <td>Fax:</td>
+    <th>{{ legal.fax }}</th>
+    <td>Email:</td>
+    <th>{{ legal.email }}</th>
+    </tr>
+    <tr>
+    <td>Página Web:</td>
+    <th colspan="3">{{ legal.pagWeb }}</th>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+
+    <div id="socios"  class="col-md-12">
+        <table id="tabla_reporte3" class="table table-condensed col-lg-12 col-md-12 col-sm-12">
+            <thead>
+            <tr>
+                <th colspan="4" > Detalles de los socios </th>
+            </tr>
+            </thead>
+            <tr id="table_header">
+                <td><a href="#">Nombre o Denominacion Comercial</a></td>
+                <td><a href="#">Rif</a></td>
+                <td><a href="#">Fecha de registro</a></td>
+                <td><a href="#">Estatus</a></td>
+            </tr>
+            <tbody>
+            {% if partner2 is defined %}
+                {% for socio in partner2 %}
+                    <tr>
+                        <td class="text-center">
+                            {% if socio.denominacionComercial is defined %}
+                                {{ socio.denominacionComercial }}
+                            {% else %}
+                                {% if socio.nombreComercial|length > 0 %}
+                                    {{ socio.nombreComercial }}
+                                {% else %}
+                                    {{ socio.nombre }} {{ socio.apellido }}
+                                {% endif %}
+                            {% endif %}
+                        </td>
+                        <td class="text-center">{{ socio.persJuridica }}-{{ socio.rif }}</td>
+                        <td class="text-center">{% if socio.fechaRegistro is defined %}{{ socio.fechaRegistro|date("d/m/Y")}}{% else %} - {% endif %}</td>
+                        <td class="text-center">Activo</td>
+
+                    </tr>
+                {% endfor %}
+            {% endif %}
+
+            {% if partner1 is defined %}
+                {% for socio in partner1 %}
+                    <tr>
+                        <td class="text-center">
+                            {% if socio.denominacionComercial is defined %}
+                                {{ socio.denominacionComercial }}
+                            {% else %}
+                                {% if socio.nombreComercial|length > 0 %}
+                                    {{ socio.nombreComercial }}
+                                {% else %}
+                                    {{ socio.nombre }} {{ socio.apellido }}
+                                {% endif %}
+                            {% endif %}
+                        </td>
+                        <td class="text-center">{{ socio.persJuridica }}-{{ socio.rif }}</td>
+                        <td class="text-center">{% if socio.fechaRegistro is defined %}{{ socio.fechaRegistro|date("d/m/Y")}}{% else %} - {% endif %}</td>
+                        <td class="text-center">Activo</td>
+
+                    </tr>
+                {% endfor %}
+            {% endif %}
+            </tbody>
+        </table>
+    </div>
+</div>
+<script type="text/javascript" >
+    $(document).ready(function(){
+        $('#tabs').tabs();
+        $("#dataoper #datalegal").show();
+    });
+</script>

@@ -1,0 +1,72 @@
+operadora:
+    path:     /
+    defaults: { _controller: "CentrohipicoBundle:DataOperadora:index" }
+
+operadora_show:
+    path:     /{id}/detalles
+    defaults: { _controller: "CentrohipicoBundle:DataOperadora:show" }
+
+operadora_new:
+    path:     /legal
+    defaults: { _controller: "CentrohipicoBundle:DataOperadora:new" }
+
+operadora_create:
+    path:     /legal_create
+    defaults: { _controller: "CentrohipicoBundle:DataOperadora:create" }
+    requirements: { _method: post }    
+
+operadora_new_office:
+    path:     /oficina{tipo}
+    defaults: { _controller: "CentrohipicoBundle:DataOperadora:newOffice", tipo: P }
+
+operadora_create_office:
+    path:     /create_oficina_oficina{tipo}
+    defaults: { _controller: "CentrohipicoBundle:DataOperadora:createOffice", tipo: P }
+    requirements: { _method: post }
+
+operadora_edit:
+    path:     /{id}/editar_oficina
+    defaults: { _controller: "CentrohipicoBundle:DataOperadora:edit" }
+
+operadora_update:
+    path:     /{id}/update
+    defaults: { _controller: "CentrohipicoBundle:DataOperadora:update" }
+    requirements: { _method: post|put }
+
+#operadora_delete:
+#    path:     /{id}/delete
+#    defaults: { _controller: "CentrohipicoBundle:DataOperadora:delete" }
+#    requirements: { _method: post|delete }
+
+operadora_info:
+    path:     /info/{id}
+    defaults: { _controller: "CentrohipicoBundle:DataOperadora:getInfo" }
+    options:
+        expose: true
+        
+operadora_sucursales:
+    path:     /sucursales
+    defaults: { _controller: "CentrohipicoBundle:DataOperadora:sucursaleslst" }
+
+operadora_new_sucursal:
+    path:     /sucursal-nueva{tipo}
+    defaults: { _controller: "CentrohipicoBundle:DataOperadora:newOffice",tipo:S }
+
+operadora_create_sucursal:
+    path:     /sucursal_create{tipo}
+    defaults: { _controller: "CentrohipicoBundle:DataOperadora:newOffice", tipo:S }
+    requirements: { _method: post }  
+
+operadora_delete_sucursal:
+    path:     /sucursal{id}/delete
+    defaults: { _controller: "CentrohipicoBundle:DataOperadora:sucursalDel" }
+    requirements: { _method: post|delete }
+    options:
+        expose: true
+    
+#operadora_create_office:
+#    path:     /create_oficina_oficina{tipo}
+#    defaults: { _controller: "CentrohipicoBundle:DataOperadora:createOffice", tipo: P }
+#    requirements: { _method: post }
+
+

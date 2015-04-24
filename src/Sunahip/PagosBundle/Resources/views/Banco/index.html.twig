@@ -1,0 +1,86 @@
+{% extends 'NewTemplateBundle::base.html.twig' %}
+
+{% block content_content %}
+    <div class="block-separator col-sm-12"></div>
+    <div class="row col-sm-12">
+        <h1>
+            Bancos
+        </h1>
+    </div>
+
+    <div id="action">
+        <div class="left">
+            {#{% if entities | length > 0 %}#}
+                {#<article class="col-sm-12 col-md-12 col-lg-12 sortable-grid ui-sortable" style="width: 50%">#}
+                    {#{{ knp_pagination_render(entities) }}#}
+                {#</article>#}
+            {#{% endif %}#}
+        </div>
+        <div class="right">
+            <a href="{{ path('banco_new') }}" class="btn btn-primary" style="float:right; margin: 20px 25px 10px 0px;height: 32px"> Agregar nuevo banco </a>
+        </div>
+    </div>
+
+
+<div class="col-md-12">
+    <table class="table table-condensed table-striped">
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>Banco</th>
+                <th>Numero de cuenta</th>
+                <th>Estatus</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td>{{ loop.index }}</td>
+                <td align="center">{{ entity.banco }}</td>
+                <td align="center">{{ entity.numeroCuenta }}</td>
+                <td align="center">{% if entity.activo == 1 %} Activo {% else  %} Inactivo {% endif %}</td>
+                <td align="center">
+                    {#<a class="btn btn-sm btn-primary" href="{{ path('banco_show', { 'id': entity.id }) }}">ver</a>#}
+                    <a class="btn btn-sm btn-primary" href="{{ path('banco_edit', { 'id': entity.id }) }}">
+                        <i class="fa fa-pencil" data-toggle="tooltip" data-placement="top" title="Eliminar"></i>
+                    </a>
+                    <a class="btn btn-sm btn-primary" data-href="{{ path('banco_delete', {'id': entity.id }) }}" data-toggle="modal" data-target="#confirm-delete" href="#">
+                        <i class="fa fa-trash-o" data-toggle="tooltip" data-placement="top" title="Eliminar"></i>
+                    </a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+    <div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    Eliminar banco
+                </div>
+                <div class="modal-body">
+                    Está seguro de eliminar la cuenta de banco?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                    <a href="#" class="btn btn-danger danger">Eliminar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% block script_base %}
+        {{ parent() }}
+        <script type="text/javascript">
+            $('#confirm-delete').on('show.bs.modal', function(e) {
+                $(this).find('.danger').attr('href', $(e.relatedTarget).data('href'));
+            });
+        </script>
+    {% endblock %}
+
+
+
+{% endblock %}

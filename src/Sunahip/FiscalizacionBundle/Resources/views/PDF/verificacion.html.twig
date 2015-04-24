@@ -1,0 +1,28 @@
+% extends 'FiscalizacionBundle::pdf.html.twig' %}
+{% set centro = entity.centro | default(entity.operadora) %}
+
+{% block content_content %}
+<h1><span style="font-family: Times New Roman;font-size: 16px;color: #000">ACTA DE VERIFICACIÓN Nº GFCJ-MD-DS {{entity.providencia.num}}-____ </h1>
+
+<p>{% include 'FiscalizacionBundle:PDF:header.html.twig' %}</p>
+
+<p>{% include 'FiscalizacionBundle:PDF:providencia.html.twig' %}</p>
+
+<p>Seguidamente el funcionario antes mencionado, solicitó información de todos los juegos de apuestas hípicas que se efectúan en el establecimiento. A$
+    <strong>{{i}}</strong>
+ {% endfor %} .</p>
+
+<p> Acto seguido el funcionario, solicitó la presentación de la permisología respectiva y
+autorizaciones al ciudadano antes identificado, quien presentó la siguiente
+documentación:</p>
+<ol>
+     {% for i in entity.documentos %}
+     <li>{{i.nombre}}</li>
+     {% endfor %}
+</ol>
+
+
+<p>El funcionario antes identificado solicita la permisología vigente otorgada por la SUNAHIP para la explotación de _________________________________$
+
+ {% include 'FiscalizacionBundle:PDF:footer.html.twig' %}
+ {% endblock %}

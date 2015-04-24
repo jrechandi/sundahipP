@@ -1,0 +1,54 @@
+    <script src="{{asset('bundles/centrohipico/js/DataCentroHipico/validate.js')}}"></script>
+    <script src="{{asset('bundles/centrohipico/js/resource.js')}}"></script>
+    <script type="text/javascript" >
+        function agregarDL(){
+            $("#btnDL").hide();
+            $("#form").show();
+            $("#form").html(getGifLoading());
+            //var route=Routing.generate('datalegal_new');
+            $.get('{{path('datalegal_new')}}').success(function(data) {
+                if (data.message) {
+                    message = data.message;
+                } else {
+                    $('#datalegal').html(data);
+                }
+            }).error(function(data, status, headers, config) {
+                        if (status === '500') {
+                            message = "No hay conexión con el servidor";
+                        }
+                    });
+        }
+        function sFormDL(){
+            var datach=$("#form_dl").serialize();
+            $("#form_dl").hide();
+            $("#form").hide();
+            $("#btnDL").show();
+            //$.post()
+        }
+    </script>
+    <script type="text/javascript" >
+        $(document).ready(function(){
+            $(".form-horizontal").removeClass('form-horizontal');
+            $(".form-control").removeClass('form-control');
+            $(".dlestado").change(function() {
+                estado = $('.dlestado option:selected').val();
+                var Rmunicipio=Routing.generate('municipios', {estado_id: estado, ciudad_id: 0});
+                //console.log(Rmunicipio);
+                getSelect(Rmunicipio,'#dlmunicipio',"Municipio");
+                var Rciudad=Routing.generate('ciudades', {estado_id: estado, municipio_id: null});
+                //console.log(Rciudad);
+                getSelect(Rciudad,'#dlciudad',"Ciudad");
+
+            });
+
+            $("#dlmunicipio").change(function() {
+                estado = $('.dlestado option:selected').val();
+                municipio = $('#dlmunicipio option:selected').val();
+                var Rparroquia=Routing.generate('parroquias', {estado_id: estado, municipio_id: municipio});
+                //console.log(Rciudad);
+                getSelect(Rparroquia,'#dlparroquia',"Parroquia");
+            });
+
+        });
+
+    </script>

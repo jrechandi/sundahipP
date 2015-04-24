@@ -1,0 +1,64 @@
+{% extends 'NewTemplateBundle::base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('bundles/solicitudescitas/css/genstyles.css')}}" rel="stylesheet">
+    <link href="{{ asset('bundles/solicitudescitas/css/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" media="print">
+
+{% endblock stylesheets %}
+
+{% block content_content %}
+    <div class="block-separator col-sm-12"></div>
+    <div class="row col-sm-12">
+        <h1>Listado de Clasificaciones de Establecimientos</h1>
+    </div>
+
+    <div class="block-separator col-sm-12"></div>
+    <div class="row">
+        <div class="col-sm-2">
+            <a href="{{ path('admclasfestab_new') }}" class="btn btn-primary btn-sm "><i class="icon-plus-sign"></i> Agregar Clasificación</a>
+        </div>
+        <div class="col-sm-10 block-separator"></div>
+    </div>
+    <div id="action">
+        <div class="right">
+            {% if entities | length > 0 %}
+                <article class="col-sm-12 col-md-12 col-lg-12 sortable-grid ui-sortable" style="width: 50%">
+                    {{ knp_pagination_render(entities) }}
+                </article>
+            {% endif %}
+        </div>
+    </div>
+    <div class="col-md-12">
+        <table class="table table-condensed table-striped">
+            <thead>
+                <tr>
+                    <th>Clasificación</th>
+                    <th>Promedio de Ventas</th>
+                    <th width="20%" colspan="2" >Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for entity in entities %}
+                <tr>
+                    <td><a href="{{ path('admclasfestab_show', { 'id': entity.id }) }}">{{ entity.clasificacionCentrohipico }}</a></td>
+                    <td>{{ entity.promedioVentas }}</td>
+                    <td style="text-align:center;">
+                        <a href="{{ path('admclasfestab_edit', { 'id': entity.id }) }}" class="btn btn-default btn-sm">Editar</a>
+                        <a href="{{ path('admclasfestab_show', { 'id': entity.id }) }}" class="btn btn-info btn-sm">Mostrar</a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="block-separator col-sm-12"></div>
+    {#<div class="row">
+        <div class="col-sm-2">
+            <a href="{{ path('admclasfestab_new') }}" class="btn btn-primary btn-sm "><i class="icon-plus-sign"></i> Agregar Establecimientos</a>
+        </div>
+        <div class="col-sm-10 block-separator"></div>
+    </div>#}
+
+{% endblock content_content %}

@@ -1,0 +1,19 @@
+<div class="col-md-12">  
+{% for type,flashes in  app.session.flashbag.all %}
+    {% for flash in flashes %}
+        <div class="alert alert-{{type}} adjusted fade in">
+            <a href="#" class="close" data-dismiss="alert">&times;</a>
+            {{ flash }}
+        </div>
+    {% endfor %}
+ {% endfor %} 
+</div>
+
+<script type="text/javascript">
+ window.setTimeout(function() {
+    $(".alert").fadeTo(500, 0).slideUp(500, function(){
+        $(this).remove(); 
+    });
+}, 5000);
+
+</script> 

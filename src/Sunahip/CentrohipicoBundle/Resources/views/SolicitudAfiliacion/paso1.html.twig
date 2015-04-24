@@ -1,0 +1,145 @@
+{% extends "NewTemplateBundle::base.html.twig" %}
+
+{% block content_content %}
+    <div class="page-header">
+        <h1>Solicitar Incorporaci&oacute;n Afiliado</h1>
+    </div>
+
+    {% if message is not defined or message is null %}
+
+    <div class="padding-15">
+        <div id="texto">Estimada Operadora, <br>Al agregar la incorporación de un nuevo afiliado, deberá adjuntar el
+            contrato de Afiliado-Operadora, y esperar un lapso no mayor de 48 horas para la aprobación de la SUNAHIP.<br><br>
+        </div>
+        <div id="texto">Los campos con <span class="oblig">(*)</span> son obligatorios</div>
+
+        <form id ="valida_paso1">
+            <table id="tabla_reporte2">
+                <tbody>
+                <tr id="table_header2">
+                    <td colspan="4">Nuevo Afiliado</td>
+                </tr>
+                <tr>
+                    <td>Fecha de Solicitud:</td>
+                    <td colspan="3"><input type="text" value="{{ "now"|date("d/m/Y") }}" disabled="disabled"></td>
+                </tr>
+                <tr>
+                    <td>RIF Afiliado:</td>
+                    <td colspan="3">
+                        <select name="rif_type" id="rifType" required="true">
+                            <option value=""></option>
+                            <option value="V">V</option>
+                            <option value="J">J</option>
+                            <option value="E">E</option>
+                            <option value="G">G</option>
+                        </select>
+                        <span>-</span>
+                        <input name="rif" type="text" id="rif" required="true" class="numeric"
+                               maxlength="9" class="corto"
+                               title="No colocar ni puntos, ni guiones" size="10">
+
+                        <span class="oblig">
+                            (*)
+                        </span>
+                        <div style="color: #E70202;display: none" id="rifNotFound"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Denominaci&oacute;n comercial</td>
+                    <td>
+                        <input name="nombre" type="text" id="nombreC" required="true" maxlength="50" class="corto" size="20">
+                        <span class="oblig">
+                            (*)
+                        </span>
+                        <div style="color: #E70202;display: none" id="establecimientoHtml"></div>
+                    </td>
+                </tr>
+                </tr>
+                </tbody>
+            </table>
+            <div class="block-separator col-md-12"></div>
+            <div class="col-md-offset-8 col-md-4 form-group text-right">
+                <a href="{{ path('notification') }}" class="btn btn-warning btn-sm">Cancelar</a>
+                &nbsp; &nbsp; &nbsp; &nbsp;
+                <a href="#" onclick="find()" class="btn btn-primary btn-sm nuevaafiliacion" id="form_btttn"/>Siguiente </a>
+            </div>
+        </form>
+
+        {% else %}
+            <div class="col-md-12">
+                <div id="notificaciones">
+                    <ul>
+                        <li class="n1">{{ message }}</h5></li>
+                    </ul>
+                </div>
+                <div class="col-md-offset-8 col-md-4 form-group text-right">
+                    <a href="{{ path('notification') }}" class="btn btn-warning btn-sm">Aceptar</a>
+                </div>
+            </div>
+    {% endif %}        
+    </div>
+{% endblock %}
+
+{% block script_base %}
+    <script type="text/javascript">
+
+        function find() {            
+            var rifNumber = $("#rif").val();
+            var ritType = $('#rifType option:selected').val();
+            if(ritType == "V" || ritType == "E"){
+                var rango = 7
+            }else{
+                var rango = 8
+            }
+            if(!$("#rifType").val()) {
+                $("#rifNotFound").show();
+                $("#rifNotFound").html("Seleccione Tipo Rif");
+            } else
+            if (rifNumber.length >= rango) {
+                $("#rifNotFound").hide();
+                if(!$("#nombreC").val()) {
+                    $("#establecimientoHtml").show();
+                    $("#establecimientoHtml").html("Ingrese nombre Centro Hípico");
+                } else {
+                    $("#establecimientoHtml").hide();
+                    var nombreC = $("#nombreC").val();
+                    var rifType = $("#rifType").val();
+                    var rif = rifType+rifNumber;
+                    var url = Routing.generate('Centrohipico_solicitud_afiliacion_buscar_rif');
+                    $.post(url, { rif_type: rifType, rif_number: rifNumber, nombre: nombreC }, function (response) {
+                        if(response.status == false)
+                        {                            
+                            $("#rifNotFound").show();
+                            $("#rifNotFound").html(response.message);
+                        }else if(response.status == true)
+                        {
+                            var url = Routing.generate('Centrohipico_solicitud_afiliacion_2', { rif_type: rifType, rif_number: rifNumber, id: response.id });
+                            window.location = url;
+                        } else {
+                            $("#rifNotFound").show();
+                            $("#rifNotFound").html("Error al procesar los datos.");
+                        }
+                    });
+                }
+            }else{
+                var html = "El Rif debe contener al menos "+rango+" dígitos.";
+                $("#rifNotFound").show();
+                $("#rifNotFound").html(html);
+            }
+        }
+
+        $(document).ready(function () {
+
+            $(".numeric").keydown(function (e) {
+                if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 110]) !== -1 || (e.keyCode == 65 && e.ctrlKey === true) || (e.keyCode >= 35 && e.keyCode <= 39)) {
+                    return;
+                }
+
+                if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+                    e.preventDefault();
+                }
+            });
+
+        });
+    </script>
+{% endblock %}

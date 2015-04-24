@@ -1,0 +1,49 @@
+{% extends 'FiscalizacionBundle::pdf.html.twig' %}
+{% set centro = entity.centro | default(entity.operadora) %}
+
+{% block content_content %}
+ <h1>ACTA DE CITACIÓN  Nº {{entity.providencia.num}}-____ </h1>
+
+<p>
+{% include 'FiscalizacionBundle:PDF:header.html.twig' %}
+ determinando que dicho licenciatario:</p>
+
+<table class="border">
+    <tr>
+        <th>Descripción</th>
+        <th>Aplica</th>
+        <th>No Aplica</th>
+    </tr>
+    <tr>
+        <td>Incumple los aportes fijados en la providencia administrativa que otorga dicha permisología</td>
+        <td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>
+        No ha solicitado la permisología correspondiente que lo habilite para la explotación
+        </td>
+        <td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    {% for juego in juegos %}
+    <tr>
+        <td>
+        Explota el juego: <strong>{{ juego }}</strong>, sin la permisología correspondiente
+        </td>
+        <td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    {% endfor %}
+    <tr>
+        <td>
+        Otros: <strong>{{data.otros}}</strong>
+        </td>
+        <td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+
+
+</table>
+
+
+<p>En virtud de lo anteriormente expuesto el ciudadano {{entity.responsable}}, titular de la cédula de identidad Nº {{entity.cedula}}, {% if entity.codCedula == 'V' %}venezolano,{% else %}extranjero,{% endif %} mayor de edad, quien se desempeña como {{entity.cargo}}, deberá comparecer en las oficinas de la Superintendencia Nacional de Actividades Hípicas el día {{data.fecha | date('d/m/Y')}} a las 8:00 con toda la documentación pertinente para regularizar su situación.</p>
+
+{% include 'FiscalizacionBundle:PDF:footer.html.twig' %}
+{% endblock %}

@@ -1,0 +1,209 @@
+<div class="col-md-12">
+      <div id="tabs">
+          <ul>
+            <li><a href="#dataoper" data-toggle="tab">Datos de la Oficina</a></li>
+            <li><a href="#datalegal" data-toggle="tab">Datos Legales</a></li>
+            <li><a href="#datalicencia" data-toggle="tab">Licencia</a></li>
+          </ul>
+      <div id="dataoper"  class="col-md-12">
+        <table  id="tabla_reporte2" class="text-left bg-white table table-condensed">
+             <thead>
+                    <tr>
+                        <th colspan="4" > Detalles de la Oficina </th>
+                    </tr>
+                </thead>
+            <tbody>
+                <tr>
+                    <th class="text-left bg-white" >Denominación Comercial del lugar </th>
+                    <td colspan="3" class="text-left bg-white">{{ entity.denominacionComercial }}</td>
+                </tr>
+                <tr>
+                    <th class="text-left bg-white">Local Propio o arrendado </th>
+                    <td colspan="3" class="text-left bg-white">{{ entity.estatusLocal}}</td>
+                </tr>
+                <tr>
+                    <th class="text-left bg-white">RIF</th>
+                    <td class="text-left bg-white">{{ entity.persJuridica }}-{{ entity.rif  }}</td>
+                    <th class="text-left bg-white">Cedula</th>
+                    <td class="text-left bg-white">{{ entity.tipoci }}-{{ entity.ci }}</td>
+                </tr>
+              <tr>
+                    <th class="text-left bg-white">Nombre</th>
+                    <td class="text-left bg-white">{{ entity.nombre }}</td>
+                    <th class="text-left bg-white">Apellido</th>
+                    <td class="text-left bg-white">{{ entity.apellido }}</td>
+                </tr>
+                <tr>
+                    <th class="text-left bg-white">Fax</th>
+                    <td class="text-left bg-white">{{ entity.fax }}</td>
+                    <th class="text-left bg-white">Teléfono Fijo</th>
+                    <td class="text-left bg-white">({{ entity.codTlfFijo }})-{{ entity.tflFijo }}</td>
+                </tr>
+                <tr>
+                    <th class="text-left bg-white">Teléfono Celular</th>
+                    <td class="text-left bg-white">({{ entity.codTlfCelular }})- {{ entity.tflCelular }}</td>
+                    <th class="text-left bg-white">Email</th>
+                    <td class="text-left bg-white">{{ entity.email}}</td>
+                </tr>
+                <tr>
+                    <th class="text-left bg-white">Página Web</th>
+                    <td colspan="3" class="text-left bg-white">{{ entity.pagWeb }}</td>
+                </tr>
+                <thead>
+                  <tr> 
+                      <th colspan="4" >Datos Direccion </th>
+                    </tr>
+                </thead>    
+                <tr>
+                    <th class="text-left bg-white">Estado</th>
+                    <td class="text-left bg-white">{%if entity.estado|length > 0%}
+                            {{ entity.estado.nombre}}
+                        {%endif%}
+                    </td>
+                    <th class="text-left bg-white">Municipio</th>
+                    <td class="text-left bg-white">{%if entity.municipio|length > 0%}
+                            {{ entity.municipio.nombre }}
+                        {%endif%}
+                    </td>
+                </tr>
+                <tr>
+                    <th class="text-left bg-white">Ciudad</th>
+                    <td class="text-left bg-white">{{ entity.ciudad}}</td>
+                    <th class="text-left bg-white">Parroquia</th>
+                    <td class="text-left bg-white">{%if entity.parroquia|length > 0%}
+                            {{ entity.parroquia.nombre }}
+                        {%endif%}
+                    </td>
+                </tr>
+                <tr>
+                    <th class="text-left bg-white">Av/Calle/Carretera</th>
+                    <td class="text-left bg-white">{{ entity.avCalleCarrera}}</td>
+                    <th class="text-left bg-white">Edif/Casa</th>
+                    <td class="text-left bg-white">{{ entity.edifCasa }}</td>
+                </tr>
+                <tr>
+                    <th class="text-left bg-white">Oficina/Apto/No</th>
+                    <td class="text-left bg-white">{{ entity.ofcAptoNum }}</td>
+                    <th class="text-left bg-white">Punto Referencia</th>
+                    <td class="text-left bg-white">{{ entity.puntoReferencia }}</td>
+                </tr>
+                <tr>
+                    <th class="text-left bg-white">Código Postal</th>
+                    <td colspan="3" class="text-left bg-white">{{ entity.codigoPostal }}</td>
+                </tr>
+            </tbody>
+        </table>
+      </div><!-- tab DataOper -->
+     <div id="datalegal" class="col-md-12">
+        <table  id="tabla_reporte2" class="text-left bg-white table table-condensed">
+             <thead>
+                    <tr>
+                        <th colspan="4" >Detalles Legales</th>
+                    </tr>
+                </thead>
+            <tbody>
+                <tr class="text-left bg-white">
+                    <th class="text-left bg-white">RIF</th>
+                    <td class="text-left bg-white">{{ entity.legal.persJuridica }}-{{ entity.legal.rif  }}</td>
+                    <th class="text-left bg-white">Cedula</th>
+                    <td class="text-left bg-white">{{ entity.legal.ci }}</td>
+                </tr>
+              <tr class="text-left bg-white">
+                    <th class="text-left bg-white">Nombre</th>
+                    <td class="text-left bg-white">{{ entity.legal.nombre }}</td>
+                    <th class="text-left bg-white">Apellido</th>
+                    <td class="text-left bg-white">{{ entity.legal.apellido }}</td>
+                </tr>
+                <tr class="text-left bg-white">
+                    <th class="text-left bg-white">Fax</th>
+                    <td class="text-left bg-white">{{ entity.legal.fax }}</td>
+                    <th class="text-left bg-white">Teléfono Fijo</th>
+                    <td class="text-left bg-white">{{ entity.legal.codTlfFijo }} {{ entity.legal.tflFijo }}</td>
+                </tr>
+                <tr>
+                    <th class="text-left bg-white">Teléfono Celular</th>
+                    <td class="text-left bg-white">{{ entity.legal.codTlfCelular }} {{ entity.legal.tflCelular }}</td>
+                    <th class="text-left bg-white">Email</th>
+                    <td class="text-left bg-white">{{ entity.legal.email}}</td>
+                </tr>
+                <tr>
+                    <th class="text-left bg-white">Página Web</th>
+                    <td colspan="3" class="text-left bg-white">{{ entity.legal.pagWeb }}</td>
+                </tr>
+                <thead>
+                    <tr> 
+                      <th colspan="4">Datos Legales Direccion </th> 
+                    </tr>
+                 </thead> 
+                <tr>
+                    <th class="text-left bg-white">Estado</th>
+                    <td class="text-left bg-white">{%if entity.legal.estado|length > 0%}
+                            {{ entity.legal.estado.nombre}}
+                        {%endif%}
+                    </td>
+                    <th class="text-left bg-white">Municipio</th>
+                    <td class="text-left bg-white">{%if entity.legal.municipio|length > 0%}
+                            {{ entity.legal.municipio.nombre }}
+                        {%endif%}
+                    </td>
+                </tr>
+                <tr>
+                    <th class="text-left bg-white">Ciudad</th>
+                    <td class="text-left bg-white">{{ entity.legal.ciudad}}</td>
+                    <th class="text-left bg-white">Parroquia</th>
+                    <td class="text-left bg-white">{%if entity.legal.parroquia|length > 0%}
+                            {{ entity.legal.parroquia.nombre }}
+                        {%endif%}
+                    </td>
+                </tr>
+                <tr>
+                    <th class="text-left bg-white">Av/Calle/Carretera</th>
+                    <td class="text-left bg-white">{{ entity.legal.avCalleCarrera}}</td>
+                    <th class="text-left bg-white">Edif/Casa</th>
+                    <td class="text-left bg-white">{{ entity.legal.edifCasa }}</td>
+                </tr>
+                <tr>
+                    <th class="text-left bg-white">Oficina/Apto/No</th>
+                    <td class="text-left bg-white">{{ entity.legal.ofcAptoNum }}</td>
+                    <th class="text-left bg-white">Punto Referencia</th>
+                    <td class="text-left bg-white">{{ entity.legal.puntoReferencia }}</td>
+                </tr>
+                <tr>
+                    <th class="text-left bg-white">Código Postal</th>
+                    <td class="text-left bg-white">{{ entity.legal.codigoPostal }}</td>
+                    <td class="text-left bg-white">&nbsp;</td>
+                    <td class="text-left bg-white">&nbsp;</td>
+                </tr>
+            </tbody>
+        </table>
+      </div> <!-- Fin DataLegal-->
+      <div id="datalicencia" class="col-md-12">
+           <table  id="tabla_reporte2" class="text-left bg-white table table-condensed">
+             <thead>
+                <tr>
+                    <th colspan="4" > Detalles de Licencia </th>
+                </tr>
+                <tr id="table_header">
+                    <td>Nº Licencia</td>
+                    <td>Clase de Licencia</td>
+                    <td>Fecha de Vencimiento</td>
+                    <td>Estatus</td>
+                </tr>
+              </thead>  
+              <tbody>
+              {% for lic in entity.licenciasaprob %}  
+                <tr>
+                    <td class="text-center">{{lic.numLicencia}}</td>
+                    <td class="text-center">{{lic.clasfLicencia}}</td>
+                    <td class="text-center">{{lic.fechaVencimiento}}</td>
+                    <td class="text-center">{{ lic.vigente==1?'Vigente':'Vencida' }}</td>
+                </tr>
+             {%endfor %}
+             {% if entity.licenciasaprob is empty %}
+                 <tr><td colspan="4">Sin Registros</td></tr>
+             {%endif%}    
+          </tbody>
+           </table>    
+      </div>
+    </div><!--Fin Tab -->
+  </div> <!-- col-12 Container -->

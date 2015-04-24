@@ -1,0 +1,29 @@
+  Reportes Penmdiente --!!! esto queda pendiente aun
+La tarea asignada a ti para el dia de hoy es realizar los reportes del gerente que puedes 
+ver en el prototipo
+
+Estos informes son consultas al sistema de los distintos estados de las liencias, 
+fiscalizaciones, ingresos, usuarios y un informe ejecutivo exportable a pdf que lo contiene todo.
+
+Para ello debes tener data cargada en el sistema como registros de centros hípicos y operadoras que 
+hayan realizado citas y hayan pasado por el proceso de fiscalización... 
+si en hay pasos que no puedes hacer por no estar la funcionalidad en el sistema puedes ingresar 
+datos tu mismo en las tablas correspondientes y así poder probar los informes.
+
+NUEVO  - 02.09
+AGrgar Sucursales.
+Tu asignación de hoy sera la creación de sucursales de las operadoras.
+Puedes guiarte por la documentación enviada y el prototipo...
+Vas a estar trabajando en tu rama partiendo de lo que actualmente hay en master.
+
+--- Notas..
+Sucursales para las Operadoras
+Sucursales Pueden Agregar Representateles legales Adicionales
+******
+Centro hipico
+ Corregir Representante Legal en Centro Hípico Sea una Lista con Opciones de Agregar.
+ Lo que lleva a centro Hípico a tener una lista de Representantes legales 
+
+Socios en centro hipico error 
+Representante Legal Operadora VER
+

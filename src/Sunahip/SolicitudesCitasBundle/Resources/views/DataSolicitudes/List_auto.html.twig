@@ -1,0 +1,6 @@
+<select id="alic" name="datasolicitud[alic]">
+    <option >Seleccione Autorización</option>
+    {%for row in list %}   
+       <option value="{{row.id}}">{{row.clasfLicencia}}</option>
+    {%endfor%}
+</select>

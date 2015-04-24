@@ -1,0 +1,517 @@
+<script>
+    $(function() {
+        $( "#tabs" ).tabs();
+    });
+</script>
+
+<table id="tabla_reporte">
+    <tbody>
+    <tr id="table_header">
+        <td colspan="4" style="color: white">
+            Denominación Comercial:
+            <strong>
+                {% if entity.operadora.denominacionComercial is defined %}
+                    {{ entity.operadora.denominacionComercial }}
+                {% else %}
+                    {{ entity.centroHipico.denominacionComercial }}
+                {% endif %}
+            </strong>
+        </td>
+    </tr>
+    <tr>
+        <td style="width: 40%"></td>
+        <td></td>
+        <td style="width: 25%; text-align: right;">Nª de referencia:</td>
+        <td><strong>{{ entity.numReferencia }}</strong></td>
+    </tr>
+    <tr>
+        <td style="width: 70%; text-align: right;" colspan="3">Licencia:</td>
+        <td><strong>Autorización</strong></td>
+    </tr>
+    <tr>
+        <td style="width: 70%; text-align: right;" colspan="3">Clasificación de Licencia:</td>
+        <td><strong>Tipo 1 Clase 2</strong></td>
+    </tr>
+    <tr>
+        <td style="width: 40%"></td>
+        <td></td>
+        <td style="width: 25%; text-align: right;">Estatus de Solicitud:</td>
+        <td><strong>{{ entity.status }}</strong></td>
+    </tr>
+    </tbody>
+</table>
+
+<div id="tabs" class="ui-tabs ui-widget ui-widget-content ui-corner-all">
+<ul class="ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all" role="tablist">
+    <li class="ui-state-default ui-corner-top ui-tabs-active ui-state-active" role="tab" tabindex="0"
+        aria-controls="tabs-1" aria-labelledby="ui-id-19" aria-selected="true"><a href="#tabs-1" class="ui-tabs-anchor"
+                                                                                  role="presentation" tabindex="-1"
+                                                                                  id="ui-id-19">Básicos</a></li>
+    <li class="ui-state-default ui-corner-top" role="tab" tabindex="-1" aria-controls="tabs-2"
+        aria-labelledby="ui-id-20" aria-selected="false"><a href="#tabs-2" class="ui-tabs-anchor" role="presentation"
+                                                            tabindex="-1" id="ui-id-20">Representante Legal</a></li>
+    <li class="ui-state-default ui-corner-top" role="tab" tabindex="-1" aria-controls="tabs-3"
+        aria-labelledby="ui-id-21" aria-selected="false"><a href="#tabs-3" class="ui-tabs-anchor" role="presentation"
+                                                            tabindex="-1" id="ui-id-21">Establecimiento</a></li>
+    <li class="ui-state-default ui-corner-top" role="tab" tabindex="-1" aria-controls="tabs-4"
+        aria-labelledby="ui-id-22" aria-selected="false"><a href="#tabs-4" class="ui-tabs-anchor" role="presentation"
+                                                            tabindex="-1" id="ui-id-22">Autorizaciones Activas</a></li>
+    <li class="ui-state-default ui-corner-top" role="tab" tabindex="-1" aria-controls="tabs-5"
+        aria-labelledby="ui-id-23" aria-selected="false"><a href="#tabs-5" class="ui-tabs-anchor" role="presentation"
+                                                            tabindex="-1" id="ui-id-23">Pagos</a></li>
+    <li class="ui-state-default ui-corner-top" role="tab" tabindex="-1" aria-controls="tabs-6"
+        aria-labelledby="ui-id-24" aria-selected="false"><a href="#tabs-6" class="ui-tabs-anchor" role="presentation"
+                                                            tabindex="-1" id="ui-id-24">Recaudos</a></li>
+</ul>
+<div id="tabs-1" aria-labelledby="ui-id-19" class="ui-tabs-panel ui-widget-content ui-corner-bottom" role="tabpanel"
+     aria-expanded="true" aria-hidden="false" style="display: block;">
+    <table id="tabla_reporte2">
+        <tbody>
+        <tr id="table_header2">
+            <td colspan="4">Datos del Solicitante</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td>RIF:</td>
+            <td>
+                <strong>
+                    {{ requestor.0.persJuridica }}-{{ requestor.0.rif }}
+                </strong>
+            </td>
+
+        </tr>
+        <tr>
+            <td>Nombre:</td>
+            <td>
+                <strong>
+                    {{ requestor.0.nombre  }}
+                </strong>
+            </td>
+            <td>Apellido</td>
+            <td>
+                <strong>
+                    {{ requestor.0.apellido }}
+                </strong>
+            </td>
+        </tr>
+        <tr>
+            <td>Entidad Federal:</td>
+            <td>
+                <strong>
+                    {{ requestor.0.estado.nombre }}
+                </strong>
+            </td>
+            <td>Ciudad:</td>
+            <td>
+                <strong>
+                    {{ requestor.0.ciudad.nombre }}
+                </strong>
+            </td>
+        </tr>
+        <tr>
+            <td>Parroquia:</td>
+            <td><strong></strong></td>
+            <td>Urbanización/Sector:</td>
+            <td>
+                <strong>
+                    {{ requestor.0.urbanizacion }}
+                </strong>
+            </td>
+        </tr>
+        <tr>
+            <td>Avenida/Calle/Carrera:</td>
+            <td>
+                <strong>
+                    {{ requestor.0.calle }}
+                </strong>
+            </td>
+            <td>Edificio/Casa:</td>
+            <td>
+                <strong>
+                    {{ requestor.0.apartamento }}
+                </strong>
+            </td>
+        </tr>
+        <tr>
+            <td>Oficina/Apto/No.:</td>
+            <td>
+                <strong>
+                    {{ requestor.0.apartamentoNo }}
+                </strong>
+            </td>
+            <td>Punto de Referencia:</td>
+            <td>
+                <strong>
+                    {{ requestor.0.referencia }}
+                </strong>
+            </td>
+        </tr>
+        <tr>
+            <td>Código Postal:</td>
+            <td>
+                <strong>
+                    {{ requestor.0.codigoPostal }}
+                </strong>
+            </td>
+            <td>No. Fax:</td>
+            <td>
+                <strong>
+                    {{ requestor.0.fax }}
+                </strong>
+            </td>
+        </tr>
+        <tr>
+            <td>No. Teléfono Fijo:</td>
+            <td>
+                <strong>
+                    ({{ requestor.0.codTelefonoLocal }}) {{ requestor.0.telefonoLocal }}
+                </strong>
+            </td>
+            <td>No. Teléfono Celular:</td>
+            <td>
+                <strong>
+                    ({{ requestor.0.codTelefonoMovil }}) {{ requestor.0.telefonoMovil }}
+                </strong>
+            </td>
+        </tr>
+        <tr>
+            <td>Correo Electrónico:</td>
+            <td>
+                <strong>
+                    {{ requestor.0.correoAlternativo }}
+                </strong>
+            </td>
+            <td>Página Web:</td>
+            <td>
+                <strong>
+                    {{ requestor.0.sitioWeb }}
+                </strong>
+            </td>
+        </tr>
+
+        </tbody>
+    </table>
+</div>
+
+<div id="tabs-2" aria-labelledby="ui-id-20" class="ui-tabs-panel ui-widget-content ui-corner-bottom" role="tabpanel"
+     aria-expanded="false" aria-hidden="true" style="display: none;">
+    <table id="tabla_reporte2">
+        <tbody>
+        <tr id="table_header2">
+            <td colspan="4">Datos del Apoderado o Representante Legal</td>
+        </tr>
+        <tr>
+            <td>Nombre:</td>
+            <td><strong>{{ legal.nombre }}</strong></td>
+            <td>RIF:</td>
+            <td><strong>{{ legal.persJuridica }}-{{ legal.rif }}</strong></td>
+        </tr>
+        <tr>
+            <td>No. Teléfono Fijo:</td>
+            <td><strong>({{ legal.codTlfFijo }}) {{ legal.tflFijo }}</strong></td>
+            <td>No. Teléfono Celular:</td>
+            <td><strong>({{ legal.codTlfCelular }}) {{ legal.tflCelular }}</strong></td>
+        </tr>
+        <tr>
+            <td>Entidad Federal:</td>
+            <td><strong>{{ legal.estado.nombre }}</strong></td>
+            <td>Ciudad:</td>
+            <td><strong>{{ legal.ciudad.nombre }}</strong></td>
+        </tr>
+        <tr>
+            <td>Parroquia:</td>
+            <td><strong></strong></td>
+            <td>Urbanización/Sector:</td>
+            <td><strong>{{ legal.urbanSector }}</strong></td>
+        </tr>
+        <tr>
+            <td>Avenida/Calle/Carrera:</td>
+            <td><strong>{{ legal.avCalleCarrera }}</strong></td>
+            <td>Edificio/Casa:</td>
+            <td><strong>{{ legal.edifCasa }}</strong></td>
+        </tr>
+        <tr>
+            <td>Oficina/Apto/No.:</td>
+            <td><strong>{{ legal.ofcAptoNum }}</strong></td>
+            <td>Punto de Referencia:</td>
+            <td><strong>{{ legal.puntoReferencia }}</strong></td>
+        </tr>
+        <tr>
+            <td>Código Postal:</td>
+            <td><strong>{{ legal.codigoPostal }}</strong></td>
+            <td>Correo Electrónico:</td>
+            <td><strong>{{ legal.email }}</strong></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div id="tabs-3" aria-labelledby="ui-id-21" class="ui-tabs-panel ui-widget-content ui-corner-bottom" role="tabpanel"
+     aria-expanded="false" aria-hidden="true" style="display: none;">
+    <table id="tabla_reporte2">
+        <tbody>
+        <tr id="table_header2">
+            <td colspan="4">Datos del Establecimiento - Información sobre el lugar de explotación del juego</td>
+        </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td>RIF:</td>
+                <td>
+                    <strong>
+                        {% if entity.operadora.persJuridica is defined %}
+                            {{ entity.operadora.persJuridica }}-{{ entity.operadora.rif }}
+                        {% else %}
+                            {{ entity.centroHipico.persJuridica }}-{{ entity.centroHipico.rif }}
+                        {% endif %}
+                    </strong>
+                </td>
+
+            </tr>
+            <tr>
+                <td>Nombre:</td>
+                <td>
+                    <strong>
+                        {% if entity.operadora.nombre is defined %}
+                            {{ entity.operadora.nombre }}
+                        {% else %}
+                            {{ entity.centroHipico.nombre }}
+                        {% endif %}
+                    </strong>
+                </td>
+                <td>Apellido</td>
+                <td>
+                    <strong>
+                        {% if entity.operadora.apellido is defined %}
+                            {{ entity.operadora.apellido }}
+                        {% else %}
+                            {{ entity.centroHipico.apellido }}
+                        {% endif %}
+                    </strong>
+                </td>
+            </tr>
+            <tr>
+                <td>Entidad Federal:</td>
+                <td>
+                    <strong>
+                        {% if entity.operadora.estado.nombre is defined %}
+                            {{ entity.operadora.estado.nombre }}
+                        {% else %}
+                            {{ entity.centroHipico.estado.nombre }}
+                        {% endif %}
+                    </strong>
+                </td>
+                <td>Ciudad:</td>
+                <td>
+                    <strong>
+                        {% if entity.operadora.ciudad.nombre is defined %}
+                            {{ entity.operadora.ciudad.nombre }}
+                        {% else %}
+                            {{ entity.centroHipico.ciudad.nombre }}
+                        {% endif %}
+                    </strong>
+                </td>
+            </tr>
+            <tr>
+                <td>Parroquia:</td>
+                <td><strong></strong></td>
+                <td>Urbanización/Sector:</td>
+                <td>
+                    <strong>
+                        {% if entity.operadora.urbanSector is defined %}
+                            {{ entity.operadora.urbanSector }}
+                        {% else %}
+                            {{ entity.centroHipico.urbanSector }}
+                        {% endif %}
+                    </strong>
+                </td>
+            </tr>
+            <tr>
+                <td>Avenida/Calle/Carrera:</td>
+                <td>
+                    <strong>
+                        {% if entity.operadora.avCalleCarrera is defined %}
+                            {{ entity.operadora.avCalleCarrera }}
+                        {% else %}
+                            {{ entity.centroHipico.avCalleCarrera }}
+                        {% endif %}
+                    </strong>
+                </td>
+                <td>Edificio/Casa:</td>
+                <td>
+                    <strong>
+                        {% if entity.operadora.edifCasa is defined %}
+                            {{ entity.operadora.edifCasa }}
+                        {% else %}
+                            {{ entity.centroHipico.edifCasa }}
+                        {% endif %}
+                    </strong>
+                </td>
+            </tr>
+            <tr>
+                <td>Oficina/Apto/No.:</td>
+                <td>
+                    <strong>
+                        {% if entity.operadora.ofcAptoNum is defined %}
+                            {{ entity.operadora.ofcAptoNum }}
+                        {% else %}
+                            {{ entity.centroHipico.ofcAptoNum }}
+                        {% endif %}
+                    </strong>
+                </td>
+                <td>Punto de Referencia:</td>
+                <td>
+                    <strong>
+                        {% if entity.operadora.puntoReferencia is defined %}
+                            {{ entity.operadora.puntoReferencia }}
+                        {% else %}
+                            {{ entity.centroHipico.puntoReferencia }}
+                        {% endif %}
+                    </strong>
+                </td>
+            </tr>
+            <tr>
+                <td>Código Postal:</td>
+                <td>
+                    <strong>
+                        {% if entity.operadora.codigoPostal is defined %}
+                            {{ entity.operadora.codigoPostal }}
+                        {% else %}
+                            {{ entity.centroHipico.codigoPostal }}
+                        {% endif %}
+                    </strong>
+                </td>
+                <td>No. Fax:</td>
+                <td>
+                    <strong>
+                        {% if entity.operadora.fax is defined %}
+                            {{ entity.operadora.fax }}
+                        {% else %}
+                            {{ entity.centroHipico.fax  }}
+                        {% endif %}
+                    </strong>
+                </td>
+            </tr>
+            <tr>
+                <td>No. Teléfono Fijo:</td>
+                <td>
+                    <strong>
+                        {% if entity.operadora.codTlfFijo is defined %}
+                            ({{ entity.operadora.codTlfFijo }}) {{ entity.operadora.tlfFijo }}
+                        {% else %}
+                            ({{ entity.centroHipico.codTlfFijo  }}) {{ entity.centroHipico.tflFijo }}
+                        {% endif %}
+                    </strong>
+                </td>
+                <td>No. Teléfono Celular:</td>
+                <td>
+                    <strong>
+                        {% if entity.operadora.codTlfCelular is defined %}
+                            ({{ entity.operadora.codTlfCelular }}) {{ entity.operadora.tlfCelular }}
+                        {% else %}
+                            ({{ entity.centroHipico.codTlfCelular  }}) {{ entity.centroHipico.tflCelular }}
+                        {% endif %}
+                    </strong>
+                </td>
+            </tr>
+            <tr>
+                <td>Correo Electrónico:</td>
+                <td>
+                    <strong>
+                        {% if entity.operadora.email is defined %}
+                            {{ entity.operadora.email }}
+                        {% else %}
+                            {{ entity.centroHipico.email  }}
+                        {% endif %}
+                    </strong>
+                </td>
+                <td>Página Web:</td>
+                <td>
+                    <strong>
+                        {% if entity.operadora.pagWeb is defined %}
+                            {{ entity.operadora.pagWeb }}
+                        {% else %}
+                            {{ entity.centroHipico.codTlfCelular  }}
+                        {% endif %}
+                    </strong>
+                </td>
+            </tr>
+
+            </tbody>
+        </table>
+</div>
+<div id="tabs-4" aria-labelledby="ui-id-22" class="ui-tabs-panel ui-widget-content ui-corner-bottom" role="tabpanel"
+     aria-expanded="false" aria-hidden="true" style="display: none;">
+
+   {% if activeRequests|length > 0 %}
+    <table id="tabla_reporte">
+        <tbody>
+        <tr id="table_header2">
+            <td>Nº Solicitud</td>
+            <td>Tipo de Autorización</td>
+            <td>Fecha de Solicitud</td>
+            <td>Estatus de Solicitud</td>
+            <td>Gestionado por</td>
+        </tr>
+        {% for requests in activeRequests %}
+            <tr>
+                <td>{{ requests.id }}</td>
+                <td>Tipo 2 (Operadora Los Ganadores)</td>
+                <td>{{ requests.fechaSolicitud|date("d-m-Y") }}</td>
+                <td>{{ requests.status }}</td>
+                <td>{{ requests.usuario.fullname }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
+</div>
+
+<div id="tabs-5" aria-labelledby="ui-id-23" class="ui-tabs-panel ui-widget-content ui-corner-bottom" role="tabpanel"
+     aria-expanded="false" aria-hidden="true" style="display: none;">
+    <table id="tabla_reporte">
+        <tbody>
+        <tr id="table_header2">
+            <td>Nº Referencia</td>
+            <td>Tipo de Pago</td>
+            <td>Fecha de Pago</td>
+            <td>Monto del pago</td>
+            <td>Estatus del Pago</td>
+        </tr>
+        {% for payment in payments %}
+        <tr>
+            <td>{{ payment.numReferencia }}</td>
+            <td>P{{ payment.tipoPago }}</td>
+            <td>{% if payment.fechaCreacion %}{{ payment.fechaCreacion|date('d-m-Y') }}{% endif %}</td>
+            <td>{{ payment.monto }}</td>
+            <td>{{ payment.status }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<div id="tabs-6" aria-labelledby="ui-id-24" class="ui-tabs-panel ui-widget-content ui-corner-bottom" role="tabpanel"
+     aria-expanded="false" aria-hidden="true" style="display: none;">
+    <table id="tabla_reporte">
+        <tbody>
+        <tr id="table_header2">
+            <td>Nº Solicitud</td>
+            <td>Documento</td>
+            <td>Fecha de Vencimiento</td>
+            <td>Estatus</td>
+            <td>Descargar</td>
+        </tr>
+        {% for document in documents %}
+            <tr>
+                <td>{{ document.0.id }}</td>
+                <td>{{ document.0.tipoDoc }}</td>
+                <td>{{ document.0.fechaVencimiento|date("d-m-Y") }}</td>
+                <td>{{ document.0.status }}</td>
+                <td>{{ document.0.mediaRecaudo|vlabs_media('CentrohipicoBundle:SolicitudAfiliacion:ver_doc.html.twig') }} </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+</div>

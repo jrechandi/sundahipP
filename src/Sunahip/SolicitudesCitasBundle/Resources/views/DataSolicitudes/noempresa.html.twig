@@ -1,0 +1,10 @@
+{% extends 'SolicitudesCitasBundle::solicitud_base.html.twig' %}  
+
+{% block content_content %}
+<div class="col-md-12">
+    <div class="alert alert-warning">
+        No hay una <strong>Oficina Principal</strong> creada. Puede crear una en 
+        <a href="{{path('operadora_new_office')}}" class="btn btn-default">Crear Oficina Principal</a>
+    </div>
+</div>
+{% endblock %}

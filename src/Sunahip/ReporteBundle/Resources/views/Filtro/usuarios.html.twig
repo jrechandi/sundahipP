@@ -1,0 +1,12 @@
+<li>
+    Centro h&iacute;picos:
+    <input type="radio" name="status" value="ROLE_CENTRO_HIPICO" {% if status is defined %} {% if status == 'ROLE_CENTRO_HIPICO' %} checked="checked" {%  endif %} {%  endif %}>
+</li>
+<li>
+    Operadoras:
+    <input type="radio" name="status" value="ROLE_OPERADOR" {% if status is defined %} {% if status == 'ROLE_OPERADOR' %} checked="checked" {%  endif %} {%  endif %}>
+</li>
+<li>
+    En espera de licencia:
+    <input type="radio" name="status" VALUE="ESPERA" {% if status is defined %} {% if status == 'ESPERA' %} checked="checked" {%  endif %} {%  endif %}>
+</li>

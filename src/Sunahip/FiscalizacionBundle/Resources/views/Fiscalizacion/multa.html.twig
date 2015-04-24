@@ -1,0 +1,27 @@
+{% extends 'FiscalizacionBundle::base.html.twig' %}
+{% block content_content %}
+<div class="col-md-11">
+    <div class="block-separator col-sm-11"></div>
+    <h1>Fiscalización - {{ entity.providencia.num | default('')}} - {{ entity.centro.denominacionComercial | default('') }} </h1>   
+   {{ form_start(form) }}
+   {{ form_errors(form) }}
+   {{form_rest(form)}}
+    <button type="submit" class="btn btn-primary">
+    {% block btn_label %}Agregar Multa{% endblock %}
+    </button>
+    <a href="{{path('fiscalizacion')}}" class="btn btn-default">Volver</a>
+    {{ form_end(form) }}
+    
+</div>  
+<script type="text/javascript">
+    $(".numeric").keydown(function(e) {
+        if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 190, 110]) !== -1 || (e.keyCode == 65 && e.ctrlKey === true) || (e.keyCode >= 35 && e.keyCode <= 39)) {
+            return;
+        }
+
+        if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+            e.preventDefault();
+        }
+    });
+</script>
+{% endblock %}

@@ -1,0 +1,50 @@
+<table id="tabla_reporte2">				
+        <tr id="table_header2">
+                 <td>Tipo de Documento</td>
+                 <td>Buscar Archivo<span class="oblig">(*)</span></td>
+                 <td>Fecha de Pago<span class="oblig">(*)</span></td>
+                 <td>N de Recibo<span class="oblig">(*)</span></td>
+                 {#<td>Banco<span class="oblig">(*)</span></td>#}
+                 <td>Monto a Pagar<span class="oblig">(*)</span></td>
+        </tr>
+         <tr>
+            <td class="text-left">Pago por Procesamiento</td>
+            <td class="text-center">{{ form_widget(FDSolicitud.recaudoscargados[last].mediarecaudo, {'attr': {'class': 'mediarecaudo'}}) }}
+                           {% if FDSolicitud.recaudoscargados[last].mediarecaudo.vars.errors[0].message is defined %}
+                           <span class="help-block ">
+                               {{ FDSolicitud.recaudoscargados[last].mediarecaudo.vars.errors[0].message }}
+                           </span>
+                           {% endif %}
+             </td>
+            <td class="text-center">{{ form_widget(FDSolicitud.recaudoscargados[last].fechaVencimiento, {'attr': {'class': 'date fechapago'}}) }}
+                           {% if FDSolicitud.recaudoscargados[last].fechaVencimiento.vars.errors[0].message is defined %}
+                           <span class="help-block ">
+                               {{ FDSolicitud.recaudoscargados[last].fechaVencimiento.vars.errors[0].message }}
+                           </span>
+                           {% endif %}
+             </td>
+            <td class="text-center">{{ form_widget(FDSolicitud.recaudoscargados[last].reciboN, {'attr': {'class': 'reciboN'},'id':'reciboNP' }) }}
+                           {% if FDSolicitud.recaudoscargados[last].reciboN.vars.errors[0].message is defined %}
+                           <span class="help-block ">
+                               {{ FDSolicitud.recaudoscargados[last].reciboN.vars.errors[0].message }}
+                           </span>
+                           {% endif %}
+             </td>
+            {#<td class="text-center">{{ form_widget(FDSolicitud.recaudoscargados[last].reciboN, {'attr': {'class': 'reciboN'},'id':'reciboNP' }) }}
+                           {% if FDSolicitud.recaudoscargados[last].reciboN.vars.errors[0].message is defined %}
+                           <span class="help-block ">
+                               {{ FDSolicitud.recaudoscargados[last].reciboN.vars.errors[0].message }}
+                           </span>
+                           {% endif %}
+             </td>#}
+            <td class="text-center">
+                 {{PP}}UT{#Pago por Procesamiento PP#}
+                {#<input type="checkbox" disabled="disabled" />#}
+                {{ form_widget(FDSolicitud.recaudoscargados[last].tipodoc, {'value':'P', 'attr': {'class': 'tipodoc'} }) }} 
+                {{ form_widget(FDSolicitud.recaudoscargados[last].status, {'attr': {'class': 'status'} }) }}
+                {#{ form_widget(FDSolicitud.recaudoscargados[last].recaudoLicencia, {'value':'null', 'attr': {'class': 'hide'} }) }#}
+                <input type="hidden" id="recaudos_{{last}}" name="recaudoLicencia[{{last}}]" class="hide" value="null">
+            </td>
+        </tr>
+</table>
+            

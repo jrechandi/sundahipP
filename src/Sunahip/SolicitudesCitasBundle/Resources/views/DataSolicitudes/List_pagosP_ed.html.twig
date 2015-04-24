@@ -1,0 +1,24 @@
+<table id="tabla_reporte2">				
+        <tr id="table_header2">
+                 <td>Tipo de Documento</td>
+                 <td>Archivo<span class="oblig">(*)</span></td>
+                 <td>Fecha de Pago<span class="oblig">(*)</span></td>
+                 <td>N de Recibo<span class="oblig">(*)</span></td>
+                 <td>Banco<span class="oblig">(*)</span></td>
+                 <td>Monto a Pagar<span class="oblig">(*)</span></td>
+                 <td></td>
+        </tr>
+         <tr>
+            <td class="text-left">Pago por Procesamiento</td>
+            <td class="text-center">{{ pago.archivoAdjunto.name}} </td>
+            <td class="text-center">{{ pago.fechaDeposito|date('d/m/Y')|default('none')}}</td>
+            <td class="text-center">{{ pago.numReferencia}}</td>
+            <td class="text-center">{{ pago.banco.banco}}</td>
+            <td class="text-center">{{ pago.monto}}</td>
+            <td class="text-center">
+                {#<button class="btn btn-warning" onclick="">Cambiar</button>#}
+                <button class="btn btn-warning" onclick="CargaRecaudo('{{pago.id}}','recaudospago_edit','pagoP');">Cambiar</button>
+            </td>
+        </tr>
+</table>
+            

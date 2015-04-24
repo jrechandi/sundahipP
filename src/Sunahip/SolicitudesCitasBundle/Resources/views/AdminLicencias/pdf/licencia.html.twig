@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Licencia Hípica</title>
+    </head>
+    <body>
+        <div id="licencia">
+            <table width="" align="center" style="background-image: url( {{ app.request.schemeAndHttpHost ~ asset('bundles/common/images/bg/licencia.jpg') }}); background-size: contain; background-repeat: no-repeat; width: 972px; height: 718px; font-weight: bold;">
+                <tbody>
+                    <tr>
+                        <td align="center">
+                            <div style="font-size: 10px; text-align: center; width: 972px; float: left; height: 718px;"> 
+
+                                <div style="float: left; text-align: center; height: 40px; width: 972px; text-transform: uppercase; font-size: 25px; margin-top: 40px;">
+                                    <span>Licencia Hípica</span>
+                                </div>
+
+                                <div style="float: left; text-align: center; height: 40px; width: 972px; text-transform: uppercase; font-size: 15px;margin-top: 15px;">
+                                    <span>{{ tipo_licencia }}</span>
+                                </div>
+
+                                <div style="float: left; text-align: center; height: 40px; width: 972px; text-transform: uppercase; font-size: 12px;margin-top: 0px; font-weight: normal; text-transform: uppercase;">
+                                    <span>El Superintendente Nacional de Actividades Hípicas en uso de la competencia exclusiva establecida en el artículo 28 del Decreto Nro. 422 con Rango y Fuerza de Ley que Suprime y Liquida al Instituto Nacional de Hipódromos y Regula las Actividades Hípicas, publicado en la Gaceta Oficial de la República Bolivariana de Venezuela Nro. 5397 extraordinaria de fecha 25 de octubre de 1999, otorga la presente Licencia Nro.</span>
+                                </div>
+
+                                <div style="float: left; text-align: center; height: 40px; width: 972px; text-transform: uppercase; font-size: 15px; margin-top: 19px;">
+                                    <span>{{ cod_licencia }}</span>
+                                </div>
+
+                                <div style="float: left; text-align: center; height: auto; width: 972px; text-transform: uppercase; font-size: 13px; margin-top:-12px; font-weight: normal;">
+                                    <div style="float: left; text-align: center; margin-left: 3%; margin-right: 3%; width: 44%;">
+                                        <span>A la Sociedad Mercantil:</span>
+                                    </div>
+                                    <div style="float: left; text-align: center; margin-left: 3%; margin-right: 3%; width: 44%;">
+                                        <span>RIF:</span>
+                                    </div>
+                                </div>
+
+                                <div style="float: left; text-align: center; height: auto; width: 972px; text-transform: uppercase; font-size: 13px; margin-top: 9px;">
+                                    <div style="float: left; text-align: center; margin-left: 3%; margin-right: 3%; width: 44%;">
+                                        <span>{{ establecimiento }}</span>
+                                    </div>
+                                    <div style="float: left; text-align: center; margin-left: 3%; margin-right: 3%; width: 44%;">
+                                        <span>{{ rif }}</span>
+                                    </div>
+                                </div>
+
+                                <div style="float: left; text-align: center; height: auto; width: 100%; text-transform: uppercase; font-size: 11px; margin-top: 16px; padding-top: 5px; height: 17px; background-color: rgba(28, 148, 210, 0.5);">
+                                    <span style="float: left; text-align: left; width: 220px; padding-left: 50px;  font-weight: normal; color:#283a86;">Nro. de Providencia Administrativa</span>
+                                    <span style="float: left; text-align: left; width: 170px; padding-left: 25px;">{{ num_providencia }}</span>
+                                    <span style="float: left; text-align: right; width: 175px; padding-left: 2px; font-weight: normal; color:#283a86;">Desde</span>
+                                    <span style="float: left; text-align: left; width: 220px;padding-left: 25px;">{{ desde|date('d/m/Y') }}</span>
+                                </div>
+
+                                <div style="float: left; text-align: center; height: auto; width: 100%; text-transform: uppercase; font-size: 11px; margin-top: 3px; padding-top: 5px; height: 17px; background-color: rgba(28, 148, 210, 0.5);">
+                                    <span style="float: left; text-align: left; width: 220px; padding-left: 50px; font-weight: normal; color:#283a86;">Fecha Providencia</span>
+                                    <span style="float: left; text-align: left; width: 170px; padding-left: 25px;">{{ fecha_providencia|date('d/m/Y') }}</span>	
+                                    <span style="float: left; text-align: right; width: 175px; padding-left: 2px; font-weight: normal; color:#283a86;">Hasta</span>
+                                    <span style="float: left; text-align: left; width: 220px;padding-left: 25px;">{{ hasta|date('d/m/Y') }}</span>
+                                </div>
+
+                                <div style="float: left; text-align: center; height: 0px; width: 972px; text-transform: uppercase; font-size: 12px; margin-top: 4px;">
+                                    <span>Dirección del Establecimiento</span>
+                                </div>
+
+                                <div style="float: left; text-align: center; height: 20px; width: 972px; text-transform: uppercase; font-size: 11px;margin-top: 17px; padding-top: 5px; height: 17px; background-color: rgba(28, 148, 210, 0.5);">
+                                    <span style="float: left; text-align: left; width: 115px; padding-left: 60px; font-weight: normal; color:#283a86;">Entidad Federal</span>
+                                    <span style="float: left; text-align: left; overflow: hidden; padding-left: 15px; width: 270px;">{{ estado }}</span>
+                                    <span style="float: left; text-align: left; width: 70px; padding-left: 80px; font-weight: normal; color:#283a86;">Municipio</span>
+                                    <span style="float: left; text-align: left; overflow: hidden; padding-left: 15px; width: 260px;">{{ municipio }}</span>  
+                                </div>
+
+                                <div style="float: left; text-align: center; height: 20px; width: 972px; text-transform: uppercase; font-size: 11px;margin-top: 3px; padding-top: 5px; height: 17px; background-color: rgba(28, 148, 210, 0.5);">
+                                    <span style="float: left; text-align: left; width: 115px; padding-left: 60px; font-weight: normal; color:#283a86;">Parroquia</span>
+                                    <span style="float: left; text-align: left; overflow: hidden; padding-left: 15px; width: 270px;">{{ parroquia }}</span> 
+                                    <span style="float: left; text-align: left; width: 70px; padding-left: 80px; font-weight: normal; color:#283a86;">Ciudad</span>
+                                    <span style="float: left; text-align: left; overflow: hidden; padding-left: 15px; width: 260px;">{{ ciudad }}</span>	
+                                </div>
+
+                                <div style="float: left; text-align: center; height: 20px; width: 972px; text-transform: uppercase; font-size: 11px;margin-top: 3px; padding-top: 5px; height: 17px; background-color: rgba(28, 148, 210, 0.5);">
+                                    <span style="float: left; text-align: left; width: 115px; padding-left: 60px; font-weight: normal; color:#283a86;">Sector</span>
+                                    <span style="float: left; text-align: left; overflow: hidden; padding-left: 15px; width: 270px;">{{ sector }}</span>
+                                    <span style="float: left; text-align: left; width: 70px; padding-left: 80px; font-weight: normal; color:#283a86;">Calle</span>
+                                    <span style="float: left; text-align: left; overflow: hidden; padding-left: 15px; width: 260px;">{{ calle }}</span>
+                                </div>
+
+                                <div style="float: left; text-align: center; height: 20px; width: 972px; text-transform: uppercase; font-size: 11px;margin-top: 3px; padding-top: 5px; height: 17px; background-color: rgba(28, 148, 210, 0.5);">	
+                                    <span style="float: left; text-align: left; width: 115px; padding-left: 60px; font-weight: normal; color:#283a86;">Casa</span>
+                                    <span style="float: left; text-align: left; overflow: hidden; padding-left: 15px; width: 270px;">{{ casa }}</span>
+                                </div>
+
+                                {% if afiliado != "" and rif_afiliado != "" %}
+
+                                <div style="float: left; text-align: center; height: 0px; width: 972px; text-transform: uppercase; font-size: 12px; margin-top: 15px;">
+                                    <span>Empresa Operadora</span>
+                                </div>
+
+                                <div style="float: left; text-align: center; height: auto; width: 972px; text-transform: uppercase; font-size: 11px; margin-top: 18px; padding-top: 5px; height: 17px; background-color: rgba(28, 148, 210, 0.5);">
+                                    <span style="float: left; text-align: left; width: 150px; padding-left: 60px; font-weight: normal; color:#283a86;">Nombre o Razón Social</span>
+                                    <span style="float: left; text-align: left; padding-left: 10px; width: 660px;  overflow: hidden;">{{ afiliado }}</span>
+                                </div>
+
+                                <div style="float: left; text-align: center; height: auto; width: 972px; text-transform: uppercase; font-size: 11px; margin-top: 3px; padding-top: 5px; height: 17px; background-color: rgba(28, 148, 210, 0.5);">
+                                    <span style="float: left; text-align: left; width: 150px; padding-left: 60px; font-weight: normal; color:#283a86;">RNLH</span>
+                                    <span style="float: left; text-align: left; padding-left: 10px; width: 240px; overflow: hidden;">0005</span>
+                                    <span style="float: left; text-align: left; width: 30px; padding-left: 165px; font-weight: normal; color:#283a86;">RIF</span>
+                                    <span style="float: left; text-align: left; padding-left: 20px; width: 210px; overflow: hidden;">{{ rif_afiliado }}</span>
+                                </div>
+                                {#
+                                <div style="float: right; text-align: center; height: auto; width: 972px; text-transform: uppercase; font-size: 14px; margin-top: 4px;">
+                                    <img style="float: right; margin: 40px; margin-right: 100px" src="{{ qrcode_data_uri(cod_licencia, size=100, padding=10) }}" />
+                                </div> #}
+
+                                <div style="float: left; text-align: center; height: 0px; width: 972px; text-transform: uppercase; font-size: 15px; margin-top: 85px;">
+                                    
+                                {% else %}
+                                    
+                                <div style="float: left; text-align: center; height: 0px; width: 972px; text-transform: uppercase; font-size: 15px; margin-top: 165px;">
+                                    
+                                {% endif %}
+                                                                    
+                                    <span>FERNANDO VALENTINO</span>
+                                </div>
+                                <div style="float: left; text-align: center; height: 0px; width: 972px; text-transform: uppercase; font-size: 12px; margin-top: 20px;">
+                                    <span>Superintendente Nacional de Actividades Hipicas (E).</span>
+                                </div>
+
+                                <div style="float: right; text-align: center; height: 100px; width: 100px; text-transform: uppercase; margin-top: -70px; margin-right: 110px; background-color: #fff;">
+                                    <span><img src="{{ qrcode_data_uri(data_qr, size=100, padding=10) }}" /></span>
+                                </div>
+
+                                <!--<div style="float: left; text-align: center; height: 0px; width: 472px; text-transform: uppercase; font-size: 10px; text-transform: uppercase; margin-top: 25px;padding-left: 245px; font-weight: normal;">-->
+                                <div style="float: left; text-align: center; height: 0px; width: 505px; text-transform: uppercase; font-size: 10px; text-transform: uppercase; margin-top: 25px;padding-left: 245px; font-weight: normal;">
+                                    <span>Resolución Nro.074/13 del 23/09/2013, publicada en la Gaceta Oficial de la República Bolivariana de Venezuela Nro. 40.260 de fecha 27 de Septiembre de 2013</span>
+                                </div>
+
+                                <div style="float: left; text-align: center; height: 0px; width: 972px; text-transform: uppercase; font-size: 9px; text-transform: uppercase; margin-top: 30px; font-weight: normal;">
+                                    <span>Se hace del conocimiento del licenciatario que la Superintendencia Nacional de Actividades Hípicas podrá suspender o revocar esta licencia si verifica el incumplimiento de las disposiciones establecidas en el Decreto Nro° 422 y las normas que establezca esta superintendencia. Esta Licencia es intransferible y servira como instrumento sólo para la explotación de carreras hípicas (nacionales o internacionales según el caso), en el establecimiento aquí descrito.</span>
+                                </div>
+
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+    </body>
+</html>

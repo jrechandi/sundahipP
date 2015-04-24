@@ -1,0 +1,17 @@
+{% extends 'FiscalizacionBundle:Fiscalizacion:index.html.twig' %}
+
+{% block titulo %}
+con estatus <em>Citados</em>
+{% endblock %}
+
+{% block preheader %}
+    <th>F. Citación</th>
+{% endblock %}
+
+{% block precols %}
+    <td>{{ entity.citacion.fecha | date('d/m/Y')}}</td>
+{% endblock %}
+
+{% block preactions %}
+     <a class="btn btn-success btn-sm" href="{{ path('fiscalizacion_multar', { 'id': entity.id }) }}">Multar</a>
+{% endblock %}

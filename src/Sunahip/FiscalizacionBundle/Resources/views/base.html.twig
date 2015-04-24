@@ -1,0 +1,77 @@
+{% extends 'NewTemplateBundle::base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('bundles/solicitudescitas/css/genstyles.css')}}" rel="stylesheet">
+    <link href="{{ asset('bundles/solicitudescitas/css/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" media="print">
+
+    {% stylesheets
+    '@MopaBootstrapBundle/Resources/public/components/smalot-bootstrap-datetimepicker/build/build_standalone.less'
+    %}
+    <link type="text/css" rel="stylesheet" href="{{ asset_url }}">
+    {% endstylesheets %}
+
+{% endblock stylesheets %}
+
+
+{% block foot_script_assetic %}
+
+    {{ parent() }}
+
+    {% javascripts
+    '@MopaBootstrapBundle/Resources/public/components/smalot-bootstrap-datetimepicker/js/bootstrap-datetimepicker.js'
+    %}
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+
+    {% javascripts
+    '@MopaBootstrapBundle/Resources/public/components/smalot-bootstrap-datetimepicker/js/locales/bootstrap-datetimepicker.es.js'
+    %}
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+
+
+    <script type="text/javascript">
+        $(function(){
+
+            $('[data-provider="datepicker"]').datetimepicker({
+                autoclose: true,
+                format: 'dd/mm/yyyy',
+                minView: 'month',
+                pickerPosition: 'bottom-left',
+                todayBtn: true,
+                startView: 'month',
+                language: 'es'
+            });
+
+            $('[data-provider="datetimepicker"]').datetimepicker({
+                autoclose: true,
+                format: 'dd/mm/yyyy hh:ii',
+                language: 'fr',
+                pickerPosition: 'bottom-left',
+                todayBtn: true,
+                language: 'es'
+            });
+
+            $('[data-provider="timepicker"]').datetimepicker({
+                autoclose: true,
+                format: 'hh:ii',
+                formatViewType: 'time',
+                maxView: 'day',
+                minView: 'hour',
+                pickerPosition: 'bottom-left',
+                startView: 'day',
+                language: 'es'
+            });
+
+            // Restore value from hidden input
+            $('input[type=hidden]', '.date').each(function(){
+                if($(this).val()) {
+                    $(this).parent().datetimepicker('setValue');
+                }
+            });
+
+        });
+    </script>
+
+{% endblock %}

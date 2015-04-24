@@ -1,0 +1,42 @@
+<h3>Datos de Usuario</h3>
+<ul class="menu2">
+    <li><a href="{{path('datos-basicos')}}" title="">Datos Básicos</a></li>
+    {#%if app.user.operadora|length >0 %}
+    {%set id = app.user.operadora.id%}
+    {%else%} {%set id = 0%}
+    {%endif%#}
+</ul>       
+
+<h3>Oficinas</h3>
+<ul class="menu2">
+    <li><a href="{{path('operadora_new')}}" title="">Representante Legal</a></li>
+    <li><a href="{{path('operadora_new_office')}}" title="">Oficina Principal</a></li>
+    <li><a href="{{path('operadora_sucursales')}}" title="">Sucursales</a></li>
+</ul>
+
+<h3>Mis Afiliados</h3>
+<ul class="menu2">
+    <li><a href="{{path('Centrohipico_solicitud_afiliacion')}}" title="Solicitar Incorporaci&oacute;n Afiliado">Solicitar Incorporación Afiliado</a></li>
+    <li><a href="{{ path('Centrohipico_solicitud_afiliacion_listado') }}" title="Consultar Afiliados">Consultar Afiliados</a></li>
+    {#<li><a href="#consulta_ch" title="frames/aportes_afiliados.html">Aportes de Afiliados</a></li>#}
+</ul>	
+                           
+<h3>Mis Solicitudes de Licencia</h3>
+<ul class="menu2">
+    <li><a href="{{path('solicitudoperadora_citas_create')}}" title="Crear Solicitud">Crear</a></li>
+    <li><a href="{{path('solicitudoperadora_list')}}" title="Listado de Solicitudes">Consultar Solicitudes</a></li>
+    {#<li><a href="#solicitudes_pendientes" title="frames/hipodromos.html">Licencias Activas e Hipódromos Permisados</a></li>#}
+</ul>	
+
+<h3>Mis Pagos</h3>
+<ul class="menu2">
+    <li><a href="{{path('pagos', {tipo:'APORTE_MENSUAL'})}}" title="Pago de Aporte Mensual">Aporte Mensual</a></li>
+    <li><a href="{{path('pagos', {tipo:'PROCESAMIENTO'})}}" title="Pago de Procesamiento">Procesamiento</a></li>
+    <li><a href="{{path('pagos', {tipo:'OTORGAMIENTO'})}}" title="Pago de Otorgamiento">Otorgamiento</a></li>
+    <li><a href="{{path('pagos', {tipo:'MULTA'})}}" title="Pago de Multas">Multa</a></li>
+</ul>
+            
+<h3>Mis Fiscalizaciones</h3>
+    <ul class="menu2">
+    <li><a href="{{path('fiscalizacion_mis')}}" title="Consulta de Fiscalizaciones">Consultar</a></li>
+</ul>

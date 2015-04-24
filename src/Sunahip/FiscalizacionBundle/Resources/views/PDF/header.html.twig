@@ -1,0 +1,25 @@
+Hoy, en la ciudad de {{centro.ciudad}}, siendo las {{ entity.fecha| date('H:i')}} del día  {{ entity.fecha| date('d')}}
+({{num[ entity.fecha| date('j')]}}) de {{ mes[entity.fecha| date('n')] | upper}} de {{ entity.fecha| date('Y')}}, los funcionarios,
+ <strong>{{entity.providencia.gerente.fullName | upper }}</strong>,
+
+ {% for i in entity.providencia.fiscales %}
+    <strong>{{i.fullName | upper }}</strong>,
+ {% endfor %}
+
+ venezolanos, mayores de edad, titulares  de la Cédula de Identidad Nro. 
+<strong>{{entity.providencia.gerente.ci}}</strong>,
+ {% for i in entity.providencia.fiscales %}
+    <strong>{{i.ci}}</strong>,
+ {% endfor %}
+ respectivamente, actuando con el carácter de
+<strong>GERENTE DE FISCALIZACIÓN Y CONTROL DE JUEGOS, </strong>
+ {% for i in entity.providencia.fiscales %}
+    <strong>FISCAL DE RENTA</strong>, 
+ {% endfor %}
+ respectivamente, adscritos a la SUPERINTENDENCIA NACIONAL DE ACTIVIDADES HÍPICAS
+ <strong>(SUNAHIP)</strong>, asistieron al establecimiento comercial denominado  <strong>{{centro.denominacionComercial | upper}}</strong>, 
+ubicado en {{centro.urbanSector}} {{centro.avCalleCarrera}}, identificado con el RIF {{centro.persJuridica}}-{{centro.rif}} 
+{% if centro.registro is not null %}
+debidamente inscrita en el Registro Mercantil {{centro.registro.nombre}} en fecha {{centro.registro.fecha | date('d/m/Y')}}, bajo el Nº {{centro.registro.num}} tomo {{centro.registro.tomo}}
+{% endif %}
+, a los fines de dar cumplimiento a la Providencia Administrativa Nº {{entity.providencia.num}}/{{entity.providencia.finicio|date("Y")}} de fecha {{entity.providencia.finicio|date("d")}} de {{mes[entity.providencia.finicio|date("n")]}} de {{entity.providencia.finicio|date("Y")}}

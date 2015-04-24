@@ -1,0 +1,63 @@
+<table id="tabla_reporte">
+    <tbody><tr id="table_header">
+        <td colspan="4" style="color: white">Nombre del Fiscal: <strong>{{ entities.0.fiscal.perfil[0].getNombre|e }} {{ entities.0.fiscal.perfil[0].getApellido|e }}</strong></td>
+    </tr>
+    <tr>
+        <td colspan="3" style="width: 75%; text-align: right;">Cédula de Identidad:</td>
+        <td><strong>
+                {% if entities.0.fiscal.perfil[0].ci > 1 %}
+                    {{ entities.0.fiscal.perfil[0].ci }}
+                {% else %}
+                    {{ entities.0.fiscal.perfil[0].rif }}
+                {% endif %}
+        </strong></td>
+    </tr>
+    <tr>
+        <td style="width: 40%"></td>
+        <td></td>
+        <td style="width: 25%; text-align: right;">Estado:</td>
+        <td><strong>{% if entities.0.fiscal.enabled == "1" %}<i class="fa fa-check-circle-o"></i> Activo{% else %}<i class="fa fa-times-circle-o"></i> Inactivo{% endif %}</strong></td>
+    </tr>
+
+    </tbody>
+</table>
+<div id="tabs" class="ui-tabs ui-widget ui-widget-content ui-corner-all">
+    <ul class="ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all" role="tablist">
+        <li class="ui-state-default ui-corner-top ui-tabs-active ui-state-active" role="tab" tabindex="0" aria-controls="tabs-1" aria-labelledby="ui-id-1" aria-selected="true"><a href="#tabs-1" class="ui-tabs-anchor" role="presentation" tabindex="-1" id="ui-id-1">Gestiones Realizadas</a></li>
+    </ul>
+    <div id="tabs-1" aria-labelledby="ui-id-1" class="ui-tabs-panel ui-widget-content ui-corner-bottom" role="tabpanel" aria-expanded="true" aria-hidden="false">
+        <table id="tabla_reporte2">
+            <tbody><tr id="table_header2">
+                <td>Nº</td>
+                <td>Nº Solicitud</td>
+                <td>Fecha de <br>Gestión</td>
+                <td>RIF</td>
+                <td>Denominación Comercial</td>
+                <td>Tipo de Gestión</td>
+            </tr>
+            {% for entity in entities %}
+                <tr>
+                    <td>{{ entity.id }}</td>
+                    <td class="derecha">{{ entity.solicitud.id }}</td>
+                    <td class="center">{{ entity.fechaInicio }}</td>
+                    <td>
+                        {% if entity.solicitud.operadora.persJuridica  is defined %}
+                            {{ entity.solicitud.operadora.persJuridica }}-{{ entity.solicitud.operadora.rif }}
+                        {% else %}
+                            {{ entity.solicitud.centroHipico.persJuridica }}-{{ entity.solicitud.centroHipico.rif }}
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if entity.solicitud.operadora.denominacionComercial is defined %}
+                            {{ entity.solicitud.operadora.denominacionComercial }}
+                        {% else %}
+                            {{ entity.solicitud.centroHipico.denominacionComercial }}
+                        {% endif %}
+                    </td>
+                    <td><strong>Recepción de Documentos</strong></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,122 @@
+{% extends "NewTemplateBundle::base.html.twig" %}
+
+{% block content_content %}
+   <div class="block-separator col-sm-12"></div>
+        <div class="col-md-12">
+            <h1 class="tit_principal">Datos Básicos</h1>
+        </div>
+    <div class="block-separator col-sm-12"></div>
+
+    <div class="col-md-12">
+    <table  class="record_properties table table-condensed">
+         <thead>
+                <tr>
+                    <th colspan="2" >Detalles Datos Básicos </th>
+                </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>RIF</th>
+                <td>{{ entity.perfil[0].persJuridica }} - {{ entity.perfil[0].rif  }}</td>
+            </tr>
+            <tr>
+                <th>Cedula</th>
+                <td>{{ entity.perfil[0].ci }}</td>
+            </tr>
+          <tr>
+                <th>Nombre</th>
+                <td>{{ entity.perfil[0].nombre }}</td>
+            </tr>
+            <tr>
+                <th>Apellido</th>
+                <td>{{ entity.perfil[0].apellido }}</td>
+            </tr>
+            <tr>
+                <th>Fax</th>
+                <td>{{ entity.perfil[0].fax }}</td>
+            </tr>
+            <tr>
+                <th>Teléfono Fijo</th>
+                <td>{{ entity.perfil[0].CodTelefonoLocal }} {{ entity.perfil[0].TelefonoLocal }}</td>
+            </tr>
+            <tr>
+                <th>Teléfono Celular</th>
+                <td>{{ entity.perfil[0].CodTelefonoMovil }} {{ entity.perfil[0].TelefonoMovil }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ entity.perfil[0].CorreoAlternativo}}</td>
+            </tr>
+            <tr>
+                <th>Página Web</th>
+                <td>{{ entity.perfil[0].SitioWeb }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <table  class="record_properties table table-condensed">
+         <thead>
+                <tr>
+                    <th colspan="2" >Detalles Dirección</th>
+                </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>Estado</th>
+                <td>{%if entity.perfil[0].estado|length > 0%}
+                        {{ entity.perfil[0].estado.nombre}}
+                    {%endif%}
+                </td>
+            </tr>
+            <tr>
+                <th>Municipio</th>
+                <td>{%if entity.perfil[0].municipio|length > 0%}
+                        {{ entity.perfil[0].municipio.nombre }}
+                    {%endif%}
+                </td>
+            </tr>
+            <tr>
+                <th>Ciudad</th>
+                <td>{%if entity.perfil[0].ciudad|length > 0%}
+                        {{ entity.perfil[0].ciudad.nombre }}
+                    {%endif%}
+                </td>
+            </tr>
+            <tr>
+                <th>Parroquia</th>
+                <td>{%if entity.perfil[0].parroquia|length > 0%}
+                        {{ entity.perfil[0].parroquia.nombre }}
+                    {%endif%}
+                </td>
+            </tr>
+            <tr>
+                <th>Av/Calle/Carretera</th>
+                <td>{{ entity.perfil[0].calle }}</td>
+            </tr>
+            <tr>
+                <th>Edif/Casa</th>
+                <td>{{ entity.perfil[0].apartamento }}</td>
+            </tr>
+            <tr>
+                <th>Oficina/Apto/No</th>
+                <td>{{ entity.perfil[0].apartamentoNO }}</td>
+            </tr>
+            <tr>
+                <th>Punto Referencia</th>
+                <td>{{ entity.perfil[0].referencia }}</td>
+            </tr>
+            <tr>
+                <th>Código Postal</th>
+                <td>{{ entity.perfil[0].codigoPostal }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="col-md-12 form-group btn-group">
+     <div style="float: left">
+         <a href="{{ path('home') }}" class="btn btn-success btn-sm">Inicio</a>
+     </div>
+     <div style="float: right">
+         <a href="{{ path('editar-datos-basicos') }}" class="btn btn-primary btn-sm">Modificar</a>
+     </div>
+</div>
+{% endblock content_content%}

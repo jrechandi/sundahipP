@@ -1,0 +1,57 @@
+{% extends "ReporteBundle::base.html.twig" %}
+
+{% block content_reporte %}
+<div class="col-md-12">
+    <canvas id="grafico" width="700" height="300"></canvas>
+</div>
+<div class="col-md-12">
+    <div id="dataTable">
+    </div>
+</div>
+{% endblock content_reporte %}
+
+{% block script_reporte %}
+            $('.filtroPorEstado').show();
+
+            $("#xMes").show();
+            $("#xEstado").hide();
+            $("#xAnio").show();
+    
+            var d = new Date();
+            for(var a=d.getFullYear(); a>=1990; a--){
+                $('#anio').append('<option value="'+a+'">'+a+'</option>');
+            }
+            
+            {% if anio is defined and anio is not empty %}
+                $('#anio > option:contains("{{ anio }}")').prop('selected', true);
+            {% endif %}
+
+            {% if mes is defined and mes is not empty %}
+                $('#mes > option:eq({{ mes-1 }})').prop('selected', true);
+            {% else %}
+                $('#mes > option:eq('+d.getMonth()+')').prop('selected', true);
+            {% endif %}
+
+            var encab = {{ encabezado|raw }};
+            var data = {{ data|raw }};
+            
+            var chart = new Chart($("#grafico").get(0).getContext("2d"));
+            chart.Bar(data);
+            
+            var tablas = $('#dataTable');
+            $.each(data.datasets, function(x,dataset){
+                tablas.append('<table id="tablaDatos_'+dataset.label+'" class="table table-condensed table-striped"><caption><span style="background-color:'+dataset.fillColor+'">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;<b>'+dataset.label+'<b></caption><thead><th class="col-md-6">Mes</th><th class="col-md-3">Cantidad</th><th class="col-md-3">Porcentaje</th></thead><tbody></tbody><tfoot><th class="text-left">Totales</th><th class="text-right"></th><th class="text-right"></th></tfoot></table>');
+                $('#dataTable > table:last > thead > tr > th:eq(1)').html(encab.cantidad);
+                $('#dataTable > table:last > thead > tr > th:eq(2)').html(encab.porcentaje);
+                var tabla = $('#dataTable > table:last').find('tbody');
+                $.each(data.labels, function(i,o){
+                    tabla.append('<tr></tr>');
+                    var row = tabla.find('tr:last');
+                    row.append('<td>'+o+'</td>');
+                    row.append('<td class="text-right">'+dataset.data[i]+'</td>');
+                    row.append('<td class="text-right">'+dataset.percent[i].toFixed(2)+'%</td>');
+                });
+                $('#dataTable > table:last > tfoot > tr > th:eq(1)').html(dataset.total);
+                $('#dataTable > table:last > tfoot > tr > th:eq(2)').html(dataset.totalPercent.toFixed(2)+'%');
+            });
+{% endblock script_reporte %}

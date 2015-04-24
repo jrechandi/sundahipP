@@ -1,0 +1,94 @@
+{% extends 'SolicitudesCitasBundle::solicitud_base.html.twig' %}  
+{% block content_content %}
+    <div id="contendor" style="padding: 0px !important">
+        <div class="block-separator col-md-12"></div>
+	<h2 class="tit_principal">Solicitud Licencia Centro Hípico</h2>
+         <div class="block-separator col-md-12"></div>
+        <div class="col-md-8">            
+             <table id="tabla_reporte2">
+                 <tbody>
+                    <tr>
+                        <td class="redtit text-left">Nº Localizador</td>
+                        <td class="text-left bg-white">{{entity.codsolicitud}}</td>
+                    </tr>     
+                    <tr>
+                        <td class="redtit text-left">Fecha de Solicitud</td>
+                        <td class="text-left bg-white">{{entity.fechaSolicitud|date('d-m-Y')}}</td>
+                    </tr>     
+                    <tr>     
+                        <td class="redtit text-left">Denominación Comercial (Centro Hípico)</td>
+                        <td class="text-left bg-white">
+                            {{entity.centroHipico.denominacionComercial}} &nbsp;&nbsp;
+                            <button class="btn btn-warning" onclick="CargarData('Centro Hípico')">Cambiar</button>
+                        </td>
+                    </tr>   
+                    <tr>     
+                        <td class="redtit text-left">Tipo de Autorización(Licencia)</td>
+                        <td class="text-left bg-white">
+                            {{entity.ClasLicencia.clasfLicencia}}&nbsp;&nbsp; 
+                            <button class="btn btn-warning" onclick="CargarData('Tipo autorizacion')">Cambiar</button>
+                        </td>
+                    </tr>   
+                    <tr>     
+                        <td class="redtit text-left">Juegos a Explotar</td>
+                        <td class="text-left bg-white">
+                            {% for juegose in entity.juegosExplotados %}
+                             {{juegose.juego}}&nbsp; 
+                           {%endfor%} &nbsp;&nbsp;
+                            <button class="btn btn-warning" onclick="CargarData('Juegos Explotar')">Cambiar</button>
+                        </td>
+                    </tr>   
+		</tbody>
+             </table> 
+        </div> <!-- Div Table corto -->   
+        <div class="block-separator col-md-12"></div> 
+        <div id="datashow" class="col-md-8 col-md-offset-2">
+            
+        </div> 
+</div>      
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Cerrar</span></button>
+                <h4 class="modal-title" id="myModalLabel">Notificación</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12 alert text-left" id="myMessage">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{%endblock%}
+{% block foot_script_assetic %}
+        {{ parent() }}
+  <script type="text/javascript">
+        $(document).ready(function() {  
+            
+       });
+
+function CargarData(secc){
+    $('datashow').html("Cargando Datos para: " + secc);
+}
+function getRoute(elem,path,id){
+   $(elem).html("Cargando Datos.. Espere...")
+    var route=Routing.generate(path,{id:id});
+       //Juegos Explotados
+    $.get(route)
+     .success(function(data) {
+        $(elem).html(data);
+     }).error(function(data, status, headers, config) {
+            if (status == '500') {
+                message = "No hay conexión con el servidor";
+                $(elem).html(message);
+            }
+       });
+}
+        
+   </script>          
+{% endblock foot_script_assetic %}          

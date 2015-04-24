@@ -1,0 +1,30 @@
+datasucursal:
+    path:     /
+    defaults: { _controller: "CentrohipicoBundle:DataSucursal:index" }
+
+datasucursal_show:
+    path:     /{id}/show
+    defaults: { _controller: "CentrohipicoBundle:DataSucursal:show" }
+
+datasucursal_new:
+    path:     /new
+    defaults: { _controller: "CentrohipicoBundle:DataSucursal:new" }
+
+datasucursal_create:
+    path:     /create
+    defaults: { _controller: "CentrohipicoBundle:DataSucursal:create" }
+    requirements: { _method: post }
+
+datasucursal_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "CentrohipicoBundle:DataSucursal:edit" }
+
+datasucursal_update:
+    path:     /{id}/update
+    defaults: { _controller: "CentrohipicoBundle:DataSucursal:update" }
+    requirements: { _method: post|put }
+
+datasucursal_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "CentrohipicoBundle:DataSucursal:delete" }
+    requirements: { _method: post|delete }

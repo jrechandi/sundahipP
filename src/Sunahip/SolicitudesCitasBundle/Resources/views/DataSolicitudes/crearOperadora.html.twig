@@ -1,0 +1,176 @@
+{% extends 'SolicitudesCitasBundle::solicitud_base.html.twig' %}  
+{% block content_content %}
+    <div id="contendor">
+        <div class="block-separator col-md-12"></div>
+	<div class="tit_principal">Solicitud Licencia Operadora</div>
+		<br /><br /><br />
+                 <div class="col-md-12">
+                    <div id="texto">Estimado Usuario, Para solicitar una cita, deber&aacute; antes adjuntar todos los recaudos, seg&uacute;n la licencia que solicite. Por cada Licencia deber&aacute; realizar una solicitud.</div>
+                    <div id="texto">Los campos con <span class="oblig">(*)</span> son obligatorios.</div>
+                    <div style="clear:both;"></div>
+                 </div>  
+           <div class="col-md-12">
+                <div class="form-group">
+                  {% for type, flashMessage in app.session.flashbag.all() %}
+                     <div class="alert alert-{{ type }} ">
+                         <button class="close" data-dismiss="alert" type="button"></button>
+                         {% if flashMessage.title is defined %}
+                         <strong>{{ flashMessage.title }}</strong>
+                         {{ flashMessage.message }}
+                         {% else %}
+                         {{ type }}
+                         {% endif %}
+                     </div>
+                  {% endfor %}
+                </div>
+            </div>
+           <div class="col-md-12">
+            {{ form_start(form,{'attr': {'id':'form_dslo'} }) }}        
+	    <div id="accordion" class="">
+		<h3>1. Seleccionar Licencia para Operadora</h3>
+		<div>
+                       <div class="col-md-4">Tipo de Licencia <span class="oblig">(*)</span></div>
+                        <div class="col-md-4">
+                           {{ form_widget(form.ClasLicencia, {'attr': {'class': 'licencia'},'id':'alic' }) }}
+                           {% if form.ClasLicencia.vars.errors[0].message is defined %}
+                           <span class="help-block ">
+                            {{ form.ClasLicencia.vars.errors[0].message }}
+                           </span>
+                           {% endif %}
+                        </div>
+		</div>
+
+		<h3>2. Seleccione los Juegos a Explotar</h3>
+		<div>
+                        <div class="col-md-3">Juegos a Explotar <span class="oblig">(*)</span></div>
+                        <div id="juegos_explotar" class="col-md-7"><p>Para ver Lista: Seleccione Tipo de Licencia</p></div>
+		</div>
+		<h3>3. Seleccionar Los hipódromos Internacionales en los que prestará señal</h3>
+		<div id="data_hipointer">
+                        <div class="col-md-4"><p>Para ver Seleccione Tipo de Licencia</p></div>
+                        <div class="col-md-6">
+                            &nbsp;
+                        </div>
+		</div>
+		<h3>4. Adjuntar Recaudos</h3>
+		<div id="lista_recaudos">
+                    <p>Para ver: Seleccione Tipo de Licencia </p>
+		</div>
+		<h3>5. Pago por Procesamiento</h3>
+                <div id="pago_procesamiento">{#pago_procesamiento#}
+                    <p>Para ver: Seleccione Tipo de Licencia</p>
+		</div>
+
+              <h3>6. Seleccionar D&iacute;a de Cita</h3>
+              <div>
+                 <div class="col-md-3"><label for="date">Fecha de Cita <span class="oblig">(*)</span> :</label> <br/>
+                   <input type="text" id="date" name="datacita" placeholder="Fecha dd/mm/aaaa" class="" size="13px;" readonly/> <div id="error"></div>
+                 </div>
+                 <div class="col-md-4 "><div id="datepick"></div> </div>
+                 <div class="col-md-4 col-offset-2 alert-warning">
+                     Debe seleccionar alguno de los Días Activos. A partir del Día de mañana hasta 15 días para seleccionar la fecha de la cita
+                 </div>
+		</div><!--  FIN TABS 4 -->
+        </div>
+        <div class="block-separator col-md-12"></div>
+        <div class="col-md-offset-8 col-md-4 form-group text-right">
+                <a href="{{ path('solicitudoperadora_list') }}" class="btn btn-warning btn-sm">Cancelar</a>
+                <a href="#" id="gensol" class="btn btn-primary btn-sm">Generar Solicitud</a>
+        </div>
+         {{ form_widget(form._token)}}
+       </form>  <!-- End form-->
+      </div>                 
+        <div class="block-separator col-md-12"></div> 
+</div>
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Cerrar</span></button>
+                <h4 class="modal-title" id="myModalLabel">Notificación</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12 alert text-left" id="myMessage">
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal">Aceptar</button>
+            </div>
+        </div>
+    </div>
+</div>                                
+{%endblock%}
+{% block foot_script_assetic %}
+        {{ parent() }}
+<script src="{{asset('bundles/solicitudescitas/js/solfun.js')}}"></script>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        ActiveCalendar();
+        $( "#accordion" ).accordion({
+            heightStyle: "content"
+        });   
+        $("#gensol").on("click",function(){
+            GenerarSolicitud();
+        });   
+        $("#alic").change(function(){
+            var id=$("#alic option:selected").val();
+            if(id != "") {         
+                // Hipodromos internacionales
+                getRoute("#data_hipointer",'solicitudoperadora_hipodromos',id);
+                // Juegos a Explotar
+                getRoute("#juegos_explotar",'datasolicitudes_juegoslist',id);
+                //Recaudos
+                getRoute("#lista_recaudos",'datasolicitudes_recaudoslist',id);
+            } else {
+                $("#juegos_explotar").html("<p>Para ver Lista: Seleccione Tipo de Licencia</p>");
+                $("#lista_recaudos").html("<p>Para ver: Seleccione Tipo de Licencia </p>");
+                $("#pago_procesamiento").html("<p>Para ver: Seleccione Tipo de Licencia </p>");
+            }
+        });
+    });
+
+    function ValidaForm(){
+        var oform = $("#form_dslo");
+        var resp=1, msg=new Array();
+        var arrdate=$( "#date" ).val().split("/");
+              var datets = Date.parse(arrdate[2]+"-"+arrdate[1]+"-"+arrdate[0]);
+              if(isNaN(datets)) {
+                  msg.push("- Debe Seleccionar una Fecha para la Cita <br/>");
+                  //$("#myMessage").html("Debe Seleccionar una Fecha para la Cita");
+                  //$("#myModal").modal("show");
+                  //return false;  
+                  resp=0;
+            }        
+        $("input:file").each(function(index,elem){
+           if ($(this).val()==='') {resp=0;msg.push("- Faltan Documentos de Recaudos<br/>");return false;} 
+        });
+        /* if($('#juegoe').length){
+            if($("#juegoe option:selected").val()==='') resp=0;
+        }*/
+        if($('#hipointer').length){            
+            if($("#hipointer").is("textarea")===true) {
+                if($("#hipointer").val()==='') {
+                    resp=0;msg.push("- Falta Hipódromo Internacional<br/>");
+                }
+            }
+        }
+        $(".date").each(function(index,elem){
+           if (!$(this).hasClass('disabled') && $(this).val()==='')
+           {resp=0;msg.push("- Falta Fecha de los Recaudos<br/>");return false;}
+        });
+        if($("#alic option:selected").val()==='') {resp=0;msg.push("- Falta Licencia<br/>");}
+        if($("#banco option:selected").val()==='') {resp=0; msg.push("- Seleccione un Banco<br/>");}
+        if($("#reciboNP").val()==='' || parseInt($("#reciboNP").val())===0) {resp=0;msg.push("-Falta el Número del Recibo<br/>");}
+
+        //Dialog('<div class="col-md-12 alert text-left"> Aun Faltan Campos Por Rellenar en la Solicitud:<br/>'+msg.toString().replace(",", " ")+' </div>','ERROR');
+        $("#myMessage").html("Aun Faltan Campos Por Rellenar en la Solicitud:<br/>"+msg.toString().replace(',', '').replace(',', ''));
+        $("#myModal").modal("show");
+        return resp===1?true:false;  
+    }
+</script>          
+{% endblock foot_script_assetic %}          

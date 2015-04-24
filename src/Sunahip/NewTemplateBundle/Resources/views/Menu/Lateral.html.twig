@@ -1,0 +1,67 @@
+{% if app.user %}
+                <div id="lateral" >
+                    <h2 class="text-center">Menú Principal</h2>
+                    <div id="" class="col-md-12  sidebar">
+                        <p class="text-center">Bienvenido, <strong>{{ app.user.fullname }}</strong><br/>
+                            {% if app.user.roles.0 == "ROLE_CENTRO_HIPICO" %}
+                                Centro Hípico
+                            {#% elseif app.user.roles.0 == "ROLE_OPERADORA" %#}
+                            {% elseif app.user.roles.0 == "ROLE_OPERADOR" %}
+                                Operadora
+                            {% elseif app.user.roles.0 == "ROLE_ADMIN" %}
+                                Administrador
+                            {% elseif app.user.roles.0 == "ROLE_FISCAL" %}
+                                Fiscal
+                            {% elseif app.user.roles.0 == "ROLE_ASESOR" %}
+                                Asesor Legal
+                            {% elseif app.user.roles.0 == "ROLE_SUPER" %}
+                                Super Intendente
+                            {% elseif app.user.roles.0 == "ROLE_GERENTE" %}
+                                Gerente
+                            {% elseif app.user.roles.0 == "ROLE_COORDINADOR" %}
+                                Coordinador
+                            {% elseif app.user.roles.0 == "ROLE_SUPERINTENDENTE" %}
+                                Superintendente
+                            {% endif %}
+                        </p><br/>
+                        {#<ul class="nav nav-sidebar">#}
+                        <ul class="menuu">
+                            <li><img src="{{ asset('bundles/common/images/notificacion.png') }}"><a href="{{ path('notification') }}">Notificaciones <span class="notif" id="notificationCount">0</span></a></li>
+                            <li><img src="{{ asset('bundles/common/images/contrasena.png') }}"><a href="{{ path('fos_user_change_password') }}">Cambiar Contrase&ntilde;a</a></li>
+                        </ul>
+                         <h3 ><a href="{{ path('fos_user_security_logout') }}" class="btn btn-default btn-small">Cerrar sesión</a></h3>
+                    </div><br/><p></p>
+                    {% if is_granted('ROLE_ADMIN') %} {#app.user.granted("USER_ADMIN")#}
+                        {% include 'NewTemplateBundle:Menu:mnu_admin.html.twig' %}
+                    {% elseif is_granted('ROLE_GERENTE') %}
+                        {% include 'NewTemplateBundle:Menu:mnu_gerente.html.twig' %}
+                    {% elseif is_granted('ROLE_LICENCIA') %}
+                        {% include 'NewTemplateBundle:Menu:mnu_licencia.html.twig' %}
+                    {% elseif is_granted('ROLE_OPERADOR') %}
+                        {% include 'NewTemplateBundle:Menu:mnu_operadora.html.twig' %}
+                    {% elseif is_granted('ROLE_FISCAL') %}
+                        {% include 'NewTemplateBundle:Menu:mnu_fiscal.html.twig' %}
+                    {% elseif is_granted('ROLE_ASESOR') %}
+                        {% include 'NewTemplateBundle:Menu:mnu_asesor.html.twig' %}
+                    {% elseif is_granted('ROLE_CENTRO_HIPICO') %}
+                        {%include 'NewTemplateBundle:Menu:mnu_usuario.html.twig'%}
+                    {% elseif is_granted('ROLE_SUPERINTENDENTE') %}
+                        {%include 'NewTemplateBundle:Menu:mnu_superintendente.html.twig'%}
+                    {% elseif is_granted('ROLE_COORDINADOR') %}
+                        {%include 'NewTemplateBundle:Menu:mnu_coordinador.html.twig'%}
+                    {%endif%}
+                </div>
+    {%endif%}
+<script>
+    function getNotifications()
+    {
+        var url = Routing.generate('notification_count');
+        $.get( url, function( data ) {
+            //console.info("notificaciones-",data);
+            $("#notificationCount").text(data);
+        });
+    }
+    $(document).ready(function() {
+        getNotifications();
+    });
+</script>

@@ -1,0 +1,319 @@
+{% extends ajax == false ? 'NewTemplateBundle::base.html.twig' : 'NewTemplateBundle::base_ajax.html.twig' %}
+
+{% block content_content %}
+    <div class="block-separator col-sm-12"></div>
+    <div class="row col-sm-12">
+        {% if app.user.hasRole('ROLE_GERENTE') %}<h1>Aprobar Incorporaci&oacute;n / Desafiliación de Afiliados</h1> {% else %} <h1>Listado de Solicitudes </h1> {% endif %}
+    </div>
+    <div class="block-separator col-sm-12"></div>
+    
+    <div class="col-md-7" style="float:right">
+        <form action="" method="get" class="form-horizontal">                
+            <input type="search" name="keyword" style="float: left; margin-right: 10px; height: 32px" id="txtKeyword" aria-controls="dt_basic" value="{{ app.request.get('keyword') }}">
+            <select class="form-control" name="estatus" style="height: 32px; margin-right: 10px; width: 160px !important; display: inline !important">
+                <option value="">Todos</option>
+                <option value="Aprobado" {% if app.request.get('estatus') == "Aprobado" %} selected {% endif %}>Aprobados</option>
+                <option value="Por Aprobar" {% if app.request.get('estatus') == "Por Aprobar" %} selected {% endif %}>Por Aprobar</option>
+                <option value="Desafiliado" {% if app.request.get('estatus') == "Desafiliado" %} selected {% endif %}>Desafiliados</option>
+                <option value="Por Desafiliar" {% if app.request.get('estatus') == "Por Desafiliar" %} selected {% endif %}>Por Desafiliar</option>
+            </select>
+            <input type="submit" style="float:right; height: 32px" class="btn btn-primary" value="Buscar">
+        </form>
+        <div class="col-sm-5 block-separator"></div>
+    </div>  
+    
+    <div id="action">
+        <div class="left">
+        {% if entities | length > 0 %}
+            <article class="col-sm-12 col-md-12 col-lg-12 sortable-grid ui-sortable" style="width: 50%">
+                {{ knp_pagination_render(entities) }}
+            </article>
+            {% endif %}
+        </div>
+    </div>    
+    
+    {% if entities|length > 0 %}
+   <div class="col-md-2 col-md-offset-10"><a href="{{path('exportpdf_operafiliados')}}" target='_blank'><i class="icon-pdf"></i></a>&nbsp;<a href="{{path('exportxls_operafilliados')}}" target='_blank'><i class="icon-excel"></i></a></div>
+    <div class="col-md-12">
+        {% if app.user.hasRole('ROLE_GERENTE') %}
+            <input style="float: right;height: auto;margin: 0 15px 5px 20px;padding: 5px;" disabled="disabled" type="button" id="activeMultiple" value="Aplicar">
+        {% endif %}
+        <table class="table table-condensed table-striped table-hover">
+            <thead>
+            <tr>
+                <th>Nº</th>
+                <th>RIF</th>
+                <th>Denominación Comercial</th>                
+                <th>Licencia</th>
+                <th>Operadora</th>
+                <th>Estatus</th>
+                <th colspan="3">Acciones</th>
+            </tr>
+            </thead>
+            <tbody>            
+            {% for entity in entities %}
+            <tr id="request-{{ entity.id }}">
+                <td>{{ loop.index }}</td>
+                <td>{{ entity.persJuridica }}-{{ entity.rif }}</td>
+                <td>{{ entity.denominacionComercial }}</td>
+                <td>{% if entity.licencia is not null %}
+                    {{ entity.licencia }}
+                    {% endif %}
+                </td>
+                <td>{{ entity.operadora }}</td>
+                <td>{{ entity.status }}</td>
+                <td>
+                    <a data-href="" href="{{ path('Centrohipico_solicitud_afiliacion_detalles',{'id': entity.id }) }}">
+                        <i class="fa fa-search" data-toggle="tooltip" data-placement="top" title="Ver Detalles"></i>Ver
+                    </a>
+                </td>
+                {% if app.user.hasRole('ROLE_GERENTE') %}
+                    {% if entity.status == 'Por Aprobar' %}
+                        <td><input type="checkbox" class="activeRequest" id="{{ entity.id }}"> Aprobar</td>
+                        <td>
+                            <a data-href="" data-toggle="modal" data-target="#confirmar-rechazar" onclick="setId('{{ entity.id }}')" href="#">
+                                <i class="fa fa-times-circle-o" data-toggle="tooltip" data-placement="top" title="Rechazar"></i>Rechazar
+                            </a>
+                        </td>
+                    {% elseif entity.status == 'Por Desafiliar' %}
+                        <td colspan="2">
+                            <a data-href="" data-toggle="modal" data-target="#aprobar-desafiliar" onclick="setId('{{ entity.id }}')" href="#">
+                                <i class="fa fa-plus-square-o" data-toggle="tooltip" data-placement="top" title="Aprobar Desafiliación"></i>Aprobar Desafiliación
+                            </a>
+                        </td>
+                    {% else %}
+                        <td colspan="2">&nbsp;</td>
+                    {% endif %}
+                {% elseif app.user.hasRole('ROLE_OPERADOR') %}
+                    {% if entity.status == 'Aprobado' %}
+                         <td colspan="2">
+                             <a data-href="" data-toggle="modal" data-target="#confirmar-desafiliar" onclick="setId('{{ entity.id }}')" href="#">
+                                <i class="fa fa-times-circle-o" data-toggle="tooltip" data-placement="top" title="Desafiliar"></i>Desafiliar
+                            </a>
+                         </td>
+                    {% else %}
+                         <td colspan="2">&nbsp;</td>
+                    {% endif %}
+                {% else %}
+                    <td colspan="2">&nbsp;</td>
+                {% endif %}
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+        {% else %}
+        <div class="col-md-12">
+            <div id="notificaciones">
+                <ul>
+                    <li class="n1"><h5>{% if app.user.hasRole('ROLE_GERENTE') %}No se encontraron resultados.{% else %}No se encontraron resultados.{% endif %}</h5></li>
+                </ul>
+            </div>
+        </div>
+    {% endif %}
+    <div class="block-separator col-sm-12"></div>
+
+    <div class="modal fade" id="confirmar-rechazar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    Rechazar Solicitud
+                </div>
+                <div class="modal-body">
+                    <label for="form_rechazar_nota"> Agregue el motivo por el cual se rechaza la solicitud:</label><br>
+                    <textarea rows="5" cols="65" id="form_rechazar_nota" name="form_rechazar[nota]"> </textarea>
+                    <div style="color: #E70202;display: none" id="nota_minimum"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                    <a href="#" onclick="reject()" class="btn btn-danger danger">Rechazar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal fade" id="confirmar-desafiliar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    Solicitud de Desafiliación
+                </div>
+                <div class="modal-body" id="bodyDesafiliacion">
+                    La solicitud se debe realizar los primeros 10 días del mes y debe ser aprobado por funcionarios del sunahip.<br>
+                    Si la solicitud de desafiliación no es aprobada por SUNAHIP, deberá cancelar el monto asociado al Centro Hípico de todo el mes.<br><br>
+                    ¿Está seguro que desea continuar?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                    <a href="#" onclick="solicitarDesafiliacion()" class="btn btn-danger danger" id="aceptarDesafiliacion">Aceptar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal fade" id="aprobar-desafiliar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    Aprobación de Desafiliación
+                </div>
+                <div class="modal-body" id="bodyApDesafiliacion">
+                    Si la solicitud de desafiliación es aprobada después del 10 de cada mes. La desafiliación se verá reflejada el siguiente mes.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                    <a href="#" onclick="aprobarDesafiliacion()" class="btn btn-danger danger" id="aceptarApDesafiliacion">Aceptar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="confirm-active" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    Aprobar solicitudes
+                </div>
+                <div class="modal-body">
+                    Está seguro de aprobar las solicitudes seleccionadas?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                    <a href="#" onclick="approve()" class="btn btn-info info">Aprobar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block script_base %}
+    {{ parent() }}
+    <script type="text/javascript">
+        var id = 0;
+
+        function setId(id)
+        {
+            window.id = id;
+        }
+
+        function reject()
+        {
+            var nota  = $("#form_rechazar_nota").val();
+
+            if(nota.length > 3)
+            {
+                var url = Routing.generate('Centrohipico_solicitud_afiliacion_rechazar');
+                $.post( url, { id: window.id, nota: nota } );
+                $("#nota_minimum").hide();
+                $('#confirmar-rechazar').modal('hide');
+                var url = Routing.generate('Centrohipico_solicitud_afiliacion_listado');
+                window.location = url;
+            }else{
+                if(nota.length == 1){
+                    var html = "La nota no puede estar vac&iacute;a";
+                    $("#nota_minimum").show();
+                    $("#nota_minimum").html(html);
+                }
+                var html = "La nota debe contener al menos 4 digitos";
+                $("#nota_minimum").show();
+                $("#nota_minimum").html(html);
+            }
+        }
+        
+        function solicitarDesafiliacion() 
+        {
+            var url = Routing.generate('Centrohipico_solicitud_desafiliacion', { id: window.id });
+            $.ajax({
+                async: false,
+                type: "POST",
+                cache: false,
+                url: url,
+                dataType: "json",
+                success: function(response) {
+                    if(response.status == 'true') {
+                       var url = Routing.generate('Centrohipico_solicitud_afiliacion_listado');
+                       window.location = url;                        
+                    } else {
+                        $("#bodyDesafiliacion").html(response.mensaje);
+                        $("#aceptarDesafiliacion").attr("disabled", "disabled");
+                    }
+                },
+                error: function(){
+                    $("#bodyDesafiliacion").html("Error al tratar de hacer la petición.");
+                    $("#aceptarDesafiliacion").attr("disabled", "disabled");
+                }
+            });           
+        }
+        
+        function aprobarDesafiliacion() 
+        {
+            var url = Routing.generate('Centrohipico_solicitud_desafiliacion', { id: window.id });
+            $.ajax({
+                async: false,
+                type: "POST",
+                cache: false,
+                url: url,
+                dataType: "json",
+                success: function(response) {
+                    if(response.status == 'true') {
+                       var url = Routing.generate('Centrohipico_solicitud_afiliacion_listado');
+                       window.location = url;                        
+                    } else {
+                        $("#bodyApDesafiliacion").html(response.mensaje);
+                        $("#aceptarApDesafiliacion").attr("disabled", "disabled");
+                    }
+                },
+                error: function(){
+                    $("#bodyApDesafiliacion").html("Error al tratar de hacer la petición.");
+                    $("#aceptarApDesafiliacion").attr("disabled", "disabled");
+                }
+            });           
+        }
+
+        var arrayData= new Array();
+
+
+        $('.activeRequest').on('change', function() {
+            id = parseInt($(this).attr('id'));
+            var index = window.arrayData.indexOf(id);
+
+            if(index > -1)
+            {
+                if ($(this).is(':checked')) {
+                    console.info("in");
+                }else{
+                    window.arrayData.splice(index, 1);
+                }
+            }else{
+                window.arrayData.push(id);
+            }
+
+            if (window.arrayData.length > 0)
+                $("#activeMultiple").removeAttr("disabled");
+
+        });
+
+        $('#activeMultiple').click(function() {
+            if (window.arrayData.length > 0)
+            {
+                $('#confirm-active').modal('show');
+            }
+        });
+
+        function approve()
+        {
+            if (window.arrayData.length > 0)
+            {
+                $('#confirm-active').modal('hide');
+                var url = Routing.generate('Centrohipico_solicitud_afiliacion_aprobar');
+                $.post(url, {'ids': window.arrayData}, function(){
+                }).done(function() {
+                  var url = Routing.generate('Centrohipico_solicitud_afiliacion_listado');
+                  window.location = url;
+                });
+
+            }
+        }
+    </script>
+{% endblock %}

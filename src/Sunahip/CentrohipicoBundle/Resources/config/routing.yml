@@ -1,0 +1,31 @@
+CentrohipicoBundle_operadora:
+        resource: "@CentrohipicoBundle/Resources/config/routing/dataoperadora.yml"
+        prefix:   /operadora
+        
+Centrohipico_datacentrohipico:
+        resource: "@CentrohipicoBundle/Resources/config/routing/datacentrohipico.yml"
+        prefix:   /centrohipico
+        options:
+            expose: true
+        
+Centrohipico_datalegal:
+        resource: "@CentrohipicoBundle/Resources/config/routing/datalegal.yml"
+        prefix:   /datalegal
+
+#CentrohipicoBundle_datasucursal:
+#    resource: "@CentrohipicoBundle/Resources/config/routing/datasucursal.yml"
+#    prefix:   /operadora/sucursales
+
+Centrohipico_afiliacion:
+        resource: "@CentrohipicoBundle/Resources/config/routing/solicitudafiliacion.yml"
+        prefix:   /afiliados
+
+centro_hipico_datatable:
+    resource: "@CentrohipicoBundle/Controller/DatatableController.php"
+    type:     annotation
+
+centro_hipico_empresa:
+    resource: "@CentrohipicoBundle/Controller/DataEmpresaController.php"
+    type:     annotation
+    options:
+        expose: true

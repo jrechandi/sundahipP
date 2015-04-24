@@ -1,0 +1,71 @@
+{% extends "NewTemplateBundle::base.html.twig" %}
+
+{% block content_content %}
+<div id="right_side" class="col-md-11">
+    <div class="block-separator col-sm-12"></div>
+    <h1>Gestionar Providencias</h1>
+    <div id="action">
+        <div class="left">
+            {% if entities|length > 0 %}
+                <article class="col-sm-12 col-md-12 col-lg-12 sortable-grid ui-sortable" style="width: 50%">
+                    {{ knp_pagination_render(entities) }}
+                </article>
+            {% endif %}
+        </div>
+        <div class="right">
+            {% if is_granted('ROLE_GERENTE') %}
+                <a style="float:right;margin-right:10px; margin-top: 20px; margin-bottom: 10px; height: 32px"  href="{{ path('providencia_new') }}" class="btn btn-primary">
+                    Incluir
+                </a>
+            {% endif %}
+        </div>
+    </div>
+     <br/>
+     {% if entities|length > 0 %}
+    {{ include('ExportBundle::iconslink.html.twig', {'pdf':'exportpdf_providencia','xcel':'exportxls_providencia'}) }}
+    <br/>
+    
+    <table class="table table-striped table-condensed">
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>No Providencia</th>
+                <th>Fecha de inicio / Fecha de fin</th>
+                <th>Estatus</th>
+                <th>Motivo</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('providencia_show', { 'id': entity.id }) }}">{{loop.index}}{#{ entity.id }#}</a></td>
+                <td>{{ entity.num }}</td>
+                <td>
+                    {% if entity.finicio %}
+                        {{ entity.finicio|date('Y-m-d') }}
+                    {% endif %}
+                    {% if entity.ffinal %}
+                        / {{ entity.ffinal|date('Y-m-d') }}
+                    {% endif %}</td>
+                <td>{{ entity.status }}</td>
+                <td>{{ entity.motivo }}</td>
+                <td>
+                    <a class="btn btn-info btn-sm" href="{{ path('providencia_show', { 'id': entity.id }) }}">Ver</a>
+
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+        {% else %}
+        <div class="col-md-12">
+            <div id="notificaciones">
+                <ul>
+                    <li class="n1"><h5>No se encontraron resultados</h5></li>
+                </ul>
+            </div>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

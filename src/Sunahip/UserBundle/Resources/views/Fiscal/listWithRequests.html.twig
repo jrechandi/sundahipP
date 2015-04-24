@@ -1,0 +1,106 @@
+{% extends "NewTemplateBundle::base.html.twig" %}
+
+{% block content_content %}
+    <div class="block-separator col-sm-12"></div>
+    <div class="row col-sm-12">
+        <h1>Gesti&oacute;n de fiscales</h1>
+    </div>
+
+    <div class="block-separator col-sm-12"></div>
+
+    <div id="action">
+        <div class="left">
+            {% if entities | length > 0 %}
+                <article class="col-sm-12 col-md-12 col-lg-12 sortable-grid ui-sortable" style="width: 50%">
+                    {{ knp_pagination_render(entities) }}
+                </article>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="col-md-12">
+        <table class="table records_list table-condensed table-hover text-center">
+            <thead>
+            <tr>
+                <th>Nº</th>
+                <th>Cedula de identidad</th>
+                <th>Nombre y apellido</th>
+                <th>&Uacute;ltima fecha de gesti&oacute;n</th>
+                <th>Gestiones realizadas</th>
+                <th>Fiscalizaciones realizadas</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for usuario in entities %}
+                <tr>
+                    <td>{{ usuario.0.id }}</td>
+                    <th>
+                        {% if usuario.0.perfil[0].ci > 1 %}
+                            {{ usuario.0.perfil[0].ci }}
+                        {% else %}
+                            {{ usuario.0.perfil[0].rif }}
+                        {% endif %}
+                    </th>
+                    <td>{{ usuario.0.perfil[0].getNombre|e }} {{ usuario.0.perfil[0].getApellido|e }}</td>
+                    <td>08/09/2014</td>
+                    <td>
+                        {% if usuario.gestiones is defined %}
+                            <a data-href="" data-toggle="modal" onclick="getInfo('{{ usuario.0.id }}')" data-target="#requests1" href="#"> {{ usuario.gestiones|length }} </a>
+                        {% else %}
+                            0
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if usuario.fiscalizaciones is defined %}
+                            <a data-href="" data-toggle="modal" onclick="getInfo2('{{ usuario.0.id }}')" data-target="#requests2" href="#"> {{ usuario.fiscalizaciones|length }} </a>
+                        {% else %}
+                            0
+                        {% endif %}
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="block-separator col-sm-12"></div>
+
+    <div class="modal fade" id="requests1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div id="response1"> cargando.... </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal fade" id="requests2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div id="response2"> cargando.... </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+{% block script_base %}
+    {{ parent() }}
+    <script type="text/javascript">
+
+        function getInfo(id)
+        {
+            var url = Routing.generate('fiscal-modal-requests',{ 'user_id': id });
+            $.get( url, function( data ) {
+                $( "#response1" ).html( data );
+            });
+        }
+
+        function getInfo2(id)
+        {
+            var url = Routing.generate('fiscal-modal-requests2',{ 'user_id': id });
+            $.get( url, function( data ) {
+                $( "#response2" ).html( data );
+            });
+        }
+
+    </script>
+{% endblock %}

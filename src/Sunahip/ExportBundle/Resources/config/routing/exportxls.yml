@@ -1,0 +1,69 @@
+exportxls_operafilliados:
+    path:     /operadora-afiliados-list
+    defaults: { _controller: ExportBundle:ExportXls:operAfiliados }
+
+exportxls_gerente_operadoras:
+    path:     /gerente-operadoras-list
+    defaults: { _controller: ExportBundle:ExportXls:gerenteOperList }
+
+exportxls_citas:
+    path:     /citas-list
+    defaults: { _controller: ExportBundle:ExportXls:CitasList }
+
+exportxls_licencias:
+    path:     /{tipo}-licencias-list
+    defaults: { _controller: ExportBundle:ExportXls:LicenciasList }
+
+exportxls_licencias_aprob:
+    path:     /licencias-aprobadas-list
+    defaults: { _controller: ExportBundle:ExportXls:LicenciasListAprob }
+
+exportxls_providencia:
+    path:     /providencias-list
+    defaults: { _controller: ExportBundle:ExportXls:ProvidenciaList }
+
+exportxls_fiscales:
+    path:     /fiscales-list
+    defaults: { _controller: ExportBundle:ExportXls:FiscalesList }
+
+exportxls_fiscalizacion_todos:
+    path:     /fiscalizaciones-{tipo}-list
+    defaults: { _controller: ExportBundle:ExportXls:FiscalizacionList, tipo: todos }
+
+exportxls_fiscalizacion_citados:
+    path:     /fiscalizaciones-{tipo}-list
+    defaults: { _controller: ExportBundle:ExportXls:FiscalizacionList, tipo: citados }
+
+exportxls_fiscalizacion_multados:
+    path:     /fiscalizaciones-{tipo}-list
+    defaults: { _controller: ExportBundle:ExportXls:FiscalizacionList, tipo: multados }
+
+exportxls_pagos_APORTE_MENSUAL:
+    path:     /{tipo}-list
+    defaults: { _controller: ExportBundle:ExportXls:PagosList, tipo: APORTE_MENSUAL }
+    requirements:
+        _method: get
+        tipo: MULTA|PROCESAMIENTO|OTORGAMIENTO|APORTE_MENSUAL    
+
+exportxls_pagos_OTORGAMIENTO:
+    path:     /{tipo}-list
+    defaults: { _controller: ExportBundle:ExportXls:PagosList, tipo: OTORGAMIENTO }
+    requirements:
+        _method: get
+        tipo: MULTA|PROCESAMIENTO|OTORGAMIENTO|APORTE_MENSUAL    
+
+exportxls_pagos_PROCESAMIENTO:
+    path:     /{tipo}-list
+    defaults: { _controller: ExportBundle:ExportXls:PagosList, tipo: PROCESAMIENTO }
+    requirements:
+        _method: get
+        tipo: MULTA|PROCESAMIENTO|OTORGAMIENTO|APORTE_MENSUAL    
+
+exportxls_pagos_MULTA:
+    path:     /{tipo}-list
+    defaults: { _controller: ExportBundle:ExportXls:PagosList, tipo: MULTA }
+    requirements:
+        _method: get
+        tipo: MULTA|PROCESAMIENTO|OTORGAMIENTO|APORTE_MENSUAL    
+
+ 

@@ -1,0 +1,8 @@
+{% for juegoe in juegosE%} 
+    {{juegoe.juego}}, &nbsp; 
+{%endfor%} &nbsp; 
+{% if juegosE is not empty %} 
+    <button class="btn btn-warning" onclick="cambiar('juegoe',true);">Cambiar</button> 
+  {%else %}
+      No Existen Juegos para Esta Licencia.
+{%endif%}

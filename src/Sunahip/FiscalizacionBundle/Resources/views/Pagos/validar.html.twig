@@ -1,0 +1,21 @@
+{% extends 'FiscalizacionBundle::base.html.twig' %}
+{% block content_content %}
+    <div class="block-separator col-sm-12"></div>
+        <div class="col-md-12">
+            <h1 class="tit_principal">Validar Pagos</h1>
+        </div>
+    <div class="block-separator col-sm-12"></div>
+    <div id="right_side" class="col-md-11">
+        {{ form_start(form, {'attr': {'class':'form-horizontal',} }) }}
+        {{ form_errors(form) }}
+        {{form_rest(form)}}
+
+            <div class="block-separator col-sm-12"></div>
+            <div class="col-md-12 form-group btn-group">
+                 <div style="float: right">
+                     <button type="submit" class="btn btn-primary btn-sm">Procesar</button>
+                 </div>
+            </div>
+        {{ form_end(form) }}
+    </div>
+{% endblock %}

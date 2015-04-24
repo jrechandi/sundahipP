@@ -1,0 +1,81 @@
+{% extends 'SolicitudesCitasBundle::solicitud_base.html.twig' %} 
+{% block content_content %}
+    	 <div class="block-separator col-sm-12"></div> 
+            <div class="col-md-12">
+	       <h1 class="tit_principal">Nuevo Feriado</h1>
+            </div>
+    
+   <div class="row col-lg-12">
+       <div class="form-horizontal">
+            {#{ form(form) }#}
+            {{ form_start(form) }}
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            {{ form_errors(form) }}  
+                        </div>
+                    </div> 
+                    <div class="form-group{% if form.date.vars.errors[0].message is defined %} has-error{% endif %}">
+                        {{ form_label(form.date, null, {'label_attr': {'class': ' col-md-3 control-label text-left','title':'Fecha'} }) }}
+                        <div class="col-md-9">
+                            {{ form_widget(form.date, {'attr': {'class': 'form-control datepick','id':'datepick','placeholder':'dd-mm-yyyy'} }) }}
+                            
+                            {% if form.date.vars.errors[0].message is defined %}
+                            <span class="help-block ">
+                                Debe Entrar una Fecha V&aacute;lida
+                                {{ form.date.vars.errors[0].message }}
+                            </span>
+                            {% endif %}
+                        </div > 
+                    </div>
+                    <div class="form-group{% if form.description.vars.errors[0].message is defined %} has-error{% endif %}">
+                        {{ form_label(form.description, null, {'label_attr': {'class': ' col-md-3 control-label text-left','title':'Tipo Nombre Descriptivo'} })}}
+                        <div class="col-md-9">
+                            {{ form_widget(form.description, {'attr': {'class': 'form-control'}}) }}
+                            
+                            {% if form.description.vars.errors[0].message is defined %}
+                            <span class="help-block ">
+                                Ingresr una Descipci&oacute;n V&aacute;lida
+                                {{ form.description.vars.errors[0].message }}
+                            </span>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="form-group{% if form.allways.vars.errors[0].message is defined %} has-error{% endif %}">
+                        {{ form_label(form.allways, null, {'label_attr': {'class': ' col-md-3 control-label text-left','title':'Todo los A&ntilde;os'}}) }}
+                        <div class="col-md-9">
+                            {{ form_widget(form.allways, {'attr': {'class': ''}}) }}
+                             <span>Indica todos los A&ntilde;os</span>
+                            {% if form.allways.vars.errors[0].message is defined %}
+                            <span class="help-block ">
+                                Seleccionar 
+                                {{ form.allways.vars.errors[0].message }}
+                            </span>
+                            {% endif %}
+                        </div>
+                    </div>
+                        <div class="block-separator col-md-12"></div>
+                            <div class="col-md-4 col-md-offset-2 form-group btn-group">
+                                <div class="col-md-6 ">{{ form_widget(form.submit) }}</div>
+                                <div class="col-md-6"><a href="{{ path('nocitafecha') }}" class="btn btn-warning btn-sm "><i class="icon-arrow-left"></i> Regresar</a></div>   
+                            </div>
+               {{ form_end(form) }}
+               
+            </div>            
+    </div>
+    <div class="block-separator col-md-12"></div> 
+    <div class="row">   
+    {#<div class="col-lg-2">
+           <a href="{{ path('nocitafecha') }}" class="btn btn-primary btn-sm "><i class="icon-arrow-left"></i> Regresar</a>
+    </div>#}
+       <div class="col-lg-10 block-separator"></div>
+  </div>    
+  {% endblock content_content%}
+{% block foot_script_assetic %}
+   <script type="text/javascript">     
+   $(document).ready(function() {   
+       ShowDatepick(".datepick");
+      
+     });     
+    </script>     
+ {% endblock foot_script_assetic %}
+

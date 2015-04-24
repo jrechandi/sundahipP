@@ -1,0 +1,84 @@
+{% extends 'NewTemplateBundle::base.html.twig' %}
+
+{% block content_content %}
+    <div class="block-separator col-sm-12"></div>
+
+    <div class="row col-sm-12">
+        <h1>
+            Agregar banco
+        </h1>
+    </div>
+
+<div class="col-md-12">
+    <div class="form-group">
+        <div class="col-md-12">
+            {{ form_errors(form) }}
+        </div>
+    </div>
+
+        {{ form_start(form,{'attr':{'id':'form_dch'}}) }}
+
+    <table id="tabla_reporte2" class="tabla_reporte2">
+        <tbody>
+        <tr id="table_header2">
+            <td colspan="4">Datos del banco</td>
+        </tr>
+        <tr>
+            <td>{{ form_label(form.numeroCuenta, null, {'label_attr': {'class': 'col-md-12 control-label text-left'} }) }}</td>
+            <td colspan="3">{{ form_widget(form.numeroCuenta, {'attr': {'class': 'numeric '} }) }}
+                {% if form.numeroCuenta.vars.errors[0].message is defined %}
+                    <span class="help-block ">
+                                    {{ form.numeroCuenta.vars.errors[0].message }}
+                                </span>
+                {% endif %}
+
+            </td>
+        </tr>
+        <tr>
+            <td>{{ form_label(form.banco, null, {'label_attr': {'class': ' col-md-12 control-label text-left'} }) }}</td>
+            <td>{{ form_widget(form.banco, {'attr': {'class': ' '} }) }}
+                {% if form.banco.vars.errors[0].message is defined %}
+                    <span class="help-block ">
+                                    {{ form.banco.vars.errors[0].message }}
+                                </span>
+                {% endif %}
+
+            </td>
+            <td>{{ form_label(form.activo, null, {'label_attr': {'class': ' col-md-12 control-label text-left'} }) }}</td>
+            <td>{{ form_widget(form.activo, {'attr': {'class': ' '} }) }}
+                {% if form.activo.vars.errors[0].message is defined %}
+                    <span class="help-block ">
+                                    {{ form.activo.vars.errors[0].message }}
+                                </span>
+                {% endif %}
+
+            </td>
+
+        </tr>
+        </tbody>
+        </table>
+</div>
+    {{ form_widget(form._token) }}
+
+    <div class="col-md-12 form-group btn-group">
+        (*) Campos obligatorios
+    </div>
+
+        <div class="col-md-12 form-group btn-group">
+            <div style="float: left">
+                <a class="btn" href="{{ path('banco') }}">
+                    Regresar
+                </a>
+            </div>
+            <div style="float: right">
+                <button type="submit" class="btn btn-primary btn-sm">Guardar</button>
+            </div>
+        </div>
+    <br>
+    <script src="{{asset('bundles/pagos/js/numeric.js')}}"></script>
+<script>
+    $(document).ready(function(){
+        $(".numeric").numeric();
+    });
+</script>
+{% endblock %}

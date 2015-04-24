@@ -1,0 +1,15 @@
+{% extends 'NewTemplateBundle::base.html.twig' %}
+
+{% block content_content %}
+    <h1>Agregar Pago</h1>
+
+    {{ form(form) }}
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('pago') }}">
+            Regresar
+        </a>
+    </li>
+</ul>
+{% endblock %}

@@ -1,0 +1,5 @@
+gerente_operadora:
+    path:     /
+    defaults: { _controller: "FiscalizacionBundle:Operadora:index" }
+    requirements:
+        _method: get

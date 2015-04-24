@@ -1,0 +1,6 @@
+citas:
+    path:     /
+    defaults: { _controller: "FiscalizacionBundle:Citas:index" }
+    requirements:
+        _method: get
+

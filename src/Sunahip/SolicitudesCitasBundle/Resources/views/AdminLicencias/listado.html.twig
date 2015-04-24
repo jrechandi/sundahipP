@@ -1,0 +1,101 @@
+{% extends ajax == false ? 'NewTemplateBundle::base.html.twig' : 'NewTemplateBundle::base_ajax.html.twig' %}
+
+{% block content_content %}
+    <style>
+        #table_header td{
+            color:white;
+        }
+    </style>
+
+    <div class="block-separator col-sm-12"></div>
+    <div class="row col-sm-12">
+        <h1>
+            Licencias aprobadas
+        </h1>
+    </div>
+
+    <div class="block-separator col-sm-12"></div>
+    <div class="row">
+        <div class="col-sm-2">
+        </div>
+        <div class="col-sm-10 block-separator"></div>
+    </div>
+
+    {% if entities is defined %}
+
+        <article class="col-sm-12 col-md-12 col-lg-12 sortable-grid ui-sortable" style="width: 50%">
+            {{ knp_pagination_render(entities) }}
+        </article>
+{{ include('ExportBundle::iconslink.html.twig', {'pdf':'exportpdf_licencias_aprob','xcel':'exportxls_licencias_aprob'}) }}
+
+        <div class="col-md-12">
+            <table class="table table-condensed table-striped">
+                <thead>
+                <tr>
+                    <th>Nº</th>
+                    <th>RIF</th>
+                    <th>Denominación Comercial</th>
+                    <th>Licencia</th>
+                    <th>Clasificación</th>
+                    <th>No Licencia</th>
+                    <th>No Providencia</th>
+                    <th>F. Aprobación</th>
+                    <th>F. Vencimiento</th>
+                     {%if not is_granted('ROLE_ASESOR') %}
+                         <th><a href="#">Acciones</a></th>{%endif%}
+                </tr>
+                </thead>
+                <tbody>
+                {% for entity in entities %}
+                    <tr id="request-{{ entity.0.id }}">
+                        <td>{{ loop.index }}</td>
+                        <td>
+                            {% if entity.0.solicitud.operadora.persJuridica  is defined %}
+                                {{ entity.0.solicitud.operadora.persJuridica }}-{{ entity.0.solicitud.operadora.rif }}
+                            {% else %}
+                                {{ entity.0.solicitud.centroHipico.persJuridica }}-{{ entity.0.solicitud.centroHipico.rif }}
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if entity.0.solicitud.operadora.denominacionComercial is defined %}
+                                {{ entity.0.solicitud.operadora.denominacionComercial }}
+                            {% else %}
+                                {{ entity.0.solicitud.centroHipico.denominacionComercial }}
+                            {% endif %}
+                        </td>
+                        <td>{{ entity.0.solicitud.clasLicencia.admTiposLicencias.tipoLicencia }}</td>
+                        <td>{{ entity.0.solicitud.clasLicencia.clasfLicencia }}</td>
+                        <td>{{ entity.0.solicitud.numLicenciaAdscrita }}</td>
+                        <td>{{ entity.0.numProvidencia }}</td>
+                        <td>{{ entity.0.solicitud.fechaAprobada|date('d/m/Y')|default('none') }}</td>
+                        <td>{{ entity.0.fechaFin|date('d/m/Y') }}</td>
+                        {%if not is_granted('ROLE_ASESOR') %}
+                        <td>                            
+                            <a  target="_blank" href="{{ path('solicitudes_aprobadas_imprimir',{'id': entity.0.id} ) }}">Imprimir</a>                            
+                        </td>
+                      {%endif%}  
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% else %}
+        <div class="col-md-12">
+            <div id="notificaciones">
+                <ul>
+                    <li class="n1"><h5>No se encontraron resultados</h5></li>
+                </ul>
+            </div>
+        </div>
+    {% endif %}
+    <div class="block-separator col-sm-12"></div>
+
+    <div id="myModal" class="reveal-modal" data-animation="fade" style="top:-100px">
+        <a class="close-reveal-modal">&#215;</a>
+        <div id="dataModal">
+            <h3> Cargando..... </h3>
+        </div>
+    </div>
+    <script>
+    </script>
+{% endblock %}

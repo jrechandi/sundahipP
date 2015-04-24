@@ -1,0 +1,94 @@
+{% extends 'NewTemplateBundle::base.html.twig' %}
+
+{% block content_content %}
+    <div class="block-separator col-sm-12"></div>
+    <div class="row col-sm-12">
+        <h1>
+            Pagos
+        </h1>
+    </div>
+
+    <div class="block-separator col-sm-12"></div>
+    <div class="row">
+        <div class="col-sm-2">
+        </div>
+        <div class="col-sm-10 block-separator"></div>
+    </div>
+
+    {% if entities is defined %}
+
+            <article class="col-sm-12 col-md-12 col-lg-12 sortable-grid ui-sortable" style="width: 50%">
+                {{ knp_pagination_render(entities) }}
+            </article>
+
+            <div class="col-md-12">
+                <table id="tabla_reporte">
+                    <tbody>
+                    <tr id="table_header">
+                        <td><a href="#">Nº</a></td>
+                        <td><a href="#">RIF</a></td>
+                        <td><a href="#">Denominación Comercial</a></td>
+                        <td><a href="#">Licencia</a></td>
+                        <td><a href="#">Clasificación del Licencia</a></td>
+                        <td><a href="#">Fecha</a></td>
+                        <td><a href="#">Monto</a></td>
+                        <td><a href="#">Estatus</a></td>
+                        <td><a href="#">Tipo</a></td>
+                    </tr>
+                    {% for entity in entities %}
+                        <tr id="request-{{ entity.id }}">
+                            <th><a href="{{ path('pago_show', { 'id': entity.id }) }}">{{ entity.id }}</a></th>
+                            <th>
+                                {% if entity.operadora.persJuridica is defined %}
+                                    {{ entity.operadora.persJuridica }}-{{ entity.operadora.rif }}
+                                {% else %}
+                                    {{ entity.centroHipico.persJuridica }}-{{ entity.centroHipico.rif }}
+                                {% endif %}
+                            </th>
+                            <th onclick="getInfo('{{ entity.id }}')">
+                                <a href="#" class="big-link" data-reveal-id="myModal">
+                                    {% if entity.operadora.denominacionComercial is defined %}
+                                        {{ entity.operadora.denominacionComercial }}
+                                    {% else %}
+                                        {{ entity.centroHipico.denominacionComercial }}
+                                    {% endif %}
+                                </a>
+                            </th>
+                            <th>{# entity.clasLicencia.admTiposLicencias.tipoLicencia #}</th>
+                            <th>{# entity.clasLicencia.clasfLicencia #}</th>
+                            <th>{% if entity.fechaCreacion %}{{ entity.fechaCreacion|date('d-m-Y') }}{% endif %}</th>
+                            <th>{{ entity.monto }}</th>
+                            <th>{{ entity.status }}</th>
+                            <th> {{ entity.tipoPago }}</th>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        {% else %}
+        <div class="col-md-12">
+            <div id="notificaciones">
+                <ul>
+                    <li class="n1"><h5>No existen registros</h5></li>
+                </ul>
+            </div>
+        </div>
+    {% endif %}
+
+    <div id="myModal" class="reveal-modal" data-animation="fade" style="top:-100px">
+        <a class="close-reveal-modal">&#215;</a>
+        <div id="dataModal">
+            <h3> Cargando..... </h3>
+        </div>
+    </div>
+    <script>
+        function getInfo(id)
+        {
+            var url = Routing.generate('pago_info',{ 'id': id });
+            $.get( url, function( data ) {
+                $("#dataModal").html(data);
+            });
+        }
+    </script>
+
+    {% endblock %}

@@ -1,0 +1,41 @@
+{% extends 'ExportBundle::export_pdf.html.twig' %}
+
+{% block content_content %} 
+<div class="col-md-11">
+    <div class="block-separator col-sm-11"></div>
+
+    <h1>{% block main_title %}{% endblock %}</h1>
+
+    {% block buttons %}
+
+    {% endblock %}
+    <br/><br>
+    {% if entities|length > 0 %}
+    {% block export %}{%endblock export%}
+    <table class="table table-condensed">
+        <thead>
+            <tr>
+                {% block headers %}
+                {% endblock %}
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            {% block columns %}
+            
+            {% endblock %}
+        {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+        <div class="col-md-12">
+            <div id="notificaciones">
+                <ul>
+                    <li class="n1"><h5>No se encontraron resultados</h5></li>
+                </ul>
+            </div>
+        </div>
+    {% endif %}
+</div>
+{% block footlistar%} {% endblock %}
+{%endblock %}

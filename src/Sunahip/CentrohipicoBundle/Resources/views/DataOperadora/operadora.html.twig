@@ -1,0 +1,19 @@
+<table id="tabla_reporte2">
+    <tr>
+        <th>Num</th>
+        <th>D. Comercial</th>
+        <th>RIF</th>
+        <th>Licencia</th>
+        <th>Aporte Mensual</th>
+    </tr>
+    {% for i in entity.establecimientos %}
+        {% set centro = i.centroHipico |default(i.operadora) %}
+        <tr>
+            <td>{{loop.index}}</td>
+            <td>{{centro.denominacionComercial}}</td>
+            <td>{{centro.persJuridica}}-{{centro.rif}}</td>
+            <td>{{i.clasLicencia}}</td>
+            <td>{{aporte[i.id]|default('-')}}</td>
+        </tr>
+    {% endfor %}
+</table>

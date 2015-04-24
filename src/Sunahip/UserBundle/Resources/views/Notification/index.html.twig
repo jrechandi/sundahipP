@@ -1,0 +1,18 @@
+{% extends "NewTemplateBundle::base.html.twig" %}
+
+{% block content_content %}
+
+<div id="contenido">
+    <div class="tit_principal">Notificaciones</div>
+
+    <div id="notificaciones">
+        <ul>
+            {% for noti in notification %}
+                <li class="n1">{{ noti }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+</div>
+
+{% endblock %}

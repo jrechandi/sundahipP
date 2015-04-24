@@ -1,0 +1,6 @@
+{% extends 'UserBundle::base.html.twig' %} 
+{% block content_content %}
+    Estimado(a) {{ user.getFullname }},<br><br>
+    Gracias por registrarse en el Sistema Nacional de Licencias y Fiscalización de la SUNAHIP.<br><br>
+    Para completar la validación de su correo electrónico y activar su cuenta de usuario, debe hacer clic en el siguiente enlace: {{ confirmationUrl }} este enlace solo puede usarse una sola vez. 
+{% endblock %} 

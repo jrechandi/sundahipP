@@ -1,0 +1,75 @@
+{% extends 'SolicitudesCitasBundle::solicitud_base.html.twig' %} 
+{% block content_content %}
+	 <div class="block-separator col-sm-12"></div> 
+            <div class="col-md-12">
+              <h1 class="tit_principal">Modificar Fecha </h1>
+            </div>
+    <div class="row-fluid col-lg-12">
+       <div class="form-horizontal">
+            {#{ form(edit_form) }#}
+            {{ form_start(edit_form) }}
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            {{ form_errors(edit_form) }}  
+                        </div>
+                    </div> 
+                    <div class="form-group{% if edit_form.date.vars.errors[0].message is defined %} has-error{% endif %}">
+                        {{ form_label(edit_form.date, null, {'label_attr': {'class': ' col-md-3 control-label text-left','title':'Fecha'} }) }}
+                        <div class="col-md-9">
+                            {{ form_widget(edit_form.date, {'attr': {'class': 'form-control datepick','id':'datepick','placeholder':'dd-mm-yyyy'} }) }}
+                            
+                            {% if edit_form.date.vars.errors[0].message is defined %}
+                            <span class="help-block ">
+                                Debe Entrar una Fecha V&aacute;lida
+                                {{ form.date.vars.errors[0].message }}
+                            </span>
+                            {% endif %}
+                        </div > 
+                    </div>
+                    <div class="form-group{% if edit_form.description.vars.errors[0].message is defined %} has-error{% endif %}">
+                        {{ form_label(edit_form.description, null, {'label_attr': {'class': ' col-md-3 control-label text-left','title':'Tipo Nombre Descriptivo'} })}}
+                        <div class="col-md-9">
+                            {{ form_widget(edit_form.description, {'attr': {'class': 'form-control'}}) }}
+                            
+                            {% if form.description.vars.errors[0].message is defined %}
+                            <span class="help-block ">
+                                Ingresr una Descipci&oacute;n V&aacute;lida
+                                {{ edit_form.description.vars.errors[0].message }}
+                            </span>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="form-group{% if edit_form.allways.vars.errors[0].message is defined %} has-error{% endif %}">
+                        {{ form_label(edit_form.allways, null, {'label_attr': {'class': ' col-md-3 control-label text-left','title':'Todo los A&ntilde;os'}}) }}
+                        <div class="col-md-9">
+                            {{ form_widget(edit_form.allways, {'attr': {'class': ''}}) }}
+                            
+                            {% if edit_form.allways.vars.errors[0].message is defined %}
+                            <span class="help-block ">
+                                Seleccionar 
+                                {{ edit_form.allways.vars.errors[0].message }}
+                            </span>
+                            {% endif %}
+                        </div>
+                    </div>
+                        <div class="block-separator col-md-12"></div>
+                            <div class="col-md-5 col-md-offset-2 form-group btn-group">
+
+                                <div class="col-md-4"><a href="{{ path('nocitafecha') }}" class="btn btn-warning btn-sm "> Regresar</a></div>
+                                <div class="col-md-4 ">{{ form_widget(edit_form.submit) }}</div>
+                                {#<div class="col-md-4">{{ form(delete_form) }}</div>   #}
+                            </div>
+               {{ form_end(edit_form) }}
+            </div>     
+        {#<div class="col-md-2 form-group"> {{ form(delete_form) }}</div>#}
+    </div>
+               
+{% endblock content_content %}
+{% block foot_script_assetic %}  
+   <script type="text/javascript">     
+   $(document).ready(function() {    
+       ShowDatepick(".datepick");
+      $("fieldset>legend").hide();
+     });     
+    </script>     
+{% endblock foot_script_assetic %}

@@ -1,0 +1,54 @@
+providencia:
+    path:     /
+    defaults: { _controller: "FiscalizacionBundle:Providencia:index" }
+
+providencia_show:
+    path:     /{id}/show
+    defaults: { _controller: "FiscalizacionBundle:Providencia:show" }
+
+providencia_new:
+    path:     /new
+    defaults: { _controller: "FiscalizacionBundle:Providencia:new" }
+
+providencia_create:
+    path:     /create
+    defaults: { _controller: "FiscalizacionBundle:Providencia:create" }
+    requirements: { _method: post }
+
+providencia_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "FiscalizacionBundle:Providencia:edit" }
+
+providencia_update:
+    path:     /{id}/update
+    defaults: { _controller: "FiscalizacionBundle:Providencia:update" }
+    requirements: { _method: post|put }
+
+providencia_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "FiscalizacionBundle:Providencia:delete" }
+    requirements: { _method: post|delete }
+
+providencia_estado:
+    pattern:  /{id}/estado
+    defaults: { _controller: "FiscalizacionBundle:Providencia:estado" }
+    requirements: { _method: get }
+
+providencia_municipio:
+    pattern:  /{id}/municipio
+    defaults: { _controller: "FiscalizacionBundle:Providencia:municipio" }
+    requirements: { _method: get }
+
+providencia_operadora:
+    pattern:  /{id}/operadora
+    defaults: { _controller: "FiscalizacionBundle:Providencia:operadora" }
+    requirements: { _method: get }
+
+providencia_fiscalizacion:
+    pattern:  /fiscalizado/{tipo}/{prov}/{id}
+    defaults: { _controller: "FiscalizacionBundle:Providencia:fiscalizacion" }
+    requirements:
+        _method: get
+        tipo: centro|operadora
+        prov: \d+
+        id:  \d+

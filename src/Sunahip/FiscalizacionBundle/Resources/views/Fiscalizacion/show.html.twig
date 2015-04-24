@@ -1,0 +1,106 @@
+{% extends 'FiscalizacionBundle::base.html.twig' %}
+    {% block stylesheets %}
+    {{parent()}}
+    <style type="text/css">
+        .modal.modal-wide .modal-dialog {
+            width: 60%;
+         }
+        .modal-wide .modal-body {
+          overflow-y: auto;
+        }
+    </style>
+    {% endblock stylesheets %}
+
+{% block content_content %}
+<div class="col-md-11">
+    <div class="block-separator col-sm-11"></div>
+    <h1>Detalles de la Fiscalizacion</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Responsable</th>
+                <td>{{ entity.responsable }}</td>
+            </tr>
+            <tr>
+                <th>Cedula</th>
+                <td>{{ entity.cedula }}</td>
+            </tr>
+            <tr>
+                <th>Cargo</th>
+                <td>{{ entity.cargo }}</td>
+            </tr>
+
+            <tr>
+                <th>Estatus</th>
+                <td>{{ entity.estatus }}</td>
+            </tr>
+
+
+            <tr>
+                <th>Documentos</th>
+                <td><ul>{% for i in entity.documentos %}
+                    <li><a href="{{ asset(i.webPath) }}" target="_blank"> {{i.nombre}}</a> </li>
+                {% endfor %}</ul>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    {% include 'FiscalizacionBundle:Fiscalizacion:centro.html.twig'  %}
+    
+    <div class="col-md-12 form-group btn-group">
+        <div style="float: left">
+            <a href="{{path('fiscalizacion')}}" class="btn btn-success btn-sm">Volver</a>
+        </div>
+
+        <div style="float: right">
+        {% if is_granted('ROLE_GERENTE') or is_granted('ROLE_FISCAL') %} 
+            <a href="#" class="btn btn-default" data-url="{{ path('pdf_verificacion', {id: entity.id}) }}">Acta de Verificación</a>
+            <a href="#" data-url="{{ path('pdf_retencion', {id: entity.id}) }}" class="btn btn-default">Acta de retención</a>
+            <a href="#" data-url="{{ path('pdf_citacion', {id: entity.id}) }}" class="btn btn-default">Acta de citación</a>
+        {% else %}
+            <a href="{{ path('pdf_show', {id: entity.id, type:'verificacion'}) }}" class="btn btn-default" target="_blank">Acta de Verificación</a>
+            <a href="{{ path('pdf_show', {id: entity.id, type:'retencion'})}}" class="btn btn-default" target="_blank">Acta de retención</a>
+            <a href="{{ path('pdf_show', {id: entity.id,  type:'citacion'})}}" class="btn btn-default" target="_blank">Acta de citación</a>
+        {% endif %}
+        {# <a href="{{ path('pdf_aceptacion', {id: entity.id}) }}" class="btn btn-default" target="_blank">Acta de Aceptacion</a> #}
+        </div>
+   </div>
+   
+    <!-- Modal -->
+    <div class="modal modal-wide fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span><span class="sr-only">Cerrar</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="form">                    
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(function(){
+            $(".modal-wide").on("show.bs.modal", function() {
+            var height = $(window).height() - 20;
+            $(this).find(".modal-body").css("max-height", height);
+        });
+    });
+
+    $('a[data-url]').click(function(e) {
+        var $e = $(this),
+            url = $e.data('url'),
+            height = $(window).height() - 300,
+            width = $(window).width() - 100;
+        e.preventDefault();
+        $('#form').html('<iframe src="'+url+'" width="100%" height="'+ height+'" frameborder="0"/>'); 
+        $("#myModal").modal("show");
+    });
+</script>
+{% endblock %}

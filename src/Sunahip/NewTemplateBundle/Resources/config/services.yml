@@ -1,0 +1,7 @@
+parameters:
+#    new_template.example.class: Sunahip\NewTemplateBundle\Example
+
+services:
+#    new_template.example:
+#        class: %new_template.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

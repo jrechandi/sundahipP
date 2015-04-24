@@ -1,0 +1,80 @@
+{% extends 'FiscalizacionBundle::listar.html.twig' %}
+{% block main_title %}{{title}}{% endblock %}
+
+{% block headers %}
+    <th>Nº</th>
+    <th>D. Comercial</th>
+    <th>Nº de Licencia</th>
+    <th>RIF</th>
+    <th>Monto</th>
+    <th>Creado</th>
+    <th>Estatus</th>
+    {% block addHeader %}
+        {% if is_granted("ROLE_OPERADOR") %}<th>Acciones</th>{% endif %}
+    {% endblock %}
+ {% endblock %} 
+{% block export %}
+ {{ include('ExportBundle::iconslink.html.twig', {'pdf':'exportpdf_pagos_'~tipo,'xcel':'exportxls_pagos_'~tipo}) }}
+{%endblock export%}
+{% block columns %}
+    {% set centro = entity.centroHipico | default(entity.operadora) %}
+    <tr style="height: 45px;">
+        <td>{{ loop.index }}</td>
+        <td>{{ centro.denominacionComercial }}</td>
+        <td>{{ entity.getSolicitud.getNumLicenciaAdscrita | default(' --- ')}}</td>
+        <td>{{ centro.persJuridica}}-{{centro.rif}}</td>	
+        <td>{{ entity.monto|number_format(2,",",".") }} Bs</td>
+        <td>{{ entity.fechaCreacion | date('d/m/Y')}}</td>
+        <td>{{ entity.status}}</td>
+        {% block addCol %}
+        {% if is_granted("ROLE_OPERADOR") %}
+        <td>
+            {% if entity.status == 'CREADA'  %}
+                <a class="btn btn-info btn-sm show_pago" href="#" data-toggle="modal" data-target="#myModal" 
+                   url="{{ path('pagos_pagar', { 'id': entity.id, 'tipo': entity.tipoPago }) }}">Pagar
+                </a>
+            {% else %}
+                {% if entity.getArchivoAdjunto is not null %}
+                    {{ entity.getArchivoAdjunto|vlabs_media('CentrohipicoBundle:SolicitudAfiliacion:ver_doc.html.twig') }}
+                {% endif %}
+                {% if entity.status == 'POR VERIFICAR'  %}
+                    <a title="Modificar Pago" class="btn btn-warning show_pago" href="#" data-toggle="modal" data-target="#myModal" 
+                        url="{{ path('pagos_pagar', { 'id': entity.id, 'tipo': entity.tipoPago }) }}"><i class="fa fa-edit"></i>
+                     </a>
+                {% endif %}
+            {% endif %}
+        </td>
+        {% endif %}
+        {% endblock %}
+    </tr>      
+{% endblock  %}
+
+{% block footlistar%}
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span><span class="sr-only">Cerrar</span>
+                </button>
+            </div>
+            <div class="modal-body" id="datos_pago">
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(function() {
+        $(".show_pago").click(function(ev) {
+            $('#datos_pago').html("<div style='text-align:center;'>Cargando...<div>");
+            $.get($(this).attr("url"), function(data) {
+                $('#datos_pago').html(data);
+            });
+        });
+    });
+</script>
+{% endblock %}

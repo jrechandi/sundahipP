@@ -1,0 +1,325 @@
+{% extends 'CentrohipicoBundle::centroh_base.html.twig' %}
+{% block content_content %}
+    <div class="block-separator col-sm-12"></div>
+    <div class="col-md-12">
+        <h1 class="tit_principal">Socio</h1>
+    </div>
+    <div class="col-md-12"><p>Los campos con <span class="oblig">(*)</span> son obligatorios. Por favor ingrese los todos los Datos del socio para guardar</p></div>
+    <div class="row col-lg-12">
+        {{ form_start(form,{'attr':{'id':'form_dch'}}) }}
+        <input type="hidden" name="sunahip_centrohipicobundle[partner]" value="1" >
+        <table id="tabla_reporte2" class="tabla_reporte2">
+        <tbody>
+        <tr id="table_header2">
+            <td colspan="4">Datos del socio </td>
+        </tr>
+        <tr>
+            <td>
+                <label class=" col-md-12 control-label text-left control-label col-sm-3 required" for="sunahip_centrohipicobundle_datalegal_padre">
+                   Empresa
+                </label>
+            </td>
+            <td colspan="3">
+                {{ form_widget(form.padre, {'attr': {'class': ' '} }) }}
+                {% if form.padre.vars.errors[0].message is defined %}
+                    <span class="help-block ">
+                                {{ form.padre.vars.errors[0].message }}
+                            </span>
+                {% endif %}
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label class=" col-md-12 control-label text-left control-label col-sm-3 required" for="sunahip_centrohipicobundle_datalegal_nombreComercial">
+                    Nombre del socio o empresa
+                </label>
+            </td>
+            <td colspan="3">{{ form_widget(form.nombreComercial, {'attr': {'class': 'col-md-10 '} }) }}
+                {% if form.nombreComercial.vars.errors[0].message is defined %}
+                    <span class="help-block ">
+                {{ form.nombreComercial.vars.errors[0].message }}
+            </span>
+                {% endif %}
+
+            </td>
+        </tr>
+        <tr>
+            <td>{{ form_label(form.nombre, null, {'label_attr': {'class': ' col-md-12 control-label text-left'} }) }}</td>
+            <td>{{ form_widget(form.nombre, {'attr': {'class': ' '} }) }}
+                {% if form.nombre.vars.errors[0].message is defined %}
+                    <span class="help-block ">
+                                {{ form.nombre.vars.errors[0].message }}
+                            </span>
+                {% endif %}
+
+            </td>
+            <td>{{ form_label(form.apellido, null, {'label_attr': {'class': ' col-md-12 control-label text-left'} }) }}</td>
+            <td>{{ form_widget(form.apellido, {'attr': {'class': ' '} }) }}
+                {% if form.apellido.vars.errors[0].message is defined %}
+                    <span class="help-block ">
+                                {{ form.apellido.vars.errors[0].message }}
+                            </span>
+                {% endif %}
+
+            </td>
+
+        </tr>
+        <tr>
+            <td>{{ form_label(form.ci, null, {'label_attr': {'class': ' col-md-12 text-left'} }) }}</td>
+            <td>
+                {{ form_widget(form.tipoci, {'attr': {'class': ' input-mini'} }) }}
+                - {{ form_widget(form.ci, {'attr': {'class': ' '} }) }}
+                {% if form.ci.vars.errors[0].message is defined %}
+                    <span class="help-block ">
+                        {{ form.ci.vars.errors[0].message }}
+                    </span>
+                {% endif %}
+
+            </td>
+            <td>{{ form_label(form.rif, null, {'label_attr': {'class': ' col-md-12 text-left'} }) }}</td>
+            <td>
+                {{ form_widget(form.persJuridica, {'attr': {'class': 'input-mini '} }) }}
+                - {{ form_widget(form.rif, {'attr': {'class': ' '} }) }}
+                {% if form.rif.vars.errors[0].message is defined %}
+                    <span class="help-block ">
+                        {{ form.rif.vars.errors[0].message }}
+                    </span>
+                {% endif %}
+
+            </td>
+
+        </tr>
+        <tr>
+            <td>{{ form_label(form.estado, null, {'label_attr': {'class': ' col-md-12 text-left'} }) }}</td>
+            <td>{{ form_widget(form.estado, {'attr': {'class': 'dlestado', 'style':"width:156px !important"} }) }}
+                {% if form.estado.vars.errors[0].message is defined %}
+                    <span class="help-block ">
+                        {{ form.estado.vars.errors[0].message }}
+                    </span>
+                {% endif %}
+
+            </td>
+            <td><label class="col-md-12 control-label text-left required" for="dlmunicipio">Municipio:</label></td>
+            <td>
+                <select class="dlmunicipio" name="dlmunicipio" id="dlmunicipio" disabled="disabled" style="width:160px !important">
+                    <option value="-1">Seleccione Municipio</option>
+                </select>
+
+            </td>
+
+        </tr>
+        <tr>
+            <td><label class="col-md-12 control-label text-left required" for="ciudad">Ciudad:</label></td>
+            <td>
+                <select class="dlciudad" name="dlciudad" id="dlciudad" disabled="disabled" style="width:160px !important">
+                    <option value="-1">Seleccione Ciudad</option>
+                </select>
+
+            </td>
+            <td><label class="col-md-12 control-label text-left required" for="parroquia">Parroquia:</label></td>
+            <td>
+                <select class="dlciudad" name="dlparroquia" id="dlparroquia" disabled="disabled" style="width:160px !important">
+                    <option value="-1">Seleccione Parroquia</option>
+                </select>
+
+            </td>
+        </tr>
+        <tr>
+            <td>{{ form_label(form.urbanSector, null, {'label_attr': {'class': ' col-md-12 text-left'} }) }}</td>
+            <td>{{ form_widget(form.urbanSector, {'attr': {'class': 'col-md-10 '} }) }}
+                {% if form.urbanSector.vars.errors[0].message is defined %}
+                    <span class="help-block ">
+                        {{ form.urbanSector.vars.errors[0].message }}
+                    </span>
+                {% endif %}
+
+            </td>
+            <td>{{ form_label(form.avCalleCarrera, null, {'label_attr': {'class': ' col-md-12 text-left'} }) }}</td>
+            <td>
+                {{ form_widget(form.avCalleCarrera, {'attr': {'class': 'col-md-10 '} }) }}
+                {% if form.avCalleCarrera.vars.errors[0].message is defined %}
+                    <span class="help-block ">
+                        {{ form.avCalleCarrera.vars.errors[0].message }}
+                    </span>
+                {% endif %}
+
+            </td>
+        </tr>
+        <tr>
+            <td>{{ form_label(form.edifCasa, null, {'label_attr': {'class': ' col-md-12 text-left'} }) }}</td>
+            <td>{{ form_widget(form.edifCasa, {'attr': {'class': 'col-md-10 '} }) }}
+                {% if form.edifCasa.vars.errors[0].message is defined %}
+                    <span class="help-block ">
+                        {{ form.edifCasa.vars.errors[0].message }}
+                    </span>
+                {% endif %}
+            </td>
+            <td>{{ form_label(form.ofcAptoNum, null, {'label_attr': {'class': ' col-md-12 text-left'} }) }}</td>
+            <td>{{ form_widget(form.ofcAptoNum, {'attr': {'class': 'col-md-10 '} }) }}
+                {% if form.ofcAptoNum.vars.errors[0].message is defined %}
+                    <span class="help-block ">
+                        {{ form.ofcAptoNum.vars.errors[0].message }}
+                    </span>
+                {% endif %}
+
+
+            </td>
+            {#            #}
+        </tr>
+        <tr>
+            <td>{{ form_label(form.puntoReferencia, null, {'label_attr': {'class': ' col-md-12 text-left'} }) }}</td>
+            <td>{{ form_widget(form.puntoReferencia, {'attr': {'class': 'col-md-10 '} }) }}
+                {% if form.puntoReferencia.vars.errors[0].message is defined %}
+                    <span class="help-block ">
+                        {{ form.puntoReferencia.vars.errors[0].message }}
+                    </span>
+                {% endif %}
+
+            </td>
+
+            <td>{{ form_label(form.codigoPostal, null, {'label_attr': {'class': ' col-md-12 text-left'} }) }}</td>
+            <td>{{ form_widget(form.codigoPostal, {'attr': {'class': 'col-md-6 '} }) }}
+                {% if form.codigoPostal.vars.errors[0].message is defined %}
+                    <span class="help-block ">
+                        {{ form.codigoPostal.vars.errors[0].message }}
+                    </span>
+                {% endif %}
+
+            </td>
+        </tr>
+        <tr>
+            <td>{{ form_label(form.email, null, {'label_attr': {'class': ' col-md-12 text-left'} }) }}</td>
+            <td>{{ form_widget(form.email, {'attr': {'class': 'col-md-10 '} }) }}
+                {% if form.email.vars.errors[0].message is defined %}
+                    <span class="help-block ">
+                        {{ form.email.vars.errors[0].message }}
+                    </span>
+                {% endif %}
+            </td>
+            <td>{{ form_label(form.fax, null, {'label_attr': {'class': ' col-md-12 text-left'} }) }}</td>
+            <td>{{ form_widget(form.fax, {'attr': {'class': 'col-md-10 '} }) }}
+                {% if form.fax.vars.errors[0].message is defined %}
+                    <span class="help-block ">
+                        {{ form.fax.vars.errors[0].message }}
+                    </span>
+                {% endif %}
+            </td>
+        </tr>
+        <tr>
+            <td>{{ form_label(form.tflFijo, null, {'label_attr': {'class': ' col-md-12 text-left'} }) }}</td>
+            <td>{{ form_widget(form.codTlfFijo, {'attr': {'class': ' col-md-4'} }) }}
+                {{ form_widget(form.tflFijo, {'attr': {'class': 'col-md-6 '} }) }}
+                {% if form.tflFijo.vars.errors[0].message is defined %}
+                    <span class="help-block ">
+                        {{ form.tflFijo.vars.errors[0].message }}
+                    </span>
+                {% endif %}
+            </td>
+            <td>{{ form_label(form.tflCelular, null, {'label_attr': {'class': ' col-md-12 text-left'} }) }}</td>
+            <td>{{ form_widget(form.codTlfCelular, {'attr': {'class': ' col-md-4 '} }) }}
+                {{ form_widget(form.tflCelular, {'attr': {'class': 'col-md-6 '} }) }}
+                {% if form.tflCelular.vars.errors[0].message is defined %}
+                    <span class="help-block ">
+                        {{ form.tflCelular.vars.errors[0].message }}
+                    </span>
+                {% endif %}
+            </td>
+        </tr>
+        <tr>
+            <td>{{ form_label(form.pagWeb, null, {'label_attr': {'class': ' col-md-12 text-left'} }) }}</td>
+            <td colspan="3">{{ form_widget(form.pagWeb, {'attr': {'class': 'col-md-10 '} }) }}
+                {% if form.pagWeb.vars.errors[0].message is defined %}
+                    <span class="help-block ">
+                        {{ form.pagWeb.vars.errors[0].message }}
+                    </span>
+                {% endif %}
+
+            </td>
+        </tr>
+        {# <tr>
+             <td colspan="2">{{ form_label(form.isSocio, null, {'label_attr': {'class': ' col-md-12 text-left'} }) }}</td>
+             <td colspan="2">
+                       {{ form_widget(form.isSocio, {'attr': {'class': 'col-md-10 '} }) }}
+                         {% if form.isSocio.vars.errors[0].message is defined %}
+                         <span class="help-block ">
+                             {{ form.isSocio.vars.errors[0].message }}
+                         </span>
+                         {% endif %}
+                     </td>
+         </tr>#}
+        {#<tr>
+            <td colspan="4"><div class="col-md-1 col-md-offset-10"><button id="form_dlbtn" value="" class="btn btn-primary" onclick="sFormDL();">Agregar</button></div></td>
+        </tr>#}
+        </tbody>
+        </table>
+        <div class="block-separator col-md-12"></div>
+        {{form_widget(form._token)}}
+        {#{form_end(form)}#}
+
+
+        <div class="col-md-12 form-group btn-group">
+            <div style="float: right">
+                <button id="form_btn" type="submit" class="btn btn-primary btn-sm">Guardar</button>
+            </div>
+        </div>
+        {{form_end(form)}}
+    </div>
+{% endblock %}
+
+{% block foot_script_assetic %}
+    <script src="{{asset('bundles/centrohipico/js/DataCentroHipico/validate.js')}}"></script>
+    <script src="{{asset('bundles/centrohipico/js/resource.js')}}"></script>
+    <script type="text/javascript" >
+        function agregarDL(){
+            $("#btnDL").hide();
+            $("#form").show();
+            $("#form").html(getGifLoading());
+            //var route=Routing.generate('datalegal_new');
+            $.get('{{path('datalegal_new')}}').success(function(data) {
+                if (data.message) {
+                    message = data.message;
+                } else {
+                    $('#datalegal').html(data);
+                }
+            }).error(function(data, status, headers, config) {
+                        if (status === '500') {
+                            message = "No hay conexión con el servidor";
+                        }
+                    });
+        }
+        function sFormDL(){
+            var datach=$("#form_dl").serialize();
+            $("#form_dl").hide();
+            $("#form").hide();
+            $("#btnDL").show();
+            //$.post()
+        }
+    </script>
+    <script type="text/javascript" >
+        $(document).ready(function(){
+            $(".form-horizontal").removeClass('form-horizontal');
+            $(".form-control").removeClass('form-control');
+            $(".dlestado").change(function() {
+                estado = $('.dlestado option:selected').val();
+                var Rmunicipio=Routing.generate('municipios', {estado_id: estado, ciudad_id: 0});
+                //console.log(Rmunicipio);
+                getSelect(Rmunicipio,'#dlmunicipio',"Municipio");
+                var Rciudad=Routing.generate('ciudades', {estado_id: estado, municipio_id: null});
+                //console.log(Rciudad);
+                getSelect(Rciudad,'#dlciudad',"Ciudad");
+
+            });
+
+            $("#dlmunicipio").change(function() {
+                estado = $('.dlestado option:selected').val();
+                municipio = $('#dlmunicipio option:selected').val();
+                var Rparroquia=Routing.generate('parroquias', {estado_id: estado, municipio_id: municipio});
+                //console.log(Rciudad);
+                getSelect(Rparroquia,'#dlparroquia',"Parroquia");
+            });
+
+        });
+
+    </script>
+{% endblock foot_script_assetic %}

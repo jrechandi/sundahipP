@@ -1,0 +1,113 @@
+{% extends ajax == false ? 'NewTemplateBundle::base.html.twig' : 'NewTemplateBundle::base_ajax.html.twig' %}
+
+{% block content_content %}
+    <style>
+        #table_header td{
+            color:white;
+        }
+    </style>
+
+    <div class="block-separator col-sm-12"></div>
+    <div class="row col-sm-12">
+        <h1>
+            {% if app.user.hasRole('ROLE_FISCAL') %}
+                Citas asignadas
+            {% elseif tipo == "Rechazada" %}
+                Licencias Rechazadas
+            {% else %}
+                {{ tipo=='Verificada'?'Licencias por aprobar':'Licencias '~tipo }}
+            {% endif %}
+        </h1>
+    </div>
+
+    <div class="block-separator col-sm-12"></div>
+    <div class="row">
+        <div class="col-sm-2">
+        </div>
+        <div class="col-sm-10 block-separator"></div>
+    </div>
+    {% if entities is defined %}
+       <div class="col-md-2 col-md-offset-10"><a href="{{path('exportpdf_licencias',{'tipo':tipo})}}" target='_blank'><i class="icon-pdf"></i></a>&nbsp;<a href="{{path('exportxls_licencias',{'tipo':tipo})}}" target='_blank'><i class="icon-excel"></i></a></div>
+        <article class="col-sm-12 col-md-12 col-lg-12 sortable-grid ui-sortable" style="width: 50%">
+            {{ knp_pagination_render(entities) }}
+        </article>
+
+        <div class="col-md-12">
+            <table class="table table-condensed table-striped">
+                <thead>
+                <tr>
+                    <th>Nº</th>
+                    <th>RIF</th>
+                    <th>Denominación Comercial</th>
+                    <th>Licencia</th>
+                    <th>Clasificación del Licencia</th>
+                    <th>No Solicitud</th>
+                     {% if tipo == "Rechazada" %}
+                         <th>F. Rechazo</th>
+                     {%endif%}    
+                    <th>F. de Cita</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for entity in entities %}
+                    <tr id="request-{{ entity.id }}">
+                        <td>{{ loop.index }}</td>
+                        <td>
+                            {% if entity.operadora.persJuridica is defined %}
+                                {{ entity.operadora.persJuridica }}-{{ entity.operadora.rif }}
+                            {% else %}
+                                {{ entity.centroHipico.persJuridica }}-{{ entity.centroHipico.rif }}
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if entity.operadora.denominacionComercial is defined %}
+                                {{ entity.operadora.denominacionComercial }}
+                            {% else %}
+                                {{ entity.centroHipico.denominacionComercial }}
+                            {% endif %}
+                        </td>
+                        <td>{{ entity.clasLicencia.admTiposLicencias.tipoLicencia }}</td>
+                        <td>{{ entity.clasLicencia.clasfLicencia }}</td>
+                        {% if tipo != "Rechazada" %}
+                            <td onclick="getInfo('{{ entity.id }}')"><a href="#" class="big-link" data-reveal-id="myModal">{{ entity.cita.codsolicitud }}</a></td>
+                        {% else %}
+                            <td>{{ entity.cita.codsolicitud }}</td>
+                            <td>{{ entity.fechaRechazada|date('d-m-Y')|default('none') }}</td>
+                        {% endif %}
+                        <td>{{ entity.cita.fechaSolicitud|date('d-m-Y') }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% else %}
+        <div class="col-md-12">
+            <div id="notificaciones">
+                <ul>
+                    <li class="n1"><h5>No existen registros</h5></li>
+                </ul>
+            </div>
+        </div>
+    {% endif %}
+    <div class="block-separator col-sm-12"></div>
+
+    <div id="myModal" class="reveal-modal" data-animation="fade" style="top:-100px">
+        <a class="close-reveal-modal">&#215;</a>
+        <div id="dataModal">
+            <h3> Cargando..... </h3>
+        </div>
+    </div>
+    <script>
+        function getInfo(id)
+        {
+            {% if app.user.hasRole('ROLE_FISCAL') %}
+                var url = Routing.generate('fiscal_citas_modal_info',{ 'id': id });
+            {% else %}
+                var url = Routing.generate('gerente_modal_info',{ 'id': id });
+            {% endif %}
+            $.get( url, function( data ) {
+                $("#dataModal").html(data);
+            });
+        }
+    </script>
+{% endblock %}

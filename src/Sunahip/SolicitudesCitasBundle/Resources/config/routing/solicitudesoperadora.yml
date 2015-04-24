@@ -1,0 +1,70 @@
+solicitudoperadora_list:
+    path:     /
+    defaults: { _controller: SolicitudesCitasBundle:DataSolicitudes:indexOperadora }
+
+solicitudoperadora_citas_create:
+    path:     /crear-cita
+    defaults: { _controller: SolicitudesCitasBundle:DataSolicitudes:newOperadora }
+
+solicitudoperadora_printGen:
+    path:     /solicitud-imprimir/{id}/{tipo}
+    defaults: { _controller: "SolicitudesCitasBundle:DataSolicitudes:PrintGenerada", tipo:2 }
+#
+solicitudoperadora_create:
+    path:     /generar-cita
+    defaults: { _controller: "SolicitudesCitasBundle:DataSolicitudes:createOperadora" }
+    requirements: { _method: post }
+
+solicitudoperadora_edit:
+    path:     /{id}/solicitud
+    defaults: { _controller: "SolicitudesCitasBundle:DataSolicitudes:editDSop" }
+
+solicitudoperadora_update:
+    path:     /{id}/solicitud-act
+    defaults: { _controller: "SolicitudesCitasBundle:DataSolicitudes:updateDSop" }
+    requirements: { _method: post|put }
+    
+solicitudoperadora_hipodromos:
+    path:     /{id}/solicitud-operadora-hipodromos-{tipo}
+    defaults: { _controller: "SolicitudesCitasBundle:DataSolicitudes:hipodromos", tipo: create }
+    options:
+         expose: true   
+         
+solicitudoperadora_hipodromos_update:
+    path:     /{id}/update-hipodromos-operadora
+    defaults: { _controller: "SolicitudesCitasBundle:DataSolicitudes:hipodromosUpdate"}
+    options:
+         expose: true    
+    
+#solicitudoperadora_events:
+#    path:     /disponible
+#    defaults: { _controller: SolicitudesCitasBundle:Default:avaibleDays }
+#
+#solicitudoperadora_datepicker:
+#    path:     /disable
+#    defaults: { _controller: SolicitudesCitasBundle:Default:DatePicker }
+#    
+#solicitudoperadora:
+##    path:     /
+##    defaults: { _controller: "SolicitudesCitasBundle:DataSolicitudes:index" }
+#
+#solicitudoperadora_chlist:
+#    path:     /chlist
+#    defaults: { _controller: "SolicitudesCitasBundle:DataSolicitudes:chlist" }
+#
+#solicitudoperadora_autolist:
+#    path:     /autolist
+#    defaults: { _controller: "SolicitudesCitasBundle:DataSolicitudes:autoriza" }
+#
+#solicitudoperadora_juegoslist:
+#    path:     /clasflic{id}/juegos
+#    defaults: { _controller: "SolicitudesCitasBundle:DataSolicitudes:juegosexp" }
+#    options:
+#       expose: true
+##
+#solicitudoperadora_recaudoslist:
+#    path:     /clasflic{id}/recaudos
+#    defaults: { _controller: "SolicitudesCitasBundle:DataSolicitudes:recaudos" }
+#    options:
+#        expose: true
+#
