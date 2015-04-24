@@ -1,0 +1,194 @@
+{% from 'MopaBootstrapBundle::flash.html.twig' import session_flash %}
+
+<!DOCTYPE html>
+
+{% block html_tag %}
+    <html>
+    {% endblock html_tag %}
+
+    {% block head %}
+        <head>
+            <meta charset="UTF-8" />
+            <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+            {% stylesheets
+                '@MopaBootstrapBundle/Resources/public/bootstrap/dist/css/bootstrap.min.css'
+                '@MopaBootstrapBundle/Resources/public/bootstrap/dist/css/bootstrap-theme.min.css'
+                output = 'css/styles.css'
+                filter = 'cssembed, ?yui_css'
+            %}
+            <link href="{{ asset_url }}" type="text/css" rel="stylesheet" media="screen" />
+            {% endstylesheets %}
+
+            <link rel="stylesheet" href="{{ asset('bundles/common/css/jquery-ui.css') }}" >
+            <link rel="stylesheet" href="{{ asset('bundles/common/css/reveal.css') }}" >
+            <link rel="stylesheet" href="{{ asset('bundles/common/css/jquery.fancybox.min.css') }}" >
+            <link rel="stylesheet" href="{{ asset('bundles/common/css/jquery.fancybox-buttons.css') }}" >
+            <link rel="stylesheet" href="{{ asset('bundles/common/css/jquery.fancybox-thumbs.css') }}" >
+            <link rel="stylesheet" href="{{ asset('bundles/common/css/fonts/font-awesome.min.css') }}" >
+
+            {# jQuery CDN #}
+            <script src="{{asset('bundles/common/js/jquery.min.js')}}"></script>
+            <script src="{{asset('bundles/common/js/jquery-migrate-1.1.1.min.js')}}"></script>
+
+            {% block head_style %}
+                {# Override this block to add your own files! #}
+                {# To use this without less or sass use the base.html.twig template as your base
+                 # Be sure you understand whats going on: have a look into
+                 # https://github.com/phiamo/MopaBootstrapBundle/blob/master/Resources/doc/css-vs-less.md
+                 #}
+            {% endblock head_style %}
+
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+            {% block head_script %}
+                {# Overwrite this block to add your own js here, to get them generated into final files
+                {% javascripts
+                    'http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js'
+                %}
+                    <script type="text/javascript" src="{{ asset_url }}"></script>
+                {% endjavascripts %}
+                 #}
+            {% endblock head_script %}
+
+            <title>{% block title %}SNLYF SUNAHIP{% endblock title %}</title>
+            <link rel="shortcut icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+            {% block head_bottom %}
+            {% endblock head_bottom %}
+        </head>
+    {% endblock head %}
+
+    {% block body_tag %}
+        <body>
+        {% endblock body_tag %}
+
+        {% block body_start %}
+        {% endblock body_start %}
+
+        {% block body %}
+            {% block navbar %}
+                <!-- No navbar included here to reduce dependencies, see https://github.com/phiamo/MopaBootstrapSandboxBundle/blob/master/Resources/views/base.html.twig for howto include it -->
+            {% endblock navbar %}
+
+            {% block container %}
+                {% block container_div_start %}<div class="{% block container_class %}container{% endblock container_class %}">{% endblock container_div_start %}
+                    {% block header %}
+                    {% endblock header %}
+
+                    {% block content_div_start %}<div class="content">{% endblock content_div_start %}
+                    {% block page_header %}{% endblock page_header %}
+
+                    {% block flashes %}
+                        {% if app.session.flashbag.peekAll|length > 0 %}
+                            <div style="float:right;">
+                                <div class="col-sm-12">
+                                    {{ session_flash() }}
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% endblock flashes %}
+                    {% for type, messages in app.session.flashbag.all() %}
+                        {% for message in messages %}
+                            <div style="float:right;">
+                                <div class="flash-{{ type }}">
+                                    {{ message }}
+                                </div>
+                            </div>
+                        {% endfor %}
+                    {% endfor %}
+                    {% block content_row %}
+                        <div id="" class="row">
+                            {% block content %}
+                                <div class="col-md-9">
+                                    {% block content_content %}
+                                    {% endblock content_content %}
+                                </div>
+                                <div class="col-sm-3">
+                                    {% block content_sidebar %}
+                                    {% endblock content_sidebar %}
+                                </div>
+                            {% endblock content %}
+                        </div>
+                    {% endblock content_row %}
+
+                    {% block content_div_end %}</div>{% endblock content_div_end %}
+
+                {% block footer_tag_start %}
+                    <footer>
+                    {% endblock footer_tag_start %}
+
+                    {% block footer %}
+                    {% endblock footer %}
+
+                    {% block footer_tag_end %}
+                    </footer>
+                {% endblock footer_tag_end %}
+                {% block container_div_end %}</div><!-- /container -->{% endblock container_div_end %}
+            {% endblock container %}
+
+        {% block body_end_before_js %}
+        {% endblock body_end_before_js %}
+
+        <script src="{{ asset('bundles/common/js/jquery.reveal.js') }}"></script>
+        {# jQueryUI CDN #}
+        <script src="{{asset('bundles/common/js/jqueryui/jquery-ui.min.js')}}"></script>
+        <script src="{{asset('bundles/common/js/jqueryui/i18n/jquery-ui-i18n.min.js')}}"></script>
+        <script src="{{asset('bundles/common/js/fancybox/jquery.fancybox.min.js')}}"></script>
+        <script src="{{asset('bundles/common/js/fancybox/helpers/jquery.fancybox-buttons.js')}}"></script>
+        <script src="{{asset('bundles/common/js/fancybox/helpers/jquery.fancybox-media.js')}}"></script>
+        <script src="{{asset('bundles/common/js/fancybox/helpers/jquery.fancybox-thumbs.js')}}"></script>
+        <script src="{{asset('bundles/common/js/functions.js')}}"></script>
+        <script src="{{asset('bundles/common/js/jquery.validate.min.js')}}"></script>
+        {% javascripts
+                '@MopaBootstrapBundle/Resources/public/bootstrap/dist/js/bootstrap.min.js'
+                '%kernel.root_dir%/../vendor/moment/moment/moment.js'
+                output="js/bsmain.js"
+                filter = '?yui_js'
+        %}
+        <script type="text/javascript" src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+
+        {# FOSJsRoutingBundle #}
+        <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+        <script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $.datepicker.regional['es'] = {
+                    closeText: 'Cerrar',
+                    prevText: '<Ant',
+                    nextText: 'Sig>',
+                    currentText: 'Hoy',
+                    monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+                    monthNamesShort: ['Ene','Feb','Mar','Abr', 'May','Jun','Jul','Ago','Sep', 'Oct','Nov','Dic'],
+                    dayNames: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+                    dayNamesShort: ['Dom','Lun','Mar','Mié','Juv','Vie','Sáb'],
+                    dayNamesMin: ['Do','Lu','Ma','Mi','Ju','Vi','Sá'],
+                    weekHeader: 'Sm',
+                    dateFormat: 'dd/mm/yy',
+                    firstDay: 1,
+                    isRTL: false,
+                    showMonthAfterYear: false,
+                    yearSuffix: ''
+                };
+                $.datepicker.setDefaults($.datepicker.regional['es']);
+                $('[data-toggle="tooltip"]').tooltip();
+                $('[data-toggle="popover"]').popover();
+            });
+        </script>
+        {% block script_base %}
+        {% endblock script_base%}  
+        {% block foot_script %}
+            {# To only use a subset or add more js overwrite and copy paste this block
+            To speed up page loads save a copy of jQuery in your project and override this block to include the correct path
+            Otherwise the regeneration is done on every load in dev more with use_controller: true
+             #}
+            {% block foot_script_assetic %}
+            {% endblock foot_script_assetic %}
+
+
+        {% endblock foot_script %}
+    {% endblock body %}
+
+    {% block body_end %}
+    {% endblock body_end %}
+</body>
+</html>

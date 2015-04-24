@@ -1,0 +1,11 @@
+{% extends "NewTemplateBundle::base.html.twig" %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+{% block content_content %}
+    <div class="jumbotron">
+        <h1>Error: <small>{{ status_text }} </small></h1>
+        <i class="fa fa-times-circle fa-6"></i> Error: "{{ status_code }} {{ status_text }}" <h4><strong>{{exception.message}}</strong></h4>
+        <div class="block-separator col-md-12"></div>
+        <h3>Regresar A <a href="{{path('home')}}" class="btn btn-success btn-sm">Inicio</a></h3>
+    </div>
+{% endblock %}

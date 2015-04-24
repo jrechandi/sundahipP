@@ -1,0 +1,67 @@
+{% trans_default_domain 'FOSUserBundle' %}
+<div class="padding-15">
+    {% if invalid_username is defined %}
+        <div class="alert alert-danger alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Cerrar</span></button>
+            {{ 'resetting.request.invalid_username'|trans({'%username%': invalid_username}) }}
+        </div>
+    {% endif %}
+
+    <form action="{{ path('fos_user_resetting_send_email') }}" method="POST" class="fos_user_resetting_request form-inline" role="form" id="fos_user_resetting_request">
+        <fieldset>
+            <legend>Recuperar contraseña</legend>
+            <div class="form-group">
+                <select class="form-control rif" name="rif" id="rif" required="required">
+                    <option value=""></option>
+                    <option value="J">J</option>
+                    <option value="G">G</option>
+                    <option value="V">V</option>
+                    <option value="E">E</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="sr-only" for="fake_username">{{ 'resetting.request.username'|trans }}</label>
+                <input type="hidden" id="username" name="username" class="username"  />
+                <input type="text" class="form-control col-xs-6 numeric fake_username" id="fake_username" name="fake_username" required="required" placeholder="Escriba su RIF" />
+            </div>
+            <button type="submit" id="reset_btn" class="btn btn-default pull-right">{{ 'resetting.request.submit'|trans }}</button>
+            <br><br>
+        </fieldset>
+    </form>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("#fos_user_resetting_request").submit(function(e) {
+            e.preventDefault();
+            $.ajax({
+                type: "POST",
+                cache: false,
+                url: $("#fos_user_resetting_request").attr('action'),
+                data: $(this).serializeArray(),
+                success: function(data) {
+                    $.fancybox(data);
+                }
+            });
+        });
+
+        function result() {
+            var s = $('.rif').find(":selected").val(); 
+            var i = $('.fake_username').val();
+            $('.username').val(s + i);
+        }
+
+        $('.rif').on('change', result);
+        $('.fake_username').on('blur', result);
+
+        $(".numeric").keydown(function(e) {
+            if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 110]) !== -1 || (e.keyCode == 65 && e.ctrlKey === true) || (e.keyCode >= 35 && e.keyCode <= 39)) {
+                return;
+            }
+
+            if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+                e.preventDefault();
+            }
+        });
+    });
+</script>

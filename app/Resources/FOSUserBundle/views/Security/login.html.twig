@@ -1,0 +1,108 @@
+{% extends "NewTemplateBundle::base.html.twig" %}
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block content %}
+    <div class="block-separator col-md-12"></div>    
+    {% block content_content %}
+        <div class="col-sm-offset-3 col-sm-6">
+            {% block fos_user_content %}
+                <form class="form-horizontal" role="form" action="{{ path("fos_user_security_check") }}" method="post">
+                    <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+
+                    <h2 class="form-signin-heading">Acceso de Usuarios</h2>
+                    <div class="form-group">
+                        <label for="username" class="col-sm-2 control-label">RIF</label>
+                        <div class="col-sm-10">
+                            <div class="col-sm-2 padding-1">
+                                <select class="form-control" name="rif" id="rif" required="required">
+                                    <option value=""></option>
+                                    <option value="J">J</option>
+                                    <option value="G">G</option>
+                                    <option value="V">V</option>
+                                    <option value="E">E</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-10 padding-1">
+                                <input type="hidden" id="username" name="_username"  />
+                                <input type="text" id="fake_username" class="form-control numeric" onblur="validateRif(this)" name="_fake_username" required="required" maxlength="9" title="No colocar ni puntos, ni guiones" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="password" class="col-sm-2 control-label">Contrase&ntilde;a</label>
+                        <div class="col-sm-10">
+                            <input type="password" id="password" class="form-control" onblur="validatePassword(this)" name="_password" required="required" 
+                                   maxlength="8"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-10 col-sm-2">
+                            <button type="submit" id="_submit" name="_submit" class="btn btn-default">{{ 'security.login.submit'|trans }}</button>
+                        </div>
+                    </div>
+                </form>
+
+                <div class="page-header-border-top">
+                    <ol class="breadcrumb text-right">
+                        <li><a href="{{ path('fos_user_resetting_request') }}" data-fancybox-type="ajax" class="fancybox" data-fancybox-width="600" data-fancybox-height="120">¿Olvidó la Contraseña?</a></li>
+                        <li><a href="{{ path('registro') }}" data-fancybox-type="ajax" class="fancybox" data-fancybox-width="550" data-fancybox-height="535">Registrarse</a></li>
+                    </ol>
+                </div>
+                {% if error %}
+                    <div class="alert alert-danger alert-dismissible"  role="alert">
+                        <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Cerrar</span></button>
+                        <strong>Error! </strong> {{ error|trans }}
+                    </div>
+                {% endif %}
+            {% endblock fos_user_content %}
+        </div>
+    {% endblock content_content %}
+{% endblock content %}
+
+{% block foot_script %}
+    <script src="{{asset('bundles/user/js/validaPassword.js')}}"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $(".fancybox").fancybox({
+                openEffect: 'elastic',
+                closeEffect: 'elastic',
+                autoSize: true,
+                beforeLoad: function() {
+                    this.width = parseInt(this.element.data('fancybox-width'));
+                    this.height = parseInt(this.element.data('fancybox-height'));
+                },
+                padding: 2,
+                scrolling: true,
+                closeClick: false,
+                dataType: 'html',
+                headers: {'X-fancyBox': true},
+                helpers: {
+                    overlay: {
+                        css: {
+                            'background': 'rgba(58, 42, 45, 0.95)'
+                        }
+                    }
+                }
+            });
+            
+            function result() {
+                var s = $('#rif').find(":selected").val();
+                var i = $('#fake_username').val();
+                $('#username').val(s + i);
+            }
+
+            $('#rif').on('change', result);
+            $('#fake_username').on('blur', result);
+
+            $(".numeric").keydown(function(e) {
+                if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 110]) !== -1 || (e.keyCode == 65 && e.ctrlKey === true) || (e.keyCode >= 35 && e.keyCode <= 39)) {
+                    return;
+                }
+
+                if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+                    e.preventDefault();
+                }
+            });
+        });
+    </script>
+{% endblock foot_script %}

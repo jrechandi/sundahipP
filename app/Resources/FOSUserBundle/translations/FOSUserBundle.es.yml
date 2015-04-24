@@ -1,0 +1,96 @@
+# Group
+group:
+    edit:
+        submit: Actualizar grupo
+    show:
+        name: Nombre de grupo
+    new:
+        submit: Crear grupo
+    flash:
+        updated: El grupo ha sido actualizado
+        created: El grupo ha sido creado
+        deleted: El grupo ha sido borrado
+
+# Security
+"Bad credentials": Nombre de usuario o Contraseña inválido
+"User account is disabled.": Su cuenta no ha sido confirmada, por favor verifique su correo electrónico.
+
+security:
+    login:
+        username: "Nombre de usuario:"
+        password: "Contraseña:"
+        remember_me: Recordar
+        submit: Entrar
+
+# Profile
+profile:
+    show:
+        username: Nombre de usuario
+        email: Email
+    edit:
+        submit: Actualizar usuario
+    flash:
+        updated: El perfil ha sido actualizado
+
+# Password change
+change_password:
+    submit: Cambiar contraseña
+    flash:
+        success: La contraseña se ha cambiado con éxito
+
+# Registration
+registration:
+    check_email: Se ha enviado un email a %email%. Contiene un enlace de activación que debes presionar para activar tu cuenta.
+    confirmed: |
+             Estimado(a) %username%, Gracias por confirmar su cuenta de correo electrónico, ahora puede ingresar al sistema, colocando sus datos de acceso.
+    back: Volver a la página original.
+    submit: Registrar
+    flash:
+        user_created: Gracias por su registro, recibirá un correo electrónico para la validación de su cuenta.
+    email:
+        subject: |
+            Activación de Cuenta de Usuario SUNAHIP.
+        message: |
+            Estimado(a) %username%!,
+            Gracias por registrarse en el Sistema Nacional de Licencias y Fiscalización de la SUNAHIP.
+            Para completar la validación de su correo electrónico y activar su cuenta de usuario, debe hacer clic en el siguiente enlace: %confirmationUrl% , este enlace solo puede usarse una sola vez. 
+            Atentamente,
+            SUNAHIP
+
+# Password resetting
+resetting:
+    password_already_requested: La contraseña para este usuario ya ha sido solicitada dentro de las 24 horas.
+    check_email: Un email ha sido enviado a %email%. Contiene un enlace de activación que debes presionar para restablecer tu contraseña.
+    request:
+        invalid_username: El RIF "%username%" no existe.
+        username: "RIF:"
+        submit: Restablecer contraseña
+    reset:
+        submit: Cambiar contraseña
+    flash:
+        success: La contraseña se ha cambiado con éxito
+    email:
+        subject: Restablecer Contraseña de Cuenta de Usuario SUNAHIP.
+        message : |
+            Estimado(a) %username%,
+            Para restablecer su contraseña, haga clic en el siguiente enlace: %confirmationUrl% 
+            Atentamente,
+            SUNAHIP
+
+# Global strings
+layout:
+    logout: Salir
+    login: Entrar
+    register: Registrar
+    logged_in_as: Identificado como %username%
+
+# Form field labels
+form:
+    group_name: "Nombre de grupo:"
+    username: "Nombre de usuario:"
+    email: "Email:"
+    current_password: "Contraseña actual:"
+    password: "Contraseña:"
+    password_confirmation: "Repita la contraseña:"
+    new_password: "Nueva contraseña:"
+    new_password_confirmation: "Repita la contraseña:"

@@ -1,0 +1,182 @@
+imports:
+    - { resource: parameters.yml }
+    - { resource: security.yml }
+
+framework:
+    esi:             ~
+    translator:      { fallback: "%locale%" }
+    secret:          "%secret%"
+    router:
+        resource: "%kernel.root_dir%/config/routing.yml"
+        strict_requirements: ~
+    form:            ~
+    csrf_protection: ~
+    validation:      { enable_annotations: true }
+    templating:
+        engines: ['twig']
+        #assets_version: SomeVersionScheme
+    default_locale:  "%locale%"
+    trusted_hosts:   ~
+    trusted_proxies: ~
+    session:
+        handler_id: session.handler.native_file
+        save_path: "%kernel.root_dir%/sessions"
+    fragments:       ~
+    http_method_override: true
+
+
+# Twig Configuration
+twig:
+    debug:            "%kernel.debug%"
+    strict_variables: "%kernel.debug%"
+    charset:          %kernel.charset%
+    globals:
+      unidad_tributaria: %unidad_tributaria%
+
+# Assetic Configuration
+assetic:
+    debug:          "%kernel.debug%"
+    use_controller: false
+    bundles:
+        - CommonBundle
+        - SolicitudesCitasBundle
+        - MopaBootstrapBundle
+        - NewTemplateBundle
+        - UserBundle
+        - FiscalizacionBundle
+        - ReporteBundle
+        
+    %java_pathjava: /usr/bin/java
+
+    filters:
+        cssrewrite: ~
+        cssembed:
+            jar: %kernel.root_dir%/Resources/java/cssembed.jar
+        yui_css:
+            jar: %kernel.root_dir%/Resources/java/yuicompressor.jar
+        yui_js:
+            jar: %kernel.root_dir%/Resources/java/yuicompressor.jar
+    assets:
+        fonts_glyphicons_eot:
+            inputs:
+               - "%kernel.root_dir%/../vendor/twbs/bootstrap/fonts/glyphicons-halflings-regular.eot"
+            output: "fonts/glyphicons-halflings-regular.eot"
+        fonts_glyphicons_svg:
+            inputs:
+                - "%kernel.root_dir%/../vendor/twbs/bootstrap/fonts/glyphicons-halflings-regular.svg"
+            output: "fonts/glyphicons-halflings-regular.svg"
+        fonts_glyphicons_ttf:
+            inputs:
+                - "%kernel.root_dir%/../vendor/twbs/bootstrap/fonts/glyphicons-halflings-regular.ttf"
+            output: "fonts/glyphicons-halflings-regular.ttf"
+        fonts_glyphicons_woff:
+            inputs:
+                - "%kernel.root_dir%/../vendor/twbs/bootstrap/fonts/glyphicons-halflings-regular.woff"
+            output: "fonts/glyphicons-halflings-regular.woff"
+
+# Doctrine Configuration
+doctrine:
+    dbal:
+        driver:   "%database_driver%"
+        host:     "%database_host%"
+        port:     "%database_port%"
+        dbname:   "%database_name%"
+        user:     "%database_user%"
+        password: "%database_password%"
+        charset:  UTF8
+        mapping_types:
+            enum: string
+        types:
+            CIType: Sunahip\CommonBundle\DBAL\Types\CIType
+            RifType: Sunahip\CommonBundle\DBAL\Types\RifType
+            RoleType: Sunahip\CommonBundle\DBAL\Types\RoleType
+            AdminRoleType: Sunahip\CommonBundle\DBAL\Types\AdminRoleType
+            PaymentType: Sunahip\CommonBundle\DBAL\Types\PaymentType
+            UsuarioLicenciaType: Sunahip\CommonBundle\DBAL\Types\UsuarioLicenciaType
+    orm:
+        auto_generate_proxy_classes: "%kernel.debug%"
+        auto_mapping: true
+
+# Swiftmailer Configuration
+swiftmailer:
+    transport: "%mailer_transport%"
+    host:      "%mailer_host%"
+    username:  "%mailer_user%"
+    password:  "%mailer_password%"
+    encryption: ssl
+    auth_mode:  login
+    spool:     { type: memory }
+
+# FOSUserBundle
+fos_user:
+    db_driver: orm
+    firewall_name: main
+    user_class: Sunahip\UserBundle\Entity\SysUsuario
+    group:
+        group_class: Sunahip\UserBundle\Entity\SysGrupos
+    service:
+        mailer: fos_user.mailer.twig_swift
+    registration:
+        confirmation:
+            enabled:    true
+            from_email:
+                address:        sunahip@sunahip.gob.ve
+                sender_name:    Sunahip
+    resetting:
+        token_ttl: 86400        
+        email:
+            from_email:
+                address:        sunahip@sunahip.gob.ve
+                sender_name:    Sunahip
+                
+#MopaBootstrapBundle            
+parameters:
+    mopa_bootstrap.form.render_required_asterisk: true
+    mopa_bootstrap.form.render_optional_text: false
+mopa_bootstrap:
+    form:
+      collection:
+        widget_remove_btn:
+            icon: trash
+            label: Eliminar
+        widget_add_btn:
+            icon: plus-sign
+            label: Agregar
+    menu: ~  # enables twig helpers for menu
+
+#Servicios
+services:
+    sg_datatables.user:
+        class: Sunahip\UserBundle\Datatables\UserDatatable
+        tags:
+            - { name: sg.datatable.view }
+
+    sunahip_fiscalizacion.custom_namer:
+        class: Sunahip\FiscalizacionBundle\UploadNamer
+    twig.extension.text:
+        class: Twig_Extensions_Extension_Text
+        tags:
+            - { name: twig.extension }
+
+vlabs_media:
+    image_cache:
+        cache_dir: media/tmp
+    mapping:
+        file_entity:
+          class: Sunahip\CommonBundle\Entity\Media        
+          
+knp_snappy:
+    pdf:
+        enabled:    true
+        binary:     /usr/local/bin/wkhtmltopdf
+        options:    []
+    image:
+        enabled:    false
+        binary:     /usr/local/bin/wkhtmltoimage
+        options:    []          
+
+endroid_qr_code:
+    size: 100
+    padding: 10
+    extension: gif
+    error_correction_level: high

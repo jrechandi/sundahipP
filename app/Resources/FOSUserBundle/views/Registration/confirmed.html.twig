@@ -1,0 +1,29 @@
+{% extends "NewTemplateBundle::base.html.twig" %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+{% block content %}
+    {% block fos_user_content %}
+        <div class="col-md-8 col-md-offset-2" style="text-align: center">
+            <br/><br/>
+          {%if app.user is null %}  
+            <h2 class="tit_principal">{{ 'registration.confirmed'|trans({'%username%': user.fullname}) }}</h2>
+            {% if app.session is not empty %}
+                {% set targetUrl = app.session.get('_security.' ~ app.security.token.providerKey ~ '.target_path') %}
+            {% endif %}  
+            <br/><br/>
+            {#<p><a href="{{path('fos_user_security_login')}}" class="btn btn-bg btn-primary">Ingrese Aquí</a></p>#}
+            <p><a href="{{path('fos_user_security_logout')}}" class="btn btn-bg btn-primary">Ingrese Aquí</a></p>
+            <br/><br/>
+          {%else%}
+              <h2 class="tit_principal">Bienvenido {{  app.user.fullname}} Ingrese al Menú Principal</h2>
+              <br/><br/><br/>
+              
+            <div class="col-md-2 col-md-offset-5">
+                {#<p><a href="{{path('home')}}" class="btn btn-bg btn-primary">Panel Principal</a></p>#}
+                <p><a href="{{path('fos_user_security_logout')}}" class="btn btn-bg btn-primary">Ingrese Aquí</a></p>
+            </div>
+          {%endif%}    
+        </div>
+    {% endblock fos_user_content %}
+
+{% endblock %}
