@@ -1,0 +1,45 @@
+Incidencias:
+Doc: AUDITORIA AJUSTES Y CORRECCIONES -PROCESO- PERFIL GERENTE- 12092014-5 24Pm (2)
+Diapos: 10 -> Problema de los Campos de las columnas Fue Resuelto..
+
+Diapo: 19 -> Problema del DateTime Resuelto.. hay que actualizar la BD. 
+
+Diapo: 32 -> resuelto problema cuando la Feha es Null
+
+Diapo: 35,36,38,39 -> Especificar  Nº de Licencia donde esta y El monto como calcular?
+
+Los Iconos que Exportacion que Excel y Pdf que faltan ... pendientes por Agrgar.
+Ya que No se  encontraban los Reportes. Activos..
+
+
+
+
+
+año mes dia y num
+numero de control dentro cital
+
+Clasf Licencias
+Juegos Explotados Depende de la Licencia Elejida
+recaudos Depende de la Licencias elegida
+
+
+
+
+http://test.greicodex.com
+
+Usuario Webmin/SSH: 
+developer
+6KfSCway
+
+Usuario MySQL/phpMyAdmin
+sunahip
+123456
+Base de Datos sunahip
+
+Para desplegar la aplicación la carpeta /home/developer/sunahip
+(proyecto ya clonado desde gitlab)
+tiene un enlace simbólico a /var/www/
+De esta manera el usuario developer tiene permisos completos sobre la carpeta sunahip.
+
+Ahora bien, se supone que el proyecto se debería visualizar en: 
+http://test.greicodex.com/sunahip/web/
